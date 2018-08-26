@@ -17,91 +17,65 @@
     
     <div class="d-none d-md-block">
 
-        <section class="text-center pt-14 pb-2">
+        <section class="text-center pt-14 pb-14">
         <div class="container">
-            <div class="row">
-            <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+            <div class="row mb-5">
+            <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 text-center">
                 <div class="promo-block m-auto">
-                <div class="promo-text">Explore with Udora</div>
+                <h2 class="weight-400 mb-2">Explore with Udora</h2>
                 <div class="promo-paragraph">Do more, spend less. Experiences on a budget</div>
                 <div class="center-line"></div>
-                </div>
             </div>
             </div>
-            <!--end of row-->
+            </div>
+            <div class="row properties-items">
+                <!-- PROPERTY LISTING -->
+                    </div>
+            <div class="text-center">
+            <a class="btn btn-udora" href="<?php echo site_url('frontend/login');?>" type="button">Start now for free!</a>
+            </div>
         </div>
         <!--end of container-->
         </section>
 
 
-        <section class="pt-4 pb-12">
+        <section class="bg-grey pt-10 pb-10">
         <div class="container">
             <div class="row">
-            <div class="col-sm-7 col-xs-6">
-                <a href="#" class="block">
-                <div class="feature feature-7 boxed text-center imagebg" data-overlay="2">
-                    <div class="background-image-holder" style="background: url('assets/img/home/tourism-2.jpg'); opacity: 1;">
-                    <img alt="background" src="assets/img/home/tourism-2.jpg">
-                    </div>
-                    <h4 class="pos-vertical-center weight-400">Urban Exploration</h4>
-                </div>
-                </a>
+            <div class="col-md-12">
+            <div class="row d-md-flex align-items-md-center">
+            <div class="col-md-5">
+            <h3 class="weight-300">Travel the world with <span class="color-accent weight-600">Udora</span></h3>
+
+<p class="mb-0">Never miss another event. On Udora you can connect with event organizers, locals and explorers like yourself, get recommendations share photos or even meet up.</p>
+
+<p>Udora is your travel companion and will help you discover events near and far.</p>
             </div>
-            <div class="col-sm-5 col-xs-6">
-                <a href="#" class="block">
-                <div class="feature feature-7 boxed text-center imagebg" data-overlay="2">
-                    <div class="background-image-holder" style="background: url('assets/img/home/food-drink.jpg'); opacity: 1;">
-                    <img alt="background" src="assets/img/home/food-drink.jpg">
-                    </div>
-                    <h4 class="pos-vertical-center weight-400">Food & Drink</h4>
-                </div>
-                </a>
-            </div>
-            <div class="col-sm-5 col-xs-6">
-                <a href="#" class="block">
-                <div class="feature feature-7 boxed text-center imagebg" data-overlay="2">
-                    <div class="background-image-holder" style="background: url('assets/img/home/networking.jpg'); opacity: 1;">
-                    <img alt="background" src="assets/img/home/networking.jpg">
-                    </div>
-                    <h4 class="pos-vertical-center weight-400">Networking</h4>
-                </div>
-                </a>
-            </div>
-            <div class="col-sm-7 col-xs-6">
-                <a href="#" class="block">
-                <div class="feature feature-7 boxed text-center imagebg" data-overlay="5">
-                    <div class="background-image-holder" style="background: url('assets/img/home/meetups.jpg'); opacity: 1;">
-                    <img alt="background" src="assets/img/home/meetups.jpg">
-                    </div>
-                    <h4 class="pos-vertical-center weight-400">Meetups</h4>
-                </div>
-                </a>
+
+            <div class="col-md-7"><img alt="" class="img-responsive" src="assets/img/how-it-works/how-it-works-1.png"></div>
             </div>
             </div>
-            <!--end of row-->
-        </div>
-        <!--end of container-->
+            </div>
+            </div>
         </section>
 
 
-        <section class="switchable switchable--switch imagebg height-60" data-overlay="5">
-        <div class="background-image-holder" style="background: url('assets/img/home/inner-4.jpg'); opacity: 1;">
-            <img alt="background" src="assets/img/home/inner-4.jpg">
-        </div>
-        <div class="container pos-vertical-center pt-6 pb-6">
-            <div class="row">
-            <div class="col-sm-6">
-                <h3 class="weight-300">Events, promotions and giveaways</h3>
-                <p class="lead weight-300">
-                On Udora you can get recommendations, share photos, connect with event organizers, locals and explorers like yourself. Never miss another event.
-                </p>
-            </div>
-            </div>
-            <!--end of row-->
-        </div>
-        <!--end of container-->
-        </section>
+        <section class="pt-10 pb-10">
+        <div class="container">
+<div class="row d-md-flex align-items-md-center">
+<div class="col-md-7"><img alt="" class="img-responsive mb-5 mb-md-0" src="assets/img/how-it-works/how-it-works-2.png"></div>
 
+<div class="col-md-5">
+<h3 class="weight-300">Travel the world with <span class="color-accent weight-600">Udora</span></h3>
+
+<p class="mb-0">Never miss another event. On Udora you can connect with event organizers, locals and explorers like yourself, get recommendations share photos or even meet up.</p>
+
+<p>Udora is your travel companion and will help you discover events near and far.</p>
+
+</div>
+</div>
+</div>
+        </section>
 
     <?php _widget('bottom_featured');?>
 

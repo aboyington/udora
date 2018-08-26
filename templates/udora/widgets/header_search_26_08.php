@@ -113,6 +113,7 @@ else
             <div class="col-xs-12 col-md-6 col-md-offset-3 border-create-account">
                 <div class="login-form create-account-form create-account-page">
                     <div class="col-xs-12">
+<!--                     <h3><?php echo lang_check('Create An Account');?></h3> -->
                     <p class="sub-title"><?php echo lang_check('Welcome to Udora!'); ?></p>
                     </div>
                     <?php echo form_open(NULL, array('class' => 'form-horizontal form-additional widget-content clearfix', 'id'=>'popup_form_register')) ?>
@@ -408,102 +409,38 @@ else
 
     <!-- Search container -->
     <div class="main-home-container / js-hide-when-navbar-open js-hide-when-login-open">
+        <div class="home-container-content-wrapper">
+            <?php /* <h4 class="container-header"><?php echo lang_check('Welcome to UDORA');?></h4> */?>
+            <h2><?php echo lang_check('Find your next experience');?></h2>
+            <?php _widget('custom_center_search');?>
+            <div class="col-xs-12">
+              <h5><?php echo lang_check('100M+ Events  |  30,000 Cities  |  4M Explorers');?></h5>
+            </div>
 
-    <div class="home__header__left">
-        <h2 class="size-54 color-accent / mb-4">Find your next <span class="color-white">experience</span></h2>
-        <ol class="ordered-list-style-1">
-            <li><span class="color-accent">Explore local events</span> local or worldwide</li>
-            <li><span class="color-accent">Join the community</span> make connections</li>
-            <li><span class="color-accent">Make your voice heard</span> how did we do</li>
-        </ol>
+        <?php /* <!--This php tag is only here to comment out the next 15 lines, remove it to reactivate the Popular places tree --> 
+        <!-- Popular places-->
+        <div class=" col-xs-12 popular-places-wrapper popular-places-wrapper-center col-lg-10 col-lg-offset-1">
+           <p><?php echo lang_check('Popular places');?>: 
+              <?php
+                $CI = & get_instance();
+                $treefield_id = 64;
+                $CI->load->model('treefield_m');
+                $treefields = array();
+                $tree_listings = $CI->treefield_m->get_table_tree($lang_id, $treefield_id, NULL,true, '_lang.value', ', value_path');
+                if (count($tree_listings)): foreach ($tree_listings as $listing_item): 
+              ?>
+              <?php 
+                if(!empty($listing_item->body) || TRUE):
+                    //$url = slug_url('treefield/'.$lang_code.'/'.$listing_item->id.'/'.url_title_cro($listing_item->value), 'treefield_m');
+                    $url = site_url($lang_code.'/6/?search={"v_search_option_'.$treefield_id.'":"'.rawurlencode($listing_item->value_path.' - ').'"}');
+               ?>
+                <a href='<?php _che($url);?>'><?php echo $listing_item->value;?></a> <?php echo (next($tree_listings)) ? "|": "";?>
+                <?php endif;endforeach;endif;?>
+           </p>
+        </div>
+        */?>
+        </div>
     </div>
-    <div class="home__header__right">
-    <div class="login-form create-account-form create-account-page">
-                    <div class="col-xs-12">
-                    <h3>Sign Up</h3>
-    <p class="sub-title text-left mb-3">It's free and always will be.</p>
-                    </div>
-                    <?php echo form_open(NULL, array('class' => 'form-horizontal form-additional widget-content clearfix', 'id'=>'popup_form_register')) ?>
-                        <div class="login-inputs col-xs-12 col-lg-12 alerts-box">
-                        </div>
-                        <div class="login-inputs col-xs-12 col-lg-12 mb-1 mb-sm-2">
-                            <?php if (config_db_item('register_reduced') == FALSE): ?>
-                                <?php echo form_input('username', set_value('username', ''), 'class="col-xs-12 col-lg-12" id="inputUsername2" placeholder="' . lang('Username') . '"') ?>
-                            <?php endif; ?>
-                            <?php echo form_input('mail', set_value('mail', ''), 'class="col-xs-12 col-lg-12" id="inputMail" placeholder="' . lang('Email') . '"') ?>
-                            <?php echo form_password('password', set_value('password', ''), 'class="col-xs-12 col-lg-12" id="inputPassword2" placeholder="' . lang('Password') . '" autocomplete="off"') ?>
-                           <?php echo form_password('password_confirm', 'auto', 'class="form-control hidden" id="inputPasswordConfirm" placeholder="'.lang('Confirmpassword').'" autocomplete="off"')?>
-                                <div class="row">
-                                <div class="col-xs-8">
-                                <?php echo form_input('name_surname', set_value('name_surname', ''), 'class="col-xs-12 col-lg-12" id="inputNameSurname" placeholder="' . lang('FirstLast') . '"') ?>
-                                </div>
-                                <div class="col-xs-4 hint-box">
-                                <?php echo form_input('age', set_value('age', ''), 'class="col-xs-12 col-lg-12" id="inputAge" placeholder="' . lang_check('Age') . '"') ?>
-                                    <span class="hintlabel hint--top-left" aria-label="<?php echo lang_check('To sign up you must be 13 or older. Other people won\'t see your birthday');?>"><i class="fa fa-question" aria-hidden="true"></i></span>
-                                </div>
-                            </div>
-                            <div class="clearfix text-left mb-1 mb-sm-2">
-                                <label class="login-checkbox">
-                                <?php echo form_radio('gender','male', '', 'class="" id="inputGender"') ?> <?php echo lang_check('Male');?>
-                                </label>
-                                <label class="login-checkbox">
-                                <?php echo form_radio('gender','female', '', 'class="" id="inputGender"') ?> <?php echo lang_check('Female');?>
-                                </label>
-                            </div>    
-
-                            <?php if (config_item('captcha_disabled') === FALSE): ?>
-                                <div class="control-group {form_error_captcha}" >
-                                    <div class="row">
-                                        <div class="col-lg-6" style="padding-top:5px;">
-                                            <?php echo $captcha['image']; ?>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <input class="captcha {form_error_captcha}" style="width: 100%;" name="captcha" type="text" placeholder="{lang_Captcha}" value="" />
-                                            <input class="hidden" name="captcha_hash" type="text" value="<?php echo $captcha_hash; ?>" />
-                                        </div>
-                                    </div>
-                                </div>
-                            <?php endif; ?>
-                            <?php if (config_item('recaptcha_site_key') !== FALSE): ?>
-                                <div class="row">
-                                    <div class="col-xs-12 col-lg-12">
-                                        <?php _recaptcha(false); ?>
-                                    </div>
-                                </div>
-                            <?php endif; ?>  
-                        </div>
-                        <div class="col-xs-12">
-                            <button class="button-login col-xs-12" type="submit" ><?php echo lang_check('Sign up') ?>
-                            <div class="spinner hidden ajax-indicator">
-                                <div class="bounce1"></div>
-                                <div class="bounce2"></div>
-                                <div class="bounce3"></div>
-                            </div>
-                            </button>
-                        </div>
-                    <?php echo form_close(); ?>
-                    <p class="font_small col-lg-12 privacy mb-4 text-center"><?php echo lang_check('By creating an account'); ?></p>
-                    <div class="col-xs-12 mb-2">
-                        <p class="separate mb-0">
-                            <span class="separate-content"><?php echo lang_check('Or sign up with'); ?></span>
-                        </p>
-                    </div>
-                    <div class="col-xs-12 mb-3 mb-sm-4">
-                        <?php if (config_item('appId') != '' && !empty($login_url_facebook)): ?>
-                            <a href="<?php echo $login_url_facebook; ?>" class="login-facebook">
-                                <?php echo lang_check('Facebook'); ?>
-                            </a>
-                        <?php endif; ?>
-                        <?php if (config_item('glogin_enabled')): ?>
-                            <a href="<?php echo site_url('api/google_login/'); ?>" class="login-google">
-                                <?php echo lang_check('Google+'); ?>
-                            </a>
-                        <?php endif; ?>
-                    </div>
-                </div>
-    </div>
-    </div>
-    
 <!-- Footer -->
     <!-- <a href="" class="scroll-button"><i class="material-icons">&#xE5CF;</i></a> -->
 </div>
