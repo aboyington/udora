@@ -401,7 +401,7 @@ else
 
 
     <div class="home__header__bg__wrap">
-      <div class="home__header__bg" style="background-image: url('assets/img/home/exploreeveryday_181k.jpg')"></div>
+      <div class="home__header__bg" style="background-image: url('assets/img/home/exploreeveryday_181k_mirrored.jpg')"></div>
     </div>
 
     <div class="home__header__overlay"></div>
