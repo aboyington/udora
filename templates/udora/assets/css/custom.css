@@ -11075,6 +11075,9 @@ body .footable.table-packeges.table > tbody > tr > td {
     max-width: 100%;
     width: 100%;
   }
+  .home__header__right .login-form .login-inputs input {
+    color: #333;
+  }
   @media (max-width: 991px) {
     .home__header__right .login-form h3, .home__header__right .login-form p {
       color: #fff !important;
