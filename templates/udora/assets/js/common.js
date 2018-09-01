@@ -14,52 +14,7 @@
 
 $(function () {
 
-
-    if (navigator.cookieEnabled) {
-        function checkCookie() {
-            var protect = getCookie("protect");
-            if (protect != "0") {
-                var protectPrompt = prompt("Please enter the password to view the website", "");
-                while (protectPrompt != "udora-2018-testing") {
-                    protectPrompt = prompt("Please enter the password to view the website", "");
-                }
-                setCookie("protect", "0", 14);
-            }
-        }
-
-        checkCookie();
-
-        function setCookie(cname, cvalue, exdays) {
-            var d = new Date();
-            d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-            var expires = "expires=" + d.toUTCString();
-            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-        }
-
-        function getCookie(cname) {
-            var name = cname + "=";
-            var decodedCookie = decodeURIComponent(document.cookie);
-            var ca = decodedCookie.split(';');
-            for (var i = 0; i < ca.length; i++) {
-                var c = ca[i];
-                while (c.charAt(0) == ' ') {
-                    c = c.substring(1);
-                }
-                if (c.indexOf(name) == 0) {
-                    return c.substring(name.length, c.length);
-                }
-            }
-            return "";
-        }
-    } else {
-        var protectPrompt = prompt("Please enter the password to view the website", "");
-        while (protectPrompt != "udora-2018-testing") {
-            protectPrompt = prompt("Please enter the password to view the website", "");
-        }
-        alert("Cookies in your browser are disabled. For your comfort we suggest to enable it, otherwise you'll need to enter the password each time you open the page.");
-    }
-
-
+    
 
     var $image_gallery = $("#imageGallery");
 
