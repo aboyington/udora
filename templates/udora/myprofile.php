@@ -29,8 +29,7 @@
                                             <?php endif;?>
                                             <?php if($this->session->flashdata('error')):?>
                                             <p class="alert alert-error"><?php echo $this->session->flashdata('error')?></p>
-                                            <?php endif;?>
-                                        </div>
+                                            <?php endif;?></div>
                                             <?php echo form_open(NULL, array('class' => 'form-horizontal form-estate', 'role'=>'form'))?>                              
 
                                             <div class="control-group">
