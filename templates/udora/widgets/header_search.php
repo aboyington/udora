@@ -2,12 +2,12 @@
 $CI = &get_instance();
 $login_url_facebook = '';
 if($CI->config->item('facebook_api_version') == '2.4' || floatval($this->config->item('facebook_api_version')) >= 2.4
-      || version_compare($CI->config->item('facebook_api_version'), 2.4, '>') 
+      || version_compare($CI->config->item('facebook_api_version'), 2.4, '>')
     )
 {
     $user_facebook = FALSE;
     if($CI->config->item('appId') != '')
-    {   
+    {
         $CI->load->library('facebook/Facebook'); // Automatically picks appId and secret from config
         $user_facebook = $CI->facebook->getUser();
     }
@@ -23,12 +23,12 @@ else
     {
         $CI->load->library('facebook'); // Automatically picks appId and secret from config
         $user_facebook = $CI->facebook->getUser();
-    }   
+    }
     $login_url_facebook = '';
     if ($user_facebook) {
     } else if($CI->config->item('appId') != ''){
         $login_url_facebook = $CI->facebook->getLoginUrl(array(
-            'redirect_uri' => site_url('frontend/login/'.$this->data['lang_code']), 
+            'redirect_uri' => site_url('frontend/login/'.$this->data['lang_code']),
             'scope' => array("email") // permissions here
         ));
     }
@@ -38,11 +38,11 @@ else
     #codeigniter_profiler {
         display: none;
     }
-    
+
     .navbar {
         position: absolute !important;
     }
-    
+
 </style>
 <div class="page-popup-wrapper left-menu-wrapper page-login page-popup-transparent js-popup-login">
 <div class="left-menu py-1 px-1 py-sm-6 px-sm-2">
@@ -51,7 +51,7 @@ else
                     <div class="col-xs-12">
 <!--                     <h3 class="text-center"><?php echo lang_check('Hello');?></h3> -->
                     <h5 class="sub-title"><?php echo lang_check('Let\'s make today a great day!'); ?></h4>
-                    </div>                           
+                    </div>
                     <?php echo form_open(NULL, array('class' => 'form-horizontal form-additional widget-content clearfix', 'id'=>'popup_form_login')) ?>
                     <div class="login-inputs col-xs-12 col-lg-12 alerts-box">
                     </div>
@@ -104,7 +104,7 @@ else
                             <button class="btn button-login-inv js-toggle-register-popup"><?php echo lang_check('Sign up');?></a>
                         </div>
                     </div>
-                </div> 
+                </div>
             </div>
     </div>
 </div>
@@ -144,7 +144,7 @@ else
                                 <label class="login-checkbox">
                                 <?php echo form_radio('gender','custom', '', 'class="" id="inputGender"') ?> <?php echo lang_check('Custom');?>
                                 </label>
-                            </div>    
+                            </div>
 
                             <?php if (config_item('captcha_disabled') === FALSE): ?>
                                 <div class="control-group {form_error_captcha}" >
@@ -165,7 +165,7 @@ else
                                         <?php _recaptcha(false); ?>
                                     </div>
                                 </div>
-                            <?php endif; ?>  
+                            <?php endif; ?>
                         </div>
                         <div class="col-xs-12">
                             <button class="button-login col-xs-12" type="submit" ><?php echo lang_check('Sign up') ?>
@@ -205,7 +205,7 @@ else
             </div>
     </div>
 </div>
-    
+
 
 <nav class="mobile-menu" id="js-mobile-menu">
     <ul class="mobile-menu__links">
@@ -213,7 +213,7 @@ else
       <li class="mobile-menu__links__item"><a href="<?php echo site_url($lang_code.'/179/blog_page');?>"><?php echo lang_check('About');?></a></li>
       {is_logged_user}
             <li class="mobile-menu__links__item">
-                    <a role="button" data-toggle="collapse" href="#mobileMenuLoggedSubmenu" aria-expanded="false" aria-controls="mobileMenuLoggedSubmenu"><?php echo lang_check('My account');?> 
+                    <a role="button" data-toggle="collapse" href="#mobileMenuLoggedSubmenu" aria-expanded="false" aria-controls="mobileMenuLoggedSubmenu"><?php echo lang_check('My account');?>
                     <i class="ion-android-arrow-dropdown icon-collapsed"></i>
                     <i class="ion-android-arrow-dropup icon-not-collapsed"></i>
                     </a>
@@ -290,7 +290,7 @@ else
 
 <div class="container-fluid home-wrapper home-wrapper home-wrapper-100">
   <!--  <div class="home-background-overlap"></div> -->
-    
+
     <!-- Navigation -->
 <nav class="navbar navbar-home">
         <div class="container-fluid navbar-home-container no-tablet-padding">
@@ -315,7 +315,7 @@ else
 <!--            <li><a href="{front_login_url}#content" id="page-popup-open-login" class="login-menu white-colored"><i class="fa fa-user-o" aria-hidden="true"></i> {lang_Myaccount}</a></li> -->
                 <?php endif;?>
                 {/not_logged}
-                
+
 								{is_logged_user}
                 <li class="logedin">
                     <a id="profile-img">
@@ -439,7 +439,7 @@ else
                                 </div>
                                 <div class="col-xs-4 hint-box">
                                 <?php echo form_input('age', set_value('age', ''), 'class="col-xs-12 col-lg-12" id="inputAge" placeholder="' . lang_check('Age') . '"') ?>
-                                    <span class="hintlabel hint--top-left" aria-label="<?php echo lang_check('To sign up you must be 13 or older. Other people won\'t see your birthday');?>"><i class="fa fa-question" aria-hidden="true"></i></span>
+                                    <span class="hintlabel hint--top-left" aria-label="<?php echo lang_check('To sign up you must be 13 or older. Other people won\'t see your age');?>"><i class="fa fa-question" aria-hidden="true"></i></span>
                                 </div>
                             </div>
                             <div class="clearfix text-left mb-1 mb-sm-2">
@@ -449,7 +449,7 @@ else
                                 <label class="login-checkbox">
                                 <?php echo form_radio('gender','female', '', 'class="" id="inputGender"') ?> <?php echo lang_check('Female');?>
                                 </label>
-                            </div>    
+                            </div>
 
                             <?php if (config_item('captcha_disabled') === FALSE): ?>
                                 <div class="control-group {form_error_captcha}" >
@@ -470,7 +470,7 @@ else
                                         <?php _recaptcha(false); ?>
                                     </div>
                                 </div>
-                            <?php endif; ?>  
+                            <?php endif; ?>
                         </div>
                         <div class="col-xs-12">
                             <button class="button-login col-xs-12" type="submit" ><?php echo lang_check('Sign up') ?>
@@ -503,7 +503,7 @@ else
                 </div>
     </div>
     </div>
-    
+
 <!-- Footer -->
     <!-- <a href="" class="scroll-button"><i class="material-icons">&#xE5CF;</i></a> -->
 </div>
@@ -511,7 +511,7 @@ else
 <script>
 
 $('document').ready(function(){
-    
+
     $('form#popup_form_login').submit(function(e){
         e.preventDefault();
         var data = $('form#popup_form_login').serializeArray();
@@ -533,7 +533,7 @@ $('document').ready(function(){
                 /*location.reload();*/
             }
             else
-            { 
+            {
                 if(data.message){
                     ShowStatus.show(data.message)
                 }
@@ -542,8 +542,8 @@ $('document').ready(function(){
         }).success(function(){$('form#popup_form_login .ajax-indicator').addClass('hidden');});
         return false;
     });
-    
-    
+
+
     $('form#popup_form_register').submit(function(e){
         e.preventDefault();
         var data = $('form#popup_form_register').serializeArray();
@@ -565,11 +565,11 @@ $('document').ready(function(){
                 } else {
 										dalay = 5000;
 								}
-								
+
 								setTimeout(function(){location.reload()},dalay);
             }
             else
-            { 
+            {
                 if(data.message){
                     ShowStatus.show(data.message)
                 }
@@ -578,7 +578,7 @@ $('document').ready(function(){
         }).success(function(){$('form#popup_form_register .ajax-indicator').addClass('hidden');});
         return false;
     });
-    
+
 
     var isFirefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
     if(!isFirefox){
@@ -590,8 +590,8 @@ $('document').ready(function(){
     });
     }
 
-    
-    
+
+
 })
 
 
