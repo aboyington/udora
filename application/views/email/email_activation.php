@@ -5,7 +5,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <title>
-    <?php echo lang_check('Your friends at Udora hello@udora.io'); ?>
+    <?php echo lang_check('Your friends at Udora'); ?>
   </title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width">
@@ -215,7 +215,7 @@
       width: 50% !important;
     }
 
-    
+
 
     [owa] .column div,
     [owa] .column button {
@@ -593,7 +593,7 @@
     <tbody>
       <tr>
         <td>
-        
+
           <div role="section">
             <div class="layout one-col fixed-width" style="Margin: 40px auto 0 auto;max-width: 600px;min-width: 320px; width: 320px;width: calc(28000% - 167400px);overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;">
               <div class="layout__inner" style="border-collapse: collapse;display: table;width: 100%;background-color: #ffffff;">
@@ -628,8 +628,8 @@
                       <?php endforeach; ?>
                     </p>
                     </div>
-                
-      
+
+
 
                   </div>
 
@@ -641,7 +641,7 @@
                     <div class="btn btn--flat btn--large" style="Margin-bottom: 20px;text-align: center;">
                       <a style="border-radius: 32px;display: inline-block;font-size: 14px;font-weight: bold;line-height: 24px;padding: 16px 32px;text-align: center;text-decoration: none !important;transition: opacity 0.1s ease-in;color: #ffffff !important;background-color: #ef5a30;font-family: Open Sans, sans-serif;"
                         href="<?php echo $data['activation_link_url'];?>" target="_blank">Yes, it`s my email</a>
-               
+
                     </div>
                   </div>
 
@@ -688,8 +688,8 @@
 
 
             <div style="mso-line-height-rule: exactly;" role="contentinfo">
-              
-              
+
+
               <div style="mso-line-height-rule: exactly;line-height: 15px;font-size: 15px;">&nbsp;</div>
 
 
@@ -715,7 +715,7 @@
                                     width="26" height="26" alt="Twitter">
                                 </a>
                               </td>
-                              <td class="emb-web-links" style="padding: 0 0 0 3px;width: 
+                              <td class="emb-web-links" style="padding: 0 0 0 3px;width:
 26px;">
                                 <a style="text-decoration: underline;transition: opacity 0.1s ease-in;color: #9c9a9c;" href="#"
                                   target="_blank">
@@ -752,15 +752,15 @@
                 </div>
 
               </div>
-              
+
               <div style="mso-line-height-rule: exactly;line-height: 40px;font-size: 40px;">&nbsp;</div>
-              
+
           </div>
         </td>
       </tr>
     </tbody>
   </table>
-  
+
 </body>
 
 </html>
