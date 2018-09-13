@@ -12,21 +12,18 @@ if($CI->config->item('facebook_api_version') == '2.4' || floatval($this->config-
         $user_facebook = $CI->facebook->getUser();
     }
     if ($user_facebook) {
-    } else if($CI->config->item('appId') != ''){
+    } elseif ($CI->config->item('appId') != '') {
         $login_url_facebook = $CI->facebook->login_url();
     }
-}
-else
-{
-    $user_facebook = FALSE;
-    if($CI->config->item('appId') != '')
-    {
+} else {
+    $user_facebook = false;
+    if ($CI->config->item('appId') != '') {
         $CI->load->library('facebook'); // Automatically picks appId and secret from config
         $user_facebook = $CI->facebook->getUser();
     }
     $login_url_facebook = '';
     if ($user_facebook) {
-    } else if($CI->config->item('appId') != ''){
+    } elseif ($CI->config->item('appId') != '') {
         $login_url_facebook = $CI->facebook->getLoginUrl(array(
             'redirect_uri' => site_url('frontend/login/'.$this->data['lang_code']),
             'scope' => array("email") // permissions here
@@ -49,7 +46,7 @@ else
             <div class="col-xs-12 col-md-6 col-md-offset-3 border-login-account">
                 <div class="login-form login-on-page" id="login-modal">
                     <div class="col-xs-12">
-<!--                     <h3 class="text-center"><?php echo lang_check('Hello');?></h3> -->
+<!--                     <h3 class="text-center"><?php echo lang_check('Hello'); ?></h3> -->
                     <h5 class="sub-title"><?php echo lang_check('Let\'s make today a great day!'); ?></h4>
                     </div>
                     <?php echo form_open(NULL, array('class' => 'form-horizontal form-additional widget-content clearfix', 'id'=>'popup_form_login')) ?>
@@ -90,18 +87,18 @@ else
                             <a href="<?php echo $login_url_facebook; ?>" class="login-facebook">
                                 <?php echo lang_check('Facebook'); ?>
                             </a>
-                        <?php endif; ?>
+                        <?php endif;?>
                         <?php if (config_item('glogin_enabled')): ?>
                             <a href="<?php echo site_url('api/google_login/'); ?>" class="login-google">
                                 <?php echo lang_check('Google+'); ?>
                             </a>
-                        <?php endif; ?>
+                        <?php endif;?>
                     </div>
                     <br style="clear: both;"/>
                     <div class="login-footer flex">
-                        <div class="info mr-2"><?php echo lang_check('Don\'t have and account?');?></div>
+                        <div class="info mr-2"><?php echo lang_check('Don\'t have and account?'); ?></div>
                         <div class="action d-flex align-items-center">
-                            <button class="btn button-login-inv js-toggle-register-popup"><?php echo lang_check('Sign up');?></a>
+                            <button class="btn button-login-inv js-toggle-register-popup"><?php echo lang_check('Sign up'); ?></a>
                         </div>
                     </div>
                 </div>
@@ -115,38 +112,38 @@ else
                     <div class="col-xs-12">
                     <p class="sub-title"><?php echo lang_check('Welcome to Udora!'); ?></p>
                     </div>
-                    <?php echo form_open(NULL, array('class' => 'form-horizontal form-additional widget-content clearfix', 'id'=>'popup_form_register')) ?>
+                    <?php echo form_open(null, array('class' => 'form-horizontal form-additional widget-content clearfix', 'id' => 'popup_form_register')) ?>
                         <div class="login-inputs col-xs-12 col-lg-12 alerts-box">
                         </div>
                         <div class="login-inputs col-xs-12 col-lg-12 mb-1 mb-sm-2">
-                            <?php if (config_db_item('register_reduced') == FALSE): ?>
+                            <?php if (config_db_item('register_reduced') == false): ?>
                                 <?php echo form_input('username', set_value('username', ''), 'class="col-xs-12 col-lg-12" id="inputUsername2" placeholder="' . lang('Username') . '"') ?>
-                            <?php endif; ?>
+                            <?php endif;?>
                             <?php echo form_input('mail', set_value('mail', ''), 'class="col-xs-12 col-lg-12" id="inputMail" placeholder="' . lang('Email') . '"') ?>
                             <?php echo form_password('password', set_value('password', ''), 'class="col-xs-12 col-lg-12" id="inputPassword2" placeholder="' . lang('Password') . '" autocomplete="off"') ?>
-                           <?php echo form_password('password_confirm', 'auto', 'class="form-control hidden" id="inputPasswordConfirm" placeholder="'.lang('Confirmpassword').'" autocomplete="off"')?>
+                           <?php echo form_password('password_confirm', 'auto', 'class="form-control hidden" id="inputPasswordConfirm" placeholder="' . lang('Confirmpassword') . '" autocomplete="off"') ?>
                                 <div class="row">
                                 <div class="col-xs-8">
                                 <?php echo form_input('name_surname', set_value('name_surname', ''), 'class="col-xs-12 col-lg-12" id="inputNameSurname" placeholder="' . lang('FirstLast') . '"') ?>
                                 </div>
                                 <div class="col-xs-4 hint-box">
                                 <?php echo form_input('age', set_value('age', ''), 'class="col-xs-12 col-lg-12" id="inputAge" placeholder="' . lang_check('Age') . '"') ?>
-                                    <span class="hintlabel hint--top-left" aria-label="<?php echo lang_check('To sign up you must be 13 or older. Other people won\'t see your birthday');?>"><i class="fa fa-question" aria-hidden="true"></i></span>
+                                    <span class="hintlabel hint--top-left" aria-label="<?php echo lang_check('To sign up you must be 13 or older. Other people won\'t see your birthday'); ?>"><i class="fa fa-question" aria-hidden="true"></i></span>
                                 </div>
                             </div>
                             <div class="clearfix text-left mb-1 mb-sm-2">
                                 <label class="login-checkbox">
-                                <?php echo form_radio('gender','male', '', 'class="" id="inputGender"') ?> <?php echo lang_check('Male');?>
+                                <?php echo form_radio('gender', 'male', '', 'class="" id="inputGender"') ?> <?php echo lang_check('Male'); ?>
                                 </label>
                                 <label class="login-checkbox">
-                                <?php echo form_radio('gender','female', '', 'class="" id="inputGender"') ?> <?php echo lang_check('Female');?>
+                                <?php echo form_radio('gender', 'female', '', 'class="" id="inputGender"') ?> <?php echo lang_check('Female'); ?>
                                 </label>
                                 <label class="login-checkbox">
-                                <?php echo form_radio('gender','custom', '', 'class="" id="inputGender"') ?> <?php echo lang_check('Custom');?>
+                                <?php echo form_radio('gender', 'custom', '', 'class="" id="inputGender"') ?> <?php echo lang_check('Custom'); ?>
                                 </label>
                             </div>
 
-                            <?php if (config_item('captcha_disabled') === FALSE): ?>
+                            <?php if (config_item('captcha_disabled') === false): ?>
                                 <div class="control-group {form_error_captcha}" >
                                     <div class="row">
                                         <div class="col-lg-6" style="padding-top:5px;">
@@ -158,11 +155,11 @@ else
                                         </div>
                                     </div>
                                 </div>
-                            <?php endif; ?>
-                            <?php if (config_item('recaptcha_site_key') !== FALSE): ?>
+                            <?php endif;?>
+                            <?php if (config_item('recaptcha_site_key') !== false): ?>
                                 <div class="row">
                                     <div class="col-xs-12 col-lg-12">
-                                        <?php _recaptcha(false); ?>
+                                        <?php _recaptcha(false);?>
                                     </div>
                                 </div>
                             <?php endif; ?>
@@ -188,17 +185,17 @@ else
                             <a href="<?php echo $login_url_facebook; ?>" class="login-facebook">
                                 <?php echo lang_check('Facebook'); ?>
                             </a>
-                        <?php endif; ?>
+                        <?php endif;?>
                         <?php if (config_item('glogin_enabled')): ?>
                             <a href="<?php echo site_url('api/google_login/'); ?>" class="login-google">
                                 <?php echo lang_check('Google+'); ?>
                             </a>
-                        <?php endif; ?>
+                        <?php endif;?>
                     </div>
                     <div class="login-footer flex">
-                        <div class="info mr-2"><?php echo lang_check('Already have a Udora acccount?');?></div>
+                        <div class="info mr-2"><?php echo lang_check('Already have a Udora acccount?'); ?></div>
                         <div class="action d-flex align-items-center">
-                            <button class="js-toggle-login-popup btn button-login-inv"><?php echo lang_check('Log in');?></a>
+                            <button class="js-toggle-login-popup btn button-login-inv"><?php echo lang_check('Log in'); ?></a>
                         </div>
                     </div>
                 </div>
@@ -209,8 +206,8 @@ else
 
 <nav class="mobile-menu" id="js-mobile-menu">
     <ul class="mobile-menu__links">
-      <li class="mobile-menu__links__item"><a href="<?php echo site_url($lang_code);?>"><?php echo lang_check('Home');?></a></li>
-      <li class="mobile-menu__links__item"><a href="<?php echo site_url($lang_code.'/179/blog_page');?>"><?php echo lang_check('About');?></a></li>
+      <li class="mobile-menu__links__item"><a href="<?php echo site_url($lang_code); ?>"><?php echo lang_check('Home'); ?></a></li>
+      <li class="mobile-menu__links__item"><a href="<?php echo site_url($lang_code . '/179/blog_page'); ?>"><?php echo lang_check('About'); ?></a></li>
       {is_logged_user}
             <li class="mobile-menu__links__item">
                     <a role="button" data-toggle="collapse" href="#mobileMenuLoggedSubmenu" aria-expanded="false" aria-controls="mobileMenuLoggedSubmenu"><?php echo lang_check('My account');?>
@@ -220,44 +217,44 @@ else
                     <div class="collapse" id="mobileMenuLoggedSubmenu">
                         <ul class="mobile-menu__links mobile-menu__links--submenu">
                             <li class="mobile-menu__links__item">
-                                <a href="{myproperties_url}#content"><?php echo lang_check('Dashboard');?></a>
+                                <a href="{myproperties_url}#content"><?php echo lang_check('Dashboard'); ?></a>
                             </li>
                             <li class="mobile-menu__links__item">
-                                <a href="{myprofile_url}#content"><?php echo lang_check('My Profile');?></a>
+                                <a href="{myprofile_url}#content"><?php echo lang_check('My Profile'); ?></a>
                             </li>
                             <li class="mobile-menu__links__item">
-                                <a href="<?php echo site_url('frontend/editproperty/'.$lang_code.'#content');?>"><?php echo lang_check('Add Events');?></a>
+                                <a href="<?php echo site_url('frontend/editproperty/' . $lang_code . '#content'); ?>"><?php echo lang_check('Add Events'); ?></a>
                             </li>
                             <li class="mobile-menu__links__item">
-                                <a href="{myfavorites_url}#content"><?php echo lang_check('Saved Events');?></a>
+                                <a href="{myfavorites_url}#content"><?php echo lang_check('Saved Events'); ?></a>
                             </li>
                             <li class="mobile-menu__links__item">
-                                <a href="<?php echo site_url('frontend/notificationsettings/'.$lang_code.'#content');?>"><?php echo lang_check('Notifications');?></a>
+                                <a href="<?php echo site_url('frontend/notificationsettings/' . $lang_code . '#content'); ?>"><?php echo lang_check('Notifications'); ?></a>
                             </li>
                         </ul>
                     </div>
             </li>
             {/is_logged_user}
             <li class="mobile-menu__links__item">
-                <a href="<?php echo site_url($lang_code.'/6/map');?>"><?php echo lang_check('Map');?></a>
+                <a href="<?php echo site_url($lang_code . '/6/map'); ?>"><?php echo lang_check('Map'); ?></a>
             </li>
             <li class="mobile-menu__links__item">
-                <a href="<?php echo site_url($lang_code.'/142/blog_page');?>"><?php echo lang_check('Blog');?></a>
+                <a href="<?php echo site_url($lang_code . '/142/blog_page'); ?>"><?php echo lang_check('Blog'); ?></a>
             </li>
             <li class="mobile-menu__links__item">
-                <a href="<?php echo site_url($lang_code.'/147/featured');?>"><?php echo lang_check('Featured');?></a>
+                <a href="<?php echo site_url($lang_code . '/147/featured'); ?>"><?php echo lang_check('Featured'); ?></a>
             </li>
             <li class="mobile-menu__links__item">
-                <a href="<?php echo site_url($lang_code.'/180/udora_for_business');?>"><?php echo lang_check('Business');?></a>
+                <a href="<?php echo site_url($lang_code . '/180/udora_for_business'); ?>"><?php echo lang_check('Business'); ?></a>
             </li>
             <li class="mobile-menu__links__item">
-                <a href="<?php echo site_url($lang_code.'/182/terms_of_service');?>"><?php echo lang_check('Terms & Privacy');?></a>
+                <a href="<?php echo site_url($lang_code . '/182/terms_of_service'); ?>"><?php echo lang_check('Terms & Privacy'); ?></a>
             </li>
             <li class="mobile-menu__links__item">
-                <a href="https://udora.io/support/"><?php echo lang_check('Help');?></a>
+                <a href="https://udora.io/support/"><?php echo lang_check('Help'); ?></a>
             </li>
             <li class="mobile-menu__links__item">
-                <a href="<?php echo site_url($lang_code.'/4/contact');?>"><?php echo lang_check('Contact');?></a>
+                <a href="<?php echo site_url($lang_code . '/4/contact'); ?>"><?php echo lang_check('Contact'); ?></a>
             </li>
             <li>
                 <hr>
@@ -302,9 +299,9 @@ else
             </div>
             <div class="navbar-right-block">
             <ul class="nav navbar-nav navbar-right">
-               <?php /*<li><a href="<?php echo site_url($lang_code.'/179/about');?>" class="white-colored">About</a></li>*/ ?>
+               <?php /*<li><a href="<?php echo site_url($lang_code.'/179/about');?>" class="white-colored">About</a></li>*/?>
                 {not_logged}
-                <?php if(config_db_item('property_subm_disabled')==FALSE):  ?>
+                <?php if (config_db_item('property_subm_disabled') == false): ?>
                 <li class="hide-when-login-register-opened">
                     <a href="#"
                     class="login-menu white-colored js-toggle-login-popup js-close-mobile-navbar">
@@ -319,33 +316,33 @@ else
 								{is_logged_user}
                 <li class="logedin">
                     <a id="profile-img">
-                         <?php if($this->session->userdata('profile_image') != '' && file_exists(FCPATH.$this->session->userdata('profile_image'))):?>
-                        <img src="<?php echo base_url($this->session->userdata('profile_image'));?>" alt="">
-                        <?php else:?>
+                         <?php if ($this->session->userdata('profile_image') != '' && file_exists(FCPATH . $this->session->userdata('profile_image'))): ?>
+                        <img src="<?php echo base_url($this->session->userdata('profile_image')); ?>" alt="">
+                        <?php else: ?>
                         <img src="assets/img/user-agent.png" alt="">
                         <?php endif;?>
                     </a>
                     <div class="profile-box-wrapper display-none">
                         <div class="profile-box-img">
-                             <?php if($this->session->userdata('profile_image') != '' && file_exists(FCPATH.$this->session->userdata('profile_image'))):?>
-                            <img src="<?php echo base_url($this->session->userdata('profile_image'));?>" alt="">
-                            <?php else:?>
+                             <?php if ($this->session->userdata('profile_image') != '' && file_exists(FCPATH . $this->session->userdata('profile_image'))): ?>
+                            <img src="<?php echo base_url($this->session->userdata('profile_image')); ?>" alt="">
+                            <?php else: ?>
                             <img src="assets/img/user-agent.png" alt="">
                             <?php endif;?>
                         </div>
                         <div class="profile-box-data">
-                            <p id="profile-box-name"><?php echo $this->session->userdata('name_surname');?></p>
+                            <p id="profile-box-name"><?php echo $this->session->userdata('name_surname'); ?></p>
 <!--                             <p class="small-font"><?php // echo $this->session->userdata('type');?></p> -->
 														<p class="small-font">533 000 4703</p>
                             <a href="{login_url}">
-                                <button><?php echo lang_check('Account');?></button>
+                                <button><?php echo lang_check('Account'); ?></button>
                             </a>
                             <a href="{myprofile_url}#content"><i class="ion-ios-cog-outline"></i></a>
                         </div>
                         <div class="profile-box-bottom clearfix">
-                            <?php if(config_db_item('property_subm_disabled')==FALSE):  ?>
-                            <a href="<?php echo site_url('frontend/editproperty/'.$lang_code.'#content');?>" class="standart-button">
-                                <?php echo lang_check('Add Event');?>
+                            <?php if (config_db_item('property_subm_disabled') == false): ?>
+                            <a href="<?php echo site_url('frontend/editproperty/' . $lang_code . '#content'); ?>" class="standart-button">
+                                <?php echo lang_check('Add Event'); ?>
                             </a>
                             <?php endif;?>
                             <a href="{logout_url}" class="standart-button">
@@ -358,32 +355,32 @@ else
                 {is_logged_other}
                 <li class="logedin">
                     <a id="profile-img">
-                        <?php if($this->session->userdata('profile_image') != '' && file_exists(FCPATH.$this->session->userdata('profile_image'))):?>
-                        <img src="<?php echo base_url($this->session->userdata('profile_image'));?>" alt="">
-                        <?php else:?>
+                        <?php if ($this->session->userdata('profile_image') != '' && file_exists(FCPATH . $this->session->userdata('profile_image'))): ?>
+                        <img src="<?php echo base_url($this->session->userdata('profile_image')); ?>" alt="">
+                        <?php else: ?>
                         <img src="assets/img/user-agent.png" alt="">
                         <?php endif;?>
                     </a>
                     <div class="profile-box-wrapper display-none">
                         <div class="profile-box-img">
-                             <?php if($this->session->userdata('profile_image') != '' && file_exists(FCPATH.$this->session->userdata('profile_image'))):?>
-                            <img src="<?php echo base_url($this->session->userdata('profile_image'));?>" alt="">
-                            <?php else:?>
+                             <?php if ($this->session->userdata('profile_image') != '' && file_exists(FCPATH . $this->session->userdata('profile_image'))): ?>
+                            <img src="<?php echo base_url($this->session->userdata('profile_image')); ?>" alt="">
+                            <?php else: ?>
                             <img src="assets/img/user-agent.png" alt="">
                             <?php endif;?>
                         </div>
                         <div class="profile-box-data">
-                            <p id="profile-box-name"><?php echo $this->session->userdata('name_surname');?></p>
-                            <p class="small-font"><?php echo $this->session->userdata('type');?></p>
+                            <p id="profile-box-name"><?php echo $this->session->userdata('name_surname'); ?></p>
+                            <p class="small-font"><?php echo $this->session->userdata('type'); ?></p>
                             <a href="{login_url}">
-                                <button><?php echo lang_check('Account');?></button>
+                                <button><?php echo lang_check('Account'); ?></button>
                             </a>
                             <a href="{myprofile_url}#content"><i class="ion-ios-cog-outline"></i></a>
                         </div>
                         <div class="profile-box-bottom clearfix">
-                            <?php if(config_db_item('property_subm_disabled')==FALSE):  ?>
-                            <a href="<?php echo site_url('admin/estate/edit');?>" class="standart-button">
-                                <?php echo lang_check('Add Event');?>
+                            <?php if (config_db_item('property_subm_disabled') == false): ?>
+                            <a href="<?php echo site_url('admin/estate/edit'); ?>" class="standart-button">
+                                <?php echo lang_check('Add Event'); ?>
                             </a>
                             <?php endif;?>
                             <a href="{logout_url}" class="standart-button">
@@ -406,6 +403,9 @@ else
 
     <div class="home__header__overlay"></div>
 
+
+
+    {not_logged}
     <!-- Search container -->
     <div class="main-home-container / js-hide-when-navbar-open js-hide-when-login-open">
 
@@ -423,16 +423,16 @@ else
                     <h3>Sign Up</h3>
     <p class="sub-title text-left mb-3">It's free and always will be.</p>
                     </div>
-                    <?php echo form_open(NULL, array('class' => 'form-horizontal form-additional widget-content clearfix', 'id'=>'popup_form_register')) ?>
+                    <?php echo form_open(null, array('class' => 'form-horizontal form-additional widget-content clearfix', 'id' => 'popup_form_register')) ?>
                         <div class="login-inputs col-xs-12 col-lg-12 alerts-box">
                         </div>
                         <div class="login-inputs col-xs-12 col-lg-12 mb-1 mb-sm-2">
-                            <?php if (config_db_item('register_reduced') == FALSE): ?>
+                            <?php if (config_db_item('register_reduced') == false): ?>
                                 <?php echo form_input('username', set_value('username', ''), 'class="col-xs-12 col-lg-12" id="inputUsername2" placeholder="' . lang('Username') . '"') ?>
-                            <?php endif; ?>
+                            <?php endif;?>
                             <?php echo form_input('mail', set_value('mail', ''), 'class="col-xs-12 col-lg-12" id="inputMail" placeholder="' . lang('Email') . '"') ?>
                             <?php echo form_password('password', set_value('password', ''), 'class="col-xs-12 col-lg-12" id="inputPassword2" placeholder="' . lang('Password') . '" autocomplete="off"') ?>
-                           <?php echo form_password('password_confirm', 'auto', 'class="form-control hidden" id="inputPasswordConfirm" placeholder="'.lang('Confirmpassword').'" autocomplete="off"')?>
+                           <?php echo form_password('password_confirm', 'auto', 'class="form-control hidden" id="inputPasswordConfirm" placeholder="' . lang('Confirmpassword') . '" autocomplete="off"') ?>
                                 <div class="row">
                                 <div class="col-xs-8">
                                 <?php echo form_input('name_surname', set_value('name_surname', ''), 'class="col-xs-12 col-lg-12" id="inputNameSurname" placeholder="' . lang('FirstLast') . '"') ?>
@@ -444,14 +444,14 @@ else
                             </div>
                             <div class="clearfix text-left mb-1 mb-sm-2">
                                 <label class="login-checkbox">
-                                <?php echo form_radio('gender','male', '', 'class="" id="inputGender"') ?> <?php echo lang_check('Male');?>
+                                <?php echo form_radio('gender', 'male', '', 'class="" id="inputGender"') ?> <?php echo lang_check('Male'); ?>
                                 </label>
                                 <label class="login-checkbox">
-                                <?php echo form_radio('gender','female', '', 'class="" id="inputGender"') ?> <?php echo lang_check('Female');?>
+                                <?php echo form_radio('gender', 'female', '', 'class="" id="inputGender"') ?> <?php echo lang_check('Female'); ?>
                                 </label>
                             </div>
 
-                            <?php if (config_item('captcha_disabled') === FALSE): ?>
+                            <?php if (config_item('captcha_disabled') === false): ?>
                                 <div class="control-group {form_error_captcha}" >
                                     <div class="row">
                                         <div class="col-lg-6" style="padding-top:5px;">
@@ -463,11 +463,11 @@ else
                                         </div>
                                     </div>
                                 </div>
-                            <?php endif; ?>
-                            <?php if (config_item('recaptcha_site_key') !== FALSE): ?>
+                            <?php endif;?>
+                            <?php if (config_item('recaptcha_site_key') !== false): ?>
                                 <div class="row">
                                     <div class="col-xs-12 col-lg-12">
-                                        <?php _recaptcha(false); ?>
+                                        <?php _recaptcha(false);?>
                                     </div>
                                 </div>
                             <?php endif; ?>
@@ -493,16 +493,59 @@ else
                             <a href="<?php echo $login_url_facebook; ?>" class="login-facebook">
                                 <?php echo lang_check('Facebook'); ?>
                             </a>
-                        <?php endif; ?>
+                        <?php endif;?>
                         <?php if (config_item('glogin_enabled')): ?>
                             <a href="<?php echo site_url('api/google_login/'); ?>" class="login-google">
                                 <?php echo lang_check('Google+'); ?>
                             </a>
-                        <?php endif; ?>
+                        <?php endif;?>
                     </div>
                 </div>
     </div>
     </div>
+
+{/not_logged}
+
+{is_logged_user}
+
+<div class="main-home-container / js-hide-when-navbar-open js-hide-when-login-open">
+        <div class="home-container-content-wrapper">
+            <?php /* <h4 class="container-header"><?php echo lang_check('Welcome to UDORA');?></h4> */?>
+            <h2><?php echo lang_check('Find your next experience');?></h2>
+            <?php _widget('custom_center_search');?>
+            <div class="col-xs-12">
+              <h5><?php echo lang_check('100M+ Events  |  30,000 Cities  |  4M Explorers');?></h5>
+            </div>
+
+        <?php /* <!--This php tag is only here to comment out the next 15 lines, remove it to reactivate the Popular places tree --> 
+        <!-- Popular places-->
+        <div class=" col-xs-12 popular-places-wrapper popular-places-wrapper-center col-lg-10 col-lg-offset-1">
+           <p><?php echo lang_check('Popular places');?>: 
+              <?php
+                $CI = & get_instance();
+                $treefield_id = 64;
+                $CI->load->model('treefield_m');
+                $treefields = array();
+                $tree_listings = $CI->treefield_m->get_table_tree($lang_id, $treefield_id, NULL,true, '_lang.value', ', value_path');
+                if (count($tree_listings)): foreach ($tree_listings as $listing_item): 
+              ?>
+              <?php 
+                if(!empty($listing_item->body) || TRUE):
+                    //$url = slug_url('treefield/'.$lang_code.'/'.$listing_item->id.'/'.url_title_cro($listing_item->value), 'treefield_m');
+                    $url = site_url($lang_code.'/6/?search={"v_search_option_'.$treefield_id.'":"'.rawurlencode($listing_item->value_path.' - ').'"}');
+               ?>
+                <a href='<?php _che($url);?>'><?php echo $listing_item->value;?></a> <?php echo (next($tree_listings)) ? "|": "";?>
+                <?php endif;endforeach;endif;?>
+           </p>
+        </div>
+        */?>
+        </div>
+    </div>
+
+{/is_logged_user}
+
+
+
 
 <!-- Footer -->
     <!-- <a href="" class="scroll-button"><i class="material-icons">&#xE5CF;</i></a> -->
@@ -518,7 +561,7 @@ $('document').ready(function(){
         //console.log( data );
         $('form#popup_form_login .ajax-indicator').removeClass('hidden');
         // send info to agent
-        $.post("<?php echo site_url('api/login_form/'.$lang_code); ?>", data,
+        $.post("<?php echo site_url('api/login_form/' . $lang_code); ?>", data,
         function(data){
             if(data.success)
             {
@@ -550,7 +593,7 @@ $('document').ready(function(){
         //console.log( data );
         $('form#popup_form_register .ajax-indicator').removeClass('hidden');
         // send info to agent
-        $.post("<?php echo site_url('api/register_form/'.$lang_code); ?>", data,
+        $.post("<?php echo site_url('api/register_form/' . $lang_code); ?>", data,
         function(data){
             if(data.success)
             {
