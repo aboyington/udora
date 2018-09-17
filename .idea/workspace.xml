@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6d5e4a18-8b65-4f25-bd30-4181b31481ca" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/templates/udora/myprofile.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/udora/myprofile.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/config/facebook.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/config/facebook.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/udora/widgets/header_search.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/udora/widgets/header_search.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -15,7 +17,23 @@
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf>
+      <file leaf-file-name="header_search.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/udora/widgets/header_search.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="273">
+              <caret line="430" column="16" lean-forward="true" selection-start-line="430" selection-start-column="16" selection-end-line="430" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>age</find>
+      <find>age</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -25,6 +43,7 @@
       <list>
         <option value="$PROJECT_DIR$/templates/udora/myprofile.php" />
         <option value="$PROJECT_DIR$/templates/udora/page_homepage.php" />
+        <option value="$PROJECT_DIR$/templates/udora/widgets/header_search.php" />
       </list>
     </option>
   </component>
@@ -99,10 +118,9 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="5" />
-    <option name="y" value="39" />
-    <option name="width" value="1400" />
-    <option name="height" value="779" />
+    <option name="y" value="23" />
+    <option name="width" value="1440" />
+    <option name="height" value="877" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -127,6 +145,20 @@
               <item name="udora" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
               <item name="udora" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="udora" type="b2602c69:ProjectViewProjectNode" />
+              <item name="udora" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="udora" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="udora" type="b2602c69:ProjectViewProjectNode" />
+              <item name="udora" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="udora" type="462c0819:PsiDirectoryNode" />
+              <item name="widgets" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -165,16 +197,19 @@
       <workItem from="1533534663456" duration="963000" />
       <workItem from="1533691806851" duration="614000" />
       <workItem from="1533692443254" duration="1478000" />
+      <workItem from="1536982015257" duration="1404000" />
+      <workItem from="1537179590836" duration="378000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3055000" />
+    <option name="totallyTimeSpent" value="4837000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="5" y="39" width="1400" height="779" extended-state="0" />
+    <frame x="0" y="23" width="1440" height="877" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24305555" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
@@ -206,9 +241,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="495">
           <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
-          <folding>
-            <element signature="e#14459#14465#1#HTML" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -216,9 +248,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="480">
           <caret line="32" column="18" selection-start-line="32" selection-start-column="18" selection-end-line="32" selection-end-column="18" />
-          <folding>
-            <element signature="e#14459#14465#1#HTML" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -233,14 +262,27 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="12" column="59" selection-start-line="12" selection-start-column="59" selection-end-line="12" selection-end-column="59" />
-          <folding>
-            <element signature="e#14459#14465#1#HTML" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/udora/page_homepage.php">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/application/config/config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4049" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/udora/assets/css/custom.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="1625" column="42" selection-start-line="1625" selection-start-column="38" selection-end-line="1625" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/udora/widgets/header_search.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="430" column="16" lean-forward="true" selection-start-line="430" selection-start-column="16" selection-end-line="430" selection-end-column="16" />
+        </state>
+      </provider>
     </entry>
   </component>
 </project>
