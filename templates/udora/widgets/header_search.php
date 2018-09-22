@@ -1,3 +1,9 @@
+{not_logged}
+<script>
+        $('body').addClass('is-login-popup-open');
+        $('body').addClass('fixed-position');
+</script>
+{/not_logged}
 <?php
 $CI = &get_instance();
 $login_url_facebook = '';
