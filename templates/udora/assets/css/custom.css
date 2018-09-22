@@ -3322,7 +3322,7 @@ body .footable.table-packeges.table > tbody > tr > td {
 }
 
 .hint-box {
-    postion: relative;
+    position: relative;
 }
 
 .hint-box .hintlabel {
@@ -3805,18 +3805,8 @@ body .footable.table-packeges.table > tbody > tr > td {
     cursor: pointer;
 }
 
-.page-popup-transparent {
-  color: white;
-}
-.page-popup-transparent h1, .page-popup-transparent h2, .page-popup-transparent h3, .page-popup-transparent h4, .page-popup-transparent h5, .page-popup-transparent h6, .page-popup-transparent p, .page-popup-transparent span, .page-popup-transparent a {
-  color: #fff !important;
-}
-.page-popup-transparent .border-create-account, .page-popup-transparent .border-login-account, .page-popup-transparent .left-menu, .page-popup-transparent .login-form {
+.page-popup-transparent .border-login-account, .page-popup-transparent .left-menu {
   background-color: transparent;
-}
-.page-popup-transparent input[type='email'], .page-popup-transparent input[type='text'], .page-popup-transparent input[type='password'] {
-  background-color: rgba(0, 0, 0, 0.45);
-  border: 1px solid #575757;
 }
 .page-popup-transparent input[type='email']::-webkit-input-placeholder, .page-popup-transparent input[type='text']::-webkit-input-placeholder, .page-popup-transparent input[type='password']::-webkit-input-placeholder {
   color: #999999;
@@ -3830,23 +3820,12 @@ body .footable.table-packeges.table > tbody > tr > td {
 .page-popup-transparent input[type='email']::placeholder, .page-popup-transparent input[type='text']::placeholder, .page-popup-transparent input[type='password']::placeholder {
   color: #999999;
 }
-.page-popup-transparent .border-create-account, .page-popup-transparent .border-login-account {
-  padding: 0;
-}
-@media (min-width: 480px) {
-  .page-popup-transparent .border-create-account, .page-popup-transparent .border-login-account {
-    max-width: 460px;
-    margin-left: auto;
-    margin-right: auto;
-    float: none;
-  }
-}
+
 .page-popup-transparent .separate:before {
   display: none;
 }
 .page-popup-transparent .separate .separate-content {
   background-color: transparent;
-  color: #fff;
 }
 
 
@@ -11106,20 +11085,21 @@ body .footable.table-packeges.table > tbody > tr > td {
   }
   .ordered-list-style-1 li {
     counter-increment: item;
-    font-size: 1.25em;
+    font-size: 1em;
     font-weight: 300;
-    margin-bottom: 2em;
+    margin-bottom: 1.25em;
   }
+
   .ordered-list-style-1 li:before {
-    margin-right: 15px;
+    margin-right: 10px;
     content: counter(item);
     font-weight: 500;
     background: #F15927;
     border-radius: 100%;
     color: white;
-    width: 36px;
-    height: 36px;
-    font-size: 21px;
+    width: 30px;
+    height: 30px;
+    font-size: 19px;
     text-align: center;
     display: -webkit-inline-box;
     display: -webkit-inline-flex;
@@ -11134,9 +11114,20 @@ body .footable.table-packeges.table > tbody > tr > td {
         -ms-flex-pack: center;
             justify-content: center;
   }
-  
-  
-  
+
+@media (min-width: 992px) {
+    .ordered-list-style-1 li {
+        font-size: 1.25em;
+        margin-bottom: 2em;
+    }
+    .ordered-list-style-1 li:before {
+        margin-right: 15px;
+        border-radius: 100%;
+        width: 36px;
+        height: 36px;
+        font-size: 21px;
+    }
+}
 
 
 
@@ -13385,4 +13376,24 @@ body.no-scroll {
     max-width: 94px;
     width: 100%;
   }
+}
+
+.login__box-1 {
+    background-color: #fff;
+    padding: 2rem;
+}
+.login__box-1 .login-footer {
+    padding: 1.25rem 2rem;
+    border-top: 1px solid rgba(0,0,0, .2);
+}
+.login__box-1 .login-footer {
+    margin-left: -2rem;
+    margin-right: -2rem;
+    margin-bottom: -2rem;
+}
+.login__box-1 .hintlabewl {
+    position: absolute;
+    display: inline-block;
+    right: -20px;
+    top: 12px;
 }
