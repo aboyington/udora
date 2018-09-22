@@ -1712,7 +1712,7 @@ $(document).ready(function(){
         window.location.href='<?php echo site_url($lang_code.'/6/'.url_title_cro('map', '-', TRUE))?>?search={"v_search_option_smart":"'+v+'"}';
         return false;
     })
-    add_to_favorite ();
+    // add_to_favorite ();
 
     if (window.innerWidth < 992) {
         $('body').css('padding-bottom', $('.footer.style-1').outerHeight());

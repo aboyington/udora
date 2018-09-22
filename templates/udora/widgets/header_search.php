@@ -1,9 +1,4 @@
-{not_logged}
-<script>
-    $('body').addClass('is-login-popup-open');
-    $('body').addClass('fixed-position');
-</script>
-{/not_logged}
+
 <?php
 $CI = &get_instance();
 $login_url_facebook = '';
@@ -178,13 +173,13 @@ if ($CI->config->item('facebook_api_version') == '2.4' || floatval($this->config
                             </div>
                             <div class="clearfix text-left mb-1 mb-sm-2">
                                 <label class="login-checkbox">
-                                    <?php echo form_radio('gender', 'male', '', 'class="mr-1" id="inputGender"') ?><?php echo lang_check('Male'); ?>
+                                    <?php echo form_radio('gender', 'male', '', 'class="mr-1" id="Male"') ?><?php echo lang_check('Male'); ?>
                                 </label>
                                 <label class="login-checkbox">
-                                    <?php echo form_radio('gender', 'female', '', 'class="mr-1" id="inputGender"') ?><?php echo lang_check('Female'); ?>
+                                    <?php echo form_radio('gender', 'female', '', 'class="mr-1" id="Female"') ?><?php echo lang_check('Female'); ?>
                                 </label>
                                 <label class="login-checkbox">
-                                    <?php echo form_radio('gender', 'custom', '', 'class="mr-1" id="inputGender"') ?><?php echo lang_check('Custom'); ?>
+                                    <?php echo form_radio('gender', 'custom', '', 'class="mr-1" id="Custom"') ?><?php echo lang_check('Custom'); ?>
                                 </label>
                             </div>
 
@@ -519,26 +514,26 @@ if ($CI->config->item('facebook_api_version') == '2.4' || floatval($this->config
     <!-- Search container -->
     <div class="main-home-container / js-hide-when-navbar-open js-hide-when-login-open">
         <div class="home-container-content-wrapper">
-            <?php /* <h4 class="container-header"><?php echo lang_check('Welcome to UDORA');?></h4> */ ?>
-            <h2><?php echo lang_check('Find your next experience'); ?></h2>
-            <?php _widget('custom_center_search'); ?>
+            <?php /* <h4 class="container-header"><?php echo lang_check('Welcome to UDORA');?></h4> */?>
+            <h2><?php echo lang_check('Find your next experience');?></h2>
+            <?php _widget('custom_center_search');?>
             <div class="col-xs-12">
-                <h5><?php echo lang_check('100M+ Events  |  30,000 Cities  |  4M Explorers'); ?></h5>
+                <h5><?php echo lang_check('100M+ Events  |  30,000 Cities  |  4M Explorers');?></h5>
             </div>
 
             <?php /* <!--This php tag is only here to comment out the next 15 lines, remove it to reactivate the Popular places tree -->
         <!-- Popular places-->
         <div class=" col-xs-12 popular-places-wrapper popular-places-wrapper-center col-lg-10 col-lg-offset-1">
-           <p><?php echo lang_check('Popular places');?>: 
+           <p><?php echo lang_check('Popular places');?>:
               <?php
                 $CI = & get_instance();
                 $treefield_id = 64;
                 $CI->load->model('treefield_m');
                 $treefields = array();
                 $tree_listings = $CI->treefield_m->get_table_tree($lang_id, $treefield_id, NULL,true, '_lang.value', ', value_path');
-                if (count($tree_listings)): foreach ($tree_listings as $listing_item): 
+                if (count($tree_listings)): foreach ($tree_listings as $listing_item):
               ?>
-              <?php 
+              <?php
                 if(!empty($listing_item->body) || TRUE):
                     //$url = slug_url('treefield/'.$lang_code.'/'.$listing_item->id.'/'.url_title_cro($listing_item->value), 'treefield_m');
                     $url = site_url($lang_code.'/6/?search={"v_search_option_'.$treefield_id.'":"'.rawurlencode($listing_item->value_path.' - ').'"}');
@@ -547,7 +542,7 @@ if ($CI->config->item('facebook_api_version') == '2.4' || floatval($this->config
                 <?php endif;endforeach;endif;?>
            </p>
         </div>
-        */ ?>
+        */?>
         </div>
     </div>
     <!-- Footer -->
