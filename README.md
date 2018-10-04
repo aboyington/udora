@@ -1,2 +1,2 @@
 # udora
-event search app built with CodeIgniter
+event search webapp built with CodeIgniter
