@@ -568,7 +568,7 @@ if ($CI->config->item('facebook_api_version') == '2.4' || floatval($this->config
                             ShowStatus.show(data.message)
                         }
                         if (data.redirect) {
-                            location.href = '/';
+                            location.href = data.redirect;
                         }
                         /*location.reload();*/
                     }
