@@ -506,7 +506,7 @@ if ($CI->config->item('facebook_api_version') == '2.4' || floatval($this->config
 
 
     <div class="home__header__bg__wrap">
-        <div class="home__header__bg" style="background-image: url('assets/img/home/exploreeveryday_181k.jpg')"></div>
+      <div class="home__header__bg" style="background-image: url('assets/img/home/exploreeveryday_181k_mirrored.jpg')"></div>
     </div>
 
     <div class="home__header__overlay"></div>
