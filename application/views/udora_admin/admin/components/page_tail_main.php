@@ -78,6 +78,19 @@
         <script src="<?php echo base_url('adminudora-assets/js/jquery.h5validate.js')?>"></script>
         <script src="<?php echo base_url('adminudora-assets/js/jquery.helpers.js');?>"></script>
         
+        
+        <!-- Gamify App References -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular.min.js"></script>
+        <script src="https://code.angularjs.org/1.3.10/angular-route.min.js"></script>
+        <!-- Gamify Uploader -->
+        <script type="text/javascript" src="<?php echo base_url('gamify-assets/plugins/plupload/js/plupload.full.js');?>"></script>
+        <script src="<?php echo base_url('gamify-assets/app/js/core.js');?>"></script>
+        <script src="<?php echo base_url('gamify-assets/app/js/plupload.js');?>"></script>
+        <script src="<?php echo base_url('gamify-assets/app/js/manage.js');?>"></script>
+
+       
+
+        
         <script src="<?php echo base_url('adminudora-assets/libraries/ckeditor/ckeditor.js')?>"></script>
         <script>
         CKEDITOR.config.forcePasteAsPlainText = false; // default so content won't be manipulated on load

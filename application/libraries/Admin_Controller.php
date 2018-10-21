@@ -76,7 +76,7 @@ class Admin_Controller extends MY_Controller
                                          'ads', 'expert', 'companies', 'upload_ads', 'upload_field', 'showroom', 'upload_showroom', 'expert', 
                                          'booking', 'packages', 'tools', 'monetize', 'backup', 'reviews', 'emailfiles', 'forms', 'tcalendar',
                                          'savesearch', 'treefield', 'favorites', 'mapreport', 'benchmarktool', 'templates', 'templatefiles','addons', 
-                                         'reports', 'analitics');
+                                         'reports', 'analitics', 'gamify');
                                          
         $CI->acl_config['AGENT'] = array('imageeditor', 'enquire', 'enquire/edit', 'dashboard', 'estate/index', 'estate/edit', 'estate/delete', 'user/edit', 
                                          'upload', 'order', 'upload_estate', 'upload_field', 'upload_user', 'tcalendar',

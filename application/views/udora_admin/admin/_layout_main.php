@@ -325,6 +325,14 @@
                                     </li>
                                 <?php endif;?>
                               
+                                <?php if($this->session->userdata('type') == 'ADMIN'):?>
+                                    <li class="<?php echo (strpos($this->uri->uri_string(),'gamification')!==FALSE)?' active':'';?>">
+                                      <a><i class="fa fa-briefcase"></i><?php echo lang_check('Gamification');?><span class="fa fa-chevron-down"></span></a>
+                                      <ul class="nav child_menu">
+                                        <li><a href="<?php echo site_url('admin/gamify')?>"><?php echo lang_check('Manage');?></a></li>
+                                      </ul>
+                                    </li>
+                               <?php endif;?>
                               
                             </ul>
                         </div>

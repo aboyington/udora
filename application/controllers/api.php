@@ -952,7 +952,7 @@ class Api extends CI_Controller
                 }
 
                 $this->data['success'] = true;
-                $redirect = site_url('frontend/myproperties/'.$lang_code);
+                $redirect = site_url('/'.$lang_code);
             }   
             else
             {

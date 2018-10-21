@@ -68,6 +68,8 @@ if($strict_enable_error_reporting === TRUE)
     error_reporting(-1);
 }
 
+//error_reporting(E_ALL); 
+
 /*
  *---------------------------------------------------------------
  * SYSTEM FOLDER NAME
