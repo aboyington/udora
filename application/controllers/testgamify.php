@@ -70,10 +70,7 @@ class testgamify extends CI_Controller
             )));
        
        
-        // Award Badge or Reward or Package, or Points or Credits
-       /* $userid = 1;
-        $itemid = 8;
-        $result = $this->gamify->trigger_item($userid, $itemid);*/
+            
          
          /*$data = array();
          $query = new \stdClass;

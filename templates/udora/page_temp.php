@@ -8,13 +8,7 @@
     }
 </style>
 </head>
-{not_logged}
-<body class="no-padding footer-nav-black home is-login-popup-open fixed-position">
-{/not_logged}
-
-{is_logged_user}
-<body class="no-padding footer-nav-black home ">
-{/is_logged_user}
+<body class="no-padding footer-nav-black home">
     <?php _widget('header_search');?>
 
 <!--     <div class="d-lg-none">
