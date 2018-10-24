@@ -1,1 +1,0 @@
-<img style="max-width: 100%;" class="col-xs-12 col-sm-6 col-lg-12 img-responsive qr-code" src="https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl={page_current_url}&choe=UTF-8" alt="qr code"/>
