@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="WEB_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/vendor/composer" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/facebook/php-sdk-v4" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/guzzle/guzzle" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/guzzle/http" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/guzzlehttp/guzzle" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/guzzlehttp/promises" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/guzzlehttp/psr7" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/ircmaxell/password-compat" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/ircmaxell/random-lib" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/ircmaxell/security-lib" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/kriswallsmith/buzz" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/league/oauth2-client" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/league/oauth2-facebook" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/league/oauth2-google" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/omnipay/authorizenet" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/omnipay/common" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/omnipay/paypal" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/omnipay/payu" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/omnipay/stripe" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/psr/http-message" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/stichoza/google-translate-php" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/event-dispatcher" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/http-foundation" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-mbstring" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-php54" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-php55" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>

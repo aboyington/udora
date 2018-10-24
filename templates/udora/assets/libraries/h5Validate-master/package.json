@@ -1,0 +1,31 @@
+{
+  "name": "h5validate",
+  "main": "jquery.h5validate",
+  "version": "0.9.1",
+  "license": "MIT",
+  "description": "HTML5 form validation",
+  "author": {
+    "name": "Eric Elliott",
+    "url": "http://ericleads.com"
+  },
+  "keywords": [
+    "form",
+    "html5",
+    "form validation",
+    "validation",
+    "jquery"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dilvie/h5Validate.git"
+  },
+  "devDependencies": {
+    "grunt": "*",
+    "grunt-contrib-jshint": "*",
+    "grunt-contrib-connect": "*",
+    "grunt-saucelabs": "*"
+  },
+  "scripts": {
+    "test": "./scripts/test.sh"
+  }
+}

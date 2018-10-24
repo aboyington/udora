@@ -1,0 +1,855 @@
+.advanced-search input[type="email"],
+.advanced-search input[type="date"],
+.advanced-search input[type="time"],
+.advanced-search input[type="search"],
+.advanced-search input[type="password"],
+.advanced-search input[type="number"],
+.advanced-search input[type="tel"],
+.advanced-search textarea.form-control {
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-appearance: none;
+    border: none;
+    font-weight: 400;
+    outline: none !important;
+    width: 100%;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+
+.advanced-search .bootstrap-select.open .dropdown-menu {
+    visibility: visible;
+    filter: progid: DXImageTransform.Microsoft.Alpha(enabled=false);
+    opacity: 1;
+    pointer-events: auto;
+    -ms-transform: scale(1);
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+
+.advanced-search .bootstrap-select .btn {
+    border-radius: 0;
+    -webkit-transition: ease 0.3s;
+    transition: ease 0.3s;
+    box-shadow: 0px 0px 0px 2px rgba(0, 0, 0, 0.1), 0px 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    border: none;
+    outline: none !important;
+    text-transform: none;
+    padding: 12px;
+    padding-right: 30px;
+    font-size: 14px;
+    width: 100%;
+}
+
+.advanced-search .bootstrap-select .btn:active,
+.advanced-search .bootstrap-select .btn:focus,
+.advanced-search .bootstrap-select .btn:hover {
+    box-shadow: 0px 0px 0px 2px rgba(0, 0, 0, 0.2), 0px 2px 5px rgba(0, 0, 0, 0.1);
+    top: 0;
+    background-color: #fff;
+    outline: none !important;
+    border: none;
+}
+
+.advanced-search .bootstrap-select .dropdown-menu {
+    border-radius: 0;
+    display: block !important;
+    visibility: hidden;
+    filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=0);
+    opacity: 0;
+    -webkit-transition: ease 0.3s;
+    transition: ease 0.3s;
+    -ms-transform: scale(0.98);
+    -webkit-transform: scale(0.98);
+    transform: scale(0.98);
+    pointer-events: none;
+    padding: 0;
+    border: none;
+    background-clip: none;
+    margin: 0;
+}
+
+.advanced-search .bootstrap-select .dropdown-menu > li > a {
+    padding: 5px 12px;
+}
+
+.advanced-search .bootstrap-select > select {
+    left: 0;
+    height: 0 !important;
+    max-height: 0px;
+    padding: 0 !important;
+}
+
+.advanced-search .form-control {
+    background-color: transparent;
+    height: auto;
+}
+
+.advanced-search .form .btn[type=submit] {
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.advanced-search .form .btn[type=submit] {
+    margin-top: -2px;
+}
+
+.advanced-search .form.inputs-underline label:not(.no-margin),
+.advanced-search .input-group.inputs-underline label:not(.no-margin) {
+    filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=70);
+    opacity: 0.7;
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 0;
+    position: relative;
+    bottom: -5px;
+}
+
+.advanced-search .form.inputs-underline input[type="text"],
+.advanced-search .form.inputs-underline input[type="email"],
+.advanced-search .form.inputs-underline input[type="date"],
+.advanced-search .form.inputs-underline input[type="time"],
+.advanced-search .form.inputs-underline input[type="search"],
+.advanced-search .form.inputs-underline input[type="password"],
+.advanced-search .form.inputs-underline input[type="number"],
+.advanced-search .form.inputs-underline input[type="tel"],
+.advanced-search .form.inputs-underline textarea.form-control,
+.advanced-search .input-group.inputs-underline input[type="text"],
+.advanced-search .input-group.inputs-underline input[type="email"],
+.advanced-search .input-group.inputs-underline input[type="date"],
+.advanced-search .input-group.inputs-underline input[type="time"],
+.advanced-search .input-group.inputs-underline input[type="search"],
+.advanced-search .input-group.inputs-underline input[type="password"],
+.advanced-search .input-group.inputs-underline input[type="number"],
+.advanced-search .input-group.inputs-underline input[type="tel"],
+.advanced-search .input-group.inputs-underline textarea.form-control {
+    box-shadow: none;
+    border-radius: 0px;
+    -webkit-appearance: none;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.08);
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.advanced-search .form.inputs-underline input[type="text"]:active,
+.advanced-search .form.inputs-underline input[type="text"]:focus,
+.advanced-search .form.inputs-underline input[type="email"]:active,
+.advanced-search .form.inputs-underline input[type="email"]:focus,
+.advanced-search .form.inputs-underline input[type="date"]:active,
+.advanced-search .form.inputs-underline input[type="date"]:focus,
+.advanced-search .form.inputs-underline input[type="time"]:active,
+.advanced-search .form.inputs-underline input[type="time"]:focus,
+.advanced-search .form.inputs-underline input[type="search"]:active,
+.advanced-search .form.inputs-underline input[type="search"]:focus,
+.advanced-search .form.inputs-underline input[type="password"]:active,
+.advanced-search .form.inputs-underline input[type="password"]:focus,
+.advanced-search .form.inputs-underline input[type="number"]:active,
+.advanced-search .form.inputs-underline input[type="number"]:focus,
+.advanced-search .form.inputs-underline input[type="tel"]:active,
+.advanced-search .form.inputs-underline input[type="tel"]:focus,
+.advanced-search .form.inputs-underline textarea.form-control:active,
+.advanced-search .form.inputs-underline textarea.form-control:focus,
+.advanced-search .input-group.inputs-underline input[type="text"]:active,
+.advanced-search .input-group.inputs-underline input[type="text"]:focus,
+.advanced-search .input-group.inputs-underline input[type="email"]:active,
+.advanced-search .input-group.inputs-underline input[type="email"]:focus,
+.advanced-search .input-group.inputs-underline input[type="date"]:active,
+.advanced-search .input-group.inputs-underline input[type="date"]:focus,
+.advanced-search .input-group.inputs-underline input[type="time"]:active,
+.advanced-search .input-group.inputs-underline input[type="time"]:focus,
+.advanced-search .input-group.inputs-underline input[type="search"]:active,
+.advanced-search .input-group.inputs-underline input[type="search"]:focus,
+.advanced-search .input-group.inputs-underline input[type="password"]:active,
+.advanced-search .input-group.inputs-underline input[type="password"]:focus,
+.advanced-search .input-group.inputs-underline input[type="number"]:active,
+.advanced-search .input-group.inputs-underline input[type="number"]:focus,
+.advanced-search .input-group.inputs-underline input[type="tel"]:active,
+.advanced-search .input-group.inputs-underline input[type="tel"]:focus,
+.advanced-search .input-group.inputs-underline textarea.form-control:active,
+.advanced-search .input-group.inputs-underline textarea.form-control:focus {
+    box-shadow: none;
+    padding-left: 12px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.15);
+}
+
+.advanced-search .form.inputs-underline input[type="text"]:hover,
+.advanced-search .form.inputs-underline input[type="email"]:hover,
+.advanced-search .form.inputs-underline input[type="date"]:hover,
+.advanced-search .form.inputs-underline input[type="time"]:hover,
+.advanced-search .form.inputs-underline input[type="search"]:hover,
+.advanced-search .form.inputs-underline input[type="password"]:hover,
+.advanced-search .form.inputs-underline input[type="number"]:hover,
+.advanced-search .form.inputs-underline input[type="tel"]:hover,
+.advanced-search .form.inputs-underline textarea.form-control:hover,
+.advanced-search .input-group.inputs-underline input[type="text"]:hover,
+.advanced-search .input-group.inputs-underline input[type="email"]:hover,
+.advanced-search .input-group.inputs-underline input[type="date"]:hover,
+.advanced-search .input-group.inputs-underline input[type="time"]:hover,
+.advanced-search .input-group.inputs-underline input[type="search"]:hover,
+.advanced-search .input-group.inputs-underline input[type="password"]:hover,
+.advanced-search .input-group.inputs-underline input[type="number"]:hover,
+.advanced-search .input-group.inputs-underline input[type="tel"]:hover,
+.advanced-search .input-group.inputs-underline textarea.form-control:hover {
+    box-shadow: none;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+.advanced-search .form.inputs-underline .bootstrap-select,
+.advanced-search .input-group.inputs-underline .bootstrap-select {
+    box-shadow: none;
+}
+
+.advanced-search .form.inputs-underline .bootstrap-select .btn,
+.advanced-search .input-group.inputs-underline .bootstrap-select .btn {
+    box-shadow: none;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.08);
+    color: inherit;
+    padding-left: 0 !important;
+    outline: none !important;
+}
+
+.advanced-search .form.inputs-underline .bootstrap-select .btn:active,
+.advanced-search .form.inputs-underline .bootstrap-select .btn:focus,
+.advanced-search .form.inputs-underline .bootstrap-select .btn:hover,
+.advanced-search .input-group.inputs-underline .bootstrap-select .btn:active,
+.advanced-search .input-group.inputs-underline .bootstrap-select .btn:focus,
+.advanced-search .input-group.inputs-underline .bootstrap-select .btn:hover {
+    box-shadow: none;
+    background-color: transparent;
+    color: inherit;
+}
+
+.advanced-search .form.inputs-underline .bootstrap-select .btn:active:after,
+.advanced-search .form.inputs-underline .bootstrap-select .btn:focus:after,
+.advanced-search .form.inputs-underline .bootstrap-select .btn:hover:after,
+.advanced-search .input-group.inputs-underline .bootstrap-select .btn:active:after,
+.advanced-search .input-group.inputs-underline .bootstrap-select .btn:focus:after,
+.advanced-search .input-group.inputs-underline .bootstrap-select .btn:hover:after {
+    display: none;
+}
+
+.advanced-search .form.inputs-underline .bootstrap-select > .dropdown-toggle.bs-placeholder,
+.advanced-search .input-group.inputs-underline .bootstrap-select > .dropdown-toggle.bs-placeholder {
+    color: rgba(0, 0, 0, 0.5);
+    font-weight: 600;
+}
+
+.advanced-search .form.inputs-underline select,
+.advanced-search .form.inputs-underline select.form-control,
+.advanced-search .input-group.inputs-underline select,
+.advanced-search .input-group.inputs-underline select.form-control {
+    background-color: transparent;
+    box-shadow: none;
+    border: none;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+    color: inherit;
+    padding-left: 0;
+    padding-right: 0;
+    outline: none !important;
+}
+
+.advanced-search .form.inputs-underline select:hover,
+.advanced-search .form.inputs-underline select.form-control:hover,
+.advanced-search .input-group.inputs-underline select:hover,
+.advanced-search .input-group.inputs-underline select.form-control:hover {
+    cursor: pointer;
+}
+
+.advanced-search .form.inputs-underline select option[value=""],
+.advanced-search .form.inputs-underline select.form-control option[value=""],
+.advanced-search .input-group.inputs-underline select option[value=""],
+.advanced-search .input-group.inputs-underline select.form-control option[value=""] {
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.advanced-search .form.inputs-underline::-webkit-input-placeholder,
+.advanced-search .input-group.inputs-underline::-webkit-input-placeholder {
+    color: rgba(0, 0, 0, 0.3);
+}
+
+.advanced-search .form.inputs-underline:-moz-placeholder,
+.advanced-search .input-group.inputs-underline:-moz-placeholder {
+    color: rgba(0, 0, 0, 0.3);
+}
+
+.advanced-search .form.inputs-underline::-moz-placeholder,
+.advanced-search .input-group.inputs-underline::-moz-placeholder {
+    color: rgba(0, 0, 0, 0.3);
+}
+
+.advanced-search .form.inputs-underline:-ms-input-placeholder,
+.advanced-search .input-group.inputs-underline:-ms-input-placeholder {
+    color: rgba(0, 0, 0, 0.3);
+}
+
+.advanced-search .checkboxes li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.advanced-search select,
+.advanced-search select.form-control {
+    border-radius: 0px;
+    -moz-appearance: inherit;
+    -webkit-appearance: none;
+    background-color: #fff;
+    padding: 13px 9px;
+    width: 100%;
+    position: relative;
+    background-repeat: no-repeat;
+    background-position: 96% 50%;
+}
+
+.advanced-search select:hover,
+.advanced-search select.form-control:hover {
+    cursor: pointer;
+}
+
+.advanced-search input[name="daterange-home"],
+.advanced-search input[name="keyword"] {
+    text-align: center;
+    color: rgba(0, 0, 0, 0.5) !important;
+    font-weight: 600 !important;
+}
+
+.applyBtn {
+    margin-bottom: 0.4em;
+    width: 100%;
+    margin-top: 1em;
+    border-radius: 25px !important;
+}
+
+.cancelBtn {
+    width: 100%;
+    border-radius: 25px !important;
+    background-color: transparent;
+    text-decoration: underline;
+    color: #616161;
+}
+
+.advanced-search .search-form.show form {
+    filter: progid: DXImageTransform.Microsoft.Alpha(enabled=false);
+    opacity: 1;
+}
+
+.advanced-search .form.vertical.search-form .row,
+.advanced-search .form.vertical.search-form .container {
+    height: 0;
+}
+
+.advanced-search input[type="text"],
+.advanced-search input[type="email"],
+.advanced-search input[type="date"],
+.advanced-search input[type="time"],
+.advanced-search input[type="search"],
+.advanced-search input[type="password"],
+.advanced-search input[type="number"],
+.advanced-search input[type="tel"],
+.advanced-search textarea.form-control {
+    box-shadow: 0px 0px 0px 2px rgba(0, 0, 0, 0.1), inset 1px 0 5px rgba(0, 0, 0, 0.03);
+    border-radius: 0;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-appearance: none;
+    background-color: #fff;
+    border: none;
+    font-size: 14px;
+    font-weight: 400;
+    outline: none !important;
+    width: 100%;
+    height: inherit;
+    padding: 12px;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+
+.advanced-search .bootstrap-select.open .dropdown-menu {
+    visibility: visible;
+    filter: progid: DXImageTransform.Microsoft.Alpha(enabled=false);
+    opacity: 1;
+    pointer-events: auto;
+    -ms-transform: scale(1);
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+
+.advanced-search .bootstrap-select .btn {
+    border-radius: 0;
+    -webkit-transition: ease 0.3s;
+    transition: ease 0.3s;
+    box-shadow: 0px 0px 0px 2px rgba(0, 0, 0, 0.1), 0px 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    border: none;
+    outline: none !important;
+    text-transform: none;
+    padding: 12px;
+    padding-right: 30px;
+    font-size: 14px;
+    width: 100%;
+}
+
+.advanced-search .bootstrap-select .btn:active,
+.advanced-search .bootstrap-select .btn:focus,
+.advanced-search .bootstrap-select .btn:hover {
+    box-shadow: 0px 0px 0px 2px rgba(0, 0, 0, 0.2), 0px 2px 5px rgba(0, 0, 0, 0.1);
+    top: 0;
+    background-color: #fff;
+    outline: none !important;
+    border: none;
+}
+
+.advanced-search .bootstrap-select .dropdown-menu {
+    border-radius: 0;
+    display: block !important;
+    visibility: hidden;
+    filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=0);
+    opacity: 0;
+    -webkit-transition: ease 0.3s;
+    transition: ease 0.3s;
+    -ms-transform: scale(0.98);
+    -webkit-transform: scale(0.98);
+    transform: scale(0.98);
+    pointer-events: none;
+    padding: 0;
+    border: none;
+    background-clip: none;
+    margin: 0;
+}
+
+.advanced-search .bootstrap-select .dropdown-menu > li > a {
+    padding: 5px 12px;
+}
+
+.bootstrap-select > select {
+    left: 0;
+    height: 0 !important;
+    max-height: 0px;
+    padding: 0 !important;
+}
+
+.advanced-search .form-control {
+    background-color: transparent;
+    height: auto;
+}
+
+.advanced-search .icheckbox {
+    box-shadow: inset 0px 0px 0px 2px #e8e8e8;
+    background-color: #fff;
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    display: inline-block;
+    height: 20px;
+    margin-right: 10px;
+    position: relative;
+    width: 20px;
+    top: -1px;
+}
+
+.advanced-search .icheckbox:after {
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+    filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=0);
+    opacity: 0;
+    text-shadow: none;
+    -webkit-font-smoothing: antialiased;
+    font-family: 'fontawesome';
+    speak: none;
+    font-weight: normal;
+    font-variant: normal;
+    line-height: 1;
+    text-transform: none;
+    color: #1f1f1f;
+    content: "\f00c";
+    position: absolute;
+    line-height: 20px;
+    font-size: 10px;
+    left: 5.5px;
+}
+
+.advanced-search .icheckbox.checked:after {
+    filter: progid: DXImageTransform.Microsoft.Alpha(enabled=false);
+    opacity: 1;
+}
+
+.advanced-search .form .btn[type=submit] {
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.advanced-search .form .btn[type=submit] {
+    margin-top: -2px;
+}
+
+.advanced-search .form.inputs-underline label:not(.no-margin),
+.advanced-search .input-group.inputs-underline label:not(.no-margin) {
+    filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=70);
+    opacity: 0.7;
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 0;
+    position: relative;
+    bottom: -5px;
+}
+
+.advanced-search .form.inputs-underline input[type="text"],
+.advanced-search .form.inputs-underline input[type="email"],
+.advanced-search .form.inputs-underline input[type="date"],
+.advanced-search .form.inputs-underline input[type="time"],
+.advanced-search .form.inputs-underline input[type="search"],
+.advanced-search .form.inputs-underline input[type="password"],
+.advanced-search .form.inputs-underline input[type="number"],
+.advanced-search .form.inputs-underline input[type="tel"],
+.advanced-search .form.inputs-underline textarea.form-control,
+.advanced-search .input-group.inputs-underline input[type="text"],
+.advanced-search .input-group.inputs-underline input[type="email"],
+.advanced-search .input-group.inputs-underline input[type="date"],
+.advanced-search .input-group.inputs-underline input[type="time"],
+.advanced-search .input-group.inputs-underline input[type="search"],
+.advanced-search .input-group.inputs-underline input[type="password"],
+.advanced-search .input-group.inputs-underline input[type="number"],
+.advanced-search .input-group.inputs-underline input[type="tel"],
+.advanced-search .input-group.inputs-underline textarea.form-control {
+    box-shadow: none;
+    border-radius: 0px;
+    -webkit-appearance: none;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.08);
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.advanced-search .form.inputs-underline input[type="text"]:active,
+.advanced-search .form.inputs-underline input[type="text"]:focus,
+.advanced-search .form.inputs-underline input[type="email"]:active,
+.advanced-search .form.inputs-underline input[type="email"]:focus,
+.advanced-search .form.inputs-underline input[type="date"]:active,
+.advanced-search .form.inputs-underline input[type="date"]:focus,
+.advanced-search .form.inputs-underline input[type="time"]:active,
+.advanced-search .form.inputs-underline input[type="time"]:focus,
+.advanced-search .form.inputs-underline input[type="search"]:active,
+.advanced-search .form.inputs-underline input[type="search"]:focus,
+.advanced-search .form.inputs-underline input[type="password"]:active,
+.advanced-search .form.inputs-underline input[type="password"]:focus,
+.advanced-search .form.inputs-underline input[type="number"]:active,
+.advanced-search .form.inputs-underline input[type="number"]:focus,
+.advanced-search .form.inputs-underline input[type="tel"]:active,
+.advanced-search .form.inputs-underline input[type="tel"]:focus,
+.advanced-search .form.inputs-underline textarea.form-control:active,
+.advanced-search .form.inputs-underline textarea.form-control:focus,
+.advanced-search .input-group.inputs-underline input[type="text"]:active,
+.advanced-search .input-group.inputs-underline input[type="text"]:focus,
+.advanced-search .input-group.inputs-underline input[type="email"]:active,
+.advanced-search .input-group.inputs-underline input[type="email"]:focus,
+.advanced-search .input-group.inputs-underline input[type="date"]:active,
+.advanced-search .input-group.inputs-underline input[type="date"]:focus,
+.advanced-search .input-group.inputs-underline input[type="time"]:active,
+.advanced-search .input-group.inputs-underline input[type="time"]:focus,
+.advanced-search .input-group.inputs-underline input[type="search"]:active,
+.advanced-search .input-group.inputs-underline input[type="search"]:focus,
+.advanced-search .input-group.inputs-underline input[type="password"]:active,
+.advanced-search .input-group.inputs-underline input[type="password"]:focus,
+.advanced-search .input-group.inputs-underline input[type="number"]:active,
+.advanced-search .input-group.inputs-underline input[type="number"]:focus,
+.advanced-search .input-group.inputs-underline input[type="tel"]:active,
+.advanced-search .input-group.inputs-underline input[type="tel"]:focus,
+.advanced-search .input-group.inputs-underline textarea.form-control:active,
+.advanced-search .input-group.inputs-underline textarea.form-control:focus {
+    box-shadow: none;
+    padding-left: 12px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.15);
+}
+
+.advanced-search .form.inputs-underline input[type="text"]:hover,
+.advanced-search .form.inputs-underline input[type="email"]:hover,
+.advanced-search .form.inputs-underline input[type="date"]:hover,
+.advanced-search .form.inputs-underline input[type="time"]:hover,
+.advanced-search .form.inputs-underline input[type="search"]:hover,
+.advanced-search .form.inputs-underline input[type="password"]:hover,
+.advanced-search .form.inputs-underline input[type="number"]:hover,
+.advanced-search .form.inputs-underline input[type="tel"]:hover,
+.advanced-search .form.inputs-underline textarea.form-control:hover,
+.advanced-search .input-group.inputs-underline input[type="text"]:hover,
+.advanced-search .input-group.inputs-underline input[type="email"]:hover,
+.advanced-search .input-group.inputs-underline input[type="date"]:hover,
+.advanced-search .input-group.inputs-underline input[type="time"]:hover,
+.advanced-search .input-group.inputs-underline input[type="search"]:hover,
+.advanced-search .input-group.inputs-underline input[type="password"]:hover,
+.advanced-search .input-group.inputs-underline input[type="number"]:hover,
+.advanced-search .input-group.inputs-underline input[type="tel"]:hover,
+.advanced-search .input-group.inputs-underline textarea.form-control:hover {
+    box-shadow: none;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+.advanced-search .form.inputs-underline .bootstrap-select,
+.advanced-search .input-group.inputs-underline .bootstrap-select {
+    box-shadow: none;
+}
+
+.advanced-search .form.inputs-underline .bootstrap-select .btn,
+.advanced-search .input-group.inputs-underline .bootstrap-select .btn {
+    box-shadow: none;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.08);
+    color: inherit;
+    padding-left: 0 !important;
+    outline: none !important;
+}
+
+.advanced-search .form.inputs-underline .bootstrap-select .btn:active,
+.advanced-search .form.inputs-underline .bootstrap-select .btn:focus,
+.advanced-search .form.inputs-underline .bootstrap-select .btn:hover,
+.advanced-search .input-group.inputs-underline .bootstrap-select .btn:active,
+.advanced-search .input-group.inputs-underline .bootstrap-select .btn:focus,
+.advanced-search .input-group.inputs-underline .bootstrap-select .btn:hover {
+    box-shadow: none;
+    background-color: transparent;
+    color: inherit;
+}
+
+.advanced-search .form.inputs-underline .bootstrap-select .btn:active:after,
+.advanced-search .form.inputs-underline .bootstrap-select .btn:focus:after,
+.advanced-search .form.inputs-underline .bootstrap-select .btn:hover:after,
+.advanced-search .input-group.inputs-underline .bootstrap-select .btn:active:after,
+.advanced-search .input-group.inputs-underline .bootstrap-select .btn:focus:after,
+.advanced-search .input-group.inputs-underline .bootstrap-select .btn:hover:after {
+    display: none;
+}
+
+.advanced-search .form.inputs-underline .bootstrap-select > .dropdown-toggle.bs-placeholder,
+.advanced-search .input-group.inputs-underline .bootstrap-select > .dropdown-toggle.bs-placeholder {
+    color: rgba(0, 0, 0, 0.5);
+    font-weight: 600;
+}
+
+.advanced-search .form.inputs-underline select,
+.advanced-search .form.inputs-underline select.form-control,
+.advanced-search .input-group.inputs-underline select,
+.advanced-search .input-group.inputs-underline select.form-control {
+    background-color: transparent;
+    box-shadow: none;
+    border: none;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+    color: inherit;
+    padding-left: 0;
+    padding-right: 0;
+    outline: none !important;
+}
+
+.advanced-search .form.inputs-underline select:hover,
+.advanced-search .form.inputs-underline select.form-control:hover,
+.advanced-search .input-group.inputs-underline select:hover,
+.advanced-search .input-group.inputs-underline select.form-control:hover {
+    cursor: pointer;
+}
+
+.advanced-search .form.inputs-underline select option[value=""],
+.advanced-search .form.inputs-underline select.form-control option[value=""],
+.advanced-search .input-group.inputs-underline select option[value=""],
+.advanced-search .input-group.inputs-underline select.form-control option[value=""] {
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.advanced-search .form.inputs-underline::-webkit-input-placeholder,
+.advanced-search .input-group.inputs-underline::-webkit-input-placeholder {
+    color: rgba(0, 0, 0, 0.3);
+}
+
+.advanced-search .form.inputs-underline:-moz-placeholder,
+.advanced-search .input-group.inputs-underline:-moz-placeholder {
+    color: rgba(0, 0, 0, 0.3);
+}
+
+.advanced-search .form.inputs-underline::-moz-placeholder,
+.advanced-search .input-group.inputs-underline::-moz-placeholder {
+    color: rgba(0, 0, 0, 0.3);
+}
+
+.advanced-search .form.inputs-underline:-ms-input-placeholder,
+.advanced-search .input-group.inputs-underline:-ms-input-placeholder {
+    color: rgba(0, 0, 0, 0.3);
+}
+
+.advanced-search .checkboxes li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.advanced-search select,
+.advanced-search select.form-control {
+    border-radius: 0px;
+    -moz-appearance: inherit;
+    -webkit-appearance: none;
+    background-color: #fff;
+    padding: 13px 9px;
+    width: 100%;
+    position: relative;
+    background-repeat: no-repeat;
+    background-position: 96% 50%;
+}
+
+.advanced-search select:hover,
+.advanced-search select.form-control:hover {
+    cursor: pointer;
+}
+
+input[name="daterange-home"],
+input[name="keyword"] {
+    text-align: center;
+    color: rgba(0, 0, 0, 0.5) !important;
+    font-weight: 600 !important;
+}
+
+.applyBtn {
+    margin-bottom: 0.4em;
+    width: 100%;
+    margin-top: 1em;
+    border-radius: 25px !important;
+}
+
+.cancelBtn {
+    width: 100%;
+    border-radius: 25px !important;
+    background-color: transparent;
+    text-decoration: underline;
+    color: #616161;
+}
+
+.advanced-search .search-form {
+    height: auto;
+    z-index: 100;
+}
+
+.advanced-search .search-form form {
+    border-radius: 4px;
+    box-shadow: none;
+    padding: 20px;
+    display: table;
+    height: 100%;
+    width: 100%;
+}
+
+.advanced-search .search-form .form-group {
+    margin-bottom: 10px;
+    display: table;
+    height: auto;
+    width: 100%;
+    position: relative;
+}
+
+.advanced-search .search-form.inputs-underline input[type="text"],
+.advanced-search .search-form.inputs-underline input[type="email"],
+.advanced-search .search-form.inputs-underline input[type="date"],
+.advanced-search .search-form.inputs-underline input[type="time"],
+.advanced-search .search-form.inputs-underline input[type="search"],
+.advanced-search .search-form.inputs-underline input[type="password"],
+.advanced-search .search-form.inputs-underline input[type="number"],
+.advanced-search .search-form.inputs-underline input[type="tel"],
+.advanced-search .search-form.inputs-underline textarea.form-control {
+    padding-left: 0;
+    color: inherit;
+}
+
+.advanced-search .search-form.inputs-underline input[type="text"]:active,
+.advanced-search .search-form.inputs-underline input[type="text"]:focus,
+.advanced-search .search-form.inputs-underline input[type="email"]:active,
+.advanced-search .search-form.inputs-underline input[type="email"]:focus,
+.advanced-search .search-form.inputs-underline input[type="date"]:active,
+.advanced-search .search-form.inputs-underline input[type="date"]:focus,
+.advanced-search .search-form.inputs-underline input[type="time"]:active,
+.advanced-search .search-form.inputs-underline input[type="time"]:focus,
+.advanced-search .search-form.inputs-underline input[type="search"]:active,
+.advanced-search .search-form.inputs-underline input[type="search"]:focus,
+.advanced-search .search-form.inputs-underline input[type="password"]:active,
+.advanced-search .search-form.inputs-underline input[type="password"]:focus,
+.advanced-search .search-form.inputs-underline input[type="number"]:active,
+.advanced-search .search-form.inputs-underline input[type="number"]:focus,
+.advanced-search .search-form.inputs-underline input[type="tel"]:active,
+.advanced-search .search-form.inputs-underline input[type="tel"]:focus,
+.advanced-search .search-form.inputs-underline textarea.form-control:active,
+.advanced-search .search-form.inputs-underline textarea.form-control:focus {
+    box-shadow: none;
+    padding-left: 8px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.15);
+}
+
+.advanced-search .search-form input[type="text"],
+.advanced-search .search-form input[type="email"],
+.advanced-search .search-form input[type="date"],
+.advanced-search .search-form input[type="time"],
+.advanced-search .search-form input[type="search"],
+.advanced-search .search-form input[type="password"],
+.advanced-search .search-form input[type="number"],
+.advanced-search .search-form input[type="tel"],
+.advanced-search .search-form textarea.form-control {
+    padding: 8px;
+    color: inherit;
+}
+
+.advanced-search .search-form .ui-slider {
+    margin-top: 2px;
+}
+
+.advanced-search .search-form .ui-slider .noUi-base .noUi-handle {
+    border: 2px solid #5AC8FB;
+    background-color: #fff;
+}
+
+.advanced-search .search-form .btn[type="submit"] {
+    border-radius: 100%;
+    position: absolute;
+    width: 45px;
+    height: 45px;
+    bottom: 10px;
+    right: 40px;
+}
+
+.advanced-search .search-form .btn[type="submit"]:before {
+    display: none;
+}
+
+.advanced-search .search-form .btn[type="submit"]:after {
+    border-radius: 100%;
+}
+
+.advanced-search .search-form .btn[type="submit"]:active {
+    top: inherit;
+}
+
+.advanced-search .search-form .btn[type="submit"] i {
+    margin-left: 0;
+    margin-top: -1px;
+    font-size: 23px;
+    line-height: 23px;
+}
+
+.advanced-search .search-form {
+    position: absolute !important;
+    z-index: 20;
+    min-height: 200px;
+    background: white;
+    width: 100%;
+}
+
+.advanced-search .search-form.show form {
+    filter: progid: DXImageTransform.Microsoft.Alpha(enabled=false);
+    opacity: 1;
+}
+
+.advanced-search .form.vertical.search-form .row,
+.advanced-search .form.vertical.search-form .container {
+    height: 0;
+}
