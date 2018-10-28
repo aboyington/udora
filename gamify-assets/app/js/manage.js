@@ -1165,6 +1165,19 @@ var gamifyapp = angular.module('gamifyapp', ['ngRoute', 'httpServices', 'program
                 $scope.message = "Failed to open records";
         }
     };
+    
+    var lSuccess = function (data, status) {
+        var isObj = data instanceof Object;
+        if (!isObj) {
+            $scope.message = "Error occured while processing your request";
+        }
+        else if (data.status == 'error') {
+            $scope.message = data.message;
+        }
+        else {
+            $scope.badge[0].ilevel = data.level;
+        }
+    };
 
     var actionError = function (data, status, headers, config) {
         $scope.message = "Error occured";
@@ -1196,18 +1209,7 @@ var gamifyapp = angular.module('gamifyapp', ['ngRoute', 'httpServices', 'program
         .error(actionError);
     }
 
-    var lSuccess = function (data, status) {
-        var isObj = data instanceof Object;
-        if (!isObj) {
-            $scope.message = "Error occured while processing your request";
-        }
-        else if (data.status == 'error') {
-            $scope.message = data.message;
-        }
-        else {
-            $scope.badge[0].ilevel = data.level;
-        }
-    };
+   
     
    
     function getMaxLevel() {
