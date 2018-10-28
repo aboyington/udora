@@ -8,11 +8,16 @@ class DB
     /* Number of the errors occurred */
     private $errorNO = 0;
 
-    private $dbhost = 'localhost';
+   /* private $dbhost = 'localhost';
 	private $dbusername = 'mediasoftpro';
 	private $dbpassword = '';
-	private $dbname = 'c9';
-	
+	private $dbname = 'c9'; */
+
+	private $dbhost = 'localhost';
+	private $dbusername = 'parad097_udoraev';
+	private $dbpassword = 'XHL7VROHP162';
+	private $dbname = 'parad097_udoraevents';
+
     /* Connect to the database, no db? no party */
     public function __construct()
     {

@@ -25,7 +25,8 @@
             removehandler: '@',
             photoid: '@'
         },
-        templateUrl: "/gamify-assets/app/templates/directive/singlephoto.html",
+       // templateUrl: "/gamify-assets/app/templates/directive/singlephoto.html",
+        templateUrl: "/production/gamify-assets/app/templates/directive/singlephoto.html",
         link: function (scope, element, attrs) {
             scope.isAction = false;
             scope.path = scope.photopath + scope.photoname;

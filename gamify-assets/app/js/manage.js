@@ -1,7 +1,14 @@
+/*
 var templatePath = "/gamify-assets/app/templates/";
 var apiPath = "/gamify-assets/api/";
 var defaultimagePath = "/gamify-assets/images/badge.png";
 var imagedirectoryPath = "/adminudora-assets/badges/";
+*/
+
+var templatePath = "/production/gamify-assets/app/templates/";
+var apiPath = "/production/gamify-assets/api/";
+var defaultimagePath = "/production/gamify-assets/images/badge.png";
+var imagedirectoryPath = "/production/adminudora-assets/badges/";
 
 "use strict";
 var gamifyapp = angular.module('gamifyapp', ['ngRoute', 'httpServices', 'programServices', 'ng.shims.placeholder', 'ng-mediasoft.uploader'])
