@@ -324,7 +324,7 @@ array_walk($enquire_3, 'add_profile_image');
             <button type="button" role="button" class="navbar__gamburger__icon / black / js-toggle-mobile-navbar" aria-label="Toggle Navigation" aria-expanded="false">
                 <span class="lines"></span>
             </button>
-            <a class="navbar-brand" href="{homepage_url_lang}"><img src="assets/img/dark-logo.jpg" class="logotype" alt=""></a>
+            <a class="navbar-brand" href="{homepage_url_lang}"><img src="assets/img/dark-logo.svg" class="logotype" alt=""></a>
         </div>
 <!--         <form class="navbar-form navbar-left navigation-search-form search-form-mini" role="search">
             <div class="line">
@@ -433,7 +433,7 @@ array_walk($enquire_3, 'add_profile_image');
                }
                ?>
 
-        <a class="navbar-brand-mobile" href="{homepage_url_lang}"><img src="assets/img/dark-logo.jpg" class="logotype" alt=""></a>
+        <a class="navbar-brand-mobile" href="{homepage_url_lang}"><img src="assets/img/dark-logo.svg" class="logotype" alt=""></a>
         
         <div class="navbar-right-block">
         <?php

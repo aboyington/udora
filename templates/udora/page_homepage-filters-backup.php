@@ -215,7 +215,7 @@ else
 <div class="left-menu-wrapper wrapper-menu">
     <div class="left-menu">
         <div class="close-mobile-menu"><i class="ion-ios-close-outline"></i></div>
-        <a href="index.html"><img src="assets/img/dark-logo.jpg" alt="" class="logotype"></a>
+        <a href="index.html"><img src="assets/img/dark-logo.svg" alt="" class="logotype"></a>
         <?php
             if ( ! function_exists('get_menu_custom_mobile'))
             {

@@ -103,7 +103,7 @@ class Frontend_Controller extends MY_Controller
         /* [/Load models] */
         
         /* [START] Fetch logo URL */
-        $this->data['website_logo_url'] = 'assets/img/logo.png';
+        $this->data['website_logo_url'] = 'assets/img/logo.svg';
         if(isset($this->data['settings']['website_logo']))
         {
             if(is_numeric($this->data['settings']['website_logo']))
@@ -294,7 +294,7 @@ class Frontend_Controller extends MY_Controller
 
         if(file_exists(FCPATH.'templates/'.$this->data['settings_template'].'/assets/img/logo_'.$this->data['lang_code'].'.png'))
         {
-            $this->data['website_logo_url'] = 'assets/img/logo_'.$this->data['lang_code'].'.png';
+            $this->data['website_logo_url'] = 'assets/img/logo_'.$this->data['lang_code'].'.svg';
         }
 
         
