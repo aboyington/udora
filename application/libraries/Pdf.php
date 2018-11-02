@@ -197,7 +197,7 @@ class Pdf extends Fpdf {
         }
 
         /* [START] Fetch logo URL */
-        $settings['website_logo_url'] = FCPATH . '/templates/' . $settings["template"] . '/assets/img/logo.png';
+        $settings['website_logo_url'] = FCPATH . '/templates/' . $settings["template"] . '/assets/img/logo.svg';
         if (isset($settings['website_logo'])) {
             if (is_numeric($settings['website_logo'])) {
                 $files_logo = $this->CI->file_m->get_by(array('repository_id' => $settings['website_logo']), TRUE);

@@ -76,7 +76,7 @@ class Frontuser_Controller extends MY_Controller
         }
         
         /* [START] Fetch logo URL */
-        $this->data['website_logo_url'] = 'assets/img/logo.png';
+        $this->data['website_logo_url'] = 'assets/img/logo.svg';
         if(isset($this->data['settings']['website_logo']))
         {
             if(is_numeric($this->data['settings']['website_logo']))

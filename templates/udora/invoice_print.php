@@ -24,7 +24,7 @@
       <div class="row">
         <div class="col-md-6">
           <h1>
-            <img src="assets/img/logo.png" />
+            <img src="assets/img/logo.svg" />
           </h1>
         </div>
         <div class="col-md-6 text-right">
