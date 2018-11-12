@@ -1,5 +1,6 @@
 var templatePath = "/gamify-assets/app/templates/";
 var apiPath = "/gamify-assets/api/";
+var codeigniterPath = '/index.php/'; 
 var defaultimagePath = "/gamify-assets/images/badge.png";
 var imagedirectoryPath = "/adminudora-assets/badges/";
 
@@ -1213,7 +1214,9 @@ var gamifyapp = angular.module('gamifyapp', ['ngRoute', 'httpServices', 'program
     
    
     function getMaxLevel() {
-        var url = apiPath + "manage/get_max_level_id.php";
+        // var url = apiPath + "manage/get_max_level_id.php";
+        var url = codeigniterPath + 'gabadges/maxlevel';
+        console.log('url is ' + url);
         gamifyHTTP.actionProcess(url, [{
             id: 0
         }])

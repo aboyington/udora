@@ -9,6 +9,17 @@
 class GamifyBadges_m extends MY_Model {
  
     /*
+      Get Max ID
+    */
+    public function get_max_id() {
+        $maxid = 0;
+        $row = $this->db->query('SELECT MAX(ilevel) AS `level` FROM `ga_badges`')->row();
+        if ($row) {
+            $maxid = $row->level; 
+        }
+        return $maxid;
+    }
+    /*
       * Insert post
     */
     public function insert($fields = array()) {
