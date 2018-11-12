@@ -58,7 +58,7 @@ class testgamify extends CI_Controller
             ))); */
             
         /* load user achievements */
-        $query = new \stdClass;
+        /*$query = new \stdClass;
         $query->userid = 1; // adjust with profile user id or currently logged in userid;
         $result = $this->gamifyuserachievements_m->fetch_records($query);
       
@@ -68,32 +68,10 @@ class testgamify extends CI_Controller
                     'status' => 'success',
                     'query' => $result
             )));
-       
-       
-            
-         
-         /*$data = array();
-         $query = new \stdClass;
-         $query->id = 0;
-         $query->category_id = 0;
-         $query->type = 0;
-         $query->isdeduct = 2;
-         $query->ilevel = 0;
-         $query->ishide = 0;
-         
-         $query->uerid = 1;
-         // print_r($query);
-         //$posts = $this->gamifybadges_m->fetch_records($query);
-         //print_r($posts);
-         
-         // userid to award (badge, reward, point, credit or level)
-         $userid = 1;
-         // item id (id of badge or reward or point or credit or level)
-         $itemid = 8;
-         
-         $result = $this->gamify->trigger_item($userid, $itemid);
+            */
+        
          //print_r($result);
-         //$count_posts = $this->gamifyuserlevels_m->check($query);
+         $count_posts = $this->gamifyuserlevels_m->check($query);
          //print_r($count_posts);
          return $this->output
             ->set_content_type('application/json')
@@ -101,7 +79,7 @@ class testgamify extends CI_Controller
             ->set_output(json_encode(array(
                     'status' => 'success',
                     'query' => $result
-            )));*/
+            )));
     }
 
 }
