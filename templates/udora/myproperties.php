@@ -1,436 +1,445 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <?php _widget('head'); ?>
-    </head>
-    <body class="dashboard-body">
-        <?php _widget('header_menu'); ?>
-        <!-- Dashboard -->
-        <div class="container dashboard-layout">
-            <div class="raw">
-                <div class="col-xs-12">
-                    <div class="col-md-3 hidden-xs hidden-sm pad0">
-                        <?php _widget('custom_login_profile'); ?>
-                        <?php _widget('custom_loginusermenu'); ?>
-                    </div>
-                    <div class="col-xs-12 col-md-9 p-a-tomd-0">
-                        <div class="panel panel-default clearfix">
-<!--                             <div class="panel-heading">DASHBOARD</div> -->
-                            <ul class="nav nav-tabs dashboard__tabs">
-                                <li class="active"><a data-toggle="tab" href="#activities" aria-expanded="true">Activities</a></li>
-                                <li class=""><a data-toggle="tab" href="#friends" aria-expanded="false">Friends</a></li>
-                                <li class=""><a data-toggle="tab" href="#invite" aria-expanded="false">Invite</a></li>
-                            </ul>
-                            <div class="tab-content pt-2 clearfix">
-                                <div id="activities" class="tab-pane fade active in pt-0">
-                                  <!--     Points and Levels    -->
-                                    <div class="col-xs-12 col-md-8 mobile-pad0 mobile-marg-b-20">
-                                        <div class="panel panel-default">
-                                            <div class="panel-heading">Points &amp; Levels</div>
-                                            <p class="points-qt">Your points - <span>7203</span></p>
-                                            <div class="panel-body">
-                                                <div class="progress">
-                                                    <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:20%">
-                                                        <span class="sr-only">70% Complete</span>
-                                                    </div>
-                                                </div>
-                                                <div class="badges-wrapper">
-                                                    <div class="badge-item">
-                                                        <img src="assets/img/dashboard/1.png" alt="" class="img-responsive" width="40px">
-                                                        <p class="header-badge">Newbie</p>
-                                                        <p class="points-badge">100 points</p>
-                                                    </div>
-                                                    <div class="badge-item"> <img src="assets/img/dashboard/7.png" alt="" class="img-responsive" width="40px">
-                                                        <p class="header-badge">Butterfly</p>
-                                                        <p class="points-badge">10k points</p>
-                                                    </div>
-                                                    <div class="badge-item"><img src="assets/img/dashboard/3.png" alt="" class="img-responsive" width="40px">
-                                                        <p class="header-badge">Trendsetter</p>
-                                                        <p class="points-badge">20k points</p>
-                                                    </div>
-                                                    <div class="badge-item"><img src="assets/img/dashboard/4.png" alt="" class="img-responsive" width="40px">
-                                                        <p class="header-badge">Legend</p>
-                                                        <p class="points-badge">40k points</p>
-                                                    </div>
-                                                    <div class="badge-item"><img src="assets/img/dashboard/5.png" alt="" class="img-responsive" width="40px">
-                                                        <p class="header-badge">Elite</p>
-                                                        <p class="points-badge">80k points</p>
-                                                    </div>
+<head>
+    <?php _widget('head'); ?>
+</head>
+<body class="dashboard-body">
+<?php _widget('header_menu'); ?>
+<!-- Dashboard -->
+<div class="container dashboard-layout">
+    <div class="raw">
+        <div class="col-xs-12">
+            <div class="col-md-3 hidden-xs hidden-sm pad0">
+                <?php _widget('custom_login_profile'); ?>
+                <?php _widget('custom_loginusermenu'); ?>
+            </div>
+            <div class="col-xs-12 col-md-9 p-a-tomd-0">
+                <div class="panel panel-default clearfix">
+                    <!--                             <div class="panel-heading">DASHBOARD</div> -->
+                    <ul class="nav nav-tabs dashboard__tabs">
+                        <li class="active"><a data-toggle="tab" href="#activities" aria-expanded="true">Activities</a>
+                        </li>
+                        <li class=""><a data-toggle="tab" href="#friends" aria-expanded="false">Friends</a></li>
+                        <li class=""><a data-toggle="tab" href="#invite" aria-expanded="false">Invite</a></li>
+                    </ul>
+                    <div class="tab-content pt-2 clearfix">
+                        <div id="activities" class="tab-pane fade active in pt-0">
 
-                                                </div>
+                            <!--     Points and Levels    -->
+                            <div class="col-xs-12 mb-4">
+                                <div class="panel panel-default panel-no-border">
+                                    <div class="panel-heading / mb-4">Points &amp; Levels</div>
+                                    <p class="mb-0 weight-300 text-center">Your points - <span class="weight-500">7203</span></p>
+                                    <div class="panel-body">
+                                        <div class="progress">
+                                            <div class="progress-bar" role="progressbar" aria-valuenow="70"
+                                                 aria-valuemin="0" aria-valuemax="100" style="width:20%">
+                                                <span class="sr-only">70% Complete</span>
                                             </div>
                                         </div>
+                                        <div class="badges-wrapper">
+                                            <div class="badge-item">
+                                                <img src="assets/img/dashboard/1.png" alt="" class="img-responsive">
+                                                <div class="badge-item-info">
+                                                    <p class="header-badge">Newbie</p>
+                                                    <p class="points-badge">100 points</p>
+                                                </div>
+                                            </div>
+                                            <div class="badge-item">
+                                                <img src="assets/img/dashboard/7.png" alt="" class="img-responsive">
+                                                <div class="badge-item-info">
+                                                    <p class="header-badge">Butterfly</p>
+                                                    <p class="points-badge">10k points</p>
+                                                </div>
+                                            </div>
+                                            <div class="badge-item">
+                                                <img src="assets/img/dashboard/3.png" alt="" class="img-responsive">
+                                                <div class="badge-item-info">
+                                                    <p class="header-badge">Trendsetter</p>
+                                                    <p class="points-badge">20k points</p>
+                                                </div>
+                                            </div>
+                                            <div class="badge-item">
+                                                <img src="assets/img/dashboard/4.png" alt="" class="img-responsive">
+                                                <div class="badge-item-info">
+                                                    <p class="header-badge">Legend</p>
+                                                    <p class="points-badge">40k points</p>
+                                                </div>
+                                            </div>
+                                            <div class="badge-item">
+                                                <img src="assets/img/dashboard/5.png" alt="" class="img-responsive">
+                                                <div class="badge-item-info">
+                                                    <p class="header-badge">Elite</p>
+                                                    <p class="points-badge">80k points</p>
+                                                </div>
+                                            </div>
+
+                                        </div>
                                     </div>
-                                    <!--   //  Points and Levels End   -->
-                                  
-                                    <!--     Profile Progress    -->
-                                    <div class="col-xs-12 col-md-4 p-a-tomd-0 p-l-md-0 progress-column">
-                                        <div class="panel panel-default">
-                                            <div class="panel-heading">Progress</div>
-                                            <div class="panel-body">
-                                                <p class="profile-compl-header">You are almost there!</p>
-                                                <div class="profile__progress">  
-                                                    <div class="progress profile-completion">
-                                                        <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
-                                                            <span class="sr-only">70% Complete</span>
-                                                        </div>
+                                </div>
+                            </div>
+                            <!--   //  Points and Levels End   -->
+
+
+                            <!--     Activities    -->
+                            <div class="col-xs-12">
+                                <div class="panel panel-default panel-no-border">
+                                    <div class="panel-heading">Activities</div>
+                                    <div id="activities" class="tab-pane fade in active / pt-3 pb-2">
+                                        <div class="activities">
+                                            <div class="activities__col">
+                                                <a href="<?php echo site_url('frontend/myevents/' . $lang_code . '#content'); ?>"
+                                                   class="activities__item">
+
+                                                    <div class="activities__item-icon">
+                                                        <img src="assets/img/icons/dashboard/event.png" alt="Your Events">
                                                     </div>
-                                                </div>
-                                                <a class="add-to-stats" href="#">Profile Completeness +70% </a>
+                                                    <div class="activities__item-info">
+                                                        <span class="activities__item-info__header">
+                                                            <?php echo lang_check('Your Events'); ?>
+                                                        </span>
+                                                        <span class="activities__item-info__desc">
+                                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                                        </span>
+                                                    </div>
+                                                    <span class="activities__item-counter"><?php echo count($estates); ?></span>
+                                                </a>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <!--   //  Profile Progress  End  -->                        
-                                  
-                                    <!--     Activities Buttons    -->
-                                    <div class="col-xs-12 marg20">
-                                        <div class="profile__menu">
-                                            <a href="<?php echo site_url('frontend/myevents/' . $lang_code . '#content'); ?>" class="profile__menu__item">
-                                                <div class="text-center">
-                                                    <i class="ion-ios-personadd-outline profile__menu__item__icon"></i>
-                                                    <div class="profile__menu__item__title"><?php echo lang_check('My Events'); ?></div>
-                                                </div>
-                                                <div class="profile__menu__item__counter"><span><?php echo count($estates); ?></span></div>
-                                            </a> 
-                                            <a href="<?php echo site_url('ffavorites/myfavorites/' . $lang_code . '#content'); ?>" class="profile__menu__item">
-                                                <?php
-                                                $CI = & get_instance();
-                                                $CI->load->model('favorites_m');
-                                                $research = $CI->favorites_m->get_by(array('user_id' => $this->session->userdata('id')));
-                                                ?>
-                                                <div class="text-center">
-                                                    <i class="ion-ios-star-outline profile__menu__item__icon"></i>
-                                                    <div class="profile__menu__item__title"><?php echo lang_check('Favorites'); ?></div>
-                                                </div> 
-                                                <div class="profile__menu__item__counter"><span><?php echo count($research); ?></span></div>
-                                            </a>
-                                            <?php if (config_db_item('events_qr_confirmation') === TRUE): ?>
-                                                <a href="<?php echo site_url('frontend/myattended/' . $lang_code . '#content'); ?>" class="profile__menu__item">
+                                            <div class="activities__col">
+                                                <a href="<?php echo site_url('ffavorites/myfavorites/' . $lang_code . '#content'); ?>"
+                                                   class="activities__item">
                                                     <?php
-                                                    $CI = & get_instance();
+                                                    $CI = &get_instance();
+                                                    $CI->load->model('favorites_m');
+                                                    $research = $CI->favorites_m->get_by(array('user_id' => $this->session->userdata('id')));
+                                                    ?>
+                                                    <div class="activities__item-icon">
+                                                        <img src="assets/img/icons/dashboard/star.png" alt="Favorites">
+                                                    </div>
+                                                    <div class="activities__item-info">
+                                                        <span class="activities__item-info__header">
+                                                            <?php echo lang_check('Favorites'); ?>
+                                                        </span>
+                                                        <span class="activities__item-info__desc">
+                                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                                        </span>
+                                                    </div>
+                                                    <span class="activities__item-counter"><?php echo count($research); ?></span>
+                                                </a>
+                                            </div>
+                                            <div class="activities__col">
+                                                <a href="<?php echo site_url('frontend/myattended/' . $lang_code . '#content'); ?>"
+                                                   class="activities__item">
+                                                    <?php
+                                                    $CI = &get_instance();
                                                     $CI->load->model('userattend_m');
                                                     $attended = $CI->userattend_m->get_by(array('user_id' => $this->session->userdata('id')));
                                                     ?>
-                                                    <div class="text-center">
-                                                        <i class="ion-ios-location-outline profile__menu__item__icon"></i>
-                                                        <div class="profile__menu__item__title"><?php echo lang_check('Attended'); ?></div>
+                                                    <div class="activities__item-icon">
+                                                        <img src="assets/img/icons/dashboard/places.png" alt="Attended">
                                                     </div>
-                                                    <div class="profile__menu__item__counter"><span><?php echo count($attended); ?></span></div>
+                                                    <div class="activities__item-info">
+                                                        <span class="activities__item-info__header">
+                                                            <?php echo lang_check('Attended'); ?>
+                                                        </span>
+                                                        <span class="activities__item-info__desc">
+                                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                                        </span>
+                                                    </div>
+                                                    <span class="activities__item-counter"><?php echo count($attended); ?></span>
                                                 </a>
-                                            <?php endif; ?>                                          
-                                            <a class="profile__menu__item">
-                                                <div class="text-center">
-                                                    <i class="ion-ios-chatbubble-outline profile__menu__item__icon"></i>
-                                                    <div class="profile__menu__item__title">Feedback</div>
-                                                </div>
-                                                <div class="profile__menu__item__counter">
-                                                    <span>23</span>
-                                                </div>
-                                            </a>
+                                            </div>
                                             <?php
-                                            $CI = & get_instance();
+                                            $CI = &get_instance();
                                             $CI->load->model('reviews_m');
                                             $reviews = $CI->reviews_m->get_joined(array('user_id' => $this->session->userdata('id')));
                                             ?>
-                                            <a class="profile__menu__item">
-                                                <div class="text-center">
-                                                    <i class="ion-ios-chatboxes-outline profile__menu__item__icon"></i>
-                                                    <div class="profile__menu__item__title"><?php echo lang_check('Comments'); ?></div>
-                                                </div>
-                                                <div class="profile__menu__item__counter"><span><?php echo count($reviews); ?></span></div>
-                                            </a>
-                                          
-                                            <a class="profile__menu__item">
-                                                <div class="text-center">
-                                                    <i class="ion-ios-help-outline profile__menu__item__icon"></i>
-                                                    <div class="profile__menu__item__title">Q & A</div>
-                                                </div>
-                                                <div class="profile__menu__item__counter"><span>23</span></div>
-                                            </a>        
-                                            <a class="profile__menu__item">
-                                                <div class="text-center">
-                                                    <i class="ion-ios-compose-outline profile__menu__item__icon"></i>
-                                                    <div class="profile__menu__item__title">Surveys</div>
-                                                </div>
-                                                <div class="profile__menu__item__counter"><span>8</span></div>
-                                            </a>
-                                            <a class="profile__menu__item">
-                                                <div class="text-center">
-                                                    <i class="ion-ios-pricetag-outline profile__menu__item__icon"></i>
-                                                    <div class="profile__menu__item__title">Badges</div>
-                                                </div>
-                                                <div class="profile__menu__item__counter"><span>182</span></div>
-                                            </a>     
-                                        </div>
-                                    </div>
-                                    <!--    // Activities Buttons End   -->
-                                  
-                                    <!--     Activities    -->
-                                    <div class="col-xs-12">
-                                      <div class="panel panel-default">
-                                       <div class="panel-heading">Activities</div>
-                                        <div id="activities" class="tab-pane fade in active">
-                                            <div class="col-sm-1">
-                                                <div class="activities__line"></div>
-                                            </div>
-                                            <div class="col-sm-11 activities__items">
-                                                <div class="activities__item">
-                                                    <a class="activities__item--header">John Walker</a>
-                                                    <br>
-                                                    <small>13 hours ago</small>
-                                                    <p>Attend King Street Eats</p>
-<!--                                                     <div class="col-sm-4 pad0">
-                                                        <ul class="list-inline">
-                                                            <li>
-                                                                <a href="#"><span><i class="ion-thumbsup"></i> 33333</span></a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="#">
-                                                                    <span><i class="ion-ios-chatbubble"></i> 2322</span>
-                                                                </a>
-
-                                                            </li>
-                                                        </ul>
-                                                    </div> 
-                                                    <div class="col-sm-4 pad0">
-                                                        <span>33 views</span>
+                                            <div class="activities__col">
+                                                <a href="javascript:;" class="activities__item">
+                                                    <div class="activities__item-icon">
+                                                        <img src="assets/img/icons/dashboard/feedback.png" alt="Feedback">
                                                     </div>
--->
-                                                </div>
-                                                <div class="activities__item">
-                                                    <a class="activities__item--header">Michael Young</a>
-                                                    <br>
-                                                    <small>Tuesday at 7:00 pm</small>
-                                                    <p>Attend Hamilton  Festival of Friends</p>
-                                                    <small>Wednesday 03/07/2018</small>
-                                                    <p>Level-up 500 points</p>
-                                                </div>
-                                                <div class="activities__item">
-                                                    <a class="activities__item--header">FTW World</a>
-                                                    <br>
-                                                    <small>Tuesday at 7:00pm</small>
-                                                    <p>Checked in: Red Bull challenge - Toronto </p>
-                                                    <small>Wednesday 03/07/2018</small>
-                                                    <p>Challenge Accepted badge awarded</p>
-                                                </div>
+                                                    <div class="activities__item-info">
+                                                        <span class="activities__item-info__header">
+                                                            <?php echo lang_check('Feedback'); ?>
+                                                        </span>
+                                                        <span class="activities__item-info__desc">
+                                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                                        </span>
+                                                    </div>
+                                                    <span class="activities__item-counter"><?php echo count($reviews); ?></span>
+                                                </a>
+                                            </div>
+                                            <div class="activities__col">
+                                                <a href="javascript:;" class="activities__item">
+                                                    <div class="activities__item-icon">
+                                                        <img src="assets/img/icons/dashboard/survey.png" alt="Survey">
+                                                    </div>
+                                                    <div class="activities__item-info">
+                                                        <span class="activities__item-info__header">
+                                                            <?php echo lang_check('Surveys'); ?>
+                                                        </span>
+                                                        <span class="activities__item-info__desc">
+                                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                                        </span>
+                                                    </div>
+<!--                                                    <span class="activities__item-counter">5</span>-->
+                                                </a>
+                                            </div>
+                                            <div class="activities__col">
+                                                <a href="javascript:;" class="activities__item">
+                                                    <div class="activities__item-icon">
+                                                        <img src="assets/img/icons/dashboard/reward.png" alt="Rewards">
+                                                    </div>
+                                                    <div class="activities__item-info">
+                                                        <span class="activities__item-info__header">
+                                                            <?php echo lang_check('Rewards'); ?>
+                                                        </span>
+                                                        <span class="activities__item-info__desc">
+                                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                                        </span>
+                                                    </div>
+<!--                                                    <span class="activities__item-counter">5</span>-->
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
-                                  </div>
-                                  <!--   //  Activities  End  -->
-                                  
                                 </div>
-                                <div id="friends" class="tab-pane fade friends-wrap pt-0">
-                                    <div class="friend__item">
-                                        <div class="col-xs-3 col-sm-2 friend__item__img">
-                                            <img src="assets/img/dashboard/jwalker.jpg" alt="">
-<!--                                             <span>
-                                                <button class="btn">Follow</button>
-                                            </span> -->
-                                        </div>
-                                        <div class="col-xs-8 col-sm-5 col-md-4 friend__item__info">
-                                            <a href="#" class="friend__item__info__title">John Walker</a>
-                                            <ul class="list-inline friend__item__info__icons">
-                                                <li>
+                            </div>
+                            <!--   //  Activities  End  -->
+
+                        </div>
+                        <div id="friends" class="tab-pane fade friends-wrap pt-0">
+                            <div class="friend__item">
+                                <div class="col-xs-3 col-sm-2 friend__item__img">
+                                    <img src="assets/img/dashboard/jwalker.jpg" alt="">
+                                    <!--                                             <span>
+                                                                                    <button class="btn">Follow</button>
+                                                                                </span> -->
+                                </div>
+                                <div class="col-xs-8 col-sm-5 col-md-4 friend__item__info">
+                                    <a href="#" class="friend__item__info__title">John Walker</a>
+                                    <ul class="list-inline friend__item__info__icons">
+                                        <li>
                                                     <span class="icon">
-                                                        <img src="assets/img/dashboard/badges/just-getting-started.png" alt="Just getting started">
+                                                        <img src="assets/img/dashboard/badges/just-getting-started.png"
+                                                             alt="Just getting started">
                                                     </span>
-                                                </li>
-                                                <li>
+                                        </li>
+                                        <li>
                                                     <span class="icon">
-                                                        <img src="assets/img/dashboard/badges/picking-up-steam.png" alt="Picking up steam">
+                                                        <img src="assets/img/dashboard/badges/picking-up-steam.png"
+                                                             alt="Picking up steam">
                                                     </span>
-                                                </li>
-                                                <li>
+                                        </li>
+                                        <li>
                                                     <span class="icon">
-                                                        <img src="assets/img/dashboard/badges/challenger.png" alt="Challenger">
+                                                        <img src="assets/img/dashboard/badges/challenger.png"
+                                                             alt="Challenger">
                                                     </span>
-                                                </li>
-                                                <li>
+                                        </li>
+                                        <li>
                                                     <span class="icon">
-                                                        <img src="assets/img/dashboard/badges/challenge-accepted.png" alt="Challenge accepted">
+                                                        <img src="assets/img/dashboard/badges/challenge-accepted.png"
+                                                             alt="Challenge accepted">
                                                     </span>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-xs-12 col-sm-4 col-sm-offset-1">
-                                            <ul class="list-unstyled">
-                                                <li>
-                                                    <span>Points: 350</span>
-                                                </li>
-                                                <li>
-                                                    <span>Member Since: Feb. 2018</span>
-                                                </li>
-                                                <li>
-                                                    <span>Member Status: Newbie</span>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="friend__item">
-                                        <div class="col-xs-3 col-sm-2 friend__item__img">
-                                            <img src="assets/img/dashboard/mlee.jpg" alt="">
-<!--                                             <span>
-                                                <button class="btn">Follow</button>
-                                            </span> -->
-                                        </div>
-                                        <div class="col-xs-8 col-sm-5 col-md-4 friend__item__info">
-                                            <a href="#" class="friend__item__info__title">Michael Young</a>
-                                            <ul class="list-inline friend__item__info__icons">
-                                                <li>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-12 col-sm-4 col-sm-offset-1">
+                                    <ul class="list-unstyled">
+                                        <li>
+                                            <span>Points: 350</span>
+                                        </li>
+                                        <li>
+                                            <span>Member Since: Feb. 2018</span>
+                                        </li>
+                                        <li>
+                                            <span>Member Status: Newbie</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="friend__item">
+                                <div class="col-xs-3 col-sm-2 friend__item__img">
+                                    <img src="assets/img/dashboard/mlee.jpg" alt="">
+                                    <!--                                             <span>
+                                                                                    <button class="btn">Follow</button>
+                                                                                </span> -->
+                                </div>
+                                <div class="col-xs-8 col-sm-5 col-md-4 friend__item__info">
+                                    <a href="#" class="friend__item__info__title">Michael Young</a>
+                                    <ul class="list-inline friend__item__info__icons">
+                                        <li>
                                                     <span class="icon">
-                                                        <img src="assets/img/dashboard/badges/just-getting-started.png" alt="Just getting started">
+                                                        <img src="assets/img/dashboard/badges/just-getting-started.png"
+                                                             alt="Just getting started">
                                                     </span>
-                                                </li>
-                                                <li>
+                                        </li>
+                                        <li>
                                                     <span class="icon">
-                                                        <img src="assets/img/dashboard/badges/picking-up-steam.png" alt="Picking up steam">
+                                                        <img src="assets/img/dashboard/badges/picking-up-steam.png"
+                                                             alt="Picking up steam">
                                                     </span>
-                                                </li>
-                                                <li>
+                                        </li>
+                                        <li>
                                                     <span class="icon">
-                                                        <img src="assets/img/dashboard/badges/challenge-accepted.png" alt="Challenge accepted">
+                                                        <img src="assets/img/dashboard/badges/challenge-accepted.png"
+                                                             alt="Challenge accepted">
                                                     </span>
-                                                </li>
-                                                <li>
+                                        </li>
+                                        <li>
                                                     <span class="icon">
-                                                        <img src="assets/img/dashboard/badges/perseverance.png" alt="Perseverance">
+                                                        <img src="assets/img/dashboard/badges/perseverance.png"
+                                                             alt="Perseverance">
                                                     </span>
-                                                </li>
-                                                <li>
+                                        </li>
+                                        <li>
                                                     <span class="icon">
-                                                        <img src="assets/img/dashboard/badges/natural.png" alt="Natural">
+                                                        <img src="assets/img/dashboard/badges/natural.png"
+                                                             alt="Natural">
                                                     </span>
-                                                </li>
-                                                <li>
+                                        </li>
+                                        <li>
                                                     <span class="icon">
-                                                        <img src="assets/img/dashboard/badges/mastery.png" alt="Mastery">
+                                                        <img src="assets/img/dashboard/badges/mastery.png"
+                                                             alt="Mastery">
                                                     </span>
-                                                </li>
-                                                <li>
+                                        </li>
+                                        <li>
                                                     <span class="icon">
-                                                        <img src="assets/img/dashboard/badges/mastery2.png" alt="Mastery level 2">
+                                                        <img src="assets/img/dashboard/badges/mastery2.png"
+                                                             alt="Mastery level 2">
                                                     </span>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-xs-12 col-sm-4 col-sm-offset-1">
-                                            <ul class="list-unstyled">
-                                                <li>
-                                                    <span>Points: 10500</span>
-                                                </li>
-                                                <li>
-                                                    <span>Member Since: Sept. 2016</span>
-                                                </li>
-                                                <li>
-                                                    <span>Member Status: Butterfly</span>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="friend__item">
-                                        <div class="col-xs-3 col-sm-2 friend__item__img">
-                                            <img src="assets/img/dashboard/ftworld.jpg" alt="">
-<!--                                             <span>
-                                                <button class="btn">Follow</button>
-                                            </span> -->
-                                        </div>
-                                        <div class="col-xs-8 col-sm-5 col-md-4 friend__item__info">
-                                            <a href="#" class="friend__item__info__title">FTW World</a>
-                                            <ul class="list-inline friend__item__info__icons">
-                                                <li>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-12 col-sm-4 col-sm-offset-1">
+                                    <ul class="list-unstyled">
+                                        <li>
+                                            <span>Points: 10500</span>
+                                        </li>
+                                        <li>
+                                            <span>Member Since: Sept. 2016</span>
+                                        </li>
+                                        <li>
+                                            <span>Member Status: Butterfly</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="friend__item">
+                                <div class="col-xs-3 col-sm-2 friend__item__img">
+                                    <img src="assets/img/dashboard/ftworld.jpg" alt="">
+                                    <!--                                             <span>
+                                                                                    <button class="btn">Follow</button>
+                                                                                </span> -->
+                                </div>
+                                <div class="col-xs-8 col-sm-5 col-md-4 friend__item__info">
+                                    <a href="#" class="friend__item__info__title">FTW World</a>
+                                    <ul class="list-inline friend__item__info__icons">
+                                        <li>
                                                     <span class="icon">
                                                         <img src="assets/img/dashboard/badges/guru.png" alt="Guru">
                                                     </span>
-                                                </li>
-                                                <li>
+                                        </li>
+                                        <li>
                                                     <span class="icon">
-                                                        <img src="assets/img/dashboard/badges/incredible-inspiration.png" alt="Incredible inspiration">
+                                                        <img src="assets/img/dashboard/badges/incredible-inspiration.png"
+                                                             alt="Incredible inspiration">
                                                     </span>
-                                                </li>
-                                                <li>
+                                        </li>
+                                        <li>
                                                     <span class="icon">
-                                                        <img src="assets/img/dashboard/badges/power-hour.png" alt="Power hour">
+                                                        <img src="assets/img/dashboard/badges/power-hour.png"
+                                                             alt="Power hour">
                                                     </span>
-                                                </li>
-                                                <li>
+                                        </li>
+                                        <li>
                                                     <span class="icon">
                                                         <img src="assets/img/dashboard/badges/sensei.png" alt="Sensei">
                                                     </span>
-                                                </li>
-                                                <li>
+                                        </li>
+                                        <li>
                                                     <span class="icon">
-                                                        <img src="assets/img/dashboard/badges/going-transonic.png" alt="Going transonic">
+                                                        <img src="assets/img/dashboard/badges/going-transonic.png"
+                                                             alt="Going transonic">
                                                     </span>
-                                                </li>
-                                                <li>
+                                        </li>
+                                        <li>
                                                     <span class="icon">
-                                                        <img src="assets/img/dashboard/badges/going-supersonic.png" alt="Going supersonic">
+                                                        <img src="assets/img/dashboard/badges/going-supersonic.png"
+                                                             alt="Going supersonic">
                                                     </span>
-                                                </li>
-                                                <li>
+                                        </li>
+                                        <li>
                                                     <span class="icon">
-                                                        <img src="assets/img/dashboard/badges/ludicrous-streak.png" alt="Ludicrous streak">
+                                                        <img src="assets/img/dashboard/badges/ludicrous-streak.png"
+                                                             alt="Ludicrous streak">
                                                     </span>
-                                                </li>
-                                                <li>
+                                        </li>
+                                        <li>
                                                     <span class="icon">
-                                                        <img src="assets/img/dashboard/badges/atomic-clockwork.png" alt="Atomic">
+                                                        <img src="assets/img/dashboard/badges/atomic-clockwork.png"
+                                                             alt="Atomic">
                                                     </span>
-                                                </li>
-                                                <li>
+                                        </li>
+                                        <li>
                                                     <span class="icon">
-                                                        <img src="assets/img/dashboard/badges/1000-kelvin.png" alt="1000 kelvin">
+                                                        <img src="assets/img/dashboard/badges/1000-kelvin.png"
+                                                             alt="1000 kelvin">
                                                     </span>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-xs-12 col-sm-4 col-sm-offset-1">
-                                            <ul class="list-unstyled">
-                                                <li>
-                                                    <span>Points: 65200</span>
-                                                </li>
-                                                <li>
-                                                    <span>Member Since: Apr. 2015</span>
-                                                </li>
-                                                <li>
-                                                    <span>Member Status: Legend</span>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
+                                        </li>
+                                    </ul>
                                 </div>
-
-                                <div id="invite" class="tab-pane fade">
-                                    <div class="container">
-                                        <div class="row pt-3">
-                                            <div class="col-sm-7 col-md-6 mx-auto text-center float-none">
-                                                <div class="row">
-                                                    <div class="col-xs-10 col-sm-12 mx-auto float-none">
-                                                        <h5 class="title-1 mb-1">Earn points when a friend you invited joins Udora.</h5>
-                                                        <p class="mb-4">Or add a User Code to make new connections.</p>
-
-                                                        <div class="promocode mb-5">
-                                                            <span class="promocode__title">Your User Code</span>
-                                                            <span class="promocode__code">533 000 4703</span>
-                                                        </div>
-
-<!--                                                         <h5 class="title-1 mb-1">Earn points when a new friend you invited joins the app.</h5> -->
-                                                        <p class="mb-2">If your friend is already on Udora, 
-        just enter their User Code below:</p>
-                                                    </div>
-                                                </div>
-                                                <input type="text" placeholder="Enter a friends User Code:" class="form-control style-1 mb-2">
-                                                <button class="btn accent-button w-100 weight-400">Invite</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <h5></h5>
+                                <div class="col-xs-12 col-sm-4 col-sm-offset-1">
+                                    <ul class="list-unstyled">
+                                        <li>
+                                            <span>Points: 65200</span>
+                                        </li>
+                                        <li>
+                                            <span>Member Since: Apr. 2015</span>
+                                        </li>
+                                        <li>
+                                            <span>Member Status: Legend</span>
+                                        </li>
+                                    </ul>
                                 </div>
-
                             </div>
                         </div>
-<!--                         <?php if (file_exists(APPPATH . 'controllers/admin/packages.php')): ?> 
+
+                        <div id="invite" class="tab-pane fade">
+                            <div class="container">
+                                <div class="row pt-3">
+                                    <div class="col-sm-7 col-md-6 mx-auto text-center float-none">
+                                        <div class="row">
+                                            <div class="col-xs-10 col-sm-12 mx-auto float-none">
+                                                <h5 class="title-1 mb-1">Earn points when a friend you invited joins
+                                                    Udora.</h5>
+                                                <p class="mb-4">Or add a User Code to make new connections.</p>
+
+                                                <div class="promocode mb-5">
+                                                    <span class="promocode__title">Your User Code</span>
+                                                    <span class="promocode__code">533 000 4703</span>
+                                                </div>
+
+                                                <!--                                                         <h5 class="title-1 mb-1">Earn points when a new friend you invited joins the app.</h5> -->
+                                                <p class="mb-2">If your friend is already on Udora,
+                                                    just enter their User Code below:</p>
+                                            </div>
+                                        </div>
+                                        <input type="text" placeholder="Enter a friends User Code:"
+                                               class="form-control style-1 mb-2">
+                                        <button class="btn accent-button w-100 weight-400">Invite</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <h5></h5>
+                        </div>
+
+                    </div>
+                </div>
+                <!--                         <?php if (file_exists(APPPATH . 'controllers/admin/packages.php')): ?>
                             <div class="recent-activity mobile-pad0 marg20">
                                 <div class="panel panel-default">
                                     <div class="panel-heading">{lang_Mypackage}</div>
@@ -457,17 +466,17 @@
                                                             </thead>
                                                             <tbody>
                                                                 <?php
-                                                                if (count($packages)): foreach ($packages as $package):
-                                                                        if (!empty($user['package_id']) &&
-                                                                                $user['package_id'] != $package->id &&
-                                                                                strtotime($user['package_last_payment']) >= time() &&
-                                                                                $packages_days[$package->id] > 0 &&
-                                                                                $packages_price[$user['package_id']] > 0) {
-                                                                            continue;
-                                                                        } else if (!empty($package->user_type) && $package->user_type != 'USER' && $user['package_id'] != $package->id) {
-                                                                            continue;
-                                                                        }
-                                                                        ?>
+                    if (count($packages)): foreach ($packages as $package):
+                        if (!empty($user['package_id']) &&
+                            $user['package_id'] != $package->id &&
+                            strtotime($user['package_last_payment']) >= time() &&
+                            $packages_days[$package->id] > 0 &&
+                            $packages_price[$user['package_id']] > 0) {
+                            continue;
+                        } else if (!empty($package->user_type) && $package->user_type != 'USER' && $user['package_id'] != $package->id) {
+                            continue;
+                        }
+                        ?>
                                                                         <tr>
                                                                             <td><?php echo $package->id; ?></td>
                                                                             <td>
@@ -489,13 +498,13 @@
                                                                             <td><?php echo $package->auto_activation ? '<i class="icon-ok"></i>' : ''; ?></td>
                                                                             <td>
                                                                                 <?php
-                                                                                echo $package->package_days;
+                        echo $package->package_days;
 
-                                                                                if ($user['package_id'] == $package->id && $package->package_price > 0 &&
-                                                                                        strtotime($user['package_last_payment']) >= time() && $packages_days[$package->id] > 0) {
-                                                                                    echo ', ' . $user['package_last_payment'];
-                                                                                }
-                                                                                ?>
+                        if ($user['package_id'] == $package->id && $package->package_price > 0 &&
+                            strtotime($user['package_last_payment']) >= time() && $packages_days[$package->id] > 0) {
+                            echo ', ' . $user['package_last_payment'];
+                        }
+                        ?>
                                                                             </td>
                                                                             <td>
                                                                                 <?php echo $package->num_listing_limit ?>
@@ -541,27 +550,27 @@
                                 </div>
                             </div>
                         <?php endif; ?> -->
-                    </div>
-                </div>
             </div>
         </div>
+    </div>
+</div>
 
-                    <?php _widget('custom_footer_menu');?>
-                        <?php _widget('custom_footer'); ?>
-                        <?php _widget('custom_javascript'); ?>
-        <script>
-            /*
-             * http://fooplugins.github.io/FooTable/docs/getting-started.html
-             */
+<?php _widget('custom_footer_menu'); ?>
+<?php _widget('custom_footer'); ?>
+<?php _widget('custom_javascript'); ?>
+<script>
+    /*
+     * http://fooplugins.github.io/FooTable/docs/getting-started.html
+     */
 
-            $('document').ready(function () {
-                $('.footable').footable({
-                    "filtering": {
-                        "enabled": false
-                    },
-                });
-            })
+    $('document').ready(function () {
+        $('.footable').footable({
+            "filtering": {
+                "enabled": false
+            },
+        });
+    })
 
-        </script>
-    </body>
+</script>
+</body>
 </html>
