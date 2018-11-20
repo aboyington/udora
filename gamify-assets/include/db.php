@@ -18,7 +18,7 @@ class DB
 	private $dbpassword = 'XHL7VROHP162';
 	private $dbname = 'parad097_udoraevents';
 
-    /* Connect to the database, no db? no party */
+   	/* Connect to the database, no db? no party */
     public function __construct()
     {
         try

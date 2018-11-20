@@ -78,8 +78,8 @@ array_walk($enquire_3, 'add_profile_image');
             <div class="col-xs-12 col-md-6 col-md-offset-3 border-login-account">
                 <div class="login-form login-on-page" id="login-modal">
                     <div class="col-xs-12">
-                    <!-- <h3><?php echo lang_check('Hello');?></h3> -->
-                    <h4 class="sub-title text-left"><?php echo lang_check('Let\'s make today a great day!'); ?></h4>
+                        <h3 class="text-center / mb-1"><?php echo lang_check('Live Love Life'); ?></h3>
+                        <p class="sub-title / mb-3">{lang_Sign in slogan}</h4>
                     </div>                           
                     <?php echo form_open(NULL, array('class' => 'form-horizontal form-additional widget-content clearfix', 'id'=>'popup_form_login')) ?>
                     <div class="login-inputs col-xs-12 col-lg-12 alerts-box">
@@ -100,7 +100,7 @@ array_walk($enquire_3, 'add_profile_image');
                         </div>
                     </div>
                     <div class="col-xs-12 mb-2 mb-sm-3">
-                        <button class="button-login col-xs-12 col-lg-12" type="submit"><?php echo lang_check('Login'); ?>
+                        <button class="button-login col-xs-12 col-lg-12" type="submit">{lang_Sign in}
                             <div class="spinner hidden ajax-indicator">
                                 <div class="bounce1"></div>
                                 <div class="bounce2"></div>
@@ -111,7 +111,7 @@ array_walk($enquire_3, 'add_profile_image');
                     <?php echo form_close() ?>
                     <div class="col-xs-12 mb-1 mb-sm-2">
                         <p class="separate mb-0">
-                            <span class="separate-content"><?php echo lang_check('Or login with email'); ?></span>
+                            <span class="separate-content"><?php echo lang_check('OR'); ?></span>
                         </p>
                     </div>
                     <div class="col-xs-12 mb-3 mb-sm-4">
@@ -126,11 +126,11 @@ array_walk($enquire_3, 'add_profile_image');
                             </a>
                         <?php endif; ?>
                     </div>
-                    <br style="clear: both;"/>
+                    <p class="text-sm mb-3 pl-2 pr-2">{lang_By continuing}</p>
                     <div class="login-footer flex">
-                    <div class="info mr-2"><?php echo lang_check('Don\'t have and account?');?></div>
+                    <div class="info mr-2"><?php echo lang_check('Don\'t have an account?');?></div>
                         <div class="action d-flex align-items-center">
-                            <button class="btn button-login-inv js-toggle-register-popup"><?php echo lang_check('Sign up');?></button>
+                            <button class="btn button-login-inv js-toggle-register-popup">{lang_Try it free}</a>
                         </div>
                     </div>
                 </div> 
@@ -143,27 +143,25 @@ array_walk($enquire_3, 'add_profile_image');
             <div class="col-xs-12 col-md-6 col-md-offset-3 border-create-account">
                 <div class="login-form create-account-form create-account-page">
                     <div class="col-xs-12">
-                    <h3><?php echo lang_check('Create An Account');?></h3>
-                    <p class="sub-title text-left"><?php echo lang_check('Please fill in the below form to create an account.'); ?></p>
+                        <h3 class="text-center / mb-1">{lang_Welcome to Udora}</h3>
+                        <p class="sub-title / mb-3">{lang_Sign up slogan}</p>
                     </div>
                     <?php echo form_open(NULL, array('class' => 'form-horizontal form-additional widget-content clearfix', 'id'=>'popup_form_register')) ?>
                         <div class="login-inputs col-xs-12 col-lg-12 alerts-box">
                         </div>
                         <div class="login-inputs col-xs-12 col-lg-12 mb-1 mb-sm-2">
                             <?php if (config_db_item('register_reduced') == FALSE): ?>
-                                <?php echo form_input('username', set_value('username', ''), 'class="col-xs-12 col-lg-12" id="inputUsername2" placeholder="' . lang('Username') . '"') ?>
+                                <?php echo form_input('username', set_value('username', ''), 'class="w-100" id="inputUsername2" placeholder="' . lang('Username') . '"') ?>
                             <?php endif; ?>
-                            <?php echo form_input('mail', set_value('mail', ''), 'class="col-xs-12 col-lg-12" id="inputMail" placeholder="' . lang('Email') . '"') ?>
-                            <?php echo form_password('password', set_value('password', ''), 'class="col-xs-12 col-lg-12" id="inputPassword2" placeholder="' . lang('Password') . '" autocomplete="off"') ?>
-                           <?php echo form_password('password_confirm', 'auto', 'class="form-control hidden" id="inputPasswordConfirm" placeholder="'.lang('Confirmpassword').'" autocomplete="off"')?>
-                                <div class="row">
-                                <div class="col-xs-8">
-                                <?php echo form_input('name_surname', set_value('name_surname', ''), 'class="col-xs-12 col-lg-12" id="inputNameSurname" placeholder="' . lang('FirstLast') . '"') ?>
-                                </div>
-                                <div class="col-xs-4 hint-box">
-                                <?php echo form_input('age', set_value('age', ''), 'class="col-xs-12 col-lg-12" id="inputAge" placeholder="' . lang_check('Age') . '"') ?>
-                                    <span class="hintlabel hint--top-left" aria-label="<?php echo lang_check('To sign up you must be 13 or older. Other people won\'t see your birthday');?>"><i class="fa fa-question" aria-hidden="true"></i></span>
-                                </div>
+                            <?php echo form_input('name_surname', set_value('name_surname', ''), 'class="col-xs-12 col-lg-12" id="inputNameSurname" placeholder="' . lang('FirstLast') . '"') ?>
+                            <?php echo form_input('mail', set_value('mail', ''), 'class="w-100" id="inputMail" placeholder="' . lang('Email') . '"') ?>
+                            <?php echo form_password('password', set_value('password', ''), 'class="w-100" id="inputPassword2" placeholder="' . lang('Password') . '" autocomplete="off"') ?>
+                            <?php echo form_password('password_confirm', 'auto', 'class="form-control hidden" id="inputPasswordConfirm" placeholder="' . lang('Confirmpassword') . '" autocomplete="off"') ?>
+                            <div class="hint-box">
+                                <?php echo form_input('age', set_value('age', ''), 'class="w-100" id="inputAge" placeholder="' . lang_check('Age') . '"') ?>
+                                <span class="hintlabewl hint--top-left"
+                                      aria-label="<?php echo lang_check('To sign up you must be 13 or older. Other people won\'t see your birthday'); ?>"><i
+                                            class="fa fa-question" aria-hidden="true"></i></span>
                             </div>
                             <div class="clearfix text-left mb-1 mb-sm-2">
                                 <label class="login-checkbox">
@@ -199,8 +197,8 @@ array_walk($enquire_3, 'add_profile_image');
                             <?php endif; ?>  
                         </div>
                         <div class="col-xs-12">
-                            <button class="button-login col-xs-12" type="submit" ><?php echo lang_check('Sign up') ?>
-                            <div class="spinner hidden ajax-indicator">
+                            <button class="button-login w-100 mb-1" type="submit" >{lang_Join now}
+                                <div class="spinner hidden ajax-indicator">
                                 <div class="bounce1"></div>
                                 <div class="bounce2"></div>
                                 <div class="bounce3"></div>
@@ -208,12 +206,10 @@ array_walk($enquire_3, 'add_profile_image');
                             </button>
                         </div>
                     <?php echo form_close(); ?>
-                    <p class="font_small col-lg-12 privacy mb-2 mb-sm-4"><?php echo lang_check('By creating an account'); ?></p>
-                    <div class="col-xs-12 mb-1 mb-sm-2">
-                        <p class="separate mb-0">
-                            <span class="separate-content"><?php echo lang_check('Or sign up with'); ?></span>
-                        </p>
-                    </div>
+                    <p class="text-sm mb-3 pl-2 pr-2">{lang_By continuing}</p>
+                    <p class="separate mb-2 text-center">
+                        <span class="separate-content"><?php echo lang_check('OR'); ?></span>
+                    </p>
                     <div class="col-xs-12 mb-3 mb-sm-4">
                         <?php if (config_item('appId') != '' && !empty($login_url_facebook)): ?>
                             <a href="<?php echo $login_url_facebook; ?>" class="login-facebook">
@@ -229,7 +225,7 @@ array_walk($enquire_3, 'add_profile_image');
                     <div class="login-footer flex">
                         <div class="info mr-2"><?php echo lang_check('Already have a Udora acccount?');?></div>
                         <div class="action d-flex align-items-center">
-                            <button class="js-toggle-login-popup btn button-login-inv"><?php echo lang_check('Log in');?></a>
+                            <button class="js-toggle-login-popup btn button-login-inv">{lang_Sign in}</a>
                         </div>
                     </div>
                 </div>
@@ -246,7 +242,7 @@ array_walk($enquire_3, 'add_profile_image');
       <li class="mobile-menu__links__item"><a href="<?php echo site_url($lang_code.'/179/blog_page');?>"><?php echo lang_check('About');?></a></li>
       {is_logged_user}
             <li class="mobile-menu__links__item">
-                    <a role="button" data-toggle="collapse" href="#mobileMenuLoggedSubmenu" aria-expanded="false" aria-controls="mobileMenuLoggedSubmenu"><?php echo lang_check('My account');?> 
+                    <a role="button" data-toggle="collapse" href="#mobileMenuLoggedSubmenu" aria-expanded="false" aria-controls="mobileMenuLoggedSubmenu"><?php echo lang_check('My Account');?>
                     <i class="ion-android-arrow-dropdown icon-collapsed"></i>
                     <i class="ion-android-arrow-dropup icon-not-collapsed"></i>
                     </a>
@@ -451,13 +447,13 @@ array_walk($enquire_3, 'add_profile_image');
                             <li class="d-none d-md-flex">
                                 <a href="{front_login_url}#content" class="js-toggle-login-popup dark-link">
                                     <i class="fa fa-user-o" aria-hidden="true"></i>
-                                    <span class="login-menu-item hidden-xs">{lang_Myaccount}</span>
+                                    <span class="login-menu-item hidden-xs">{lang_Sign in}</span>
                                 </a>
                             </li>
                             <li class="d-md-none hide-when-login-register-opened">
                                 <a href="{front_login_url}#content" class="js-toggle-login-popup dark-link">
                                     <i class="fa fa-user-o" aria-hidden="true"></i>
-                                    <span class="login-menu-item hidden-xs">{lang_Myaccount}</span>
+                                    <span class="login-menu-item hidden-xs">{lang_Sign in}</span>
                                 </a>
                             </li>
                             <li class="d-md-none show-when-login-register-opened"><a href="#" class="js-close-login-register-popups"><div class="close-icon black"></div></a></li>
@@ -521,21 +517,21 @@ array_walk($enquire_3, 'add_profile_image');
                         </div>
                         <div class="profile-box-data">
                             <p id="profile-box-name"><?php echo $this->session->userdata('name_surname');?></p>
-<!--                            <p class="small-font"><?php// echo $this->session->userdata('username');?></p> -->
-													 <p class="small-font">533 000 4703</p>
+                            <!--<p class="small-font"><?php /*echo $this->session->userdata('username');*/?></p>-->
+							    <p class="small-font">533 000 4703</p>
                             <a href="{login_url}">
-                                <button><?php echo lang_check('Account');?></button>
+                                <button>{lang_Profile}</button>
                             </a>
                             <a href="{myprofile_url}#content"><i class="ion-ios-cog-outline"></i></a>
                         </div>
                         <div class="profile-box-bottom clearfix">
                             <?php if(config_db_item('property_subm_disabled')==FALSE):  ?>
                             <a href="<?php echo site_url('frontend/editproperty/'.$lang_code.'#content');?>" class="standart-button">
-                                <?php echo lang_check('Add Event');?>
+                                {lang_Add Event}
                             </a>
                             <?php endif;?>
                             <a href="{logout_url}" class="standart-button">
-                                {lang_Logout}
+                                {lang_Sign out}
                             </a>
                         </div>
                     </div>
