@@ -58,8 +58,8 @@ if ($CI->config->item('facebook_api_version') == '2.4' || floatval($this->config
                 </div>
                 <div class="col-xs-12 col-md-6">
                     <div class="login__box-1 login-form login-on-page" id="login-modal">
-                        <h3 class="text-center / mb-1"><?php echo lang_check('Login'); ?></h3>
-                        <p class="sub-title / mb-3"><?php echo lang_check('Let\'s make today a great day!'); ?></h4>
+                        <h3 class="text-center / mb-1"><?php echo lang_check('Live Love Life'); ?></h3>
+                        <p class="sub-title / mb-3">{lang_Sign in slogan}</h4>
                             <?php echo form_open(NULL, array('class' => 'form-horizontal form-additional widget-content clearfix', 'id' => 'popup_form_login')) ?>
                         <div class="login-inputs alerts-box">
                         </div>
@@ -80,7 +80,7 @@ if ($CI->config->item('facebook_api_version') == '2.4' || floatval($this->config
                             </div>
                         </div>
                         <div class="mb-2 mb-sm-3">
-                            <button class="button-login w-100" type="submit"><?php echo lang_check('Login'); ?>
+                            <button class="button-login w-100" type="submit">{lang_Sign in}
                                 <div class="spinner hidden ajax-indicator">
                                     <div class="bounce1"></div>
                                     <div class="bounce2"></div>
@@ -91,7 +91,7 @@ if ($CI->config->item('facebook_api_version') == '2.4' || floatval($this->config
                         <?php echo form_close() ?>
                         <div class="mb-1 mb-sm-3">
                             <p class="separate mb-0">
-                                <span class="separate-content"><?php echo lang_check('Or login with email'); ?></span>
+                                <span class="separate-content"><?php echo lang_check('OR'); ?></span>
                             </p>
                         </div>
                         <div class="mb-1">
@@ -106,12 +106,11 @@ if ($CI->config->item('facebook_api_version') == '2.4' || floatval($this->config
                                 </a>
                             <?php endif; ?>
                         </div>
-                        <p class="text-sm mb-3 pl-2 pr-2">By continuing, you agree to Udora's Terms of Service, Privacy
-                            Policy and Cookies Policy.</p>
+                        <p class="text-sm mb-3 pl-2 pr-2">{lang_By continuing}</p>
                         <div class="login-footer flex">
-                            <div class="info mr-2"><?php echo lang_check('Don\'t have and account?'); ?></div>
+                            <div class="info mr-2"><?php echo lang_check('Don\'t have an account?'); ?></div>
                             <div class="action d-flex align-items-center">
-                                <button class="btn button-login-inv js-toggle-register-popup"><?php echo lang_check('Sign up'); ?></a>
+                                <button class="btn button-login-inv js-toggle-register-popup">{lang_Try it free}</a>
                             </div>
                         </div>
                     </div>
@@ -152,8 +151,8 @@ if ($CI->config->item('facebook_api_version') == '2.4' || floatval($this->config
                 </div>
                 <div class="col-xs-12 col-md-6">
                     <div class="login__box-1 login-form create-account-form create-account-page">
-                        <h3 class="text-center / mb-1"><?php echo lang_check('Sign Up'); ?></h3>
-                        <p class="sub-title / mb-3"><?php echo lang_check('It\'s free and always will be.'); ?></p>
+                        <h3 class="text-center / mb-1">{lang_Welcome to Udora}</h3>
+                        <p class="sub-title / mb-3">{lang_Sign up slogan}</p>
                         <?php echo form_open(NULL, array('class' => 'form-horizontal form-additional widget-content clearfix', 'id' => 'popup_form_register')) ?>
                         <div class="login-inputs alerts-box">
                         </div>
@@ -203,7 +202,7 @@ if ($CI->config->item('facebook_api_version') == '2.4' || floatval($this->config
                                 <?php _recaptcha(false); ?>
                             <?php endif; ?>
                         </div>
-                        <button class="button-login w-100 mb-1" type="submit"><?php echo lang_check('Sign up') ?>
+                        <button class="button-login w-100 mb-1" type="submit">{lang_Join now}
                             <div class="spinner hidden ajax-indicator">
                                 <div class="bounce1"></div>
                                 <div class="bounce2"></div>
@@ -211,9 +210,9 @@ if ($CI->config->item('facebook_api_version') == '2.4' || floatval($this->config
                             </div>
                         </button>
                         <?php echo form_close(); ?>
-                        <p class="text-sm mb-3 pl-2 pr-2"><?php echo lang_check('By creating an account'); ?></p>
+                        <p class="text-sm mb-3 pl-2 pr-2">{lang_By continuing}</p>
                         <p class="separate mb-2 text-center">
-                            <span class="separate-content"><?php echo lang_check('Or sign up with'); ?></span>
+                            <span class="separate-content"><?php echo lang_check('OR'); ?></span>
                         </p>
                         <div class="mb-3 mb-sm-4">
                             <?php if (config_item('appId') != '' && !empty($login_url_facebook)): ?>
@@ -230,7 +229,7 @@ if ($CI->config->item('facebook_api_version') == '2.4' || floatval($this->config
                         <div class="login-footer flex">
                             <div class="info mr-2"><?php echo lang_check('Already have a Udora acccount?'); ?></div>
                             <div class="action d-flex align-items-center">
-                                <button class="js-toggle-login-popup btn button-login-inv"><?php echo lang_check('Log in'); ?></a>
+                                <button class="js-toggle-login-popup btn button-login-inv">{lang_Sign in}</a>
                             </div>
                         </div>
                     </div>
@@ -412,10 +411,8 @@ if ($CI->config->item('facebook_api_version') == '2.4' || floatval($this->config
                                 <i class="fa fa-user-o" aria-hidden="true"></i>
                             </a>
                         </li>
-                        <li class="show-when-login-register-opened"><a href="#" class="js-close-login-register-popups">
-                                <div class="close-icon white"></div>
-                            </a></li>
-                        <!--            <li><a href="{front_login_url}#content" id="page-popup-open-login" class="login-menu white-colored"><i class="fa fa-user-o" aria-hidden="true"></i> {lang_Myaccount}</a></li> -->
+                        <li class="show-when-login-register-opened"><a href="#" class="js-close-login-register-popups"><div class="close-icon white"></div></a></li>
+                    <!--<li><a href="{front_login_url}#content" id="page-popup-open-login" class="login-menu white-colored"><i class="fa fa-user-o" aria-hidden="true"></i> {lang_Myaccount}</a></li> -->
                     <?php endif; ?>
                     {/not_logged}
 
@@ -430,31 +427,29 @@ if ($CI->config->item('facebook_api_version') == '2.4' || floatval($this->config
                         </a>
                         <div class="profile-box-wrapper display-none">
                             <div class="profile-box-img">
-                                <?php if ($this->session->userdata('profile_image') != '' && file_exists(FCPATH . $this->session->userdata('profile_image'))): ?>
-                                    <img src="<?php echo base_url($this->session->userdata('profile_image')); ?>"
-                                         alt="">
-                                <?php else: ?>
+                                <?php if($this->session->userdata('profile_image') != '' && file_exists(FCPATH.$this->session->userdata('profile_image'))):?>
+                                    <img src="<?php echo base_url($this->session->userdata('profile_image'));?>" alt="">
+                                <?php else:?>
                                     <img src="assets/img/user-agent.png" alt="">
-                                <?php endif; ?>
+                                <?php endif;?>
                             </div>
                             <div class="profile-box-data">
-                                <p id="profile-box-name"><?php echo $this->session->userdata('name_surname'); ?></p>
-                                <!--                             <p class="small-font"><?php // echo $this->session->userdata('type');?></p> -->
+                                <p id="profile-box-name"><?php echo $this->session->userdata('name_surname');?></p>
+                                <!--<p class="small-font"><?php /*echo $this->session->userdata('username');*/?></p>-->
                                 <p class="small-font">533 000 4703</p>
                                 <a href="{login_url}">
-                                    <button><?php echo lang_check('Account'); ?></button>
+                                    <button>{lang_Profile}</button>
                                 </a>
                                 <a href="{myprofile_url}#content"><i class="ion-ios-cog-outline"></i></a>
                             </div>
                             <div class="profile-box-bottom clearfix">
-                                <?php if (config_db_item('property_subm_disabled') == FALSE): ?>
-                                    <a href="<?php echo site_url('frontend/editproperty/' . $lang_code . '#content'); ?>"
-                                       class="standart-button">
-                                        <?php echo lang_check('Add Event'); ?>
+                                <?php if(config_db_item('property_subm_disabled')==FALSE):  ?>
+                                    <a href="<?php echo site_url('frontend/editproperty/'.$lang_code.'#content');?>" class="standart-button">
+                                        {lang_Add Event}
                                     </a>
-                                <?php endif; ?>
+                                <?php endif;?>
                                 <a href="{logout_url}" class="standart-button">
-                                    {lang_Logout}
+                                    {lang_Sign out}
                                 </a>
                             </div>
                         </div>
@@ -506,7 +501,7 @@ if ($CI->config->item('facebook_api_version') == '2.4' || floatval($this->config
 
 
     <div class="home__header__bg__wrap">
-        <div class="home__header__bg" style="background-image: url('assets/img/home/exploreeveryday_181k.jpg')"></div>
+        <div class="home__header__bg" style="background-image: url('assets/img/home/exploreeveryday_181k_mirrored.jpg')"></div>
     </div>
 
     <div class="home__header__overlay"></div>
@@ -520,29 +515,6 @@ if ($CI->config->item('facebook_api_version') == '2.4' || floatval($this->config
             <div class="col-xs-12">
                 <h5><?php echo lang_check('100M+ Events  |  30,000 Cities  |  4M Explorers');?></h5>
             </div>
-
-            <?php /* <!--This php tag is only here to comment out the next 15 lines, remove it to reactivate the Popular places tree -->
-        <!-- Popular places-->
-        <div class=" col-xs-12 popular-places-wrapper popular-places-wrapper-center col-lg-10 col-lg-offset-1">
-           <p><?php echo lang_check('Popular places');?>:
-              <?php
-                $CI = & get_instance();
-                $treefield_id = 64;
-                $CI->load->model('treefield_m');
-                $treefields = array();
-                $tree_listings = $CI->treefield_m->get_table_tree($lang_id, $treefield_id, NULL,true, '_lang.value', ', value_path');
-                if (count($tree_listings)): foreach ($tree_listings as $listing_item):
-              ?>
-              <?php
-                if(!empty($listing_item->body) || TRUE):
-                    //$url = slug_url('treefield/'.$lang_code.'/'.$listing_item->id.'/'.url_title_cro($listing_item->value), 'treefield_m');
-                    $url = site_url($lang_code.'/6/?search={"v_search_option_'.$treefield_id.'":"'.rawurlencode($listing_item->value_path.' - ').'"}');
-               ?>
-                <a href='<?php _che($url);?>'><?php echo $listing_item->value;?></a> <?php echo (next($tree_listings)) ? "|": "";?>
-                <?php endif;endforeach;endif;?>
-           </p>
-        </div>
-        */?>
         </div>
     </div>
     <!-- Footer -->

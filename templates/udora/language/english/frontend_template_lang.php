@@ -15,6 +15,7 @@ $lang[''] = "";
 
 
 /* Custom template translations */
+
 $lang['test_my_lang'] = "It's only test ;-)";
 $lang['Portalname'] = "pPoint";
 $lang['Portalslogan'] = "Real event Agency<br>Portal script";
@@ -77,9 +78,15 @@ $lang['Lastaddedproperties'] = "Latest properties";
 $lang['Propertyactivated'] = "Property isn't activated";
 $lang[''] = "";
 
-$lang['Login'] = "Login";
+$lang['Sign up'] = "Sign Up";
+$lang['Sign out'] = "Sign Out";
+$lang['Sign in'] = "Sign In";
+$lang['Join now'] = "Join Now";
+$lang['Sign in slogan'] = "Find your next experience";
+$lang['Sign up slogan'] = "Let's make today a great day!";
+$lang['Login'] = "Log In";
+$lang['Logout'] = "Logout";
 $lang['Myaccount'] = "My Account";
-$lang['Sign in'] = "Sign in";
 $lang['Reset'] = "Reset";
 $lang['User creditionals: user, user'] = "DEMO user creditionals: user, user";
 $lang['Remember me'] = "Remember me";
@@ -87,11 +94,12 @@ $lang['Username'] = "Username";
 $lang['Password'] = "Password";
 $lang['Confirmpassword'] = "Confirm password";
 $lang['Register'] = "Register";
+$lang['Try it free'] = "Try it free";
+$lang['By continuing'] = "By continuing, you agree to Udora's Terms of Service, Privacy Policy";
 $lang['Thanks on registration, you can login now'] = "Thanks on registration, you can login now";
 $lang['Data editing disabled in demo'] = "Data editing disabled in demo";
 $lang['That email/password combination does not exists'] = "That email/password combination does not exists";
 $lang['Myproperties'] = "My properties";
-$lang['Logout'] = "Logout";
 $lang['You can add your first property'] = "You can add your first property";
 $lang['Edit'] = "Edit";
 $lang['Delete'] = "Delete";
@@ -274,6 +282,12 @@ $lang[''] = "";
 $lang[''] = "";
 $lang[''] = "";
 
+// Mobile footer
+$lang['Discover'] = "Discover";
+$lang['Add Event'] = "Add Event";
+$lang['Favorites'] = "Favorites";
+$lang['Profile'] = "Profile";
+
 // Agent masking
 $lang['YouAre'] = "You are";
 $lang['Individual'] = "Individual";
@@ -370,7 +384,7 @@ $lang['option_agree_terms'] = "Agree terms";
 $lang[''] = "";
 
 
-$lang['Website slogan'] = "Only Real Event Solution You Will Ever Need";
+$lang['Website slogan'] = "Find your next experience";
 $lang['E-mail'] = "E-mail";
 $lang['Logo slogan'] = "Real Event &amp; Booking <br/> customizable solution";
 $lang['or'] = "or";
@@ -590,11 +604,10 @@ $lang['QR code'] = "QR code";
 $lang['with PayPal'] = "with PayPal";
 $lang['unhide'] = "unhide";
 
-$lang['Welcome to UDORA'] = "Welcome to UDORA";
+$lang['Welcome to Udora'] = "Welcome to Udora";
 $lang['Discover Amazing Events Near You'] = "Discover Amazing Events Near You";
 $lang['Start typing...'] = "Start typing...";
 $lang['Popular places'] = "Popular places";
-$lang['Add Event'] = "Add Event";
 $lang['Account'] = "Account";
 $lang['Copyright'] = "© Udora Technologies | Trademarks and brands are the property of their respective owners.";
 $lang['Check the location with google maps'] = "Check the location with google maps";
@@ -604,7 +617,7 @@ $lang['Type your search'] = "Type your search...";
 $lang['Login to your account'] = "Login to your account";
 $lang['Or login with email'] = "Or login with email";
 $lang['Or enter this information'] = "Or enter this information";
-$lang['By creating an accoun'] = "By creating an account you agree to our Terms Of Use and Privacy Policy.";
+$lang['By creating an account'] = "By creating an account you agree to our Terms Of Use and Privacy Policy.";
 $lang['My Events'] = "My Events";
 $lang['Comments'] = "Comments";
 $lang['My details'] = "My details";
@@ -652,8 +665,8 @@ $lang['Review*'] = "Review*";
 $lang['Enter you review'] = "Enter you review.";
 $lang['SEND'] = "SEND";
 $lang['Close'] = "Close";
-$lang['Thanks on review'] = "Thanks on review";
-$lang['You already have review on this event'] = "You already have review on this event";
+$lang['Thanks on review'] = "Thank you for your review";
+$lang['You already have review on this event'] = "You have already posted a review for this event";
 $lang['Leave a Review'] = "Leave a Review";
 $lang['Disqus comments'] = "Disqus comments";
 $lang['Homepage'] = "Homepage";
@@ -661,7 +674,6 @@ $lang['Map'] = "Map";
 $lang['Featured'] = "Featured";
 $lang['Contact'] = "Contact";
 $lang['Help'] = "Help";
-$lang['By creating an account'] = "By clicking sign up, I agree to Udora`s terms of service, privacy policy and community guidelines.";
 $lang[''] = "";
 $lang[''] = "";
 
