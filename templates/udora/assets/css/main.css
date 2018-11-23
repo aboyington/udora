@@ -894,6 +894,10 @@ select {
 
 /* 3.1 Navbar Profile Box  */
 
+html:not(.is-touch-device) .navbar li.logedin:hover .profile-box-wrapper {
+    display: block !important;
+}
+
 .profile-box-wrapper {
     width: 320px;
     background-color: #fff;
