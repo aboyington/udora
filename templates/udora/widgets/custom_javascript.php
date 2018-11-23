@@ -1714,19 +1714,19 @@ $(document).ready(function(){
     })
     // add_to_favorite ();
 
-    if (window.innerWidth < 992) {
-        $('body').css('padding-bottom', $('.footer.style-1').outerHeight());
-    }
-
-    $(window).on('resize', function() {
-        setTimeout(function() {
-            if (window.innerWidth < 992) {
-            $('body').css('padding-bottom', $('.footer.style-1').outerHeight());
-            } else {
-                $('body').css('padding-bottom', 0);
-            }
-        }, 400)
-    })
+    // if (window.innerWidth < 992) {
+    //     $('body').css('padding-bottom', $('.footer.style-1').outerHeight());
+    // }
+    //
+    // $(window).on('resize', function() {
+    //     setTimeout(function() {
+    //         if (window.innerWidth < 992) {
+    //         $('body').css('padding-bottom', $('.footer.style-1').outerHeight());
+    //         } else {
+    //             $('body').css('padding-bottom', 0);
+    //         }
+    //     }, 400)
+    // })
 
 })
 

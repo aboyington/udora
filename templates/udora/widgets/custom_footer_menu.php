@@ -1,27 +1,42 @@
 <div class="footer style-1 d-md-none js-hide-when-navbar-open js-hide-when-login-open">
     <div class="footer-links">
+        {is_logged_user}
+        <a href="<?php echo site_url('frontend/editproperty/'.$lang_code.'#content');?>" class="footer-links__link">
+            <i class="fa fa-plus"></i>
+            <span class="footer-links__link__title">{lang_Add Event}</span>
+        </a>
+        {/is_logged_user}
+        {is_logged_other}
+        <a href="<?php echo site_url('frontend/editproperty/'.$lang_code.'#content');?>" class="footer-links__link">
+            <i class="fa fa-plus"></i>
+            <span class="footer-links__link__title">{lang_Add Event}</span>
+        </a>
+        {/is_logged_other}
+        {not_logged}
+        <a href="#" class="footer-links__link" data-toggle="modal" data-target="#addEventsModal">
+            <i class="fa fa-plus"></i>
+            <span class="footer-links__link__title">{lang_Add Event}</span>
+        </a>
+        {/not_logged}
+        {is_logged_user}
+        <div class="footer-links__link">
+            <form action="#" class="footer-links__link-upload">
+                <input type="file">
+            </form>
+            <i class="fa fa-qrcode"></i>
+            <span class="footer-links__link__title">Scan</span>
+        </div>
+        {/is_logged_user}
+        {not_logged}
+        <a href="<?php echo site_url('frontend/login/'.$lang_code.'#content');?>" class="footer-links__link">
+            <i class="fa fa-qrcode"></i>
+            <span class="footer-links__link__title">Scan</span>
+        </a>
+        {/not_logged}
         <a href="<?php echo site_url(''.$lang_code.'#content');?>" class="footer-links__link js-footer-nav-discover">
             <i class="fa fa-search"></i>
             <span class="footer-links__link__title">{lang_Discover}</span>
         </a>
-        {is_logged_user}
-            <a href="<?php echo site_url('frontend/editproperty/'.$lang_code.'#content');?>" class="footer-links__link">
-                <i class="fa fa-plus"></i>
-                <span class="footer-links__link__title">{lang_Add Event}</span>
-            </a>
-        {/is_logged_user}
-        {is_logged_other}
-            <a href="<?php echo site_url('frontend/editproperty/'.$lang_code.'#content');?>" class="footer-links__link">
-                <i class="fa fa-plus"></i>
-                <span class="footer-links__link__title">{lang_Add Event}</span>
-            </a>
-        {/is_logged_other}
-        {not_logged}
-            <a href="#" class="footer-links__link" data-toggle="modal" data-target="#addEventsModal">
-                <i class="fa fa-plus"></i>
-                <span class="footer-links__link__title">{lang_Add Event}</span>
-            </a>
-        {/not_logged}
             <a href="<?php echo site_url('ffavorites/myfavorites/'.$lang_code.'#content');?>" class="footer-links__link">
                 <i class="fa fa-star"></i>
                 <span class="footer-links__link__title">{lang_Favorites}</span>
