@@ -2,6 +2,36 @@ $(document).ready(function ($) {
     "use strict";
 
 
+    // Detect touch or not ----------------------------------------------------------------------------------
+    // --
+    var isTouch = false;
+    var isTouchTimer;
+    var curRootClass = '';
+
+    function addtouchclass (e) {
+        clearTimeout(isTouchTimer);
+        isTouch = true;
+        if (curRootClass !== 'is-touch-device') {
+            curRootClass = 'is-touch-device';
+            document.documentElement.classList.add(curRootClass);
+        }
+        isTouchTimer = setTimeout(function () {
+            isTouch = false;
+        }, 500);
+    }
+
+    function removetouchclass (e) {
+        if (!isTouch && curRootClass === 'is-touch-device') {
+            isTouch = false;
+            curRootClass = '';
+            document.documentElement.classList.remove('is-touch-device');
+        }
+    }
+
+
+    document.addEventListener('touchstart', addtouchclass, false);
+    document.addEventListener('mouseover', removetouchclass, false);
+
     if ($(".tse-scrollable").length) {
         $(".tse-scrollable").TrackpadScrollEmulator();
     }
