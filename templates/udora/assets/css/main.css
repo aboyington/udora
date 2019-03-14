@@ -1116,22 +1116,25 @@ html:not(.is-touch-device) .navbar li.logedin:hover .profile-box-wrapper {
     -webkit-box-shadow: none;
             box-shadow: none;
     flex-direction: column;
-    height: calc(100% - 50px);
-    top: 50px;
-    left: 0;
-    opacity: 0;
-    visibility: hidden;
+    height: calc(100%);
+    top: 0px;
+    left: -900px;
+    opacity: 1;
+    visibility: visible;
     overflow: hidden;
     padding: 0 1em;
     position: fixed;
-    width: 100%;
-    max-width: 100%;
+    width: 90vw;
+    max-width: 500px;
+    min-width: 320px;
+    background-color: #fff;
     z-index: 900;
+     transition: 1s;
   }
   
   .is-mobile-navbar-open .mobile-menu {
-    opacity: 1;
-    visibility: visible;
+    left: 0px;
+    transition: 1s;
     pointer-events: auto;
   }
 
@@ -1230,8 +1233,8 @@ html:not(.is-touch-device) .navbar li.logedin:hover .profile-box-wrapper {
   }
 
   .mobile-menu__links__item a {
-      color: #fff;
-      font-weight: 300;
+      color: #000;
+      font-weight: 400;
   }
 
   @media (min-width: 425px) {
@@ -1371,6 +1374,11 @@ html:not(.is-touch-device) .navbar li.logedin:hover .profile-box-wrapper {
     background: #fff;
   }
 
+  .is-mobile-navbar-open .mobile-menu .navbar__gamburger__icon.white .lines, 
+  .is-mobile-navbar-open .mobile-menu .navbar__gamburger__icon.white .lines:after,
+  .is-mobile-navbar-open .mobile-menu .navbar__gamburger__icon.white .lines:before {
+    background: #000;
+  }
   .navbar__gamburger__icon .lines:before {
     top: .5rem;
   }
