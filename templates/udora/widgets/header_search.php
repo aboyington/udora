@@ -256,9 +256,12 @@ if ($CI->config->item('facebook_api_version') == '2.4' || floatval($this->config
 
 
 <nav class="mobile-menu" id="js-mobile-menu">
-    <button type="button" role="button" class="navbar__gamburger__icon / white / js-toggle-mobile-navbar x" aria-label="Toggle Navigation" aria-expanded="false">
-        <span class="lines"></span>
-    </button>
+        <button type="button" role="button" class="navbar__gamburger__icon / white / js-toggle-mobile-navbar x" aria-label="Toggle Navigation" aria-expanded="false">
+            <span class="lines"></span>
+        </button>
+        <a class="mobile-menu_black_logo" href="{homepage_url_lang}"><img src="{website_black_logo_url}" 
+                                                                          alt="<?php echo $settings_websitetitle; ?>" 
+                                                                          class="logotype"></a>
     <ul class="mobile-menu__links">
         <li class="mobile-menu__links__item"><a
                     href="<?php echo site_url($lang_code); ?>"><?php echo lang_check('Home'); ?></a></li>
@@ -302,6 +305,11 @@ if ($CI->config->item('facebook_api_version') == '2.4' || floatval($this->config
         <li class="mobile-menu__links__item">
             <a href="<?php echo site_url($lang_code . '/147/featured'); ?>"><?php echo lang_check('Featured'); ?></a>
         </li>
+        <div class="mobile-menu_user_location">
+            <p>Estimated location</p>
+            <p>Location Toronto</p>
+                <p>Search Radius 50km / 31 miles</p>
+        </div>
         <li class="mobile-menu__links__item">
             <a href="<?php echo site_url($lang_code . '/180/udora_for_business'); ?>"><?php echo lang_check('Business'); ?></a>
         </li>

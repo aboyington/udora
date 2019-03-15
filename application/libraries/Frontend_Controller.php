@@ -116,6 +116,20 @@ class Frontend_Controller extends MY_Controller
             }
         }
         /* [END] Fetch logo URL */
+        /* [START] Fetch black logo URL */
+        $this->data['website_black_logo_url'] = 'assets/img/logo-black.svg';
+        if(isset($this->data['settings']['website_logo_black']))
+        {
+            if(is_numeric($this->data['settings']['website_logo_black']))
+            {
+                $files_logo = $this->file_m->get_by(array('repository_id' => $this->data['settings']['website_logo_black']), TRUE);
+                if( is_object($files_logo) && file_exists(FCPATH.'files/thumbnail/'.$files_logo->filename))
+                {
+                    $this->data['website_black_logo_url'] = base_url('files/'.$files_logo->filename);
+                }
+            }
+        }
+        /* [END] Fetch logo URL */
         
         if(config_item('secondary_logo_support')){
             /* [START] Fetch logo secondary URL */

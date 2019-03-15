@@ -1122,22 +1122,35 @@ html:not(.is-touch-device) .navbar li.logedin:hover .profile-box-wrapper {
     opacity: 1;
     visibility: visible;
     overflow: hidden;
-    padding: 0 1em;
+    padding: 0;
     position: fixed;
     width: 90vw;
-    max-width: 500px;
-    min-width: 320px;
+    max-width: 400px;
+    min-width: 310px;
     background-color: #fff;
     z-index: 900;
-     transition: 1s;
+    transition: 1s;
   }
-  
+  .mobile-menu .mobile-menu__links__item{
+    padding: .2em 1em;
+  }
+  .mobile-menu_user_location{
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    padding: .2em 1em;
+
+  }
   .is-mobile-navbar-open .mobile-menu {
     left: 0px;
     transition: 1s;
     pointer-events: auto;
   }
-
+  
+  .mobile-menu_black_logo{
+    position: absolute;
+    top: 16px;
+    left: 85px;
+  }
   .js-hide-when-navbar-open {
       transition: opacity .3s ease;
   }
@@ -1210,7 +1223,7 @@ html:not(.is-touch-device) .navbar li.logedin:hover .profile-box-wrapper {
     margin: 0;
     padding: 0;
     width: 100%;
-    text-align: center;
+    text-align: left;
     padding-top: 1em;
     padding-bottom: 1em;
     z-index: 10;
@@ -1406,8 +1419,7 @@ html:not(.is-touch-device) .navbar li.logedin:hover .profile-box-wrapper {
   .navbar__gamburger__icon.x .lines:after {
     -webkit-transform: rotate3d(0, 0, 1, -45deg);
             transform: rotate3d(0, 0, 1, -45deg);
-  }
-  
+  }  
   
   .close-icon {
     display: -webkit-box;

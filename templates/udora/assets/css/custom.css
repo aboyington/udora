@@ -13089,10 +13089,9 @@ body.no-scroll {
 @media (max-width: 991px){
     .home-wrapper .navbar-brand {
         position: absolute;
-        left: 50%;
         transform: translateX(-50%);
         position: absolute;
-        left: 50%;
+        left: 140px;
         top: 50%;
         display: block;
         -webkit-transform: translate(-50%, -50%);
