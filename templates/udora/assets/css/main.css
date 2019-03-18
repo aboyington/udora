@@ -107,7 +107,7 @@ body {
     min-width: 320px;
     min-width-max-width: 100%;
     position: relative;
-    font-family: roboto, sans-serif;
+    font-family: 'SegoeRegular', sans-serif;
     overflow-x: hidden;
     overflow-x-line-height: 1.45;
     color: #000;
@@ -251,6 +251,7 @@ a:hover {
     background: #F15927;
     -webkit-transition: all .4s ease;
     transition: all .4s ease;
+    border-radius:7px;
 }
 
 .btn-udora-bordered {
@@ -537,7 +538,7 @@ a:hover {
 button {
     border: none;
     outline: 0;
-    border-radius: 3px;
+    border-radius: 7px;
     letter-spacing: .5px;
 }
 
@@ -881,7 +882,7 @@ select {
     right: 10px;
     top: 9px;
     background-color: #F15927;
-    font-family: Roboto;
+    font-family: 'SegoeRegular';
     min-width: 8px;
     padding: 3px 5px;
     border-radius: 8px;
@@ -1134,6 +1135,9 @@ html:not(.is-touch-device) .navbar li.logedin:hover .profile-box-wrapper {
   .mobile-menu .mobile-menu__links__item{
     padding: .2em 1em;
   }
+.mobile-menu .mobile-menu_user_location .mobile-menu__links__item{
+    padding: .2em 1em .2em 0;
+  }
   .mobile-menu_user_location{
     border-top: 1px solid #ccc;
     border-bottom: 1px solid #ccc;
@@ -1220,7 +1224,7 @@ html:not(.is-touch-device) .navbar li.logedin:hover .profile-box-wrapper {
     position: relative;
     overflow: auto;
     list-style: none;
-    margin: 0;
+    margin: auto 0;
     padding: 0;
     width: 100%;
     text-align: left;
@@ -1302,12 +1306,22 @@ html:not(.is-touch-device) .navbar li.logedin:hover .profile-box-wrapper {
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-left: -5px;
-      margin-right: -5px;
-      margin-bottom: 0;
       list-style: none;
   }
-
+  .mobile-menu_bottom_info{   
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0;
+    list-style: none;
+    align-self: flex-end;
+    justify-self: flex-end;
+    padding: 5px 10px 0 10px;
+  }
+  .mobile-menu_bottom_info_version h4{
+    margin-bottom: .2em;
+  }
   .mobile-menu__links__item__social li {
       padding-left: 5px;
       padding-right: 5px;
@@ -1559,9 +1573,13 @@ html:not(.is-touch-device) .navbar li.logedin:hover .profile-box-wrapper {
 
 .login-form .login-inputs textarea,
 .login-form .login-inputs input {
-    border: 2px solid #e0e0e0;
+    border-bottom: 2px solid #e0e0e0;
     padding: 10px;
     font-weight: 300;
+    transition: .4s;
+}
+.login-form .login-inputs input:focus {
+    border-bottom: 2px solid #F15927;
 }
 .login-form .login-inputs input:not(:last-child) {
     margin-bottom: 1em;
@@ -1601,6 +1619,7 @@ html:not(.is-touch-device) .navbar li.logedin:hover .profile-box-wrapper {
     border: 2px solid #F15927;
     -webkit-transition: all .3s ease;
     transition: all .3s ease;
+    border-radius: 7px;
 }
 
 .login-form .button-login:hover {
@@ -1949,19 +1968,22 @@ footer .additional-footer .language-button .glyphicon-globe {
     vertical-align: top;
     color: #333;
     font-size: 0.875em;
-    height: 50px;
+    height: 60px;
+    border-radius: 7px;
 }
 
 .home-wrapper .main-home-container .input-search-wrapper .btn-search {
     vertical-align: top;
-    background-color: #F15927;
-    padding: 9.3px 35px;
+    background-color: transparent;
     border: 2px solid #F15927;
-    height: 50px;
+    height: 60px;
     color: #fff;
-    margin-left: -30px;
-    border-radius: 0;
+    border-radius: 7px;
+    font-family: 'SegoeBold';
+    font-size: 1.5em;
+    text-transform: capitalize;
     margin-left: 10px;
+    padding: 0 50px;
     transition: background-color .3s ease;
 }
 
@@ -2059,18 +2081,32 @@ footer .additional-footer .language-button .glyphicon-globe {
     font-weight: 100;
     margin-top: 0.1em;
     margin-bottom: 0;
-    font-size: 24px;
+    font-size: 50px;
+
+}
+.home-wrapper .main-home-container h2 span{
+    font-family: 'SegoeBold';
+    text-transform: capitalize;
+    padding: 10px 0;
+    display: inline-block;
 }
 
 @media (min-width: 425px) {
     .home-wrapper .main-home-container h2 {
-        font-size: 30px;
+        font-size: 35px;
     }
 }
 
 @media (min-width: 768px) {
     .home-wrapper .main-home-container h2 {
-        font-size: 40px;
+        font-size: 50px;
+    }
+
+}
+@media (max-width: 768px) {
+    .home-wrapper .main-home-container h2 span{
+        width: 100%;
+        text-align: center;
     }
 }
 
@@ -2260,7 +2296,7 @@ footer .additional-footer .language-button .glyphicon-globe {
 
 .contact-section form label {
     text-transform: uppercase;
-    font-family: Roboto;
+    font-family: 'SegoeExtraLight';
     font-weight: 300;
     font-size: .857em
 }
@@ -3604,7 +3640,7 @@ label {
     text-align: center;
     padding-bottom: 0px;
     font-weight: 300;
-    font-family: roboto;
+    font-family: 'SegoeExtraLight';
     letter-spacing: 1px;
 }
 
@@ -3725,7 +3761,7 @@ label {
     font-size: 19px;
     color: #000;
     font-weight: 300;
-    font-family: roboto;
+    font-family: 'SegoeExtraLight';
     line-height: 1.5;
 }
 

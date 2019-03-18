@@ -79,13 +79,13 @@
         </script>
         <?php endif; ?>
         <div class="second-group clearfix">
-        <input type="text" required class="form-control search_option_location_second" oninvalid="setCustomValidity(''); checkValidity(); setCustomValidity(validity.valid ? '' :'<?php echo lang_check("Please Populate field Location");?>');" id="search_option_location_second" value="{search_option_location}"  placeholder="<?php echo lang_check('Enter city or location');?>">
+       <!--  <input type="text" required class="form-control search_option_location_second" oninvalid="setCustomValidity(''); checkValidity(); setCustomValidity(validity.valid ? '' :'<?php// echo lang_check("Please Populate field Location");?>');" id="search_option_location_second" value="{search_option_location}"  placeholder="<?php// echo lang_check('Enter city or location');?>"> -->
         <input type="text" class="form-control search_option_smart search_option_smart_second" placeholder="<?php echo lang_check("Search events or categories");?>">
         <script>
             $(function(){
             // Create the autocomplete object, restricting the search to geographical
             // location types.
-            var placeSearch, autocomplete;
+           /* var placeSearch, autocomplete;
                 var componentForm = {
                   street_number: 'short_name',
                   route: 'long_name',
@@ -125,7 +125,7 @@
                         .attr('data-country', populate.country)
             });
             
-        })
+        })*/
         </script>
         
         <div class="dropdown-button-form"><span class="caret"></span></div>

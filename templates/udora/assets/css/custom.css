@@ -3229,7 +3229,7 @@ body .footable.table-packeges.table > tbody > tr > td {
 .login-form .button-login,
 .login-form .login-google, 
 .login-form .login-facebook {
-    border-radius: 0;
+    border-radius: 7px;
 }
 
 .separate {
@@ -3270,6 +3270,7 @@ body .footable.table-packeges.table > tbody > tr > td {
     -webkit-transition: all .3s ease;
     transition: all .3s ease;  
     color: #F15927;
+    border-radius: 7px;
 }
 
 .btn.button-login-inv:hover {
@@ -3348,13 +3349,13 @@ body .footable.table-packeges.table > tbody > tr > td {
 }
 
 .home-wrapper .main-home-container .input-search-wrapper .second-group input {
-    width: 50%;
+    width: 100%;
     float: left;
 }
 
 .home-wrapper .main-home-container .input-search-wrapper .second-group input.search_option_smart_second {
     margin-left: -1px;
-    width: calc(50% + 1px);
+    width: 100%;
 }
 
 .home-wrapper .main-home-container .input-search-wrapper .search-wrapper {
@@ -3398,6 +3399,7 @@ body .footable.table-packeges.table > tbody > tr > td {
 
 .advanced-search .search-form {
     position: relative !important;
+    border-radius: 7px 7px 0 0;
 }
 
 .home-wrapper .main-home-container .input-search-wrapper .second-group {
@@ -3418,6 +3420,7 @@ body .footable.table-packeges.table > tbody > tr > td {
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: 7px;
 }
 
 .home-wrapper .main-home-container .input-search-wrapper .dropdown-close .fa {
@@ -3445,6 +3448,7 @@ body .footable.table-packeges.table > tbody > tr > td {
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: 7px;
 }
 
 .home-wrapper .main-home-container .input-search-wrapper .dropdown-button-form .caret {
@@ -3472,8 +3476,8 @@ body .footable.table-packeges.table > tbody > tr > td {
     }
     
     .home-wrapper .main-home-container .input-search-wrapper .dropdown-button-form {
-      top: 65px;
-      height: 50px;
+      top: 0;
+      height: 60px;
     }
     
     .advanced-search .search-form {
@@ -3507,7 +3511,7 @@ body .footable.table-packeges.table > tbody > tr > td {
     
     .home-wrapper .main-home-container .input-search-wrapper .btn-search {
         width: 100%;
-        margin-top: 0;
+        margin-top: .5em;
     }
 }
 
