@@ -82,7 +82,7 @@
        <!--  <input type="text" required class="form-control search_option_location_second" oninvalid="setCustomValidity(''); checkValidity(); setCustomValidity(validity.valid ? '' :'<?php// echo lang_check("Please Populate field Location");?>');" id="search_option_location_second" value="{search_option_location}"  placeholder="<?php// echo lang_check('Enter city or location');?>"> -->
         <input type="text" class="form-control search_option_smart search_option_smart_second" placeholder="<?php echo lang_check("Search events or categories");?>">
         <script>
-            $(function(){
+            //$(function(){
             // Create the autocomplete object, restricting the search to geographical
             // location types.
            /* var placeSearch, autocomplete;

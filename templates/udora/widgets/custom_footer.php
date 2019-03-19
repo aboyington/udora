@@ -1,17 +1,14 @@
 <footer>
     <div class="container-fluid main-footer">
         <div class="raw footer-wrapper">
-            <?php _widget('footer_connect');?>
-            <?php _widget('footer_info');?>
-            <?php _widget('footer_service');?>
-            <?php _widget('footer_udora');?>
+            <?php _widget('custom_footer_menu_desktop'); ?>
             <?php //_widget('footer_mobile');?>
         </div>
         <div class="col-xs-12 col-sm-12 additional-footer">
-            <div class="col-xs-12 col-sm-12 col-md-offset-1 col-md-7 col-lg-offset-1">
+            <div class="col-xs-12 col-sm-12 col-md-offset-1 col-md-8 col-lg-offset-1">
                 <p class="copyright"><?php echo lang_check('Copyright');?></p>
             </div>
-            <div class="col-xs-12 col-md-4">
+            <div class="col-xs-12 col-md-3">
                 <div class="dropup language-dropdown">
                 <?php
                      $lang_array = $this->language_m->get_array_by(array('is_frontend'=>1));

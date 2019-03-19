@@ -1771,7 +1771,7 @@ footer .additional-footer .dropdown-menu {
 }
 
 footer .additional-footer .language-button {
-    background-color: #000;
+    background-color: transparent;
     color: #fff;
     border-radius: 0;
     border: none !important;
@@ -1780,14 +1780,42 @@ footer .additional-footer .language-button {
 footer .additional-footer .language-button:active,
 footer .additional-footer .language-button:focus,
 footer .additional-footer .language-button:hover {
-    background-color: #000!important;
-    color: #fff!important
+    background-color: transparent;
+    color: #ccc;
 }
 
 footer .additional-footer .language-button .glyphicon-globe {
     top: 2px;
     padding-right: 10px;
     color: #fff
+}
+footer .footer-app_button{
+    width: 100%;
+    max-width: 190px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border: 2px solid #fff;
+    padding: 5px 10px;
+    border-radius: 7px;
+    margin-bottom: 20px;
+    transition: .4s;
+    background-color: rgba(255,255,255,.0);
+}
+footer .footer-app_button:hover{
+    transition: .4s;
+    background-color: rgba(255,255,255,.2);
+}
+.footer-app_image{
+    margin-right: 15px;
+}
+.footer .fa-user:before{
+    content: "\f2c0";
+}
+
+footer .footer-app_button p, footer .footer-app_button h4, footer .footer-app_button h5, footer .footer-app_button h6{
+    padding: 0;
+    margin: 0;
 }
 
 .footer-nav-black .footer.style-1 {
@@ -1846,7 +1874,7 @@ footer .additional-footer .language-button .glyphicon-globe {
     color: #222;
   }
   .footer.style-1 .footer-links__link i {
-    font-size: 18px;
+    font-size: 24px;
   }
   .footer.style-1 .footer-links__link .footer-links__link-upload {
       position: absolute;
@@ -1868,6 +1896,7 @@ footer .additional-footer .language-button .glyphicon-globe {
       font-size: 11px;
       font-weight: 300;
       margin-top: 2px;
+      text-transform: uppercase;
   }
   @media (min-width: 480px) {
     .footer.style-1 .footer-links__link__title {
@@ -1924,7 +1953,52 @@ footer .additional-footer .language-button .glyphicon-globe {
     width: 100%;
     min-height: 100vh;
     overflow: hidden;
+    position: relative;
 }
+.scroll_details{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 30px;
+}
+.scroll-arrow_bottom{
+    position: relative;
+}
+.scroll-arrow_bottom:after{
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -15px;
+    margin: 0 auto;
+    width: 12px;
+    height: 12px;
+    border-right: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+    transform: rotate(45deg);
+    -webkit-animation-name: scroll_bottom; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 2s; /* Safari 4.0 - 8.0 */
+    animation-name: scroll_bottom;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in;
+}
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes scroll_bottom {
+   0%   {bottom:-15px;}
+  49%  {bottom:-24px;}
+  51%  {bottom:-24px;}
+  100% {bottom:-15px;}
+}
+
+/* Standard syntax */
+@keyframes scroll_bottom {
+   0%   {bottom:-15px;}
+  49%  {bottom:-24px;}
+  51%  {bottom:-24px;}
+  100% {bottom:-15px;}
+}
+
 
 @media (max-width: 767px) {
     .home-wrapper .main-home-container {
@@ -1957,7 +2031,12 @@ footer .additional-footer .language-button .glyphicon-globe {
         padding: 40px 0;
     }
 }
-
+@media (max-width: 991px) {
+    .home-wrapper .main-home-container .input-search-wrapper {
+        padding: 40px 0;
+        max-width: 450px;
+    }
+}
 .home-wrapper .main-home-container .input-search-wrapper .input-wrapper {
     padding: 0
 }
@@ -2091,15 +2170,15 @@ footer .additional-footer .language-button .glyphicon-globe {
     display: inline-block;
 }
 
-@media (min-width: 425px) {
+@media (max-width: 425px) {
     .home-wrapper .main-home-container h2 {
         font-size: 35px;
     }
 }
 
-@media (min-width: 768px) {
+@media (max-width: 991px) {
     .home-wrapper .main-home-container h2 {
-        font-size: 50px;
+        font-size: 45px;
     }
 
 }
@@ -6234,25 +6313,38 @@ input[name="keyword"] {
     padding: 4px 10px;
   }
   .form-control.style-1 {
-      border: 1px solid #ddd;
-      font-size: 16px;
+    border: 2px solid #ddd;
+    font-size: 16px;
+  }
+   input.form-control.style-1 {
+    border: none;
+    border-bottom: 2px solid #ddd;
+    font-size: 16px;
   }
   .form-control.style-1:not(textarea) {
     height: 46px;
-      line-height: 23px;
-}
+    line-height: 23px;
+  }
   .form-control.style-2 {
-    border: 1px solid #ddd;
+    border: 2px solid #ddd;
     font-size: 15px;
-}
-    .form-control.style-2:not(textarea) {
-        height: 40px;
-        line-height: 20px;
-    }
-.form-group label {
+  }
+  input.form-control.style-2 {
+    border: none;
+    border-bottom: 2px solid #ddd;
+    font-size: 15px;
+  }
+  .form-control.style-2:focus, .form-control.style-1:focus{
+    border-color: #F15927;
+  }
+  .form-control.style-2:not(textarea) {
+    height: 40px;
+    line-height: 20px;
+  }
+  .form-group label {
     margin-bottom: 4px;
     font-weight: 400;
     font-size: 14px;
-}
+  }
 
 

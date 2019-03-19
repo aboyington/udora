@@ -287,6 +287,9 @@ $lang['Discover'] = "Discover";
 $lang['Add Event'] = "Add Event";
 $lang['Favorites'] = "Favorites";
 $lang['Profile'] = "Profile";
+$lang['Explore'] = "Explore";
+$lang['Saved'] = "Saved";
+$lang['Check in'] = "Check in";
 
 // Agent masking
 $lang['YouAre'] = "You are";

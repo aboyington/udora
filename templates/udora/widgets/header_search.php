@@ -534,6 +534,9 @@ if ($CI->config->item('facebook_api_version') == '2.4' || floatval($this->config
             <?php _widget('custom_center_search');?>
            
         </div>
+        <div class="scroll_details d-none d-md-block">
+            <h5 class="color-white scroll-arrow_bottom">Scroll for details</h5>
+        </div>
     </div>
     <!-- Footer -->
     <!-- <a href="" class="scroll-button"><i class="material-icons">&#xE5CF;</i></a> -->

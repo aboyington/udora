@@ -25,12 +25,12 @@
                                 <textarea name="addEventsModalMessage" id="addEventsModalMessage" rows="4" class="form-control style-2" placeholder="Message"></textarea>
                             </div>
                             <div class="col-md-12 form-group mb-3">
-                                <label for="addEventsModalPhoto">Snap or upload an event image</label>
+                                <label for="addEventsModalPhoto">Take a picture or upload the event QR code</label>
                                 <input type="file" name="addEventsModalPhoto" id="addEventsModalPhoto" accept="image/*">
                             </div>
                             <div class="col-md-12 text-center mb-2">
                                 <button class="btn btn-udora" type="submit">
-                                    <?php echo lang_check('Send Message');?>
+                                    <?php echo lang_check('Submit');?>
                                 </button>
                                 <div class="spinner hidden ajax-indicator" style="margin-top: 10px;">
                                     <div class="bounce1"></div>
