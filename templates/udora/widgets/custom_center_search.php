@@ -1,3 +1,10 @@
+<?php
+// get user ip
+$ip = $_SERVER['REMOTE_ADDR'];
+$query = @unserialize(file_get_contents('http://ip-api.com/php/'.$ip));
+if($query && $query['status'] == 'success') 
+?>
+
 <form class="check-form">
  <div class="input-search-wrapper col-xs-11 col-sm-8 col-md-12 clearfix">
     <div class="input-wrapper advanced-search col-xs-12 col-md-8">
@@ -79,20 +86,21 @@
         </script>
         <?php endif; ?>
         <div class="second-group clearfix">
-       <!--  <input type="text" required class="form-control search_option_location_second" oninvalid="setCustomValidity(''); checkValidity(); setCustomValidity(validity.valid ? '' :'<?php// echo lang_check("Please Populate field Location");?>');" id="search_option_location_second" value="{search_option_location}"  placeholder="<?php// echo lang_check('Enter city or location');?>"> -->
+<input type="hidden" class="form-control search_option_location_second" oninvalid="setCustomValidity(''); checkValidity(); setCustomValidity(validity.valid ? '' :'<?php echo lang_check("Please Populate field Location");?>');" id="search_option_location_second" value="<?php echo ''.$query ['city'].', '.$query['regionName'].', '.$query['country'].'';?>">
         <input type="text" class="form-control search_option_smart search_option_smart_second" placeholder="<?php echo lang_check("Search events or categories");?>">
+        
         <script>
-            //$(function(){
+            $(function(){
             // Create the autocomplete object, restricting the search to geographical
             // location types.
-           /* var placeSearch, autocomplete;
+            var placeSearch, autocomplete;
                 var componentForm = {
-                  street_number: 'short_name',
+                  street_number: 'long_name',
                   route: 'long_name',
                   locality: 'long_name',
-                  administrative_area_level_1: 'short_name',
+                  administrative_area_level_1: 'long_name',
                   country: 'long_name',
-                  postal_code: 'short_name'
+                  postal_code: 'long_name'
                 };
             var populate = {
                   street_number: '',
@@ -125,7 +133,7 @@
                         .attr('data-country', populate.country)
             });
             
-        })*/
+        })
         </script>
         
         <div class="dropdown-button-form"><span class="caret"></span></div>

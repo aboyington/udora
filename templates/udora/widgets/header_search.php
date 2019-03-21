@@ -1,4 +1,9 @@
-
+<?php
+// get user ip
+$ip = $_SERVER['REMOTE_ADDR'];
+$query = @unserialize(file_get_contents('http://ip-api.com/php/'.$ip));
+if($query && $query['status'] == 'success') 
+?>
 <?php
 $CI = &get_instance();
 $login_url_facebook = '';
@@ -307,7 +312,7 @@ if ($CI->config->item('facebook_api_version') == '2.4' || floatval($this->config
         </li>
         <div class="mobile-menu_user_location">
             <p>Estimated location</p>
-            <p class="mobile-menu__links__item">Location Toronto</p>
+            <p class="mobile-menu__links__item">Location <?php echo $query ['city']; ?></p>
             <p>Search Radius 50km / 31 miles</p>
         </div>
         <li class="mobile-menu__links__item">
@@ -322,9 +327,7 @@ if ($CI->config->item('facebook_api_version') == '2.4' || floatval($this->config
         <li class="mobile-menu__links__item">
             <a href="<?php echo site_url($lang_code . '/4/contact'); ?>"><?php echo lang_check('Contact'); ?></a>
         </li>
-        <li>
-            <hr>
-        </li>
+
     </ul>
     <div class="mobile-menu_bottom_info">
         <div class="mobile-menu_bottom_info_version">
@@ -628,6 +631,4 @@ if ($CI->config->item('facebook_api_version') == '2.4' || floatval($this->config
 
 
     })
-
-
 </script>

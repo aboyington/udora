@@ -293,8 +293,7 @@ array_walk($enquire_3, 'add_profile_image');
             <li class="mobile-menu__links__item">
                 <a href="<?php echo site_url($lang_code.'/4/contact');?>"><?php echo lang_check('Contact');?></a>
             </li>
-            <li>
-              
+                          
     </ul>
         <div class="mobile-menu_bottom_info">
         <div class="mobile-menu_bottom_info_version">
@@ -497,7 +496,7 @@ array_walk($enquire_3, 'add_profile_image');
                     <a type="button" href="#" class="searchform-toggle hidden" data-toggle="collapse"><i class="ion-search"></i></a>
                 </li>
 
-             		{not_logged}
+                    {not_logged}
                         <?php if(config_db_item('property_subm_disabled')==FALSE):  ?>
                             <li class="d-none d-md-flex">
                                 <a href="{front_login_url}#content" class="js-toggle-login-popup dark-link">
@@ -513,14 +512,14 @@ array_walk($enquire_3, 'add_profile_image');
                             </li>
                             <li class="d-md-none show-when-login-register-opened"><a href="#" class="js-close-login-register-popups"><div class="close-icon black"></div></a></li>
                         <?php endif;?>
-             	 	{/not_logged}
+                    {/not_logged}
                 
                 <li class="d-none d-md-flex"><a href="<?php echo site_url('frontend/editproperty/'.$lang_code.'#content');?>" class="login-menu dark-link btn-submitevent">
                     <span><i class="ion-plus-round"></i><?php echo lang_check(' Add Event');?></span>
                     </a>
                 </li>
                 
-                {is_logged_user}								
+                {is_logged_user}                                
                  <li role="presentation" class="dropdown notification-label js-hide-on-map-page">
                     <a href="#" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="true">
                         <i class="fa fa-bell"></i>
@@ -553,7 +552,7 @@ array_walk($enquire_3, 'add_profile_image');
                         </li>
                     </ul>
                 </li>
-					
+                    
                 <li class="logedin">
                     <a id="profile-img">
                         <?php if($this->session->userdata('profile_image') != '' && file_exists(FCPATH.$this->session->userdata('profile_image'))):?>
@@ -573,7 +572,7 @@ array_walk($enquire_3, 'add_profile_image');
                         <div class="profile-box-data">
                             <p id="profile-box-name"><?php echo $this->session->userdata('name_surname');?></p>
                             <!--<p class="small-font"><?php /*echo $this->session->userdata('username');*/?></p>-->
-							    <p class="small-font">533 000 4703</p>
+                                <p class="small-font">533 000 4703</p>
                             <a href="{login_url}">
                                 <button>{lang_Profile}</button>
                             </a>
@@ -722,7 +721,7 @@ $('document').ready(function(){
             if(data.success)
             {
                 // Display agent details
-								var dalay = 2000;
+                                var dalay = 2000;
                 $('#popup_form_register .alerts-box').html('');
                 if(data.message){
                     ShowStatus.show(data.message)
@@ -730,10 +729,10 @@ $('document').ready(function(){
                 if(data.redirect) {
                     location.href = data.redirect;
                 } else {
-										dalay = 15000;
-								}
-								
-								setTimeout(function(){location.reload()},dalay);
+                                        dalay = 15000;
+                                }
+                                
+                                setTimeout(function(){location.reload()},dalay);
                 
             }
             else
