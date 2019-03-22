@@ -1163,7 +1163,9 @@ ul.amenities li img.check
     float: left;
     width: 160px;
     padding-top: 5px;
-    text-align: right;
+}
+#main .control-group input[type="submit"], #main .profile-uiploadimage .fileupload-buttonbar .fileinput-button{
+  border-radius: 7px;
 }
 
 #main .form-search input,#main .form-inline input,#main .form-horizontal input,#main .form-search textarea,#main .form-inline textarea,#main .form-horizontal textarea,#main .form-search select,#main .form-inline select,#main .form-horizontal select,#main .form-search .help-inline,#main .form-inline .help-inline,#main .form-horizontal .help-inline,#main .form-search .uneditable-input,#main .form-inline .uneditable-input,#main .form-horizontal .uneditable-input,#main .form-search .input-prepend,#main .form-inline .input-prepend,#main .form-horizontal .input-prepend,#main .form-search .input-append, #main .form-inline .input-append,#main .form-horizontal .input-append {
@@ -1207,9 +1209,21 @@ ul.amenities li img.check
     color: #000;
     font-weight: bold;
 }
-#main .control-group input,#main .control-group textarea,#main .control-group .uneditable-input {
+#main .control-group textarea{
     width: 206px;
     border: 2px solid rgba(0, 0, 0, 0.1);
+    background: white;
+}
+#main .control-group input,#main .control-group .uneditable-input {
+    width: 206px;
+    border: none;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+    background: white;
+}
+#main .control-group input:focus,#main .control-group .uneditable-input:focus {
+    width: 206px;
+    border: none;
+    border-bottom: 2px solid rgb(46, 117, 174);
     background: white;
 }
 
@@ -11029,6 +11043,12 @@ body .footable.table-packeges.table > tbody > tr > td {
     margin-left: auto;
     margin-right: auto;
   }
+  @media (max-width: 991px) {
+      .home__header__overlay, .home__header__bg__wrap  {
+        position: fixed;
+        height: 100vh;
+      }
+  }
   @media (min-width: 1200px) {
     .main-home-container {
       max-width: 80%;
@@ -12712,6 +12732,13 @@ body .footable.table-packeges.table > tbody > tr > td {
     transition: all .15s;
     -webkit-transition: all .15s;
 }
+.switch_res_map_btn_header .header_map_pointer{
+    fill: #000;
+}
+.switch_res_map_btn_header.show_map .header_map_pointer{
+    fill: #f71;
+}
+
 
 .switch-res-map .switch-res-map-btn.active,
 .switch-res-map .switch-res-map-btn:hover {
@@ -12885,7 +12912,7 @@ body .footable.table-packeges.table > tbody > tr > td {
   }
 
     .navbar .navbar-nav>li>a {
-				padding: 0 11px;
+				padding: 0 5px;
         background: transparent !important;
         font-size: 21px;
     } 
@@ -12912,7 +12939,7 @@ body .footable.table-packeges.table > tbody > tr > td {
         position: absolute;
         display: flex;
         align-items: center;
-        left: 50%;
+        left: 120px;
         top: 50%;
         -webkit-transform: translate(-50%, -50%);
         transform: translate(-50%, -50%);

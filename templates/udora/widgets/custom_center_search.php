@@ -86,7 +86,9 @@ if($query && $query['status'] == 'success')
         </script>
         <?php endif; ?>
         <div class="second-group clearfix">
-<input type="hidden" class="form-control search_option_location_second" oninvalid="setCustomValidity(''); checkValidity(); setCustomValidity(validity.valid ? '' :'<?php echo lang_check("Please Populate field Location");?>');" id="search_option_location_second" value="<?php echo ''.$query ['city'].', '.$query['regionName'].', '.$query['country'].'';?>">
+            <input type="hidden" class="form-control search_option_location_second" oninvalid="setCustomValidity(''); checkValidity(); setCustomValidity(validity.valid ? '' :'<?php echo lang_check("Please Populate field Location");?>');" id="search_option_location_second" value="<?php echo $query ['city'];?>">
+            <input type="hidden" name="region_name" value="<?php echo $query['regionName']; ?>">
+            <input type="hidden" name="country" value="<?php echo $query['country']; ?>">
         <input type="text" class="form-control search_option_smart search_option_smart_second" placeholder="<?php echo lang_check("Search events or categories");?>">
         
         <script>

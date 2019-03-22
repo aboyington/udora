@@ -12,12 +12,6 @@
 <body class="full-screen">
     <div class="fle">
         <?php _widget('header_menu');?>
-        <div class="switch-res-map py-2 py-sm-3">
-            <div class="switch-res-map-btn-group">
-                <a href="#" class="switch-res-map-btn results active"><?php echo lang_check('List');?></a>
-                <a href="#" class="switch-res-map-btn map"><?php echo lang_check('Map');?></a>
-            </div>
-        </div>
         <?php _widget('custom_map_search_results');?>
     </div>
 <!-- Footer -->
@@ -59,20 +53,18 @@
 <script>
 
 $(function(){
-
-    $('.switch-res-map .switch-res-map-btn').click(function(e){
-        $('.switch-res-map .switch-res-map-btn').removeClass('active');
-        $(this).addClass('active');
-        if($(this).hasClass('results')){
-            $('.results-wrapper').removeClass('mob-hidden')
+    $('.switch_res_map_btn_header').click(function(e){
+        e.preventDefault();
+        if($(this).hasClass('show_map')){
+            $(this).removeClass('show_map');
+             $('.results-wrapper').removeClass('mob-hidden')
             $('.map-wrapper').addClass('mob-hidden')
-        } else if($(this).hasClass('map')){
-            $('.results-wrapper').addClass('mob-hidden')
-            $('.map-wrapper').removeClass('mob-hidden')
+        } else {
+             $(this).addClass('show_map');
+             $('.results-wrapper').addClass('mob-hidden')
+             $('.map-wrapper').removeClass('mob-hidden')
         }
-        
     })
-
 
     $('.property_popup .property_popup-close').click(function(){
         $('.property_popup').slideUp()

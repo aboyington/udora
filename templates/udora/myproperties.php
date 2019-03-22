@@ -27,53 +27,33 @@
 
                             <!--     Points and Levels    -->
                             <div class="col-xs-12 mb-4">
+                                <div class="activities_user_info d-flex justify-content-between align-items-top">
+                                    <div class="activities_user_name">
+                                        <h4>Anthony Boyington</h4>
+                                        <p>533 000 4337</p>
+                                        <p>joined in May, 2012</p>                                        
+                                    </div>
+                                    <div  class="activities_user_foto" style="background-image: url('assets/img/dashboard/jwalker.jpg');">
+                                        
+                                    </div>                                    
+                                </div>
                                 <div class="panel panel-default panel-no-border">
                                     <div class="panel-heading / mb-4">Points &amp; Levels</div>
-                                    <p class="mb-0 weight-300 text-center">Your points - <span class="weight-500">7203</span></p>
-                                    <div class="panel-body">
-                                        <div class="progress">
-                                            <div class="progress-bar" role="progressbar" aria-valuenow="70"
-                                                 aria-valuemin="0" aria-valuemax="100" style="width:20%">
-                                                <span class="sr-only">70% Complete</span>
-                                            </div>
+                                    <div class="panel_progress_score">
+                                        <!-- if the left property more than 60% add class  ->  flex-row-reverse  -->
+                                        <div class="panel_progress_score_item d-inline-flex justify-content-start align-items-center" style="left: 40%;">
+                                            <i class="material-icons">location_on</i>
+                                            <span class="mb-0 weight-300 text-center">Your points - <span class="weight-500">7203</span></span>
                                         </div>
-                                        <div class="badges-wrapper">
-                                            <div class="badge-item">
-                                                <img src="assets/img/dashboard/1.png" alt="" class="img-responsive">
-                                                <div class="badge-item-info">
-                                                    <p class="header-badge">Newbie</p>
-                                                    <p class="points-badge">100 points</p>
-                                                </div>
-                                            </div>
-                                            <div class="badge-item">
-                                                <img src="assets/img/dashboard/7.png" alt="" class="img-responsive">
-                                                <div class="badge-item-info">
-                                                    <p class="header-badge">Butterfly</p>
-                                                    <p class="points-badge">10k points</p>
-                                                </div>
-                                            </div>
-                                            <div class="badge-item">
-                                                <img src="assets/img/dashboard/3.png" alt="" class="img-responsive">
-                                                <div class="badge-item-info">
-                                                    <p class="header-badge">Trendsetter</p>
-                                                    <p class="points-badge">20k points</p>
-                                                </div>
-                                            </div>
-                                            <div class="badge-item">
-                                                <img src="assets/img/dashboard/4.png" alt="" class="img-responsive">
-                                                <div class="badge-item-info">
-                                                    <p class="header-badge">Legend</p>
-                                                    <p class="points-badge">40k points</p>
-                                                </div>
-                                            </div>
-                                            <div class="badge-item">
-                                                <img src="assets/img/dashboard/5.png" alt="" class="img-responsive">
-                                                <div class="badge-item-info">
-                                                    <p class="header-badge">Elite</p>
-                                                    <p class="points-badge">80k points</p>
-                                                </div>
-                                            </div>
-
+                                        
+                                    </div>
+                                    <div class="panel_progress_body">
+                                        <div class="panel_progress_body-items d-flex justify-content-between">
+                                            <span class="panel_body-item text-center item_active">Newbie</span>
+                                            <span class="panel_body-item text-center item_active">Butterfly</span>
+                                            <span class="panel_body-item text-center">Trendsetter</span>
+                                            <span class="panel_body-item text-center">Legend</span>
+                                            <span class="panel_body-item text-center">Elite</span>                                            
                                         </div>
                                     </div>
                                 </div>
@@ -85,124 +65,56 @@
                             <div class="col-xs-12">
                                 <div class="panel panel-default panel-no-border">
                                     <div class="panel-heading">Activities</div>
-                                    <div id="activities" class="tab-pane fade in active / pt-3 pb-2">
-                                        <div class="activities">
-                                            <div class="activities__col">
-                                                <a href="<?php echo site_url('frontend/myevents/' . $lang_code . '#content'); ?>"
-                                                   class="activities__item">
+                                    <div id="activities_event" class="tab-pane fade in active / pt-3 pb-2">
+                                        <div class="d-flex justify-content-between align-items-top flex-wrap">
 
-                                                    <div class="activities__item-icon">
-                                                        <img src="assets/img/icons/dashboard/event.png" alt="Your Events">
-                                                    </div>
-                                                    <div class="activities__item-info">
-                                                        <span class="activities__item-info__header">
-                                                            <?php echo lang_check('Your Events'); ?>
-                                                        </span>
-                                                        <span class="activities__item-info__desc">
-                                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                                        </span>
-                                                    </div>
-                                                    <span class="activities__item-counter"><?php echo count($estates); ?></span>
-                                                </a>
-                                            </div>
-                                            <div class="activities__col">
-                                                <a href="<?php echo site_url('ffavorites/myfavorites/' . $lang_code . '#content'); ?>"
-                                                   class="activities__item">
-                                                    <?php
-                                                    $CI = &get_instance();
-                                                    $CI->load->model('favorites_m');
-                                                    $research = $CI->favorites_m->get_by(array('user_id' => $this->session->userdata('id')));
-                                                    ?>
-                                                    <div class="activities__item-icon">
-                                                        <img src="assets/img/icons/dashboard/star.png" alt="Favorites">
-                                                    </div>
-                                                    <div class="activities__item-info">
-                                                        <span class="activities__item-info__header">
-                                                            <?php echo lang_check('Favorites'); ?>
-                                                        </span>
-                                                        <span class="activities__item-info__desc">
-                                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                                        </span>
-                                                    </div>
-                                                    <span class="activities__item-counter"><?php echo count($research); ?></span>
-                                                </a>
-                                            </div>
-                                            <div class="activities__col">
-                                                <a href="<?php echo site_url('frontend/myattended/' . $lang_code . '#content'); ?>"
-                                                   class="activities__item">
-                                                    <?php
+                                            <a class="col-xs-5 activities_event-link d-flex justify-content-between" href="<?php echo site_url('frontend/myevents/' . $lang_code . '#content'); ?>">
+                                                <span class="activities_event-counter d-flex justify-content-center align-items-center"><?php echo count($estates); ?></span>
+                                                <span class="activities_event-title"><?php echo lang_check('My events'); ?></span>
+                                            </a>
+
+                                            <a class="col-xs-5 activities_event-link d-flex justify-content-between" href="<?php echo site_url('ffavorites/myfavorites/' . $lang_code . '#content'); ?>">
+                                            <?php
+                                                $CI = &get_instance();
+                                                $CI->load->model('favorites_m');
+                                                $research = $CI->favorites_m->get_by(array('user_id' => $this->session->userdata('id')));
+                                            ?>
+                                                <span class="activities_event-counter d-flex justify-content-center align-items-center"><?php echo count($research); ?></span>
+                                                <span class="activities_event-title"><?php echo lang_check('Favorites'); ?></span>
+                                            </a>
+
+                                            <a class="col-xs-5 activities_event-link d-flex justify-content-between" href="<?php echo site_url('frontend/myattended/' . $lang_code . '#content'); ?>">
+                                                <?php
                                                     $CI = &get_instance();
                                                     $CI->load->model('userattend_m');
                                                     $attended = $CI->userattend_m->get_by(array('user_id' => $this->session->userdata('id')));
-                                                    ?>
-                                                    <div class="activities__item-icon">
-                                                        <img src="assets/img/icons/dashboard/places.png" alt="Attended">
-                                                    </div>
-                                                    <div class="activities__item-info">
-                                                        <span class="activities__item-info__header">
-                                                            <?php echo lang_check('Attended'); ?>
-                                                        </span>
-                                                        <span class="activities__item-info__desc">
-                                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                                        </span>
-                                                    </div>
-                                                    <span class="activities__item-counter"><?php echo count($attended); ?></span>
-                                                </a>
-                                            </div>
-                                            <?php
-                                            $CI = &get_instance();
-                                            $CI->load->model('reviews_m');
-                                            $reviews = $CI->reviews_m->get_joined(array('user_id' => $this->session->userdata('id')));
-                                            ?>
-                                            <div class="activities__col">
-                                                <a href="javascript:;" class="activities__item">
-                                                    <div class="activities__item-icon">
-                                                        <img src="assets/img/icons/dashboard/feedback.png" alt="Feedback">
-                                                    </div>
-                                                    <div class="activities__item-info">
-                                                        <span class="activities__item-info__header">
-                                                            <?php echo lang_check('Feedback'); ?>
-                                                        </span>
-                                                        <span class="activities__item-info__desc">
-                                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                                        </span>
-                                                    </div>
-                                                    <span class="activities__item-counter"><?php echo count($reviews); ?></span>
-                                                </a>
-                                            </div>
-                                            <div class="activities__col">
-                                                <a href="javascript:;" class="activities__item">
-                                                    <div class="activities__item-icon">
-                                                        <img src="assets/img/icons/dashboard/survey.png" alt="Survey">
-                                                    </div>
-                                                    <div class="activities__item-info">
-                                                        <span class="activities__item-info__header">
-                                                            <?php echo lang_check('Surveys'); ?>
-                                                        </span>
-                                                        <span class="activities__item-info__desc">
-                                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                                        </span>
-                                                    </div>
-<!--                                                    <span class="activities__item-counter">5</span>-->
-                                                </a>
-                                            </div>
-                                            <div class="activities__col">
-                                                <a href="javascript:;" class="activities__item">
-                                                    <div class="activities__item-icon">
-                                                        <img src="assets/img/icons/dashboard/reward.png" alt="Rewards">
-                                                    </div>
-                                                    <div class="activities__item-info">
-                                                        <span class="activities__item-info__header">
-                                                            <?php echo lang_check('Rewards'); ?>
-                                                        </span>
-                                                        <span class="activities__item-info__desc">
-                                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                                        </span>
-                                                    </div>
-<!--                                                    <span class="activities__item-counter">5</span>-->
-                                                </a>
-                                            </div>
+                                                ?>
+                                                <span class="activities_event-counter d-flex justify-content-center align-items-center"><?php echo count($attended); ?></span>
+                                                <span class="activities_event-title"><?php echo lang_check('Attended'); ?></span>
+                                            </a>
+
+                                            <a class="col-xs-5 activities_event-link d-flex justify-content-between" href="javascript:;">
+                                                <?php
+                                                    $CI = &get_instance();
+                                                    $CI->load->model('reviews_m');
+                                                    $reviews = $CI->reviews_m->get_joined(array('user_id' => $this->session->userdata('id')));
+                                                ?>
+                                                <span class="activities_event-counter d-flex justify-content-center align-items-center"><?php echo count($reviews); ?></span>
+                                                <span class="activities_event-title"><?php echo lang_check('Feedback'); ?></span>
+                                            </a>
+
+                                            <a class="col-xs-5 activities_event-link d-flex justify-content-between" href="javascript:;">
+                                                <span class="activities_event-counter d-flex justify-content-center align-items-center"><?php echo count($estates); ?></span>
+                                                <span class="activities_event-title"><?php echo lang_check('Surveys'); ?></span>
+                                            </a>
+
+                                            <a class="col-xs-5 activities_event-link d-flex justify-content-between" href="javascript:;">
+                                                <span class="activities_event-counter d-flex justify-content-center align-items-center"><?php echo count($estates); ?></span>
+                                                <span class="activities_event-title"><?php echo lang_check('Rewards'); ?></span>
+                                            </a>
+                                            
                                         </div>
+                            
                                     </div>
                                 </div>
                             </div>
@@ -551,12 +463,22 @@
                             </div>
                         <?php endif; ?> -->
             </div>
+             <div class="col-xs-12 d-block d-md-none pad0">
+                <div class="bottom_login_usermenu">
+                    <?php _widget('custom_loginusermenu'); ?>
+                </div>
+                
+            </div>
         </div>
     </div>
 </div>
 
-<?php _widget('custom_footer_menu'); ?>
-<?php _widget('custom_footer'); ?>
+<div class="d-block d-md-none">
+    <?php _widget('custom_footer_menu');?>
+</div>
+<div class="d-none d-md-block">
+    <?php _widget('custom_footer'); ?>
+</div>
 <?php _widget('custom_javascript'); ?>
 <script>
     /*

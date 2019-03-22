@@ -175,12 +175,23 @@
                     </div>
                 </div>
             </div>
+            <div class="col-xs-12 d-block d-md-none pad0">
+                <?php _widget('custom_login_profile'); ?>
+                <?php _widget('custom_loginusermenu');?>
+            </div>
+
+
+
         </div>
     </div>
 </div>
+<div class="d-block d-md-none">
+    <?php _widget('custom_footer_menu');?>
+</div>
+<div class="d-none d-md-block">
+    <?php _widget('custom_footer'); ?>
+</div>
 
-<?php _widget('custom_footer_menu');?>
-<?php _widget('custom_footer'); ?>
 <?php _widget('custom_javascript'); ?>
 <script>
     $(document).ready(function(){

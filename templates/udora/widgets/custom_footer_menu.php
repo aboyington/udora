@@ -36,7 +36,7 @@
         </a>
         {/is_logged_other}
         {not_logged}
-        <a href="/frontend/login/" class="footer-links__link" >
+        <a href="<?php echo site_url('frontend/login/' . $lang_code . '#content'); ?>" class="footer-links__link" >
             <i class="fa fa-plus"></i>
             <span class="footer-links__link__title">{lang_Add Event}</span>
         </a>
