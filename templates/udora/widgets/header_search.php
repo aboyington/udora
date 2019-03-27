@@ -120,7 +120,7 @@ if ($CI->config->item('facebook_api_version') == '2.4' || floatval($this->config
                         </div>
                     </div>
                 </div>
-                <div class="col-xs-12 col-md-6 text-left pt-6 pb-6 / d-md-none">
+                <div class="col-xs-12 col-md-6 text-left pt-6 pb-6 / d-none d-sm-block d-md-none">
                     <h2 class="color-accent text-center  mb-2">Find your next <span
                                 class="color-white">experience</span></h2>
                     <ol class="ordered-list-style-1 text-center">
