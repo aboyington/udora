@@ -1818,6 +1818,19 @@ footer .footer-app_button p, footer .footer-app_button h4, footer .footer-app_bu
     margin: 0;
 }
 
+.footer_login_user-link .footer-links__link__title{
+    position: relative;
+}
+.footer_login_user-link .footer-links__link__title:after{
+    content: "";
+    position: absolute;
+    right: 0px;
+    top: -22px;
+    width: 6px;
+    height: 6px;
+    background-color: #F15927;
+    border-radius: 50%;
+}
 .footer-nav-black .footer.style-1 {
     background-color: transparent;
     border: 0;
@@ -2048,27 +2061,28 @@ footer .footer-app_button p, footer .footer-app_button h4, footer .footer-app_bu
     color: #333;
     font-size: 0.875em;
     height: 60px;
-    border-radius: 7px;
+    border-radius: 7px 0 0 7px;
 }
 
 .home-wrapper .main-home-container .input-search-wrapper .btn-search {
     vertical-align: top;
-    background-color: transparent;
+    background-color: rgba(241,89,39,1);
     border: 2px solid #F15927;
     height: 60px;
     color: #fff;
-    border-radius: 7px;
+    border-radius: 0 7px 7px 0;
     font-family: 'SegoeBold';
     font-size: 1.5em;
     text-transform: capitalize;
-    margin-left: 10px;
-    padding: 0 50px;
+    margin-left: 0px;
+    padding: 0 30px;
     transition: background-color .3s ease;
 }
 
 .home-wrapper .main-home-container .input-search-wrapper .btn-search:hover {
-    background-color: transparent;
-    color: #F15927;
+    background-color: rgba(241,89,39,.7);
+    color: #fff;
+    transition: .4s;
 }
 
 .home-wrapper .main-home-container .input-search-wrapper .dropdown-button {
@@ -2091,13 +2105,13 @@ footer .footer-app_button p, footer .footer-app_button h4, footer .footer-app_bu
 
 .input-search-wrapper {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
+    align-items: flex-start;
     float: none;
     margin: auto;
 }
 .search-wrapper {
-    width: 100%;
+    width: auto;
 }
 
 @media (min-width: 992px) {
@@ -2931,7 +2945,11 @@ footer .footer-app_button p, footer .footer-app_button h4, footer .footer-app_bu
 .panel_progress_body-items .panel_body-item.item_active{
     border-top: 6px solid #F15927;
 }
-
+@media (max-width: 767px) {
+    .panel_progress_body .panel_body-item{
+        font-size: 12px;
+    }
+}
 .dashboard-layout .progress .progress-bar {
     background-color: #F15927;
     position: relative;
@@ -5323,8 +5341,11 @@ input[name="keyword"] {
         margin-bottom: 2em;
     }  
     .home-wrapper .main-home-container .input-search-wrapper .btn-search {
-        margin-top: 2em;
+        padding: 0 20px;
         margin-left: 0;
+    }
+    .home-wrapper .main-home-container .input-search-wrapper .btn-search .material-icons{
+        font-size: 35px;
     }
     .home-footer,
     .navbar-brand {

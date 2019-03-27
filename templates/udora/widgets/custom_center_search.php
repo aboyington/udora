@@ -326,7 +326,7 @@ if($query && $query['status'] == 'success')
     </div>
     </div>
     <div class="search-wrapper">
-        <a href="#" id="search-start-ajax" ><button class="btn-search"><?php echo lang_check('Search');?></button></a>
+        <a href="#" id="search-start-ajax" ><button class="btn-search"><span class="d-none d-md-block"><?php echo lang_check('Search');?></span><i class="material-icons d-block d-md-none">search</i></button></a>
     </div>
 </div>
 </form>

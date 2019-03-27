@@ -49,9 +49,9 @@
                                     </div>
                                     <div class="panel_progress_body">
                                         <div class="panel_progress_body-items d-flex justify-content-between">
-                                            <span class="panel_body-item text-center item_active">Newbie</span>
-                                            <span class="panel_body-item text-center item_active">Butterfly</span>
-                                            <span class="panel_body-item text-center">Trendsetter</span>
+                                            <span class="panel_body-item text-center item_active">Novice</span>
+                                            <span class="panel_body-item text-center item_active">Explorer</span>
+                                            <span class="panel_body-item text-center">Celebrity</span>
                                             <span class="panel_body-item text-center">Legend</span>
                                             <span class="panel_body-item text-center">Elite</span>                                            
                                         </div>

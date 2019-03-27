@@ -3462,7 +3462,7 @@ body .footable.table-packeges.table > tbody > tr > td {
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 7px;
+    border-radius: 0;
 }
 
 .home-wrapper .main-home-container .input-search-wrapper .dropdown-button-form .caret {
@@ -3525,7 +3525,7 @@ body .footable.table-packeges.table > tbody > tr > td {
     
     .home-wrapper .main-home-container .input-search-wrapper .btn-search {
         width: 100%;
-        margin-top: .5em;
+        margin-top: 0;
     }
 }
 
@@ -3662,14 +3662,6 @@ body .footable.table-packeges.table > tbody > tr > td {
 .login-form .remember-me label:before {
     display: none;
 } 
-
-@media (min-width: 992px) {
-    .home-wrapper .main-home-container .input-search-wrapper .btn-search {
-        margin-top: 0;
-        margin-bottom: 0;
-        margin-left: 10px;
-    }
-}
 
 .sliderads .carousel-inner>.item>a>img, 
 .sliderads .carousel-inner>.item>img {

@@ -43,7 +43,7 @@
         {/not_logged}
         {is_logged_user}
         <a href="<?php echo site_url('frontend/myproperties/' . $lang_code . '#content'); ?>"
-           class="footer-links__link">
+           class="footer-links__link footer_login_user-link">
             <i class="fa fa-user"></i>
             <span class="footer-links__link__title">{lang_Profile}</span>
         </a>
@@ -59,7 +59,7 @@
         <a href="<?php echo site_url('frontend/myproperties/' . $lang_code . '#content'); ?>"
            class="footer-links__link js-toggle-login-popup js-close-mobile-navbar">
             <i class="fa fa-user"></i>
-            <span class="footer-links__link__title">{lang_Profile}</span>
+            <span class="footer-links__link__title">{lang_Login}</span>
         </a>
         {/not_logged}
     </div>
