@@ -33,8 +33,12 @@
                                         <p>533 000 4337</p>
                                         <p>joined in May, 2012</p>                                        
                                     </div>
-                                    <div  class="activities_user_foto" style="background-image: url('assets/img/dashboard/jwalker.jpg');">
-                                        
+
+                                    <?php if($this->session->userdata('profile_image') != '' && file_exists(FCPATH.$this->session->userdata('profile_image'))):?>
+                                    <div  class="activities_user_foto" style="background-image: url('<?php echo base_url($this->session->userdata('profile_image'));?>');">
+                                    <?php else:?>
+                                    <div  class="activities_user_foto" style="background-image: url('assets/img/user-agent.png');">
+                                    <?php endif;?>                                        
                                     </div>                                    
                                 </div>
                                 <div class="panel panel-default panel-no-border">
