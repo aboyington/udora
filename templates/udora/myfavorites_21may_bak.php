@@ -87,8 +87,12 @@ $CI->load->model('userattend_m');
         </div>
     </div>
 </div>
-<?php _widget('custom_footer_menu');?>
-<?php _widget('custom_footer'); ?>
+<div class="d-block d-md-none">
+    <?php _widget('custom_footer_menu');?>
+</div>
+<div class="d-none d-md-block">
+    <?php _widget('custom_footer'); ?>
+</div>
 
 
 <?php if(file_exists(APPPATH.'controllers/admin/reviews.php') && $settings_reviews_enabled): ?>

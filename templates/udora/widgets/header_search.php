@@ -260,47 +260,47 @@ if ($CI->config->item('facebook_api_version') == '2.4' || floatval($this->config
 </div>
 
 
-<nav class="mobile-menu" id="js-mobile-menu">
+<nav class="mobile-menu d-flex flex-column align-items-start" id="js-mobile-menu">
         <button type="button" role="button" class="navbar__gamburger__icon / white / js-toggle-mobile-navbar x" aria-label="Toggle Navigation" aria-expanded="false">
             <span class="lines"></span>
         </button>
-        <a class="mobile-menu_black_logo" href="{homepage_url_lang}"><img src="{website_black_logo_url}" 
+        <a class="mobile-menu_black_logo" href="{homepage_url_lang}"><img src="{website_logo_url}" 
                                                                           alt="<?php echo $settings_websitetitle; ?>" 
                                                                           class="logotype"></a>
+        <div class="mobile-menu-user-info">
+            <?php if($this->session->userdata('profile_image') != '' && file_exists(FCPATH.$this->session->userdata('profile_image'))):?>
+                <div  class="activities_user_foto" style="background-image: url('<?php echo base_url($this->session->userdata('profile_image'));?>');"></div>
+            <?php else:?>
+                <div  class="activities_user_foto" style="background-image: url('assets/img/user-agent.png');"></div>
+            <?php endif;?>
+
+            <h4>Anthony Boyington</h4>
+            
+        </div>
     <ul class="mobile-menu__links">
         <li class="mobile-menu__links__item"><a
                     href="<?php echo site_url($lang_code); ?>"><i class="material-icons">remove_red_eye</i><?php echo lang_check('Explore'); ?></a></li>
         <li class="mobile-menu__links__item"><a
                     href="<?php echo site_url($lang_code . '/179/blog_page'); ?>"><i class="material-icons">history</i><?php echo lang_check('About'); ?></a>
         </li>
-        {is_logged_user}
+    {is_logged_user}
         <li class="mobile-menu__links__item">
-            <a role="button" data-toggle="collapse" href="#mobileMenuLoggedSubmenu" aria-expanded="false"
-               aria-controls="mobileMenuLoggedSubmenu"><i class="material-icons">person</i><?php echo lang_check('My account'); ?>
-                <i class="ion-android-arrow-dropdown icon-collapsed"></i>
-                <i class="ion-android-arrow-dropup icon-not-collapsed"></i>
-            </a>
-            <div class="collapse" id="mobileMenuLoggedSubmenu">
-                <ul class="mobile-menu__links mobile-menu__links--submenu">
-                    <li class="mobile-menu__links__item">
-                        <a href="{myproperties_url}#content"><i class="material-icons">dashboard</i><?php echo lang_check('Dashboard'); ?></a>
-                    </li>
-                    <li class="mobile-menu__links__item">
-                        <a href="{myprofile_url}#content"><i class="material-icons">person</i><?php echo lang_check('My Profile'); ?></a>
-                    </li>
-                    <li class="mobile-menu__links__item">
-                        <a href="<?php echo site_url('frontend/editproperty/' . $lang_code . '#content'); ?>"><i class="material-icons">playlist_add</i><?php echo lang_check('Add Events'); ?></a>
-                    </li>
-                    <li class="mobile-menu__links__item">
-                        <a href="{myfavorites_url}#content"><i class="material-icons">favorite</i><?php echo lang_check('Saved Events'); ?></a>
-                    </li>
-                    <li class="mobile-menu__links__item">
-                        <a href="<?php echo site_url('frontend/notificationsettings/' . $lang_code . '#content'); ?>"><i class="material-icons">notifications_active</i><?php echo lang_check('Notifications'); ?></a>
-                    </li>
-                </ul>
-            </div>
+            <a href="{myproperties_url}#content"><i class="material-icons">dashboard</i><?php echo lang_check('Dashboard'); ?></a>
         </li>
-        {/is_logged_user}
+        <li class="mobile-menu__links__item">
+            <a href="{myprofile_url}#content"><i class="material-icons">person</i><?php echo lang_check('My Profile'); ?></a>
+        </li>
+        <li class="mobile-menu__links__item">
+            <a href="<?php echo site_url('frontend/editproperty/' . $lang_code . '#content'); ?>"><i class="material-icons">playlist_add</i><?php echo lang_check('Add Events'); ?></a>
+        </li>
+        <li class="mobile-menu__links__item">
+            <a href="{myfavorites_url}#content"><i class="material-icons">favorite</i><?php echo lang_check('Saved Events'); ?></a>
+        </li>
+        <li class="mobile-menu__links__item">
+            <a href="<?php echo site_url('frontend/notificationsettings/' . $lang_code . '#content'); ?>"><i class="material-icons">notifications_active</i><?php echo lang_check('Notifications'); ?></a>
+        </li>
+
+    {/is_logged_user}
         <li class="mobile-menu__links__item">
             <a href="<?php echo site_url($lang_code . '/6/map'); ?>"><i class="material-icons">location_on</i><?php echo lang_check('Map'); ?></a>
         </li>
@@ -310,11 +310,13 @@ if ($CI->config->item('facebook_api_version') == '2.4' || floatval($this->config
         <li class="mobile-menu__links__item">
             <a href="<?php echo site_url($lang_code . '/147/featured'); ?>"><i class="material-icons">link</i><?php echo lang_check('Featured'); ?></a>
         </li>
+        {not_logged}
         <div class="mobile-menu_user_location">
             <p class="mobile_location-description">Estimated location</p>
             <p class="mobile-menu__links__item"><i class="material-icons">my_location</i>Location <?php echo $query ['city']; ?></p>
             <p class="mobile_location-description">Search Radius 50km / 31 miles</p>
         </div>
+        {/not_logged}
         <li class="mobile-menu__links__item">
             <a href="<?php echo site_url($lang_code . '/180/udora_for_business'); ?>"><i class="material-icons">work</i><?php echo lang_check('Business'); ?></a>
         </li>

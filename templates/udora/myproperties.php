@@ -35,11 +35,11 @@
                                     </div>
 
                                     <?php if($this->session->userdata('profile_image') != '' && file_exists(FCPATH.$this->session->userdata('profile_image'))):?>
-                                    <div  class="activities_user_foto" style="background-image: url('<?php echo base_url($this->session->userdata('profile_image'));?>');">
+                                    <div  class="activities_user_foto" style="background-image: url('<?php echo base_url($this->session->userdata('profile_image'));?>');"></div>
                                     <?php else:?>
-                                    <div  class="activities_user_foto" style="background-image: url('assets/img/user-agent.png');">
+                                    <div  class="activities_user_foto" style="background-image: url('assets/img/user-agent.png');"></div>
                                     <?php endif;?>                                        
-                                    </div>                                    
+                                                                        
                                 </div>
                                 <div class="panel panel-default panel-no-border">
                                     <div class="panel-heading / mb-4">Points &amp; Levels</div>

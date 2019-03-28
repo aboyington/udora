@@ -127,12 +127,17 @@
     </div>
     <!--end of container-->
     </section>
-    <?php _widget('custom_footer');?>
+    <div class="d-none d-md-block">
+        <?php _widget('custom_footer'); ?>
+    </div>
 
     </div>
 
 
-<?php _widget('custom_footer_menu');?>
+
+<div class="d-block d-md-none">
+    <?php// _widget('custom_footer_menu');?>
+</div>
 
 
 <?php _widget('custom_javascript');?>

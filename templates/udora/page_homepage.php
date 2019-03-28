@@ -15,8 +15,12 @@
         <?php _widget('custom_map_search_results');?>
     </div>
 <!-- Footer -->
-<?php _widget('custom_footer_menu');?>
-<?php //_widget('custom_footer');?>
+    <div class="d-block d-md-none">
+        <?php// _widget('custom_footer_menu');?>
+    </div>
+    <div class="d-none d-md-block">
+        <?php _widget('custom_footer'); ?>
+    </div>
 <?php _widget('custom_javascript');?>
 
 <!-- eventdetails (Dynamic Panel) -->
