@@ -10,15 +10,17 @@
 </head>
 <body class="no-padding footer-nav-black home">
     <?php _widget('header_search');?>
-    
-     <?php _widget('bottom_featured');?>
+    <div class="d-none d-md-block">
+        <?php _widget('bottom_featured');?>
+    </div>
+     
 <!--     <div class="d-lg-none">
         <?php // _widget('custom_footer_menu');?>
     </div> -->
     
     <div class="d-none d-md-block">
 
-        <section class="text-center pt-14 pb-14">
+        <!-- <section class="text-center pt-14 pb-14">
         <div class="container">
             <div class="row mb-5">
             <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 text-center">
@@ -29,53 +31,53 @@
             </div>
             </div>
             </div>
-            <div class="row properties-items">
+            <div class="row properties-items"> -->
                 <!-- PROPERTY LISTING -->
-                    </div>
-            <div class="text-center">
-            <a class="btn btn-udora" href="<?php echo site_url('frontend/login');?>" type="button">Start now for free!</a>
+           <!--         </div>
+             <div class="text-center">
+            <a class="btn btn-udora" href="<?php //echo site_url('frontend/login');?>" type="button">Start now for free!</a>
             </div>
-        </div>
+        </div> -->
         <!--end of container-->
+        <!-- </section> -->
+
+
+        <section class="pt-10 pb-10">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row d-md-flex align-items-md-center">
+                            <div class="col-md-5">
+                                <h3 class="weight-300">Travel the world with <span class="color-accent weight-600">Udora</span></h3>
+
+                                <p class="mb-0">Never miss another event. On Udora you can connect with event organizers, locals and explorers like yourself, get recommendations share photos or even meet up.</p>
+
+                                <p>Udora is your travel companion and will help you discover events near and far.</p>
+                            </div>
+
+                            <div class="col-md-7"><img alt="" class="img-responsive" src="assets/img/how-it-works/how-it-works-1.png"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
 
         <section class="bg-grey pt-10 pb-10">
-        <div class="container">
-            <div class="row">
-            <div class="col-md-12">
-            <div class="row d-md-flex align-items-md-center">
-            <div class="col-md-5">
-            <h3 class="weight-300">Travel the world with <span class="color-accent weight-600">Udora</span></h3>
+            <div class="container">
+                <div class="row d-md-flex align-items-md-center">
+                    <div class="col-md-7"><img alt="" class="img-responsive mb-5 mb-md-0" src="assets/img/how-it-works/how-it-works-2.png"></div>
 
-<p class="mb-0">Never miss another event. On Udora you can connect with event organizers, locals and explorers like yourself, get recommendations share photos or even meet up.</p>
+                    <div class="col-md-5">
+                        <h3 class="weight-300">Travel the world with <span class="color-accent weight-600">Udora</span></h3>
 
-<p>Udora is your travel companion and will help you discover events near and far.</p>
+                        <p class="mb-0">Never miss another event. On Udora you can connect with event organizers, locals and explorers like yourself, get recommendations share photos or even meet up.</p>
+
+                        <p>Udora is your travel companion and will help you discover events near and far.</p>
+
+                    </div>
+                </div>
             </div>
-
-            <div class="col-md-7"><img alt="" class="img-responsive" src="assets/img/how-it-works/how-it-works-1.png"></div>
-            </div>
-            </div>
-            </div>
-            </div>
-        </section>
-
-
-        <section class="pt-10 pb-10">
-        <div class="container">
-<div class="row d-md-flex align-items-md-center">
-<div class="col-md-7"><img alt="" class="img-responsive mb-5 mb-md-0" src="assets/img/how-it-works/how-it-works-2.png"></div>
-
-<div class="col-md-5">
-<h3 class="weight-300">Travel the world with <span class="color-accent weight-600">Udora</span></h3>
-
-<p class="mb-0">Never miss another event. On Udora you can connect with event organizers, locals and explorers like yourself, get recommendations share photos or even meet up.</p>
-
-<p>Udora is your travel companion and will help you discover events near and far.</p>
-
-</div>
-</div>
-</div>
         </section>
 
    

@@ -6,8 +6,6 @@
 <body class="no-padding">
     <?php _widget('header-search');?>
     <!-- Help -->
-    <?php _widget('bottom_featured');?>
-
     
     <section class="text-center pt-14 pb-2">
       <div class="container">
@@ -94,6 +92,8 @@
       <!--end of container-->
     </section>
 
+
+<?php _widget('bottom_featured');?>
 
 <!-- <section class="pt-14 pb-14">
   <div class="container">

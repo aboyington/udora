@@ -27,7 +27,18 @@
 <div class="property_popup" style="display: none;">
     <div class="property_popup-content"style="position: relative; width: 100%; height: 100%;-webkit-overflow-scrolling:touch; overflow:auto;">
     </div>
-    <div class="property_popup-close"><div class="close-icon black"></div></div>
+    <div class="property_popup-close d-flex justify-content-between align-items-center">
+        <div class="d-flex justify-content-between align-items-center">
+            <i class="material-icons close-icon">arrow_back</i>
+            <p class="mb-0 ml-2">More Events</p>
+        </div>
+        
+        <div>
+            <i class="material-icons">share</i>
+            <i class="material-icons">favorite_border</i>
+            <i class="material-icons">more_vert</i>
+        </div>
+    </div>
 </div>
 
 

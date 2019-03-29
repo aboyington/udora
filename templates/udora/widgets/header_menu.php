@@ -249,16 +249,11 @@ array_walk($enquire_3, 'add_profile_image');
                 <div  class="activities_user_foto" style="background-image: url('assets/img/user-agent.png');"></div>
             <?php endif;?>
 
-            <h4><?php// echo $this->session->userdata('name_surname');?>Anthony</h4>
+            <h4><?php echo $this->session->userdata('name_surname');?></h4>
             
         </div>
     <ul class="mobile-menu__links">
-        <li class="mobile-menu__links__item"><a
-                    href="<?php echo site_url($lang_code); ?>"><i class="material-icons">remove_red_eye</i><?php echo lang_check('Explore'); ?></a></li>
-        <li class="mobile-menu__links__item"><a
-                    href="<?php echo site_url($lang_code . '/179/blog_page'); ?>"><i class="material-icons">history</i><?php echo lang_check('About'); ?></a>
-        </li>
-        {is_logged_user}
+           {is_logged_user}
             <li class="mobile-menu__links__item">
                 <a href="{myproperties_url}#content"><i class="material-icons">dashboard</i><?php echo lang_check('Dashboard'); ?></a>
             </li>
@@ -274,8 +269,14 @@ array_walk($enquire_3, 'add_profile_image');
             <li class="mobile-menu__links__item">
                 <a href="<?php echo site_url('frontend/notificationsettings/' . $lang_code . '#content'); ?>"><i class="material-icons">notifications_active</i><?php echo lang_check('Notifications'); ?></a>
             </li>
- 
+            <hr>
         {/is_logged_user}
+        <li class="mobile-menu__links__item"><a
+                    href="<?php echo site_url($lang_code); ?>"><i class="material-icons">remove_red_eye</i><?php echo lang_check('Explore'); ?></a></li>
+        <li class="mobile-menu__links__item"><a
+                    href="<?php echo site_url($lang_code . '/179/blog_page'); ?>"><i class="material-icons">history</i><?php echo lang_check('About'); ?></a>
+        </li>
+     
         <!-- <li class="mobile-menu__links__item">
             <a href="<?php //echo site_url($lang_code . '/6/map'); ?>"><i class="material-icons">location_on</i><?php// echo lang_check('Map'); ?></a>
         </li> -->
@@ -293,7 +294,7 @@ array_walk($enquire_3, 'add_profile_image');
         </div>
         {/not_logged}
         <li class="mobile-menu__links__item">
-            <a href="<?php echo site_url($lang_code . '/180/udora_for_business'); ?>"><i class="material-icons">work</i><?php echo lang_check('Business'); ?></a>
+            <a href="<?php echo site_url($lang_code . '/180/organizer/'); ?>"><i class="material-icons">work</i><?php echo lang_check('Organizer'); ?></a>
         </li>
         <li class="mobile-menu__links__item">
             <a href="<?php echo site_url($lang_code . '/182/terms_of_service'); ?>"><i class="material-icons">lock</i><?php echo lang_check('Terms & Privacy'); ?></a>

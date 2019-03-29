@@ -12987,8 +12987,12 @@ body.no-scroll {
   
 .property_popup .property_popup-close {
     position: absolute;
-    right: 20px;
-    top: 12px;
+    left: 0;
+    right: 0;
+    top: 0px;
+    padding-right: 15px;
+    text-align: right;
+    background-color: rgb(241, 89, 39);
     font-size: 30px;
     line-height: 1;
     cursor: pointer;
