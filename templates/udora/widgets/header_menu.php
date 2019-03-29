@@ -249,7 +249,7 @@ array_walk($enquire_3, 'add_profile_image');
                 <div  class="activities_user_foto" style="background-image: url('assets/img/user-agent.png');"></div>
             <?php endif;?>
 
-            <h4>Anthony Boyington</h4>
+            <h4><?php// echo $this->session->userdata('name_surname');?>Anthony</h4>
             
         </div>
     <ul class="mobile-menu__links">
@@ -259,36 +259,26 @@ array_walk($enquire_3, 'add_profile_image');
                     href="<?php echo site_url($lang_code . '/179/blog_page'); ?>"><i class="material-icons">history</i><?php echo lang_check('About'); ?></a>
         </li>
         {is_logged_user}
-       <!--  <li class="mobile-menu__links__item">
-            <a role="button" data-toggle="collapse" href="#mobileMenuLoggedSubmenu" aria-expanded="false"
-               aria-controls="mobileMenuLoggedSubmenu"><i class="material-icons">person</i><?php echo lang_check('My account'); ?>
-                <i class="ion-android-arrow-dropdown icon-collapsed"></i>
-                <i class="ion-android-arrow-dropup icon-not-collapsed"></i>
-            </a>
-            <div class="collapse" id="mobileMenuLoggedSubmenu">
-                <ul class="mobile-menu__links mobile-menu__links--submenu"> -->
-                    <li class="mobile-menu__links__item">
-                        <a href="{myproperties_url}#content"><i class="material-icons">dashboard</i><?php echo lang_check('Dashboard'); ?></a>
-                    </li>
-                    <li class="mobile-menu__links__item">
-                        <a href="{myprofile_url}#content"><i class="material-icons">person</i><?php echo lang_check('My Profile'); ?></a>
-                    </li>
-                    <li class="mobile-menu__links__item">
-                        <a href="<?php echo site_url('frontend/editproperty/' . $lang_code . '#content'); ?>"><i class="material-icons">playlist_add</i><?php echo lang_check('Add Events'); ?></a>
-                    </li>
-                    <li class="mobile-menu__links__item">
-                        <a href="{myfavorites_url}#content"><i class="material-icons">favorite</i><?php echo lang_check('Saved Events'); ?></a>
-                    </li>
-                    <li class="mobile-menu__links__item">
-                        <a href="<?php echo site_url('frontend/notificationsettings/' . $lang_code . '#content'); ?>"><i class="material-icons">notifications_active</i><?php echo lang_check('Notifications'); ?></a>
-                    </li>
-               <!--  </ul>
-            </div>
-        </li> -->
+            <li class="mobile-menu__links__item">
+                <a href="{myproperties_url}#content"><i class="material-icons">dashboard</i><?php echo lang_check('Dashboard'); ?></a>
+            </li>
+            <li class="mobile-menu__links__item">
+                <a href="{myprofile_url}#content"><i class="material-icons">person</i><?php echo lang_check('My Profile'); ?></a>
+            </li>
+            <li class="mobile-menu__links__item">
+                <a href="<?php echo site_url('frontend/editproperty/' . $lang_code . '#content'); ?>"><i class="material-icons">playlist_add</i><?php echo lang_check('Add Events'); ?></a>
+            </li>
+            <li class="mobile-menu__links__item">
+                <a href="{myfavorites_url}#content"><i class="material-icons">favorite</i><?php echo lang_check('Saved Events'); ?></a>
+            </li>
+            <li class="mobile-menu__links__item">
+                <a href="<?php echo site_url('frontend/notificationsettings/' . $lang_code . '#content'); ?>"><i class="material-icons">notifications_active</i><?php echo lang_check('Notifications'); ?></a>
+            </li>
+ 
         {/is_logged_user}
-        <li class="mobile-menu__links__item">
-            <a href="<?php echo site_url($lang_code . '/6/map'); ?>"><i class="material-icons">location_on</i><?php echo lang_check('Map'); ?></a>
-        </li>
+        <!-- <li class="mobile-menu__links__item">
+            <a href="<?php //echo site_url($lang_code . '/6/map'); ?>"><i class="material-icons">location_on</i><?php// echo lang_check('Map'); ?></a>
+        </li> -->
         <li class="mobile-menu__links__item">
             <a href="<?php echo site_url($lang_code . '/142/blog_page'); ?>"><i class="material-icons">book</i><?php echo lang_check('Blog'); ?></a>
         </li>

@@ -29,7 +29,7 @@
                             <div class="col-xs-12 mb-4">
                                 <div class="activities_user_info d-flex justify-content-between align-items-top">
                                     <div class="activities_user_name">
-                                        <h4>Anthony Boyington</h4>
+                                        <h4><?php echo $this->session->userdata('name_surname');?></h4>
                                         <p>533 000 4337</p>
                                         <p>joined in May, 2012</p>                                        
                                     </div>

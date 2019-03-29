@@ -274,7 +274,7 @@ if ($CI->config->item('facebook_api_version') == '2.4' || floatval($this->config
                 <div  class="activities_user_foto" style="background-image: url('assets/img/user-agent.png');"></div>
             <?php endif;?>
 
-            <h4>Anthony Boyington</h4>
+            <h4><?php// echo $this->session->userdata('name_surname');?>Anthony</h4>
             
         </div>
     <ul class="mobile-menu__links">
@@ -301,9 +301,9 @@ if ($CI->config->item('facebook_api_version') == '2.4' || floatval($this->config
         </li>
 
     {/is_logged_user}
-        <li class="mobile-menu__links__item">
-            <a href="<?php echo site_url($lang_code . '/6/map'); ?>"><i class="material-icons">location_on</i><?php echo lang_check('Map'); ?></a>
-        </li>
+       <!--  <li class="mobile-menu__links__item">
+            <a href="<?php// echo site_url($lang_code . '/6/map'); ?>"><i class="material-icons">location_on</i><?php// echo lang_check('Map'); ?></a>
+        </li> -->
         <li class="mobile-menu__links__item">
             <a href="<?php echo site_url($lang_code . '/142/blog_page'); ?>"><i class="material-icons">book</i><?php echo lang_check('Blog'); ?></a>
         </li>

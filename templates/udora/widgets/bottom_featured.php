@@ -22,7 +22,7 @@ Widget-preview-image: /assets/img/widgets_preview/center_recentproperties.jpg
         <?php
             if($key>2) break;
         ?>
-            <?php _generate_results_item(array('key'=>$key, 'item'=>$item, 'custom_class'=>'col-sm-6 col-lg-4 thumbnail-g')); ?>
+            <?php _generate_results_item(array('key'=>$key, 'item'=>$item, 'custom_class'=>'col-sm-6 col-md-4 thumbnail-g')); ?>
         <?php
             endforeach;
         ?>

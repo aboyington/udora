@@ -10,7 +10,8 @@
 </head>
 <body class="no-padding footer-nav-black home">
     <?php _widget('header_search');?>
-
+    
+     <?php _widget('bottom_featured');?>
 <!--     <div class="d-lg-none">
         <?php // _widget('custom_footer_menu');?>
     </div> -->
@@ -77,7 +78,7 @@
 </div>
         </section>
 
-    <?php _widget('bottom_featured');?>
+   
 
     <!-- <section class="pt-14 pb-14">
     <div class="container">
