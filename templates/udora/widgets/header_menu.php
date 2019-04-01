@@ -253,7 +253,17 @@ array_walk($enquire_3, 'add_profile_image');
             
         </div>
     <ul class="mobile-menu__links">
-           {is_logged_user}
+
+        <li class="mobile-menu__links__item"><a
+                    href="<?php echo site_url($lang_code); ?>"><i class="material-icons">remove_red_eye</i><?php echo lang_check('Explore'); ?></a></li>
+        <li class="mobile-menu__links__item"><a
+                    href="<?php echo site_url($lang_code . '/179/blog_page'); ?>"><i class="material-icons">history</i><?php echo lang_check('About'); ?></a>
+        </li>
+        <!-- <li class="mobile-menu__links__item">
+            <a href="<?php //echo site_url($lang_code . '/6/map'); ?>"><i class="material-icons">location_on</i><?php// echo lang_check('Map'); ?></a>
+        </li> -->
+        {is_logged_user}
+           <hr>
             <li class="mobile-menu__links__item">
                 <a href="{myproperties_url}#content"><i class="material-icons">dashboard</i><?php echo lang_check('Dashboard'); ?></a>
             </li>
@@ -271,15 +281,7 @@ array_walk($enquire_3, 'add_profile_image');
             </li>
             <hr>
         {/is_logged_user}
-        <li class="mobile-menu__links__item"><a
-                    href="<?php echo site_url($lang_code); ?>"><i class="material-icons">remove_red_eye</i><?php echo lang_check('Explore'); ?></a></li>
-        <li class="mobile-menu__links__item"><a
-                    href="<?php echo site_url($lang_code . '/179/blog_page'); ?>"><i class="material-icons">history</i><?php echo lang_check('About'); ?></a>
-        </li>
-     
-        <!-- <li class="mobile-menu__links__item">
-            <a href="<?php //echo site_url($lang_code . '/6/map'); ?>"><i class="material-icons">location_on</i><?php// echo lang_check('Map'); ?></a>
-        </li> -->
+
         <li class="mobile-menu__links__item">
             <a href="<?php echo site_url($lang_code . '/142/blog_page'); ?>"><i class="material-icons">book</i><?php echo lang_check('Blog'); ?></a>
         </li>

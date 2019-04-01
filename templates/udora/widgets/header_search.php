@@ -278,24 +278,7 @@ if ($CI->config->item('facebook_api_version') == '2.4' || floatval($this->config
             
         </div>
     <ul class="mobile-menu__links">
-     {is_logged_user}
-        <li class="mobile-menu__links__item">
-            <a href="{myproperties_url}#content"><i class="material-icons">dashboard</i><?php echo lang_check('Dashboard'); ?></a>
-        </li>
-        <li class="mobile-menu__links__item">
-            <a href="{myprofile_url}#content"><i class="material-icons">person</i><?php echo lang_check('My Profile'); ?></a>
-        </li>
-        <li class="mobile-menu__links__item">
-            <a href="<?php echo site_url('frontend/editproperty/' . $lang_code . '#content'); ?>"><i class="material-icons">playlist_add</i><?php echo lang_check('Add Events'); ?></a>
-        </li>
-        <li class="mobile-menu__links__item">
-            <a href="{myfavorites_url}#content"><i class="material-icons">favorite</i><?php echo lang_check('Saved Events'); ?></a>
-        </li>
-        <li class="mobile-menu__links__item">
-            <a href="<?php echo site_url('frontend/notificationsettings/' . $lang_code . '#content'); ?>"><i class="material-icons">notifications_active</i><?php echo lang_check('Notifications'); ?></a>
-        </li>
-        <hr>
-    {/is_logged_user}
+    
         <li class="mobile-menu__links__item"><a
                     href="<?php echo site_url($lang_code); ?>"><i class="material-icons">remove_red_eye</i><?php echo lang_check('Explore'); ?></a></li>
         <li class="mobile-menu__links__item"><a
@@ -305,6 +288,26 @@ if ($CI->config->item('facebook_api_version') == '2.4' || floatval($this->config
        <!--  <li class="mobile-menu__links__item">
             <a href="<?php// echo site_url($lang_code . '/6/map'); ?>"><i class="material-icons">location_on</i><?php// echo lang_check('Map'); ?></a>
         </li> -->
+
+        {is_logged_user}
+            <hr>
+            <li class="mobile-menu__links__item">
+                <a href="{myproperties_url}#content"><i class="material-icons">dashboard</i><?php echo lang_check('Dashboard'); ?></a>
+            </li>
+            <li class="mobile-menu__links__item">
+                <a href="{myprofile_url}#content"><i class="material-icons">person</i><?php echo lang_check('My Profile'); ?></a>
+            </li>
+            <li class="mobile-menu__links__item">
+                <a href="<?php echo site_url('frontend/editproperty/' . $lang_code . '#content'); ?>"><i class="material-icons">playlist_add</i><?php echo lang_check('Add Events'); ?></a>
+            </li>
+            <li class="mobile-menu__links__item">
+                <a href="{myfavorites_url}#content"><i class="material-icons">favorite</i><?php echo lang_check('Saved Events'); ?></a>
+            </li>
+            <li class="mobile-menu__links__item">
+                <a href="<?php echo site_url('frontend/notificationsettings/' . $lang_code . '#content'); ?>"><i class="material-icons">notifications_active</i><?php echo lang_check('Notifications'); ?></a>
+            </li>
+            <hr>
+        {/is_logged_user}
         <li class="mobile-menu__links__item">
             <a href="<?php echo site_url($lang_code . '/142/blog_page'); ?>"><i class="material-icons">book</i><?php echo lang_check('Blog'); ?></a>
         </li>

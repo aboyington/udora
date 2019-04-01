@@ -12992,7 +12992,8 @@ body.no-scroll {
     top: 0px;
     padding-right: 15px;
     text-align: right;
-    background-color: rgb(241, 89, 39);
+    background-color: #fff;
+    color: #000;
     font-size: 30px;
     line-height: 1;
     cursor: pointer;
