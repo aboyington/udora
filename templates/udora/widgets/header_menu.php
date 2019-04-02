@@ -259,8 +259,8 @@ array_walk($enquire_3, 'add_profile_image');
         <li class="mobile-menu__links__item"><a
                     href="<?php echo site_url($lang_code . '/179/blog_page'); ?>"><i class="material-icons">history</i><?php echo lang_check('About'); ?></a>
         </li>
-        <!-- <li class="mobile-menu__links__item">
-            <a href="<?php //echo site_url($lang_code . '/6/map'); ?>"><i class="material-icons">location_on</i><?php// echo lang_check('Map'); ?></a>
+        <!--  <li class="mobile-menu__links__item">
+            <a href="<?php// echo site_url($lang_code . '/6/map'); ?>"><i class="material-icons">location_on</i><?php// echo lang_check('Map'); ?></a>
         </li> -->
         {is_logged_user}
            <hr>
@@ -517,7 +517,7 @@ array_walk($enquire_3, 'add_profile_image');
                         </svg>
                     </a>
                 </li>
-                <li class="d-block d-md-none switch_res_map_header">
+                <li class="d-block d-md-none switch_res_map_header pl-2 pr-2">
                     <a href="" class="switch_res_map_btn_header">
                         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                              width="20px" height="20px" viewBox="0 0 491.582 491.582" style="enable-background:new 0 0 491.582 491.582;"
@@ -537,7 +537,7 @@ array_walk($enquire_3, 'add_profile_image');
                         </svg>
                     </a>
                 </li>
-                <li class="d-sm-none">
+                <li class="d-sm-none pl-0 pr-0 pl-md-2 pr-md-2">
                     <a type="button" href="#" class="searchform-toggle hidden" data-toggle="collapse"><i class="ion-search"></i></a>
                 </li>
 
@@ -562,7 +562,7 @@ array_walk($enquire_3, 'add_profile_image');
                         <?php endif;?>
                     {/not_logged}
                 
-                <li class="d-none d-md-flex"><a href="<?php echo site_url('frontend/editproperty/'.$lang_code.'#content');?>" class="login-menu dark-link btn-submitevent">
+                <li class="d-none d-md-flex pl-2 pr-2"><a href="<?php echo site_url('frontend/editproperty/'.$lang_code.'#content');?>" class="login-menu dark-link btn-submitevent">
                     <span><i class="ion-plus-round"></i><?php echo lang_check(' Add Event');?></span>
                     </a>
                 </li>
@@ -793,7 +793,17 @@ $('document').ready(function(){
         }).success(function(){$('form#popup_form_register .ajax-indicator').addClass('hidden');});
         return false;
     });
-    
+
+    function El(a){ return document.querySelector(a); }
+    if(El('.switch_mobile_tabs')){
+    	$('.switch_mobile_tabs').click(function(){
+    		$('.terms_tabs_page').stop().slideToggle();
+    	});
+    	$('.terms_tabs_page li').click(function(){
+    		$('.switch_mobile_tabs').text($(this).find('a').text());
+    		$('.terms_tabs_page').stop().slideUp();
+    	});
+    }
     
     
 })

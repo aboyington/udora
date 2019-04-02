@@ -6457,3 +6457,75 @@ input[name="keyword"] {
   }
 
 
+  /*************************** Terms of service TABS ****************************************/
+    .terms_tabs_page li{
+         padding: 10px 15px;
+         margin-right: 25px;
+         border-bottom: 2px solid transparent;
+         transition: .2s;
+    }
+    .nav-pills.terms_tabs_page>li.active>a, .nav-pills.terms_tabs_page>li.active>a:focus, .nav-pills.terms_tabs_page>li.active>a:hover {
+       background-color: transparent;
+       color: #000;
+    }
+
+    .terms_tabs_page li.active, .terms_tabs_page li.active a,  .terms_tabs_page li:hover,   .terms_tabs_page li a:hover {
+        background-color: transparent;
+        color: #000;       
+    }
+    .terms_tabs_page li.active, .terms_tabs_page li:hover{
+        border-bottom: 3px solid #f15a24;
+        transition: .2s;
+    }
+    .switch_mobile_tabs{
+        display: none;
+    }
+    
+    @media (max-width: 991px) {
+          .terms_tabs_page li{
+             padding: 10px 15px;
+             margin-right: 20px;
+         }
+    }
+
+    @media (max-width: 767px) {
+        .switch_mobile_tabs{
+            display: block;
+            position: relative;
+            padding: 9px 0;
+            box-shadow: 0 0 10px rgba(0,0,0,.3);
+        }
+        .switch_mobile_tabs:after{
+            content: "";
+            width: 0;
+            height: 0;
+            position: absolute;
+            right: 8px;
+            top: 26px;
+            transform: translate(0, -50%);
+            border: 10px solid transparent;
+            border-top: 15px solid #2c2c2c;
+        }
+        .terms_tabs_page li {
+            -webkit-transition: .2s;
+            -o-transition: .2s;
+            transition: .2s;
+            display: block;
+            float: none;
+            width: 100%;
+            margin: 0 auto;
+        }
+        .terms_tabs_page{
+            display: none;
+        }
+        ul.terms_tabs_page{
+            text-align: center;
+        }
+        .nav-pills.terms_tabs_page>li+li{
+            margin-left: auto;
+        }
+    }
+
+
+
+

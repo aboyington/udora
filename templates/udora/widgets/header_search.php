@@ -285,9 +285,9 @@ if ($CI->config->item('facebook_api_version') == '2.4' || floatval($this->config
                     href="<?php echo site_url($lang_code . '/179/blog_page'); ?>"><i class="material-icons">history</i><?php echo lang_check('About'); ?></a>
         </li>
    
-       <!--  <li class="mobile-menu__links__item">
+      <!--   <li class="mobile-menu__links__item">
             <a href="<?php// echo site_url($lang_code . '/6/map'); ?>"><i class="material-icons">location_on</i><?php// echo lang_check('Map'); ?></a>
-        </li> -->
+        </li> --> 
 
         {is_logged_user}
             <hr>
@@ -527,7 +527,7 @@ if ($CI->config->item('facebook_api_version') == '2.4' || floatval($this->config
 
 
     <div class="home__header__bg__wrap">
-        <div class="home__header__bg" style="background-image: url('assets/img/home/exploreeveryday_181k_mirrored.jpg')"></div>
+        <div class="home__header__bg" style="background-image: url('assets/img/home/herobg2.jpg')"></div>
     </div>
 
     <div class="home__header__overlay"></div>
