@@ -85,10 +85,10 @@ $CI->load->model('userattend_m');
     </div>
 </div>
 <div class="d-none d-md-block">
-    <?php _widget('custom_footer_menu');?>
-</div>
-<div class="d-block d-md-none">
     <?php _widget('custom_footer'); ?>
+</div>
+<div class="d-block d-md-none">    
+    <?php _widget('custom_footer_menu');?>
 </div>
 
 

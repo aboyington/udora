@@ -4,6 +4,12 @@ Widget-title: Header bar (logo, search, menu)
 Widget-preview-image: /assets/img/widgets_preview/header_menu.jpg
 */
 ?>
+<?php
+// get user ip
+$ip = $_SERVER['REMOTE_ADDR'];
+$query = @unserialize(file_get_contents('http://ip-api.com/php/'.$ip));
+// if($query && $query['status'] == 'success') 
+?>
 
 <?php
 $CI = &get_instance();
@@ -137,6 +143,49 @@ array_walk($enquire_3, 'add_profile_image');
             </div>
     </div>
 </div>
+<!-- *************************** Check in Modal window ******************************* -->
+ <div class="modal fade mt-2" id="checkin_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="w-100 d-flex justify-content-center align-items-center" style="height: 100%;">
+        <div class="checkin_modal_wrap w-100 p-2">
+            <div class="close_icon_wraper ">
+                <i class="material-icons close_checkin_modal"  data-dismiss="modal">close</i>
+            </div>
+            <form>
+                <h4 class="text-center">Check in</h4>
+                <div class="text-center">
+                    <label for="checkin_file-upload" class=" d-flex justify-content-center align-items-center mx-auto">
+                        <span class="camera_icon_checkin d-flex justify-content-center align-items-center mx-auto" >
+                            <i class="material-icons">photo_camera</i>
+                        </span>                    
+                    </label>
+                    <p class="checkin_file_name"></p>
+                    <input id="checkin_file-upload" class="d-none" type="file"/>
+                    <div class="text-center p-1">
+                        Tap the icon to scan event code or enter the code in the space below
+                    </div>
+                    <script type="text/javascript">
+                            $(document).ready(function(){
+                                $('input[type="file"]#checkin_file-upload').change(function(e){
+                                    var fileName = e.target.files[0].name;
+                                    $('.checkin_file_name').text(fileName);
+                                });
+                            });
+                    </script>                
+                </div>
+                <div class="d-flex justify-content-around mb-3">
+                    <input class="checkin_short_number" type="text" pattern="\d*" maxlength="1" size="1" name="">
+                    <input class="checkin_short_number" type="text" pattern="\d*" maxlength="1" size="1" name="">
+                    <input class="checkin_short_number" type="text" pattern="\d*" maxlength="1" size="1" name="">
+                    <input class="checkin_short_number" type="text" pattern="\d*" maxlength="1" size="1" name="">
+                </div>
+                <div class="p-1">
+                    <input class="btn btn-udora w-100" type="submit" name="" value="Submit">               
+                </div>
+            </form>        
+        </div>
+    </div>
+</div>
+
 <div class="page-popup-wrapper left-menu-wrapper page-register js-register-popup">
     <div class="left-menu py-1 px-1 py-sm-6 px-sm-2">
         <div class="d-none d-md-block close-modal"><div class="close-icon black js-toggle-register-popup"></div></div>
@@ -239,7 +288,7 @@ array_walk($enquire_3, 'add_profile_image');
         <button type="button" role="button" class="navbar__gamburger__icon / white / js-toggle-mobile-navbar x" aria-label="Toggle Navigation" aria-expanded="false">
             <span class="lines"></span>
         </button>
-        <a class="mobile-menu_black_logo" href="{homepage_url_lang}"><img src="{website_logo_url}" 
+        <a class="mobile-menu_black_logo" href="{homepage_url_lang}"><img src="assets/img/white_udora_logo.svg" 
                                                                           alt="<?php echo $settings_websitetitle; ?>" 
                                                                           class="logotype"></a>
         <div class="mobile-menu-user-info">
@@ -259,9 +308,9 @@ array_walk($enquire_3, 'add_profile_image');
         <li class="mobile-menu__links__item"><a
                     href="<?php echo site_url($lang_code . '/179/blog_page'); ?>"><i class="material-icons">history</i><?php echo lang_check('About'); ?></a>
         </li>
-        <!--  <li class="mobile-menu__links__item">
-            <a href="<?php// echo site_url($lang_code . '/6/map'); ?>"><i class="material-icons">location_on</i><?php// echo lang_check('Map'); ?></a>
-        </li> -->
+        <li class="mobile-menu__links__item">
+            <a href="<?php echo site_url($lang_code . '/6/map'); ?>"><i class="material-icons">location_on</i><?php echo lang_check('Map'); ?></a>
+        </li>
         {is_logged_user}
            <hr>
             <li class="mobile-menu__links__item">
@@ -291,7 +340,7 @@ array_walk($enquire_3, 'add_profile_image');
         {not_logged}
         <div class="mobile-menu_user_location">
             <p class="mobile_location-description">Estimated location</p>
-            <p class="mobile-menu__links__item"><i class="material-icons">my_location</i>Location <?php echo $query ['city']; ?></p>
+            <p class="mobile-menu__links__item"><i class="material-icons">my_location</i>Location <?php echo $query['city']; ?></p>
             <p class="mobile_location-description">Search Radius 50km / 31 miles</p>
         </div>
         {/not_logged}
@@ -389,7 +438,7 @@ array_walk($enquire_3, 'add_profile_image');
             <button type="button" role="button" class="navbar__gamburger__icon / black / js-toggle-mobile-navbar" aria-label="Toggle Navigation" aria-expanded="false">
                 <span class="lines"></span>
             </button>
-            <a class="navbar-brand" href="{homepage_url_lang}"><img src="assets/img/dark-logo.svg" class="logotype" alt=""></a>
+            <a class="navbar-brand" href="{homepage_url_lang}"><img src="assets/img/Udora_Logo.svg" class="logotype" alt=""></a>
         </div>
 <!--         <form class="navbar-form navbar-left navigation-search-form search-form-mini" role="search">
             <div class="line">
@@ -498,7 +547,7 @@ array_walk($enquire_3, 'add_profile_image');
                }
                ?>
 
-        <a class="navbar-brand-mobile" href="{homepage_url_lang}"><img src="assets/img/dark-logo.svg" class="logotype" alt=""></a>
+        <a class="navbar-brand-mobile" href="{homepage_url_lang}"><img src="assets/img/Udora_Logo.svg" class="logotype" alt=""></a>
         
         <div class="navbar-right-block">
         <?php
@@ -796,13 +845,16 @@ $('document').ready(function(){
 
     function El(a){ return document.querySelector(a); }
     if(El('.switch_mobile_tabs')){
-    	$('.switch_mobile_tabs').click(function(){
-    		$('.terms_tabs_page').stop().slideToggle();
-    	});
-    	$('.terms_tabs_page li').click(function(){
-    		$('.switch_mobile_tabs').text($(this).find('a').text());
-    		$('.terms_tabs_page').stop().slideUp();
-    	});
+        $('.switch_mobile_tabs').click(function(){
+            $('.terms_tabs_page').stop().slideToggle();
+        });
+        $('.terms_tabs_page li').click(function(){
+            if(window.innerWidth < 768){
+                    $('.switch_mobile_tabs').text($(this).find('a').text());
+                    $('.terms_tabs_page').stop().slideUp();
+            }
+            
+        });
     }
     
     

@@ -53,7 +53,7 @@
         <div class="mobile__event__actions">
 
                 <div class="flex-1">
-                    <a type="button"  class="btn btn-udora w-100 / js-add-to-favorites" href="javascript:;" style="<?php echo ($favorite_added)?'display:none;':''; ?>">
+                    <a type="button"  class="btn btn-udora w-100 / js-add-to-favorites" href="javascript:;" style="position: fixed; bottom: 10vh; right: 5vw; z-index: 999;<?php echo ($favorite_added)?'display:none;':''; ?>">
                         <i class="fa fa-star favourite" aria-hidden="true"></i><?php echo lang_check(' Add to favorites'); ?> <i class="load-indicator"></i>
                     </a>
                     <a type="button" class="btn btn-udora w-100 / js-remove-from-favorites" href="javascript:;" style="<?php echo (!$favorite_added)?'display:none;':''; ?>">

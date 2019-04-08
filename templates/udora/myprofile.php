@@ -118,9 +118,10 @@
                                                                 <code><?php echo character_hard_limiter($file->filename, 20)?></code>
                                                             </div>
                                                             <div class="options-container">
+
                                                                 <?php if($file->zoom_enabled):?>
-                                                                <a data-gallery="gallery" href="<?php echo $file->download_url?>" title="<?php echo $file->filename?>" download="<?php echo $file->filename?>" class="zoom-button btn btn-mini btn-success"><i class="icon-search icon-white"></i></a>                  
-                                                                <a class="btn btn-mini btn-info iedit visible-inline-block-lg" rel="<?php echo $file->filename?>" href="#<?php echo $file->filename?>"><i class="icon-pencil icon-white"></i></a>
+                                                               <!--  <a data-gallery="gallery" href="<?php echo $file->download_url?>" title="<?php echo $file->filename?>" download="<?php echo $file->filename?>" class="zoom-button btn btn-mini btn-success"><i class="icon-search icon-white"></i></a>                  
+                                                                <a class="btn btn-mini btn-info iedit visible-inline-block-lg" rel="<?php echo $file->filename?>" href="#<?php echo $file->filename?>"><i class="icon-pencil icon-white"></i></a> -->
                                                                 <?php else:?>
                                                                 <a target="_blank" href="<?php echo $file->download_url?>" title="<?php echo $file->filename?>" download="<?php echo $file->filename?>" class="btn btn-mini btn-success"><i class="icon-search icon-white"></i></a>
                                                                 <?php endif;?>
@@ -128,11 +129,13 @@
                                                                     <button class="btn btn-mini btn-danger" data-type="POST" data-url="<?php echo $file->delete_url?>"><i class="icon-trash icon-white"></i></button>
                                                                     <input type="checkbox" value="1"  checked name="delete">
                                                                 </span>
+
                                                             </div>
                                                         </li>
                                                     <?php endforeach;?>
                                                     </ul>
                                                 </div>
+                                                 <p style="width:100%; max-width: 164px; margin: 0 auto 15px auto;">*portret mode picture not suported at this time</p>
                                                 <!-- Redirect browsers with JavaScript disabled to the origin page -->
                                                 <noscript><input type="hidden" name="redirect" value="<?php echo site_url('frontend/myprofile/'.$lang_code);?>"></noscript>
                                                 <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->

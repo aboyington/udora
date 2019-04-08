@@ -2,7 +2,7 @@
 // get user ip
 $ip = $_SERVER['REMOTE_ADDR'];
 $query = @unserialize(file_get_contents('http://ip-api.com/php/'.$ip));
-if($query && $query['status'] == 'success') 
+// if($query && $query['status'] == 'success') 
 ?>
 <?php
 $CI = &get_instance();
@@ -120,7 +120,7 @@ if ($CI->config->item('facebook_api_version') == '2.4' || floatval($this->config
                         </div>
                     </div>
                 </div>
-                <div class="col-xs-12 col-md-6 text-left pt-6 pb-6 / d-none d-sm-block d-md-none">
+                <div class="col-xs-12 col-md-6 text-left pt-6 pb-6 / d-none">
                     <h2 class="color-accent text-center  mb-2">Find your next <span
                                 class="color-white">experience</span></h2>
                     <ol class="ordered-list-style-1 text-center">
@@ -239,7 +239,7 @@ if ($CI->config->item('facebook_api_version') == '2.4' || floatval($this->config
                         </div>
                     </div>
                 </div>
-                <div class="col-xs-12 col-md-6 text-left pt-6 pb-6 / d-md-none">
+                <div class="col-xs-12 col-md-6 text-left pt-6 pb-6 / d-none">
                     <h2 class="color-accent text-center  mb-2">Find your next <span
                                 class="color-white">experience</span></h2>
                     <ol class="ordered-list-style-1 text-center">
@@ -259,12 +259,55 @@ if ($CI->config->item('facebook_api_version') == '2.4' || floatval($this->config
     </div>
 </div>
 
+<!-- *************************** Check in Modal window ******************************* -->
+ <div class="modal fade mt-2" id="checkin_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="w-100 d-flex justify-content-center align-items-center" style="height: 100%;">
+        <div class="checkin_modal_wrap w-100 p-2">
+            <div class="close_icon_wraper ">
+                <i class="material-icons close_checkin_modal"  data-dismiss="modal">close</i>
+            </div>
+            <form>
+                <h4 class="text-center">Check in</h4>
+                <div class="text-center">
+                    <label for="checkin_file-upload" class=" d-flex justify-content-center align-items-center mx-auto">
+                        <span class="camera_icon_checkin d-flex justify-content-center align-items-center mx-auto" >
+                            <i class="material-icons">photo_camera</i>
+                        </span>                    
+                    </label>
+                    <p class="checkin_file_name"></p>
+                    <input id="checkin_file-upload" class="d-none" type="file"/>
+                    <div class="text-center p-1">
+                        Tap the icon to scan event code or enter the code in the space below
+                    </div>
+                    <script type="text/javascript">
+                            $(document).ready(function(){
+                                $('input[type="file"]#checkin_file-upload').change(function(e){
+                                    var fileName = e.target.files[0].name;
+                                    $('.checkin_file_name').text(fileName);
+                                });
+                            });
+                    </script>                
+                </div>
+                <div class="d-flex justify-content-around mb-3">
+                    <input class="checkin_short_number" type="text" pattern="\d*" maxlength="1" size="1" name="">
+                    <input class="checkin_short_number" type="text" pattern="\d*" maxlength="1" size="1" name="">
+                    <input class="checkin_short_number" type="text" pattern="\d*" maxlength="1" size="1" name="">
+                    <input class="checkin_short_number" type="text" pattern="\d*" maxlength="1" size="1" name="">
+                </div>
+                <div class="p-1">
+                    <input class="btn btn-udora w-100" type="submit" name="" value="Submit">               
+                </div>
+            </form>        
+        </div>
+    </div>
+</div>
+
 
 <nav class="mobile-menu d-flex flex-column align-items-start" id="js-mobile-menu">
         <button type="button" role="button" class="navbar__gamburger__icon / white / js-toggle-mobile-navbar x" aria-label="Toggle Navigation" aria-expanded="false">
             <span class="lines"></span>
         </button>
-        <a class="mobile-menu_black_logo" href="{homepage_url_lang}"><img src="{website_logo_url}" 
+        <a class="mobile-menu_black_logo" href="{homepage_url_lang}"><img src="assets/img/white_udora_logo.svg" 
                                                                           alt="<?php echo $settings_websitetitle; ?>" 
                                                                           class="logotype"></a>
         <div class="mobile-menu-user-info">
@@ -285,9 +328,9 @@ if ($CI->config->item('facebook_api_version') == '2.4' || floatval($this->config
                     href="<?php echo site_url($lang_code . '/179/blog_page'); ?>"><i class="material-icons">history</i><?php echo lang_check('About'); ?></a>
         </li>
    
-      <!--   <li class="mobile-menu__links__item">
-            <a href="<?php// echo site_url($lang_code . '/6/map'); ?>"><i class="material-icons">location_on</i><?php// echo lang_check('Map'); ?></a>
-        </li> --> 
+        <li class="mobile-menu__links__item">
+            <a href="<?php echo site_url($lang_code . '/6/map'); ?>"><i class="material-icons">location_on</i><?php echo lang_check('Map'); ?></a>
+        </li>
 
         {is_logged_user}
             <hr>
@@ -422,7 +465,7 @@ if ($CI->config->item('facebook_api_version') == '2.4' || floatval($this->config
                         aria-label="Toggle Navigation" aria-expanded="false">
                     <span class="lines"></span>
                 </button>
-                <a class="navbar-brand" href="{homepage_url_lang}"><img src="<?php echo $website_logo_url; ?>"
+                <a class="navbar-brand" href="{homepage_url_lang}"><img src="assets/img/Udora_Logo.svg"
                                                                         alt="<?php echo $settings_websitetitle; ?>"
                                                                         class="logotype"></a>
             </div>

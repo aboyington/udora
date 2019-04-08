@@ -402,7 +402,7 @@ function calcDistance(p1, p2){
            }
         ?>
 
-        <a type="button"  class="btn button-standart add-event-btn col-xs-12 col-sm-6 col-lg-12 / js-add-to-favorites" href="javascript:;" style="<?php echo ($favorite_added)?'display:none;':''; ?>">
+        <a type="button"  class="btn button-standart add-event-btn col-xs-12 col-sm-6 col-lg-12 / js-add-to-favorites" href="javascript:;" style="<?php echo ($favorite_added)?'display:none;':''; ?>; position: fixed; bottom: 10vh; right: 5vw; z-index: 999;">
             <i class="ion-ios-star-outline favourite"></i><?php echo lang_check('Add to favorites'); ?><i class="load-indicator"></i>
         </a>
 

@@ -432,13 +432,13 @@
                                                 <?php echo lang_check('cal_'.$day);?>, <?php echo lang_check('cal_'.$month);?> <?php echo date('d, g:i a', $_strtotime);?> 
                                             </h5>
                                             <?php endif;?> -->
-						                                            
+                                                                    
                                             <div class="description__item">
                                                 <div class="description__item__icon">
                                                     <i class="ion-ios-location"></i>
                                                 </div>
                                                 <h5 title="<?php echo _ch($item['address']);?>"><?php echo _ch($item['address']);?></h5>
-                                            </div>																<p class=""><?php echo _ch($item['option_chlimit_8']); ?></p>
+                                            </div>                                                              <p class=""><?php echo _ch($item['option_chlimit_8']); ?></p>
                                         </div>
                                 </div>
                                 </a>
@@ -499,7 +499,7 @@
             zoom: {settings_zoom},
             mapTypeId: google.maps.MapTypeId.ROADMAP,
             scrollwheel: scrollwheelEnabled,
-						mapTypeControl: false,
+                        mapTypeControl: false,
             mapTypeControlOptions: {
               mapTypeIds: c_mapTypeIds,
               position: google.maps.ControlPosition.TOP_RIGHT
@@ -626,27 +626,27 @@
                 });
                 
                 marker_clusterer = new MarkerClusterer(map, markers, clusterConfig);
-		clusterListener = google.maps.event.addListener(marker_clusterer, 'clusteringend', function (clusterer) {
-			var availableClusters = clusterer.getClusters();
-			var activeClusters = new Array();
-			$.each(availableClusters, function (index, cluster) {
-				if (cluster.getMarkers().length > 1) {
-					$.each(cluster.getMarkers(), (function (index, marker) {
-						if (marker.marker.isHidden == false) {
-							marker.marker.isHidden = true;
-							marker.marker.close();
-						}
-					}));
-				} else {
-					$.each(cluster.getMarkers(), function (index, marker) {
-						if (marker.marker.isHidden == true) {
-							marker.marker.open(map, this);
-							marker.marker.isHidden = false;
-						}
-					});
-				}
-			});
-		});
+        clusterListener = google.maps.event.addListener(marker_clusterer, 'clusteringend', function (clusterer) {
+            var availableClusters = clusterer.getClusters();
+            var activeClusters = new Array();
+            $.each(availableClusters, function (index, cluster) {
+                if (cluster.getMarkers().length > 1) {
+                    $.each(cluster.getMarkers(), (function (index, marker) {
+                        if (marker.marker.isHidden == false) {
+                            marker.marker.isHidden = true;
+                            marker.marker.close();
+                        }
+                    }));
+                } else {
+                    $.each(cluster.getMarkers(), function (index, marker) {
+                        if (marker.marker.isHidden == true) {
+                            marker.marker.open(map, this);
+                            marker.marker.isHidden = false;
+                        }
+                    });
+                }
+            });
+        });
 
         if(myLocationEnabled){
             var controlDiv = document.createElement('div');
@@ -693,6 +693,6 @@ $(function () {
         
         setTimeout(function(){ trackpadScroll("initialize");}, 500)
         /* height fore reasults box */
-				$('.searchform-toggle').removeClass('hidden');
+                $('.searchform-toggle').removeClass('hidden');
     })
 </script>

@@ -768,7 +768,7 @@ select {
 /* 3. Navbar Styles */
 
 .logotype {
-    width: 110px;
+    width: 90px;
 }
 
 .white-nav {
@@ -5175,6 +5175,9 @@ input[name="daterange"] {
 input[name="keyword"] {
     font-weight: 500 !important;
 }
+.organizer_row_wrap:before{
+    display: none;
+}
 
 
 /*  Larger Screen Styling */
@@ -6525,7 +6528,34 @@ input[name="keyword"] {
             margin-left: auto;
         }
     }
-
+@media (max-width: 767px) {
+    .js-add-to-favorites{
+        position: fixed;
+        bottom: 0;
+        right: 10px;
+        left:10px;
+        width: calc(100% - 20px);
+        margin:0 auto;
+        z-index: 999;
+    }
+    .js-add-to-favorites:hover{
+        background-color: #fff;
+        color: #F15927;
+    }
+    .js-remove-from-favorites{
+        color: #F15927;
+        position: fixed;
+        width: calc(100% - 20px);
+        bottom: 0;
+        right: 10px;
+        left:10px;
+        margin:0 auto;
+        z-index: 999;
+        background-color:#fff;
+        border: 2px solid #F15927;
+        border-radius: 10px;
+    }
+}
 
 
 
