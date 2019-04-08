@@ -135,7 +135,7 @@
                                                     <?php endforeach;?>
                                                     </ul>
                                                 </div>
-                                                 <p style="width:100%; max-width: 164px; margin: 0 auto 15px auto;">*portret mode picture not suported at this time</p>
+                                                 <p style="width:100%; max-width: 164px; margin: 0 auto 15px auto; font-size: 12px;">*portrait mode picture not suported at this time</p>
                                                 <!-- Redirect browsers with JavaScript disabled to the origin page -->
                                                 <noscript><input type="hidden" name="redirect" value="<?php echo site_url('frontend/myprofile/'.$lang_code);?>"></noscript>
                                                 <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
