@@ -52,13 +52,13 @@ $active_record = TRUE;
 //MySQL example
 $db['mysql']['hostname'] = 'localhost';
 
-$db['mysql']['username'] = 'root';
-$db['mysql']['password'] = 'q1w2e3r4t';
-$db['mysql']['database'] = 'udora';
+//$db['mysql']['username'] = 'root';
+//$db['mysql']['password'] = 'q1w2e3r4t';
+//$db['mysql']['database'] = 'udora';
 
-// $db['mysql']['username'] = 'parad097_udoraev';
-// $db['mysql']['password'] = 'XHL7VROHP162';
-// $db['mysql']['database'] = 'parad097_udoraevents';
+$db['mysql']['username'] = 'parad097_udoraev';
+$db['mysql']['password'] = 'XHL7VROHP162';
+$db['mysql']['database'] = 'parad097_udoraevents';
 
 $db['mysql']['dbdriver'] = 'mysqli';
 $db['mysql']['dbprefix'] = '';
