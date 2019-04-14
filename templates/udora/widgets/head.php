@@ -147,9 +147,11 @@ if(!empty($maps_api_key)){
 <?php cache_file('big_css.css', NULL); ?>
 <?php cache_file('big_js.js', NULL); ?>
 
+<?php/* remove google tracking
 {settings_tracking}
 <?php if($this->session->userdata('id')):?>
 <script>
   gtag('set', 'user_id', '<?php echo $this->session->userdata('id');?>');
 </script>
 <?php endif;?>
+*/;?>
