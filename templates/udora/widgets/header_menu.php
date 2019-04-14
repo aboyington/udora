@@ -587,7 +587,7 @@ array_walk($enquire_3, 'add_profile_image');
                     </a>
                 </li>
                 <li class="d-sm-none pl-0 pr-0 pl-md-2 pr-md-2">
-                    <a type="button" href="#" class="searchform-toggle hidden" data-toggle="collapse"><i class="ion-search"></i></a>
+                    <a type="button" href="#" class="searchform-toggle hidden" data-toggle="collapse"><i class="ion-ios-search-strong"></i></a>
                 </li>
 
                     {not_logged}
