@@ -56,9 +56,9 @@ $db['mysql']['hostname'] = 'localhost';
 //$db['mysql']['password'] = 'q1w2e3r4t';
 //$db['mysql']['database'] = 'udora';
 
-$db['mysql']['username'] = 'parad097_udoraev';
+$db['mysql']['username'] = 'udormzuw_udoraevents';
 $db['mysql']['password'] = 'XHL7VROHP162';
-$db['mysql']['database'] = 'parad097_udoraevents';
+$db['mysql']['database'] = 'udormzuw_udoraevents';
 
 $db['mysql']['dbdriver'] = 'mysqli';
 $db['mysql']['dbprefix'] = '';
