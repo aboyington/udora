@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  	xmlns:xhtml="http://www.w3.org/1999/xhtml"
+  	xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+			    http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<url>
+	<loc>https://udora.ca/dev/index.php/en/152</loc>
+	<lastmod>2014-04-06T16:21:32+02:00</lastmod>
+	<changefreq>monthly</changefreq>
+	<priority>0.5</priority>
+    <xhtml:link
+        rel="alternate"
+        hreflang="cr"
+        href="https://udora.ca/dev/index.php/cr/152"
+    />
+</url>
+<url>
+	<loc>https://udora.ca/dev/index.php/cr/152</loc>
+	<lastmod>2014-04-06T16:21:32+02:00</lastmod>
+	<changefreq>monthly</changefreq>
+	<priority>0.5</priority>
+    <xhtml:link
+        rel="alternate"
+        hreflang="en"
+        href="https://udora.ca/dev/index.php/en/152"
+    />
+</url>
+<url>
+	<loc>https://udora.ca/dev/index.php/en/151</loc>
+	<lastmod>2014-04-06T16:07:03+02:00</lastmod>
+	<changefreq>monthly</changefreq>
+	<priority>0.5</priority>
+    <xhtml:link
+        rel="alternate"
+        hreflang="cr"
+        href="https://udora.ca/dev/index.php/cr/151"
+    />
+</url>
+<url>
+	<loc>https://udora.ca/dev/index.php/cr/151</loc>
+	<lastmod>2014-04-06T16:07:03+02:00</lastmod>
+	<changefreq>monthly</changefreq>
+	<priority>0.5</priority>
+    <xhtml:link
+        rel="alternate"
+        hreflang="en"
+        href="https://udora.ca/dev/index.php/en/151"
+    />
+</url>
+<url>
+	<loc>https://udora.ca/dev/index.php/en/179/about</loc>
+	<lastmod>2017-06-12T16:57:35+02:00</lastmod>
+	<changefreq>monthly</changefreq>
+	<priority>0.5</priority>
+    <xhtml:link
+        rel="alternate"
+        hreflang="cr"
+        href="https://udora.ca/dev/index.php/cr/179/about"
+    />
+</url>
+<url>
+	<loc>https://udora.ca/dev/index.php/cr/179/about</loc>
+	<lastmod>2017-06-12T16:57:35+02:00</lastmod>
+	<changefreq>monthly</changefreq>
+	<priority>0.5</priority>
+    <xhtml:link
+        rel="alternate"
+        hreflang="en"
+        href="https://udora.ca/dev/index.php/en/179/about"
+    />
+</url>
+<url>
+	<loc>https://udora.ca/dev/index.php/en/176</loc>
+	<lastmod>2017-05-13T22:26:33+02:00</lastmod>
+	<changefreq>monthly</changefreq>
+	<priority>0.5</priority>
+    <xhtml:link
+        rel="alternate"
+        hreflang="cr"
+        href="https://udora.ca/dev/index.php/cr/176"
+    />
+</url>
+<url>
+	<loc>https://udora.ca/dev/index.php/cr/176</loc>
+	<lastmod>2017-05-13T22:26:33+02:00</lastmod>
+	<changefreq>monthly</changefreq>
+	<priority>0.5</priority>
+    <xhtml:link
+        rel="alternate"
+        hreflang="en"
+        href="https://udora.ca/dev/index.php/en/176"
+    />
+</url>
+<url>
+	<loc>https://udora.ca/dev/index.php/en/180/organizer</loc>
+	<lastmod>2017-06-12T19:36:28+02:00</lastmod>
+	<changefreq>monthly</changefreq>
+	<priority>0.5</priority>
+    <xhtml:link
+        rel="alternate"
+        hreflang="cr"
+        href="https://udora.ca/dev/index.php/cr/180/organizer"
+    />
+</url>
+<url>
+	<loc>https://udora.ca/dev/index.php/cr/180/organizer</loc>
+	<lastmod>2017-06-12T19:36:28+02:00</lastmod>
+	<changefreq>monthly</changefreq>
+	<priority>0.5</priority>
+    <xhtml:link
+        rel="alternate"
+        hreflang="en"
+        href="https://udora.ca/dev/index.php/en/180/organizer"
+    />
+</url>
+<url>
+	<loc>https://udora.ca/dev/index.php/en/1301/blog</loc>
+	<lastmod>2017-12-08T21:55:27+01:00</lastmod>
+	<changefreq>monthly</changefreq>
+	<priority>0.5</priority>
+    <xhtml:link
+        rel="alternate"
+        hreflang="cr"
+        href="https://udora.ca/dev/index.php/cr/1301/blog"
+    />
+</url>
+<url>
+	<loc>https://udora.ca/dev/index.php/cr/1301/to</loc>
+	<lastmod>2017-12-08T21:55:27+01:00</lastmod>
+	<changefreq>monthly</changefreq>
+	<priority>0.5</priority>
+    <xhtml:link
+        rel="alternate"
+        hreflang="en"
+        href="https://udora.ca/dev/index.php/en/1301/to"
+    />
+</url>
+<url>
+	<loc>https://udora.ca/dev/index.php/en/6/explore</loc>
+	<lastmod>2013-12-29T12:06:05+01:00</lastmod>
+	<changefreq>monthly</changefreq>
+	<priority>0.5</priority>
+    <xhtml:link
+        rel="alternate"
+        hreflang="cr"
+        href="https://udora.ca/dev/index.php/cr/6/explore"
+    />
+</url>
+<url>
+	<loc>https://udora.ca/dev/index.php/cr/6/karta</loc>
+	<lastmod>2013-12-29T12:06:05+01:00</lastmod>
+	<changefreq>monthly</changefreq>
+	<priority>0.5</priority>
+    <xhtml:link
+        rel="alternate"
+        hreflang="en"
+        href="https://udora.ca/dev/index.php/en/6/karta"
+    />
+</url>
+<url>
+	<loc>https://udora.ca/dev/index.php/en/177</loc>
+	<lastmod>2017-05-13T22:26:50+02:00</lastmod>
+	<changefreq>monthly</changefreq>
+	<priority>0.5</priority>
+    <xhtml:link
+        rel="alternate"
+        hreflang="cr"
+        href="https://udora.ca/dev/index.php/cr/177"
+    />
+</url>
+<url>
+	<loc>https://udora.ca/dev/index.php/cr/177</loc>
+	<lastmod>2017-05-13T22:26:50+02:00</lastmod>
+	<changefreq>monthly</changefreq>
+	<priority>0.5</priority>
+    <xhtml:link
+        rel="alternate"
+        hreflang="en"
+        href="https://udora.ca/dev/index.php/en/177"
+    />
+</url>
+<url>
+	<loc>https://udora.ca/dev/index.php/en/147/featured</loc>
+	<lastmod>2014-04-05T10:33:02+02:00</lastmod>
+	<changefreq>monthly</changefreq>
+	<priority>0.5</priority>
+    <xhtml:link
+        rel="alternate"
+        hreflang="cr"
+        href="https://udora.ca/dev/index.php/cr/147/featured"
+    />
+</url>
+<url>
+	<loc>https://udora.ca/dev/index.php/cr/147/prikazan</loc>
+	<lastmod>2014-04-05T10:33:02+02:00</lastmod>
+	<changefreq>monthly</changefreq>
+	<priority>0.5</priority>
+    <xhtml:link
+        rel="alternate"
+        hreflang="en"
+        href="https://udora.ca/dev/index.php/en/147/prikazan"
+    />
+</url>
+<url>
+	<loc>https://udora.ca/dev/index.php/en/178</loc>
+	<lastmod>2017-05-13T22:28:49+02:00</lastmod>
+	<changefreq>monthly</changefreq>
+	<priority>0.5</priority>
+    <xhtml:link
+        rel="alternate"
+        hreflang="cr"
+        href="https://udora.ca/dev/index.php/cr/178"
+    />
+</url>
+<url>
+	<loc>https://udora.ca/dev/index.php/cr/178</loc>
+	<lastmod>2017-05-13T22:28:49+02:00</lastmod>
+	<changefreq>monthly</changefreq>
+	<priority>0.5</priority>
+    <xhtml:link
+        rel="alternate"
+        hreflang="en"
+        href="https://udora.ca/dev/index.php/en/178"
+    />
+</url>
+<url>
+	<loc>https://udora.ca/dev/index.php/en/1300/almost_ready</loc>
+	<lastmod>2017-12-08T20:19:39+01:00</lastmod>
+	<changefreq>monthly</changefreq>
+	<priority>0.5</priority>
+    <xhtml:link
+        rel="alternate"
+        hreflang="cr"
+        href="https://udora.ca/dev/index.php/cr/1300/almost_ready"
+    />
+</url>
+<url>
+	<loc>https://udora.ca/dev/index.php/cr/1300/almost_ready</loc>
+	<lastmod>2017-12-08T20:19:39+01:00</lastmod>
+	<changefreq>monthly</changefreq>
+	<priority>0.5</priority>
+    <xhtml:link
+        rel="alternate"
+        hreflang="en"
+        href="https://udora.ca/dev/index.php/en/1300/almost_ready"
+    />
+</url>
+<url>
+	<loc>https://udora.ca/dev/index.php/en/142/blog_page</loc>
+	<lastmod>2014-01-04T22:19:49+01:00</lastmod>
+	<changefreq>monthly</changefreq>
+	<priority>0.5</priority>
+    <xhtml:link
+        rel="alternate"
+        hreflang="cr"
+        href="https://udora.ca/dev/index.php/cr/142/blog_page"
+    />
+</url>
+<url>
+	<loc>https://udora.ca/dev/index.php/cr/142/blog_stranica</loc>
+	<lastmod>2014-01-04T22:19:49+01:00</lastmod>
+	<changefreq>monthly</changefreq>
+	<priority>0.5</priority>
+    <xhtml:link
+        rel="alternate"
+        hreflang="en"
+        href="https://udora.ca/dev/index.php/en/142/blog_stranica"
+    />
+</url>
+<url>
+	<loc>https://udora.ca/dev/index.php/en/157/articles</loc>
+	<lastmod>2014-04-08T22:08:34+02:00</lastmod>
+	<changefreq>monthly</changefreq>
+	<priority>0.5</priority>
+    <xhtml:link
+        rel="alternate"
+        hreflang="cr"
+        href="https://udora.ca/dev/index.php/cr/157/articles"
+    />
+</url>
+<url>
+	<loc>https://udora.ca/dev/index.php/cr/157/clanci</loc>
+	<lastmod>2014-04-08T22:08:34+02:00</lastmod>
+	<changefreq>monthly</changefreq>
+	<priority>0.5</priority>
+    <xhtml:link
+        rel="alternate"
+        hreflang="en"
+        href="https://udora.ca/dev/index.php/en/157/clanci"
+    />
+</url>
+<url>
+	<loc>https://udora.ca/dev/index.php/en/158/test_article_2</loc>
+	<lastmod>2014-04-08T22:30:56+02:00</lastmod>
+	<changefreq>monthly</changefreq>
+	<priority>0.5</priority>
+    <xhtml:link
+        rel="alternate"
+        hreflang="cr"
+        href="https://udora.ca/dev/index.php/cr/158/test_article_2"
+    />
+</url>
+<url>
+	<loc>https://udora.ca/dev/index.php/cr/158/test_clanak_2</loc>
+	<lastmod>2014-04-08T22:30:56+02:00</lastmod>
+	<changefreq>monthly</changefreq>
+	<priority>0.5</priority>
+    <xhtml:link
+        rel="alternate"
+        hreflang="en"
+        href="https://udora.ca/dev/index.php/en/158/test_clanak_2"
+    />
+</url>
+<url>
+	<loc>https://udora.ca/dev/index.php/en/156/article_test</loc>
+	<lastmod>2014-04-08T17:59:20+02:00</lastmod>
+	<changefreq>monthly</changefreq>
+	<priority>0.5</priority>
+    <xhtml:link
+        rel="alternate"
+        hreflang="cr"
+        href="https://udora.ca/dev/index.php/cr/156/article_test"
+    />
+</url>
+<url>
+	<loc>https://udora.ca/dev/index.php/cr/156/clanak_test</loc>
+	<lastmod>2014-04-08T17:59:20+02:00</lastmod>
+	<changefreq>monthly</changefreq>
+	<priority>0.5</priority>
+    <xhtml:link
+        rel="alternate"
+        hreflang="en"
+        href="https://udora.ca/dev/index.php/en/156/clanak_test"
+    />
+</url>
+<url>
+	<loc>https://udora.ca/dev/index.php/en/184</loc>
+	<lastmod>2017-06-15T20:13:17+02:00</lastmod>
+	<changefreq>monthly</changefreq>
+	<priority>0.5</priority>
+    <xhtml:link
+        rel="alternate"
+        hreflang="cr"
+        href="https://udora.ca/dev/index.php/cr/184"
+    />
+</url>
+<url>
+	<loc>https://udora.ca/dev/index.php/cr/184</loc>
+	<lastmod>2017-06-15T20:13:17+02:00</lastmod>
+	<changefreq>monthly</changefreq>
+	<priority>0.5</priority>
+    <xhtml:link
+        rel="alternate"
+        hreflang="en"
+        href="https://udora.ca/dev/index.php/en/184"
+    />
+</url>
+</urlset>
