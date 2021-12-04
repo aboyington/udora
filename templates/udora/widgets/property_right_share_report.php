@@ -10,7 +10,7 @@
 ?>
 
 
-<?php if(config_item('report_property_enabled') == TRUE && isset($property_id) && isset($agent_id)): ?>
+<?php if(config_item('report_property_enabled') == TRUE && isset($property_id)): ?>
 
 <?php if(!is_array($this->session->userdata('reported')) || !in_array($property_id, $this->session->userdata('reported'))): ?>
 <a class="btn button-standart add-event-btn pull-right popup-with-form-report" id="report_property" href="#popup_report_property" style=""><i class="icon-flag icon-white" style="margin-top: 3px;"></i> <i class="load-indicator"></i></a>
@@ -18,7 +18,6 @@
 <?php endif; ?>    
 <div class="text-center pull-right blog-sidebar-share-mobile">
     <a href="https://www.facebook.com/share.php?u={page_current_url}&title={page_title}" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" class="btn btn-social-icon btn-facebook"><i class="ion-social-facebook"></i></a>
-    <a href="https://plus.google.com/share?url={page_current_url}" class="btn btn-social-icon btn-google" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><i class="ion-social-googleplus-outline"></i></a>
     <a href="https://twitter.com/intent/tweet?url={page_current_url}&via={settings_websitetitle}&related={page_title}" class="btn btn-social-icon btn-twitter" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><i class="ion-social-twitter"></i></a>
 </div>
 

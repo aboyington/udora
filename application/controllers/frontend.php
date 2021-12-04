@@ -139,6 +139,9 @@ class Frontend extends Frontend_Controller
             $data = $this->reports_m->array_from_post(array('property_id', 'agent_id', 'name', 
                                                          'phone', 'email', 'message', 'allow_contact', 'date_submit'));
             
+            if(empty($data['agent_id']))
+                unset($data['agent_id']);
+            
             // Save to database
             $data['date_submit'] = date('Y-m-d H:i:s');
             $this->reports_m->save($data);
@@ -189,7 +192,12 @@ class Frontend extends Frontend_Controller
     }
     
     private function check_login()
-    {        
+    {      
+        $redirect_url = false;
+        if(isset($_GET['redirect_url']) && !empty($_GET['redirect_url'])){
+            $redirect_url = $_GET['redirect_url'];
+        }
+        
         $this->load->library('session');
         $this->load->model('user_m');
         
@@ -208,7 +216,10 @@ class Frontend extends Frontend_Controller
             }
             else
             {
-                redirect($dashboard);
+                 if($redirect_url) {
+                       redirect($redirect_url);
+                   } else {
+                   }
             }
         }
     }
@@ -1955,6 +1966,12 @@ class Frontend extends Frontend_Controller
     
     public function login()
     {
+        
+        $redirect_url = false;
+        if(isset($_GET['redirect_url']) && !empty($_GET['redirect_url'])){
+            $redirect_url = $_GET['redirect_url'];
+        }
+        
         if($this->user_m->loggedin() == TRUE)
         {
     	    $dashboard = 'admin/dashboard';
@@ -1963,22 +1980,38 @@ class Frontend extends Frontend_Controller
             {
                 if(config_item('enable_restricted_mode') === TRUE)
                 {
-                    redirect($this->data['lang_code']);
+                    if($redirect_url) {
+                       redirect($redirect_url);
+                   } else {
+                       redirect('frontend/myproperties/'.$this->data['lang_code']);
+                   }
                 }
                 else
                 {
-                    redirect('frontend/myproperties/'.$this->data['lang_code']);
+                if($redirect_url) {
+                       redirect($redirect_url);
+                   } else {
+                       redirect('frontend/myproperties/'.$this->data['lang_code']);
+                   }
                 }
             }
             else
             {
                 if(config_item('enable_restricted_mode') === TRUE)
                 {
-                    redirect($this->data['lang_code']);
+                    if($redirect_url) {
+                       redirect($redirect_url);
+                   } else {
+                       redirect('frontend/myproperties/'.$this->data['lang_code']);
+                   }
                 }
                 else
                 {
-                    redirect($dashboard);
+                    if($redirect_url) {
+                        redirect($redirect_url);
+                    } else {
+                        redirect($dashboard);
+                    }
                 }
             }
         }
@@ -2120,7 +2153,11 @@ class Frontend extends Frontend_Controller
                     // Login with facebook :: AUTO
                     if($this->user_m->login($data['user_profile']['email'], $data['user_profile']['id']) == TRUE)
                     {
-                        redirect('frontend/myproperties/'.$this->data['lang_code']);
+                        if($redirect_url) {
+                            redirect($redirect_url);
+                        } else {
+                            redirect('frontend/myproperties/'.$this->data['lang_code']);
+                        }
                         exit();
                     }
                     else
@@ -2235,8 +2272,11 @@ class Frontend extends Frontend_Controller
                             
                             redirect('fresearch/treealerts/'.$this->data['lang_code'].'/'.$user_id.'/'.md5($user_id.config_item('encryption_key')));
                         }
-                        
-                        redirect('frontend/myproperties/'.$this->data['lang_code']);
+                        if($redirect_url) {
+                             redirect($redirect_url);
+                        } else {
+                            redirect('frontend/myproperties/'.$this->data['lang_code']);
+                        }
                         exit();
                     }
                     else
@@ -2550,7 +2590,11 @@ class Frontend extends Frontend_Controller
                         redirect('frontend/myreservations/'.$this->data['lang_code']);
                     }
                     
-                    redirect('frontend/myproperties/'.$this->data['lang_code']);
+                    if($redirect_url) {
+                        redirect($redirect_url);
+                    } else {
+                        redirect('frontend/myproperties/'.$this->data['lang_code']);
+                    }
                 }
                 else
                 {

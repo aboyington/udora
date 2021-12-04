@@ -114,13 +114,16 @@ if( $('#mapplaces_search_results').length) {
                                 </a>\n\
                     <div class="controls-more">\n\
                         <ul>\n\
-                            <li><a href="#" data-id="<?php echo _jse($item['id']); ?>" class="add-to-favorites add-favorites-action"><?php echo lang_check('Add to favorites');?></a></li>\n\
+                            <li>\n\
+                                <a href="#" data-id="<?php echo _jse($item['id']); ?>" class="add-to-favorites add-favorites-action" style="<?php echo ($item['is_favorite'])?'display:none;':''; ?>"><?php echo lang_check('Add to favorites');?></a>\n\
+                                <a href="#" data-id="<?php echo _jse($item['id']); ?>" class="remove-from-favorites remove-favorites-action"" style="<?php echo (!$item['is_favorite'])?'display:none;':''; ?>"><?php echo lang_check('Remove from favorites');?></a>\n\
+                                \n\
+                                </li>\n\
                             <li><a href="https://www.facebook.com/share.php?u=<?php echo _jse($item['url']); ?>&title=<?php echo _jse($item['option_10']); ?>" onclick="javascript:window.open(this.href, "", "menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600");return false;" class="add-to-watchlist"><?php echo lang_check('Share to friends');?></a></li>\n\
                         </ul>\n\
                     </div>\n\
                 </div>';
     <?php endforeach;?>
-        
     $('.popup_request_to_event').addClass('hidden');
     $('.custom_noevents_form').addClass('hidden');
         

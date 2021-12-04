@@ -1,8 +1,29 @@
-
 <?php
 
 class GamifyEvents_m extends MY_Model {
- 
+    
+    protected $_table_name = 'ga_events';
+    protected $_order_by = 'id';
+    
+    public $rules = array(
+        'title' => array('field'=>'title', 'label'=>'lang:Title', 'rules'=>'trim|required|'),
+        'listing_id' => array('field'=>'listing_id', 'label'=>'lang:Event', 'rules'=>'trim|required|callback__unique_ga_events_listing_id'),
+        'description' => array('field'=>'description', 'label'=>'lang:Description', 'rules'=>'trim'),
+        'event_key' => array('field'=>'event_key', 'label'=>'lang:Event key', 'rules'=>'trim|max_length[4]|min_length[4]|callback__unique_ga_events_key|xss_clean'),
+    );
+    
+    
+        
+    public function get_new()
+	{
+        $item = new stdClass();
+        $item->title = '';
+        $item->listing_id = '';
+        $item->description = '';
+        $item->event_key = '';
+        return $item;
+    }
+    
     /*
       * Insert post
     */

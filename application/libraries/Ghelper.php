@@ -18,6 +18,7 @@ class Ghelper {
     	curl_setopt($ch, CURLOPT_HEADER, 0);
     	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
     	curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_REFERER, 'https://udora.ca/');
     	$tmp = curl_exec($ch);
     	curl_close($ch);
     	if ($tmp != false){
@@ -34,12 +35,21 @@ class Ghelper {
 		$address = str_replace(' ','+',$address);
         $address = strtolower($address);
         
-	 	$url = 'http://maps.google.com/maps/api/geocode/json?address=' . $address;
+        
+        $api_key = '';
+        
+        $key = '';
+        if( config_db_item('maps_api_key')) {
+            $maps_api_key = config_db_item('maps_api_key');;
+            $api_key = $maps_api_key;
+        }
+        
+	 	$url = 'https://maps.google.com/maps/api/geocode/json?address=' . $address.'&key='.$api_key;
         
         $this->CI->load->model('cacher_m');
         $loaded_value = $this->CI->cacher_m->load($address);
         
-        if($loaded_value === FALSE)
+        if(true)
         {
             $data = $this->getURL($url);
         }

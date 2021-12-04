@@ -4,10 +4,6 @@
     <?php _widget('head'); ?>
     <script src='assets/js/gmap3/gmap3.min.js'></script>
     <style>
-        #main .form-preline .control-label {
-            display: none;
-        }
-        
         #main .form-preline h5 {
             display: none;
         }
@@ -18,7 +14,7 @@
 <!-- Add Event -->
 <div class="container dashboard-layout" id="main">
     <div class="raw">
-        <div class="col-xs-12" style="padding-bottom: 30px;">
+        <div class="col-xs-12" style="padding-bottom: 57px;">
             <div class="col-md-3 hidden-xs hidden-sm pad0">
                 <?php _widget('custom_login_profile'); ?>
                 <?php _widget('custom_loginusermenu');?>
@@ -26,7 +22,7 @@
             <div class="col-xs-12 col-md-9 pad0">
                 <div class="col-xs-12 col-md-12 mobile-pad0 mobile-marg-b-20">
                     <div class="panel panel-default">
-                        <div class="panel-heading"><?php echo lang_check('Event Data');?></div>
+                        <div class="panel-heading"><?php echo lang_check('Add Event');?></div>
                         <div class="panel-body left-align">
                             <div class="">
                                 <div class="gmap" id="mapsAddress"></div>
@@ -41,25 +37,21 @@
                                 <p class="alert alert-error"><?php echo $this->session->flashdata('error')?></p>
                                 <?php endif;?>
                             </div>
-                            <?php echo form_open(NULL, array('class' => 'form-horizontal form-estate form-editproperty form-preline', 'role'=>'form'))?>                              
-                                <div class="control-group">
-                                    <label for="inputAddress" class="control-label"><?php echo lang('Address') ?></label>
-                                    <div class="controls">
+                            <?php echo form_open(NULL, array('class' => 'form-horizontal flabel-anim form-estate form-editproperty form-preline', 'role'=>'form'))?>                              
+                                <div class="form-group">
                                         <?php echo form_input('address', set_value('address', $estate['address']), 'class="form-control" id="inputAddress" placeholder="' . lang('Address') . '"') ?>
-                                    </div>
+                                        <label for="inputAddress" class="control-label"><?php echo lang('Address') ?></label>
                                 </div>
-                                <div class="control-group hidden">
-                                    <label class="control-label"><?php echo lang('Gps') ?></label>
-                                    <div class="controls">
+                                <div class="form-group hidden">
                                         <?php echo form_input('gps', set_value('gps', $estate['gps']), 'class="form-control" id="inputGps" placeholder="' . lang('Gps') . '"  readonly') ?>
-                                    </div>
+                                        <label class="control-label"><?php echo lang('Gps') ?></label>
                                 </div>
-                                <div class="control-group terms clearfix">
-                                    <label class="control-label"><?php echo lang_check('Event Privacy');?></label>
-                                    <div class="controls">
-                                        <?php echo form_checkbox('is_visible', '1', set_value('is_visible', $estate['is_visible']), 'id="inputVisible"')?> <?php echo lang_check('Public page');?>:
+                                <div class="form-group terms clearfix">
+                                        <label class="checkbox csscheckbox noanim" for="inputVisible">
+                                            <?php echo form_checkbox('is_visible', '1', set_value('is_visible', $estate['is_visible']), 'id="inputVisible"')?> <?php echo lang_check('Public page');?>:
+                                            <span class="squaredCheckbox"></span>
+                                        </label>
                                         <span><?php echo lang_check('list event on Udora and search engines. Uncheck for private events'); ?></span>
-                                    </div>
                                 </div>
                                 <h5><?php echo lang('Translation data') ?></h5>
                                 <div role="tabpanel" style="margin-bottom: 0px;" class="tabbable">
@@ -78,11 +70,9 @@
                                             <div id="lang_id_<?php echo $key ?>" role="tabpanel" class="tab-pane fade <?php echo $i == 1 ? 'in active' : '' ?>">
 
                                             <?php if (config_db_item('slug_enabled') === TRUE): ?>
-                                                <div class="control-group form-group hidden">
-                                                    <label class="col-lg-3 control-label"><?php echo lang_check('URI slug') ?></label>
-                                                    <div class="col-lg-9 controls">
+                                                <div class="form-group form-group hidden">
                                                         <?php echo form_input('slug_' . $key, set_value('slug_' . $key, $estate['slug_' . $key]), 'class="form-control" id="inputOption_' . $key . '_slug" placeholder="' . lang_check('URI slug') . '"') ?>
-                                                    </div>
+                                                        <label class="col-lg-3 control-label"><?php echo lang_check('URI slug') ?></label>
                                                 </div>
                                             <?php endif; ?>
 
@@ -112,20 +102,16 @@
                                             <?php endif;?>
                                             
                                             <?php elseif($val_option['type'] == 'INPUTBOX' || $val_option['type'] == 'DECIMAL' || $val_option['type'] == 'INTEGER'):?>
-                                                <div class="control-group<?php echo ($val_option['is_frontend']?'':' hidden') ?>">
-                                                    <label for="inputOption_<?php echo $key;?>_<?php echo $val_option['id'];?>" class="control-label"><?php echo $val_option['option']?> 
+                                                <div class="form-group<?php echo ($val_option['is_frontend']?'':' hidden') ?>">
+                                                        <?php echo form_input('option'.$val_option['id'].'_'.$key, set_value('option'.$val_option['id'].'_'.$key, isset($estate['option'.$val_option['id'].'_'.$key])?$estate['option'.$val_option['id'].'_'.$key]:''), 'class="form-control '.$val_option['type'].'" id="inputOption_'.$key.'_'.$val_option['id'].'" placeholder="'.$val_option['option'].'" '.$required_text.' '.$max_length_text)?>
                                                         <?php if(!empty($options_lang[$key][$key_option]->prefix) || !empty($options_lang[$key][$key_option]->suffix)): ?>
                                                             (<?php echo $options_lang[$key][$key_option]->prefix.$options_lang[$key][$key_option]->suffix?>)
                                                         <?php endif; ?>
+                                                        <label for="inputOption_<?php echo $key;?>_<?php echo $val_option['id'];?>" class="control-label"><?php echo $val_option['option']?> 
                                                         <span class="reque"><?php echo $required_notice;?></span><?php if(!empty($options_lang[$key][$key_option]->hint)):?><span class="sub-label"><?php echo $options_lang[$key][$key_option]->hint;?></span><?php endif;?></label>
-                                                    <div class="controls">
-                                                        <?php echo form_input('option'.$val_option['id'].'_'.$key, set_value('option'.$val_option['id'].'_'.$key, isset($estate['option'.$val_option['id'].'_'.$key])?$estate['option'.$val_option['id'].'_'.$key]:''), 'class="form-control '.$val_option['type'].'" id="inputOption_'.$key.'_'.$val_option['id'].'" placeholder="'.$val_option['option'].'" '.$required_text.' '.$max_length_text)?>
-                                                    </div>
                                                 </div>
                                             <?php elseif($val_option['type'] == 'DROPDOWN'):?>
-                                                <div class="control-group<?php echo ($val_option['is_frontend']?'':' hidden') ?>">
-                                                    <label class="control-label"><?php echo $val_option['option']?> <span class="reque"><?php echo $required_notice;?></span> <?php if(!empty($options_lang[$key][$key_option]->hint)):?><span class="sub-label"><?php echo $options_lang[$key][$key_option]->hint;?></span><?php endif;?></label>
-                                                    <div class="controls">
+                                                <div class="form-group<?php echo ($val_option['is_frontend']?'':' hidden') ?>">
                                                         <?php
                                                         if(isset($options_lang[$key][$key_option]))
                                                         {
@@ -141,12 +127,10 @@
                                                         echo form_dropdown('option'.$val_option['id'].'_'.$key, $drop_options, $drop_selected, 'class="form-control" id="inputOption_'.$key.'_'.$val_option['id'].'" placeholder="'.$val_option['option'].'" '.$required_text)
 
                                                         ?>
-                                                    </div>
+                                                        <label class="control-label"><?php echo $val_option['option']?> <span class="reque"><?php echo $required_notice;?></span> <?php if(!empty($options_lang[$key][$key_option]->hint)):?><span class="sub-label"><?php echo $options_lang[$key][$key_option]->hint;?></span><?php endif;?></label>
                                                 </div>
                                             <?php elseif($val_option['type'] == 'DROPDOWN_MULTIPLE' && config_item('field_dropdown_multiple_enabled') === TRUE):?>
-                                                <div class="control-group<?php echo ($val_option['is_frontend']?'':' hidden') ?>">
-                                                    <label class="control-label"><?php echo $val_option['option']?><span class="reque"><?php echo $required_notice;?></span><?php if(!empty($options_lang[$key][$key_option]->hint)):?><span class="sub-label"><?php echo $options_lang[$key][$key_option]->hint;?></span><?php endif;?></label>
-                                                    <div class="controls">
+                                                <div class="form-group<?php echo ($val_option['is_frontend']?'':' hidden') ?>">
                                                         <?php
                                                         if(isset($options_lang[$key][$key_option]))
                                                         {
@@ -162,22 +146,15 @@
                                                         echo form_dropdown('option'.$val_option['id'].'_'.$key, $drop_options, $drop_selected, 'class="form-control" id="inputOption_'.$key.'_'.$val_option['id'].'" placeholder="'.$val_option['option'].'" '.$required_text)
 
                                                         ?>
-                                                    </div>
+                                                        <label class="control-label"><?php echo $val_option['option']?><span class="reque"><?php echo $required_notice;?></span><?php if(!empty($options_lang[$key][$key_option]->hint)):?><span class="sub-label"><?php echo $options_lang[$key][$key_option]->hint;?></span><?php endif;?></label>
                                                 </div>
                                             <?php elseif($val_option['type'] == 'TEXTAREA'):?>
-                                                <div class="control-group<?php echo ($val_option['is_frontend']?'':' hidden') ?>">
+                                                <div class="form-group<?php echo ($val_option['is_frontend']?'':' hidden') ?>">
+                                                    <?php echo form_input('option'.$val_option['id'].'_'.$key, set_value('option'.$val_option['id'].'_'.$key, isset($estate['option'.$val_option['id'].'_'.$key])?$estate['option'.$val_option['id'].'_'.$key]:''), 'class="form-control" id="inputOption_'.$key.'_'.$val_option['id'].'" placeholder="'.$val_option['option'].'" '.$required_text)?>
                                                     <label for="inputOption_<?php echo $key;?>_<?php echo $val_option['id'];?>" class="control-label"><?php echo $val_option['option']?><span class="reque"><?php echo $required_notice;?></span><?php if(!empty($options_lang[$key][$key_option]->hint)):?><span class="sub-label"><?php echo $options_lang[$key][$key_option]->hint;?></span><?php endif;?></label>
-                                                    <div class="controls">
-                                                        <?php echo form_textarea('option'.$val_option['id'].'_'.$key, set_value('option'.$val_option['id'].'_'.$key, isset($estate['option'.$val_option['id'].'_'.$key])?$estate['option'.$val_option['id'].'_'.$key]:''), 'class="cleditor form-control" id="inputOption_'.$key.'_'.$val_option['id'].'" placeholder="'.$val_option['option'].'" '.$required_text)?>
-                                                    </div>
                                                 </div>
                                             <?php elseif($val_option['type'] == 'TREE' && config_item('tree_field_enabled') === TRUE):?>
-                                                <div class="control-group TREE-GENERATOR<?php echo ($val_option['is_frontend']?'':' hidden') ?>">
-                                                    <label class="control-label">
-                                                        <?php echo $val_option['option']?>
-                                                        <div class="ajax_loading"> </div>
-                                                    </label>
-                                                    <div class="controls">
+                                                <div class="form-group TREE-GENERATOR<?php echo ($val_option['is_frontend']?'':' hidden') ?>">
                                                         <?php
                                                         $drop_options = $this->treefield_m->get_level_values($key, $val_option['id']);
                                                         $drop_selected = array();
@@ -199,10 +176,13 @@
                                                         <div class="field-row hidden">
                                                             <?php echo form_input('option'.$val_option['id'].'_'.$key, set_value('option'.$val_option['id'].'_'.$key, isset($estate['option'.$val_option['id'].'_'.$key])?$estate['option'.$val_option['id'].'_'.$key]:''), 'class="form-control tree-input-value" id="inputOption_'.$key.'_'.$val_option['id'].'" placeholder="'.$val_option['option'].'"')?>
                                                         </div>
-                                                    </div>
+                                                        <label class="control-label">
+                                                            <?php echo $val_option['option']?>
+                                                            <div class="ajax_loading"> </div>
+                                                        </label>
                                                 </div>
                                             <?php elseif($val_option['type'] == 'UPLOAD'):?>
-                                                <div class="control-group UPLOAD-FIELD-TYPE <?php echo ($val_option['is_frontend']?'':' hidden') ?>">
+                                                <div class="form-group UPLOAD-FIELD-TYPE <?php echo ($val_option['is_frontend']?'':' hidden') ?>">
                                                     <label class="control-label">
                                                         <?php echo $val_option['option']?>
                                                         <div class="ajax_loading"> </div>
@@ -322,7 +302,7 @@
                                                    </div>
                                                 </div>
                                             <?php elseif($val_option['type'] == 'CHECKBOX'):?>
-                                                <div class="control-group<?php echo ($val_option['is_frontend']?'':' hidden') ?> checkbox">
+                                                <div class="form-group<?php echo ($val_option['is_frontend']?'':' hidden') ?> checkbox">
                                                     <label for="inputOption_<?php echo $key;?>_<?php echo $val_option['id'];?>" class="control-label"><?php echo $val_option['option']?><span class="reque"><?php echo $required_notice;?></span><?php if(!empty($options_lang[$key][$key_option]->hint)):?><span class="sub-label"><?php echo $options_lang[$key][$key_option]->hint;?></span><?php endif;?></label>
                                                     <div class="controls">
                                                       <?php echo form_checkbox('option'.$val_option['id'].'_'.$key, 'true', set_value('option'.$val_option['id'].'_'.$key, isset($estate['option'.$val_option['id'].'_'.$key])?$estate['option'.$val_option['id'].'_'.$key]:''), 'id="inputOption_'.$key.'_'.$val_option['id'].'" class="valid_parent" '.$required_text)?>
@@ -335,9 +315,7 @@
                                                     </div>
                                                 </div>
                                             <?php elseif($val_option['type'] == 'DATETIME' && config_item('field_datetime_enabled')=== TRUE):?>
-                                                <div class="control-group<?php echo ($val_option['is_frontend']?'':' hidden') ?> datetime">
-                                                    <label class="control-label"><?php echo $val_option['option']?> <span class="reque"><?php echo $required_notice;?></span> <?php if(!empty($options_lang[$key][$key_option]->hint)):?><span class="sub-label"><?php echo $options_lang[$key][$key_option]->hint;?></span><?php endif;?></label>
-                                                  <div class="controls">
+                                                <div class="form-group<?php echo ($val_option['is_frontend']?'':' hidden') ?> datetime">
                                                     <div class="input-append" id="datetimepicker_field_<?php _che($key);?>_<?php _che($val_option['id']);?>">
                                                         <?php echo form_input('option'.$val_option['id'].'_'.$key, set_value('option'.$val_option['id'].'_'.$key, isset($estate['option'.$val_option['id'].'_'.$key])?$estate['option'.$val_option['id'].'_'.$key]:''), 'class="picker '.$val_option['type'].' form-control" id="inputOption_'.$key.'_'.$val_option['id'].'" placeholder="'.$val_option['option'].'" '.$required_text.' '.$max_length_text)?>
                                                         <span class="add-on">
@@ -345,7 +323,7 @@
                                                           </i>
                                                         </span>
                                                     </div> 
-                                                  </div>
+                                                    <label class="control-label"><?php echo $val_option['option']?> <span class="reque"><?php echo $required_notice;?></span> <?php if(!empty($options_lang[$key][$key_option]->hint)):?><span class="sub-label"><?php echo $options_lang[$key][$key_option]->hint;?></span><?php endif;?></label>
                                                 </div>
 
                                                 <script>
@@ -367,17 +345,19 @@
                                     </div>
                                 <div class="form-footer">
                                     <p class="text">
-                                        <?php echo form_checkbox('option_agree_terms', 'true', set_value('option_agree_terms', false), 'class="ezdisabled" id="inputOption_terms"')?>
-                                         <?php echo lang_check('By clicking \'Save\', you agreeing to the Udora');?>      
+                                        <label class="checkbox csscheckbox noanim" for="inputOption_terms">
+                                            <?php echo form_checkbox('option_agree_terms', 'true', set_value('option_agree_terms', false), 'class="ezdisabled" id="inputOption_terms"')?>
+                                            <span class="squaredCheckbox"></span>
+                                             <?php echo lang_check('By clicking \'Save\', you agreeing to the Udora');?>      
+                                        </label>
                                         <br/>
                                         <a target="_blank" href="<?php echo config_db_item('terms_link'); ?>"><?php echo lang_check('Terms and Conditions'); ?></a>
                                         <?php echo lang_check('and');?>
                                         <a target="_blank" href="#"><?php echo lang_check('Privacy Policy'); ?></a>
                                     </p>
-                                    <div class="form-group control-group row">
+                                    <div class="form-group form-group row">
                                         <div class="controls">
-                                            <?php echo form_submit('submit', lang('Save'), 'class="btn btn-action-accept"')?>
-                                            <a href="<?php echo site_url('admin/estate')?>" class="btn btn-action-unaccept" type="button"><?php echo lang('Cancel')?></a>
+                                            <?php echo form_submit('submit', lang('Save'), 'class="btn btn-action-accept slim"')?>
                                         </div>
                                     </div>
                                 </div>
@@ -390,7 +370,8 @@
             </div>
         </div>
         <div class="col-xs-12" >
-        <div class="col-xs-12 col-md-12 box-white section section-d12 box-white">
+        <div class="col-md-offset-3 col-xs-12 col-sm-9">
+        <div class="box-white section box-white">
         <?php if(!isset($estate['id'])):?>
             <span class="label label-danger"><?php echo lang_check('After saving, you can add files and images');?></span>
         <?php else:?>
@@ -464,6 +445,7 @@
             </div>
         <?php endif;?>
         </div>
+        </div>
     </div>
     </div>
    
@@ -472,7 +454,14 @@
 <div class="d-block d-md-none">
     <?php _widget('custom_footer_menu');?>
 </div>
-<div class="d-none d-md-block">
+
+<a href="#" class="js-toogle-footermenu">
+    <i class="material-icons">
+    playlist_add
+    </i>
+    <i class="close-icon"></i>
+</a>
+<div class="d-none d-sm-block">
     <?php _widget('custom_footer'); ?>
 </div>
 <?php _widget('custom_javascript'); ?>
@@ -569,8 +558,8 @@
                 // hide all below <hr> if found below
                 parent_elem.find("<?php echo $generate_selector; ?>").parent().parent().each( function() {
                     var curr_elem = $(this);
-                    if(!(curr_elem.hasClass('control-group') || curr_elem.hasClass('form-group')) &&
-                       (curr_elem.parent().hasClass('control-group') || curr_elem.parent().hasClass('form-group')) )
+                    if(!(curr_elem.hasClass('form-group') || curr_elem.hasClass('form-group')) &&
+                       (curr_elem.parent().hasClass('form-group') || curr_elem.parent().hasClass('form-group')) )
                     {
                         curr_elem = curr_elem.parent();
                     }
@@ -1146,8 +1135,8 @@
     <?php if (isset($package_num_amenities_limit)): ?>
         $(document).ready(function () {
 
-            $('.control-group .controls input[type=checkbox]').change(function (event) {
-                var selected_checkboxes = $('.tab-pane.active .control-group .controls input[type=checkbox]:checked').length;
+            $('.form-group .controls input[type=checkbox]').change(function (event) {
+                var selected_checkboxes = $('.tab-pane.active .form-group .controls input[type=checkbox]:checked').length;
 
                 if (selected_checkboxes > <?php echo $package_num_amenities_limit; ?>)
                 {

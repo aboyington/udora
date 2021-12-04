@@ -2,9 +2,11 @@
 
 class Glogin {
 
-    var $clientId       = '7976329998-d9cudrgqjbpku12a7qpv7tbbah1g2inm.apps.googleusercontent.com';
-    var $clientSecret   = 'OOvQogx177HPjlZ75w31s6ey';
-    var $hostedDomain   = '';
+    //var $clientId       = '7976329998-d9cudrgqjbpku12a7qpv7tbbah1g2inm.apps.googleusercontent.com';
+    //var $clientSecret   = 'OOvQogx177HPjlZ75w31s6ey';
+    var $clientId       = '787193853488-4n3lhmavs3gd8k5n4u01ibq690efv2dj.apps.googleusercontent.com';
+    var $clientSecret   = 'ZDyvizymmpJzxrJm3Rkh6AkA';
+    var $hostedDomain   = ''; 
 
     public function __construct($params = array())
     {

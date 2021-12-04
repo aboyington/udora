@@ -11,27 +11,31 @@ use Omnipay\Common\Message\RequestInterface;
  */
 class PurchaseResponse extends AbstractResponse implements RedirectResponseInterface
 {
-    protected $redirectUrl;
-
-    public function __construct(RequestInterface $request, $data, $redirectUrl)
+    public function isRedirect()
     {
-        parent::__construct($request, $data);
-        $this->redirectUrl = $redirectUrl;
+        return $this->data->RETURN_CODE == '3DS_ENROLLED';
     }
 
     public function isSuccessful()
     {
-        return false;
+        //$this->validateResponse();
+        if(!isset($this->data['STATUS'])){
+            return false;
+        }
+        return $this->data['STATUS'] == 'SUCCESS';
     }
 
-    public function isRedirect()
+    public function getMessage()
     {
-        return true;
+        if($this->isSuccessful()){
+            return $this->data['RETURN_MESSAGE'];
+        }
+        return null;
     }
 
     public function getRedirectUrl()
     {
-        return $this->getRequest()->getEndpoint();
+        return $this->data['URL_3DS'];
     }
 
     public function getRedirectMethod()
@@ -42,5 +46,12 @@ class PurchaseResponse extends AbstractResponse implements RedirectResponseInter
     public function getRedirectData()
     {
         return $this->data;
+    }
+    private function validateResponse(){
+        ksort($this->data);
+        $hash = $this->request->generateHash($this->data);
+        if($hash !== $this->data["HASH"]){
+            throw new \Exception('Invalid response');
+        }
     }
 }

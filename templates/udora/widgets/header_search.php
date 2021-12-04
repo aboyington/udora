@@ -49,43 +49,26 @@ if ($CI->config->item('facebook_api_version') == '2.4' || floatval($this->config
     <div class="left-menu py-1 px-1 py-sm-6 px-sm-2">
         <div class="container">
             <div class="row d-flex flex-wrap align-items-center">
-                <div class="col-xs-12 col-md-6 text-left / d-none d-md-block">
-                    <h2 class="color-accent / mb-4">Find your next <span class="color-white">experience</span></h2>
-                    <ol class="ordered-list-style-1">
-                        <li class="color-white"><span class="color-accent">Explore local events</span> local or
-                            worldwide
-                        </li>
-                        <li class="color-white"><span class="color-accent">Join the community</span> make connections
-                        </li>
-                        <li class="color-white"><span class="color-accent">Make your voice heard</span> how did we do
-                        </li>
-                    </ol>
-                </div>
-                <div class="col-xs-12 col-md-6">
-                    <div class="login__box-1 login-form login-on-page" id="login-modal">
-                        <h3 class="text-center / mb-1"><?php echo lang_check('Live Love Life'); ?></h3>
-                        <p class="sub-title / mb-3">{lang_Sign in slogan}</h4>
-                            <?php echo form_open(NULL, array('class' => 'form-horizontal form-additional widget-content clearfix', 'id' => 'popup_form_login')) ?>
-                        <div class="login-inputs alerts-box">
+                    <div class="login-form login-on-page" id="login-modal">
+                        <div class="col-xs-12">
+                            <h3 class="text-center / mb-1"><?php echo lang_check('Welcome to Udora'); ?></h3>
+                        </div>                           
+                        <?php echo form_open(NULL, array('class' => 'form-horizontal form-additional widget-content clearfix', 'id'=>'popup_form_login')) ?>
+                        <div class="d-none d-md-block close-modal"><div class="close-icon js-toggle-login-popup black"></div></div>
+                        <div class="col-xs-12 alerts-box">
                         </div>
-                        <div class="login-inputs">
-                            <?php echo form_input('username', $this->input->get('username'), 'class="w-100" id="inputUsername" placeholder="' . lang('Email') . '"') ?>
-                            <?php echo form_password('password', $this->input->get('password'), 'class="w-100" id="inputPassword" placeholder="' . lang('Password') . '"') ?>
-                        </div>
-                        <div class="mb-2 mb-sm-3">
-                            <div class="row d-flex align-items-center">
-                                <div class="checkbox remember-me col-xs-6 pt-0 d-flex align-items-center">
-                                    <input name="remember-me" type="checkbox" value="true" id="remember-me">
-                                    <label for="remember-me" class="text-sm"> <?php echo lang('Remember me') ?></label>
-                                </div>
-                                <div class="col-xs-6 text-right d-flex align-items-center justify-content-end">
-                                    <a class="text-sm"
-                                       href="<?php echo site_url('admin/user/forgetpassword'); ?>"><?php echo lang_check('Forget password?') ?></a>
-                                </div>
+                        <div class="login-inputs col-xs-12 flabel-anim">
+                            <div class="form-group">
+                                <?php echo form_input('username', $this->input->get('username'), 'class="col-xs-12 col-lg-12 form-control" id="inputUsername"  autocomplete="username" placeholder="' . lang('Email') . '"') ?>
+                                <label><?php echo lang_check("Email address");?></label>
+                            </div>
+                            <div class="form-group">
+                                <?php echo form_password('password', $this->input->get('password'), 'class="col-xs-12 col-lg-12 form-control" id="inputPassword"  autocomplete="current-password" placeholder="' . lang('Password') . '"') ?>
+                                <label><?php echo lang_check("Password");?></label>
                             </div>
                         </div>
-                        <div class="mb-2 mb-sm-3">
-                            <button class="button-login w-100" type="submit">{lang_Sign in}
+                        <div class="col-xs-12 mb-2 mb-sm-3">
+                            <button class="button-login col-xs-12 col-lg-12" type="submit"><?php echo lang_check('Log In');?>
                                 <div class="spinner hidden ajax-indicator">
                                     <div class="bounce1"></div>
                                     <div class="bounce2"></div>
@@ -94,45 +77,32 @@ if ($CI->config->item('facebook_api_version') == '2.4' || floatval($this->config
                             </button>
                         </div>
                         <?php echo form_close() ?>
-                        <div class="mb-1 mb-sm-3">
+                        <div class="col-xs-12 mb-1 mb-sm-2">
                             <p class="separate mb-0">
                                 <span class="separate-content"><?php echo lang_check('OR'); ?></span>
                             </p>
                         </div>
-                        <div class="mb-1">
+                        <div class="col-xs-12 mb-3 login_buttons">
                             <?php if (config_item('appId') != '' && !empty($login_url_facebook)): ?>
-                                <a href="<?php echo $login_url_facebook; ?>" class="login-facebook">
+                                <a href="<?php echo $login_url_facebook; ?>" class="btn-login-soc">
+                                    <i class="fa fa-facebook" aria-hidden="true"></i>
                                     <?php echo lang_check('Facebook'); ?>
                                 </a>
                             <?php endif; ?>
                             <?php if (config_item('glogin_enabled')): ?>
-                                <a href="<?php echo site_url('api/google_login/'); ?>" class="login-google">
+                                <a href="<?php echo site_url('api/google_login/'); ?>" class="btn-login-soc">
+                                    <i class="fa fa-google" aria-hidden="true"></i>
                                     <?php echo lang_check('Google+'); ?>
                                 </a>
                             <?php endif; ?>
                         </div>
-                        <p class="text-sm mb-3 pl-2 pr-2">{lang_By continuing}</p>
-                        <div class="login-footer flex">
-                            <div class="info mr-2"><?php echo lang_check('Don\'t have an account?'); ?></div>
-                            <div class="action d-flex align-items-center">
-                                <button class="btn button-login-inv js-toggle-register-popup">{lang_Try it free}</a>
-                            </div>
+                        <p class="text-sm mb-3 pl-2 pr-2"><?php echo lang_check("By countinuing, you agree to Udora's");?> <a href="#"><?php echo lang_check('Terms of Service, Privacy Policy');?></a></p>
+                        <div class="login-footer">
+                            <?php echo lang_check('Don\'t have an account?');?>
+                            <a href="#" class="button-login-inv js-toggle-register-popup"><?php echo lang_check('Sign Up');?></a>
+                            <a class="link_forg" href="<?php echo site_url('admin/user/forgetpassword'); ?>"><?php echo lang_check('Forget password?') ?></a>
                         </div>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-md-6 text-left pt-6 pb-6 / d-none">
-                    <h2 class="color-accent text-center  mb-2">Find your next <span
-                                class="color-white">experience</span></h2>
-                    <ol class="ordered-list-style-1 text-center">
-                        <li class="color-white"><span class="color-accent">Explore local events</span> local or
-                            worldwide
-                        </li>
-                        <li class="color-white"><span class="color-accent">Join the community</span> make connections
-                        </li>
-                        <li class="color-white"><span class="color-accent">Make your voice heard</span> how did we do
-                        </li>
-                    </ol>
-                </div>
+                    </div> 
             </div>
         </div>
     </div>
@@ -142,115 +112,110 @@ if ($CI->config->item('facebook_api_version') == '2.4' || floatval($this->config
 
         <div class="container">
             <div class="row d-flex flex-wrap align-items-center">
-                <div class="col-xs-12 col-md-6 text-left / d-none d-md-block">
-                    <h2 class="color-accent / mb-4">Find your next <span class="color-white">experience</span></h2>
-                    <ol class="ordered-list-style-1">
-                        <li class="color-white"><span class="color-accent">Explore local events</span> local or
-                            worldwide
-                        </li>
-                        <li class="color-white"><span class="color-accent">Join the community</span> make connections
-                        </li>
-                        <li class="color-white"><span class="color-accent">Make your voice heard</span> how did we do
-                        </li>
-                    </ol>
-                </div>
-                <div class="col-xs-12 col-md-6">
-                    <div class="login__box-1 login-form create-account-form create-account-page">
-                        <h3 class="text-center / mb-1">{lang_Welcome to Udora}</h3>
-                        <p class="sub-title / mb-3">{lang_Sign up slogan}</p>
-                        <?php echo form_open(NULL, array('class' => 'form-horizontal form-additional widget-content clearfix', 'id' => 'popup_form_register')) ?>
-                        <div class="login-inputs alerts-box">
+                <div class="login-form create-account-form create-account-page">
+                    <div class="col-xs-12">
+                        <h3 class="text-center / mb-1"><?php echo lang_check('Welcome to Udora'); ?></h3>
+                    </div>                           
+                    <?php echo form_open(NULL, array('class' => 'form-horizontal form-additional widget-content clearfix', 'id'=>'popup_form_register')) ?>
+                    <div class="d-none d-md-block close-modal"><div class="close-icon js-toggle-login-popup black"></div></div>
+                    <div class="col-xs-12 alerts-box">
+                    </div>
+                    <div class="login-inputs col-xs-12 flabel-anim">
+                        <?php if (config_db_item('register_reduced') == FALSE): ?>
+                            <div class="form-group">
+                               <?php echo form_input('username', set_value('username', ''), 'class="w-100 form-control" id="inputUsername2" placeholder="' . lang('Username') . '"') ?>
+                               <label><?php echo lang_check("Username");?></label>
+                           </div>
+                        <?php endif; ?>
+                        
+                        <div class="form-group">
+                           <?php echo form_input('name_surname', set_value('name_surname', ''), 'class="col-xs-12 col-lg-12 form-control" id="inputNameSurname" placeholder="' . lang('FirstLast') . '"') ?>
+                           <label><?php echo lang_check("FirstLast");?></label>
                         </div>
-                        <div class="login-inputs mb-1 mb-sm-2">
-                            <?php if (config_db_item('register_reduced') == FALSE): ?>
-                                <?php echo form_input('username', set_value('username', ''), 'class="w-100" id="inputUsername2" placeholder="' . lang('Username') . '"') ?>
-                            <?php endif; ?>
-                            <?php echo form_input('name_surname', set_value('name_surname', ''), 'class="col-xs-12 col-lg-12" id="inputNameSurname" placeholder="' . lang('FirstLast') . '"') ?>
-                            <?php echo form_input('mail', set_value('mail', ''), 'class="w-100" id="inputMail" placeholder="' . lang('Email') . '"') ?>
-                            <?php echo form_password('password', set_value('password', ''), 'class="w-100" id="inputPassword2" placeholder="' . lang('Password') . '" autocomplete="off"') ?>
-                            <?php echo form_password('password_confirm', 'auto', 'class="form-control hidden" id="inputPasswordConfirm" placeholder="' . lang('Confirmpassword') . '" autocomplete="off"') ?>
-                            <div class="hint-box">
-                                <?php echo form_input('age', set_value('age', ''), 'class="w-100" id="inputAge" placeholder="' . lang_check('Age') . '"') ?>
-                                <span class="hintlabewl hint--top-left"
-                                      aria-label="<?php echo lang_check('To sign up you must be 13 or older. Other people won\'t see your birthday'); ?>"><i
-                                            class="fa fa-question" aria-hidden="true"></i></span>
-                            </div>
-                            <div class="clearfix text-left mb-1 mb-sm-2">
-                                <label class="login-checkbox">
-                                    <?php echo form_radio('gender', 'male', '', 'class="mr-1" id="Male"') ?><?php echo lang_check('Male'); ?>
-                                </label>
-                                <label class="login-checkbox">
-                                    <?php echo form_radio('gender', 'female', '', 'class="mr-1" id="Female"') ?><?php echo lang_check('Female'); ?>
-                                </label>
-                                <label class="login-checkbox">
-                                    <?php echo form_radio('gender', 'custom', '', 'class="mr-1" id="Custom"') ?><?php echo lang_check('Custom'); ?>
-                                </label>
-                            </div>
+                       
+                        <div class="form-group">
+                           <?php echo form_input('mail', set_value('mail', ''), 'class="w-100 form-control" id="inputMail" placeholder="' . lang('Email') . '"') ?>
+                           <label><?php echo lang_check("Email");?></label>
+                       </div>
+                        <div class="form-group">
+                            <?php echo form_password('password', set_value('password', ''), 'class="w-100 form-control" id="inputPassword2" placeholder="' . lang('Password') . '" autocomplete="off"') ?>
+                           <label><?php echo lang_check("Password");?></label>
+                       </div>
+                        <?php echo form_password('password_confirm', 'auto', 'class="form-control hidden" id="inputPasswordConfirm" placeholder="' . lang('Confirmpassword') . '" autocomplete="off"') ?>
+                        <div class="hint-box form-group">
+                            <?php echo form_input('age', set_value('age', ''), 'class="w-100" id="inputAge" placeholder="' . lang_check('Age') . '"') ?>
+                            <span class="hintlabewl hint--top-left"
+                                  aria-label="<?php echo lang_check('To sign up you must be 13 or older. Other people won\'t see your birthday'); ?>"><i
+                                        class="fa fa-question" aria-hidden="true"></i></span>
+                        </div>
+                        <div class="clearfix text-left mb-1 mb-sm-2">
+                            <label class="login-checkbox">
+                            <?php echo form_radio('gender','male', '', 'class="inputGender"') ?> <?php echo lang_check('Male');?>
+                            </label>
+                            <label class="login-checkbox">
+                            <?php echo form_radio('gender','female', '', 'class="inputGender"') ?> <?php echo lang_check('Female');?>
+                            </label>
+                            <label class="login-checkbox">
+                            <?php echo form_radio('gender','custom', '', 'class="inputGender"') ?> <?php echo lang_check('Custom');?>
+                            </label>
+                        </div>    
 
-                            <?php if (config_item('captcha_disabled') === FALSE): ?>
-                                <div class="control-group {form_error_captcha}">
-                                    <div class="row">
-                                        <div class="col-lg-6" style="padding-top:5px;">
-                                            <?php echo $captcha['image']; ?>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <input class="captcha {form_error_captcha}" style="width: 100%;"
-                                                   name="captcha"
-                                                   type="text" placeholder="{lang_Captcha}" value=""/>
-                                            <input class="hidden" name="captcha_hash" type="text"
-                                                   value="<?php echo $captcha_hash; ?>"/>
-                                        </div>
+                        <?php if (config_item('captcha_disabled') === FALSE): ?>
+                            <div class="control-group {form_error_captcha}" >
+                                <div class="row">
+                                    <div class="col-lg-6" style="padding-top:5px;">
+                                        <?php echo $captcha['image']; ?>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <input class="captcha {form_error_captcha}" style="width: 100%;" name="captcha" type="text" placeholder="{lang_Captcha}" value="" />
+                                        <input class="hidden" name="captcha_hash" type="text" value="<?php echo $captcha_hash; ?>" />
                                     </div>
                                 </div>
-                            <?php endif; ?>
-                            <?php if (config_item('recaptcha_site_key') !== FALSE): ?>
-                                <?php _recaptcha(false); ?>
-                            <?php endif; ?>
-                        </div>
-                        <button class="button-login w-100 mb-1" type="submit">{lang_Join now}
+                            </div>
+                        <?php endif; ?>
+                        <?php if (config_item('recaptcha_site_key') !== FALSE): ?>
+                            <div class="row">
+                                <div class="col-xs-12 col-lg-12">
+                                    <?php _recaptcha(false); ?>
+                                </div>
+                            </div>
+                        <?php endif; ?>  
+
+                    </div>
+                    <div class="col-xs-12 mb-2 mb-sm-3">
+                        <button class="button-login col-xs-12 col-lg-12" type="submit"><?php echo lang_check('Join Now');?>
                             <div class="spinner hidden ajax-indicator">
                                 <div class="bounce1"></div>
                                 <div class="bounce2"></div>
                                 <div class="bounce3"></div>
                             </div>
                         </button>
-                        <?php echo form_close(); ?>
-                        <p class="text-sm mb-3 pl-2 pr-2">{lang_By continuing}</p>
-                        <p class="separate mb-2 text-center">
+                    </div>
+                    <?php echo form_close() ?>
+                    <div class="col-xs-12 mb-1 mb-sm-2">
+                        <p class="separate mb-0">
                             <span class="separate-content"><?php echo lang_check('OR'); ?></span>
                         </p>
-                        <div class="mb-3 mb-sm-4">
-                            <?php if (config_item('appId') != '' && !empty($login_url_facebook)): ?>
-                                <a href="<?php echo $login_url_facebook; ?>" class="login-facebook">
-                                    <?php echo lang_check('Facebook'); ?>
-                                </a>
-                            <?php endif; ?>
-                            <?php if (config_item('glogin_enabled')): ?>
-                                <a href="<?php echo site_url('api/google_login/'); ?>" class="login-google">
-                                    <?php echo lang_check('Google+'); ?>
-                                </a>
-                            <?php endif; ?>
-                        </div>
-                        <div class="login-footer flex">
-                            <div class="info mr-2"><?php echo lang_check('Already have a Udora acccount?'); ?></div>
-                            <div class="action d-flex align-items-center">
-                                <button class="js-toggle-login-popup btn button-login-inv">{lang_Sign in}</a>
-                            </div>
-                        </div>
                     </div>
-                </div>
-                <div class="col-xs-12 col-md-6 text-left pt-6 pb-6 / d-none">
-                    <h2 class="color-accent text-center  mb-2">Find your next <span
-                                class="color-white">experience</span></h2>
-                    <ol class="ordered-list-style-1 text-center">
-                        <li class="color-white"><span class="color-accent">Explore local events</span> local or
-                            worldwide
-                        </li>
-                        <li class="color-white"><span class="color-accent">Join the community</span> make connections
-                        </li>
-                        <li class="color-white"><span class="color-accent">Make your voice heard</span> how did we do
-                        </li>
-                    </ol>
+                    <div class="col-xs-12 mb-3 login_buttons">
+                        <?php if (config_item('appId') != '' && !empty($login_url_facebook)): ?>
+                            <a href="<?php echo $login_url_facebook; ?>" class="btn-login-soc">
+                                <i class="fa fa-facebook" aria-hidden="true"></i>
+                                <?php echo lang_check('Facebook'); ?>
+                            </a>
+                        <?php endif; ?>
+                        <?php if (config_item('glogin_enabled')): ?>
+                            <a href="<?php echo site_url('api/google_login/'); ?>" class="btn-login-soc">
+                                <i class="fa fa-google" aria-hidden="true"></i>
+                                <?php echo lang_check('Google+'); ?>
+                            </a>
+                        <?php endif; ?>
+                    </div>
+                    <p class="text-sm mb-3 pl-2 pr-2"><?php echo lang_check("By countinuing, you agree to Udora's");?> <a href="#"><?php echo lang_check('Terms of Service, Privacy Policy');?></a></p>
+                    <div class="login-footer">
+                        <?php echo lang_check('Already have a Udora acccount?');?>
+                        <a class="js-toggle-login-popup button-login-inv" href="#"><?php echo lang_check('Sign In');?></a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -275,7 +240,7 @@ if ($CI->config->item('facebook_api_version') == '2.4' || floatval($this->config
                         </span>                    
                     </label>
                     <p class="checkin_file_name"></p>
-                    <input id="checkin_file-upload" class="d-none" type="file"/>
+                    <input id="checkin_file-upload" name="qr_code" class="d-none" type="file"/>
                     <div class="text-center p-1">
                         Tap the icon to scan event code or enter the code in the space below
                     </div>
@@ -289,10 +254,10 @@ if ($CI->config->item('facebook_api_version') == '2.4' || floatval($this->config
                     </script>                
                 </div>
                 <div class="d-flex justify-content-around mb-3">
-                    <input class="checkin_short_number" type="text" pattern="\d*" maxlength="1" size="1" name="">
-                    <input class="checkin_short_number" type="text" pattern="\d*" maxlength="1" size="1" name="">
-                    <input class="checkin_short_number" type="text" pattern="\d*" maxlength="1" size="1" name="">
-                    <input class="checkin_short_number" type="text" pattern="\d*" maxlength="1" size="1" name="">
+                    <input class="checkin_short_number" type="text" pattern="\d*" maxlength="1" size="1" name="key_1">
+                    <input class="checkin_short_number" type="text" pattern="\d*" maxlength="1" size="1" name="key_2">
+                    <input class="checkin_short_number" type="text" pattern="\d*" maxlength="1" size="1" name="key_3">
+                    <input class="checkin_short_number" type="text" pattern="\d*" maxlength="1" size="1" name="key_4">
                 </div>
                 <div class="p-1">
                     <input class="btn btn-udora w-100" type="submit" name="" value="Submit">               
@@ -316,21 +281,24 @@ if ($CI->config->item('facebook_api_version') == '2.4' || floatval($this->config
             <?php else:?>
                 <div  class="activities_user_foto" style="background-image: url('assets/img/user-agent.png');"></div>
             <?php endif;?>
-
+            <?php if($this->session->userdata('name_surname')):?>
             <h4><?php echo $this->session->userdata('name_surname');?></h4>
-            
+            <?php else:?>
+            <h4><?php echo lang_check('Guest');?></h4>
+            <?php endif;?>
         </div>
     <ul class="mobile-menu__links">
     
         <li class="mobile-menu__links__item"><a
                     href="<?php echo site_url($lang_code); ?>"><i class="material-icons">remove_red_eye</i><?php echo lang_check('Explore'); ?></a></li>
         <li class="mobile-menu__links__item"><a
-                    href="<?php echo site_url($lang_code . '/179/blog_page'); ?>"><i class="material-icons">history</i><?php echo lang_check('About'); ?></a>
+                    href="<?php echo site_url($lang_code . '/179/blog_page'); ?>"><i class="material-icons">info</i><?php echo lang_check('About'); ?></a>
         </li>
    
         <li class="mobile-menu__links__item">
-            <a href="<?php echo site_url($lang_code . '/6/map'); ?>"><i class="material-icons">location_on</i><?php echo lang_check('Map'); ?></a>
+            <a href="#"><i class="material-icons">location_on</i><?php echo lang_check('Updates'); ?></a>
         </li>
+   
 
         {is_logged_user}
             <hr>
@@ -352,15 +320,12 @@ if ($CI->config->item('facebook_api_version') == '2.4' || floatval($this->config
             <hr>
         {/is_logged_user}
         <li class="mobile-menu__links__item">
-            <a href="<?php echo site_url($lang_code . '/142/blog_page'); ?>"><i class="material-icons">book</i><?php echo lang_check('Blog'); ?></a>
-        </li>
-        <li class="mobile-menu__links__item">
             <a href="<?php echo site_url($lang_code . '/147/featured'); ?>"><i class="material-icons">link</i><?php echo lang_check('Featured'); ?></a>
         </li>
         {not_logged}
         <div class="mobile-menu_user_location">
             <p class="mobile_location-description">Estimated location</p>
-            <p class="mobile-menu__links__item"><i class="material-icons">my_location</i>Location <?php echo $query ['city']; ?></p>
+            <p class="mobile-menu__links__item"><i class="material-icons">my_location</i>Location <?php echo _ch($query ['city']); ?></p>
             <p class="mobile_location-description">Search Radius 50km / 31 miles</p>
         </div>
         {/not_logged}
@@ -368,20 +333,19 @@ if ($CI->config->item('facebook_api_version') == '2.4' || floatval($this->config
             <a href="<?php echo site_url($lang_code . '/180/organizer/'); ?>"><i class="material-icons">work</i><?php echo lang_check('Organizer'); ?></a>
         </li>
         <li class="mobile-menu__links__item">
-            <a href="<?php echo site_url($lang_code . '/182/terms_of_service'); ?>"><i class="material-icons">lock</i><?php echo lang_check('Terms & Privacy'); ?></a>
+            <a href="<?php echo site_url($lang_code . '/4/contact'); ?>"><i class="material-icons">call</i><?php echo lang_check('Contact'); ?></a>
         </li>
         <li class="mobile-menu__links__item">
             <a href="https://udora.io/support/"><i class="material-icons">help</i><?php echo lang_check('Help'); ?></a>
         </li>
         <li class="mobile-menu__links__item">
-            <a href="<?php echo site_url($lang_code . '/4/contact'); ?>"><i class="material-icons">call</i><?php echo lang_check('Contact'); ?></a>
+            <a href="<?php echo site_url($lang_code . '/182/terms_of_service'); ?>"><i class="material-icons">lock</i><?php echo lang_check('Terms & Privacy'); ?></a>
         </li>
 
     </ul>
     <div class="mobile-menu_bottom_info">
         <div class="mobile-menu_bottom_info_version">
-            <h4>Udora Events</h4>
-            <h5>Version 1.0</h5>            
+            Udora app version 1.0          
         </div>
         <ul class="mobile-menu__links__item__social">
                 <li>
@@ -454,7 +418,7 @@ if ($CI->config->item('facebook_api_version') == '2.4' || floatval($this->config
 
 <div class="sticky-navbar display-none"></div>
 
-<div class="container-fluid home-wrapper home-wrapper home-wrapper-100">
+<div class="container-fluid home-wrapper home-wrapper">
     <!--  <div class="home-background-overlap"></div> -->
 
     <!-- Navigation -->
@@ -465,19 +429,26 @@ if ($CI->config->item('facebook_api_version') == '2.4' || floatval($this->config
                         aria-label="Toggle Navigation" aria-expanded="false">
                     <span class="lines"></span>
                 </button>
-                <a class="navbar-brand" href="{homepage_url_lang}"><img src="assets/img/Udora_Logo.svg"
+                <a class="navbar-brand" href="{homepage_url_lang}"><img src="assets/img/udora-logo.svg"
                                                                         alt="<?php echo $settings_websitetitle; ?>"
                                                                         class="logotype"></a>
             </div>
             <div class="navbar-right-block">
                 <ul class="nav navbar-nav navbar-right">
-                    <?php /*<li><a href="<?php echo site_url($lang_code.'/179/about');?>" class="white-colored">About</a></li>*/ ?>
+                    <li class="hidden-xs"><a href="<?php echo site_url($lang_code.'/179/about');?>" class="white-colored"><?php echo lang_check('About');?></a></li>
                     {not_logged}
                     <?php if (config_db_item('property_subm_disabled') == FALSE): ?>
+                        <li class="hide-when-login-register-opened hidden-xs">
+                            <a href="#"
+                               class="login-menu white-colored js-toggle-register-popup js-close-mobile-navbar">
+                                <?php echo lang_check('Sign Up');?>
+                            </a>
+                        </li>
                         <li class="hide-when-login-register-opened">
                             <a href="#"
-                               class="login-menu white-colored js-toggle-login-popup js-close-mobile-navbar">
-                                <i class="fa fa-user-o" aria-hidden="true"></i>
+                               class="login-menu white-colored udora-hover js-toggle-login-popup js-close-mobile-navbar">
+                                <i class="visible-xs fa fa-user-o" aria-hidden="true"></i>
+                                <span class="visible-sm visible-md visible-lg"><?php echo lang_check('Log In');?></span>
                             </a>
                         </li>
                         <li class="show-when-login-register-opened"><a href="#" class="js-close-login-register-popups"><div class="close-icon white"></div></a></li>
@@ -569,25 +540,33 @@ if ($CI->config->item('facebook_api_version') == '2.4' || floatval($this->config
     </nav>
 
 
+    <link rel="stylesheet" href="assets/js/lib/slick/slick.css">
+    <link rel="stylesheet" href="assets/js/lib/slick/slick-theme.css">
+    <script src="assets/js/lib/slick/slick.js"></script>
     <div class="home__header__bg__wrap">
-        <div class="home__header__bg" style="background-image: url('assets/img/home/herobg2.jpg')"></div>
+        <!--<div class="home__header__bg" style="background-image: url('assets/img/home/herobg2.jpg')"></div>-->
+        <div class="header-bkg-slider">
+            <img src="assets/img/slider_bkg/slider1.webp" alt="slide">
+            <img src="assets/img/slider_bkg/slider2.webp" alt="slide">
+            <img src="assets/img/slider_bkg/slider3.webp" alt="slide">
+            <img src="assets/img/slider_bkg/slider4.webp" alt="slide">
+            <img src="assets/img/slider_bkg/slider5.webp" alt="slide">
+        </div>
     </div>
-
     <div class="home__header__overlay"></div>
-
     <!-- Search container -->
     <div class="main-home-container / js-hide-when-navbar-open js-hide-when-login-open">
         <div class="home-container-content-wrapper">
             <?php /* <h4 class="container-header"><?php echo lang_check('Welcome to UDORA');?></h4> */?>
-            <h2><?php echo lang_check('Find your next <span>experience</span>');?></h2>
-             <div class="col-xs-12 d-none d-md-block ">
-                <h4 class="color-white"><?php echo lang_check('100M+ Events,  30,000 Cities,  4M Explorers');?></h5>
+            <h2><?php echo lang_check('Find your next Experience');?></h2>
+             <div class="d-none d-md-block ">
+                <h4 class="color-white"><?php echo lang_check('Where will U discover today?');?></h5>
             </div>
             <?php _widget('custom_center_search');?>
            
         </div>
-        <div class="scroll_details d-none d-md-block">
-            <h5 class="color-white scroll-arrow_bottom">Scroll for details</h5>
+        <div class="scroll_details d-md-block">
+            <h5 class="color-white scroll-arrow_bottom"><?php echo lang_check('Scroll for details');?></h5>
         </div>
     </div>
     <!-- Footer -->

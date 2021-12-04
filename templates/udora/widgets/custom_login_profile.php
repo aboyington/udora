@@ -8,7 +8,7 @@
             <img src="assets/img/user-agent.png" alt="">
             <?php endif;?>
         </div>
-        <span><?php echo $this->session->userdata('name_surname');?></span>
+        <h2 class="dashboard__profile--title"><?php echo $this->session->userdata('name_surname');?></h2>
 
         <ul class="list-unstyled">
             <li>
@@ -17,14 +17,6 @@
                 </span>
                 <span class="pull-right">
                     <a href="#">7203</a>
-                </span>
-            </li>
-            <li>
-                <span class="pull-left">
-                    <?php echo lang_check('Friends');?>
-                </span>
-                <span class="pull-right">
-                    <a href="#">12</a>
                 </span>
             </li>
         </ul>

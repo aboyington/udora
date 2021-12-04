@@ -8,7 +8,7 @@
     <div class="sw-tab results-wrapper">
         <button class="sidebar-trigger" id="sidebar-trigger"><i class="ion-arrow-left-b" id="trigger-icon"></i></button>
         <div class="form search-form inputs-underline">
-            <form>
+            <form class="flabel-anim">
                 <input id="rectangle_ne" type="text" class="hidden" />
                 <input id="rectangle_sw" type="text" class="hidden" />
                 <?php if(config_item('tree_field_enabled') === TRUE):?>
@@ -87,17 +87,16 @@
                     /* [END] TreeField */
                 </script>
                 <?php endif; ?>
-                <div class="section-title">
-                    <h2><?php echo lang_check('Advanced search');?></h2>
-                </div>
                 <div class="form-group">
-                    <input type="text" class="form-control" name="search_option_smart" value="{search_query}" id="search_option_smart" placeholder="<?php echo lang_check('Search');?>">
+                    <input type="text" class="form-control" name="search_option_smart" value="{search_query}" id="search_option_smart" placeholder="<?php echo lang_check('Keyword search');?>">
+                    <label><?php echo lang_check('Keyword search');?></label>
                 </div>
 
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="form-group search_option_location-box">
-                            <input type="text" class="form-control" name="search_option_location" value="{search_option_location}" id="search_option_location" placeholder="<?php echo lang_check('City or location');?>">
+                            <input type="text" class="form-control" name="search_option_location" value="{search_option_location}" id="search_option_location" placeholder="<?php echo lang_check('City, Country');?>">
+                            <label><?php echo lang_check('City, Country');?></label>
                         </div>
 
                         <script>
@@ -145,7 +144,7 @@
 
                     </script>
                     </div>
-                    <div class="col-sm-6 d-none d-sm-block">
+                    <div class="col-sm-6">
                         <div class="form-group">
                                 <select id="search_radius" name="search_radius" class="form-control selectpicker">
                         <?php
@@ -157,6 +156,8 @@
                             if(isset($search_json->v_search_radius))
                             {
                                 $curr_value=$search_json->v_search_radius;
+                            } else {
+                                $curr_value = 50;
                             }
 
                             foreach($sel_values as $key=>$val)
@@ -249,7 +250,7 @@
                 </div>
                 
                 <div class="row">
-                    <div class="col-sm-6">
+                    <div class="col-sm-12">
                         <div class="form-group">
                         <div class="dropdown dropdown-field d2">
                             <div class="">
@@ -272,14 +273,14 @@
                                 ?>
                                 <script language="javascript">
                                     $(window).load(function()  {
-                                        var load_val = '<?php echo search_value($field_id); ?>';
+                                        var load_val = '<?php echo (search_value($field_id)); ?>';
                                         var s_values_splited = (load_val+" ").split(" - "); 
 
                                         if(s_values_splited[0] != '')
                                         {
                                             var first_select = $('.TREE-GENERATOR').find('select:first');
-                                            var id = first_select.find('option').filter(function () { return $(this).html() ==  s_values_splited[0]; }).attr('selected', 'selected').val();
-
+                                            var id = first_select.find('option').filter(function () { return $(this).html().replace("&amp;", "&") ==  s_values_splited[0]; }).attr('selected', 'selected').val();
+                                           
                                             /* test fix */
                                             first_select.val(id)
                                             first_select.selectpicker('refresh')
@@ -296,10 +297,11 @@
                                 <?php endif; ?>
                             </div>
                         </div>
+                        <label><?php echo lang_check('Category');?></label>
                         </div>
                         <!--end form-group-->
                     </div>
-                    <div class="col-sm-6 d-none d-sm-block">
+                    <div class="col-sm-6 hidden">
                         <div class="form-group">
                             <select class="form-control selectpicker" name="search_option_2" id="search_option_2">
                                 {options_values_2}
@@ -313,6 +315,7 @@
                     <div class="col-sm-12">
                         <div class="form-group">
                             <input type="text" class="text-left" id="search_option_81_82" name="daterange" value="" placeholder="<?php echo lang_check('Date');?>" readonly="true"/>
+                            <label><?php echo lang_check('Date');?></label>
                         </div>
                         <!--end form-group-->
                     </div>
@@ -444,7 +447,10 @@
                                 </a>
                                 <div class="controls-more">
                                     <ul>
-                                        <li><a href="#" data-id="<?php echo _ch($item['id']); ?>" class="add-to-favorites add-favorites-action"><?php echo lang_check('Add to favorites');?></a></li>
+                                        <li>
+                                            <a href="#" data-id="<?php echo _ch($item['id']); ?>" class="add-to-favorites add-favorites-action" style="<?php echo ($item['is_favorite'])?'display:none;':''; ?>"><?php echo lang_check('Add to favorites');?></a>
+                                            <a href="#" data-id="<?php echo _ch($item['id']); ?>" class="remove-from-favorites remove-favorites-action" style="<?php echo (!$item['is_favorite'])?'display:none;':''; ?>"><?php echo lang_check('Remove from favorites');?></a>
+                                        </li>
                                         <li><a href="https://www.facebook.com/share.php?u=<?php echo _ch($item['url']); ?>&title=<?php echo _ch($item['option_10']); ?>" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" class="add-to-watchlist"><?php echo lang_check('Share to friends');?></a></li>
                                     </ul>
                                 </div>
@@ -484,7 +490,7 @@
         // option
         if($('#main-map').length){
         var myLocationEnabled = true;
-        var scrollwheelEnabled = false;
+        var scrollwheelEnabled = true;
 
         var mapOptions = {
             
@@ -499,11 +505,12 @@
             zoom: {settings_zoom},
             mapTypeId: google.maps.MapTypeId.ROADMAP,
             scrollwheel: scrollwheelEnabled,
-                        mapTypeControl: false,
+            mapTypeControl: false,
             mapTypeControlOptions: {
               mapTypeIds: c_mapTypeIds,
               position: google.maps.ControlPosition.TOP_RIGHT
             },
+            streetViewControl: false,
             styles:style_map
         };
 
@@ -647,13 +654,14 @@
                 }
             });
         });
-
+        <?php if(FALSE):?>
         if(myLocationEnabled){
             var controlDiv = document.createElement('div');
             controlDiv.index = 1;
             map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(controlDiv);
             HomeControl(controlDiv, map)
             }
+        <?php endif;?>
         }
 /*
         var controlDiv2 = document.createElement('div');

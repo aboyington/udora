@@ -1,6 +1,6 @@
 <div class="row">
     <div class="cl-blog-text">
-        <h4>{page_title}</h4>
+        <h3><?php echo html_entity_decode($page_title);?></h3>
         <?php 
         $end_date ='';
         $end_time ='';
@@ -51,16 +51,28 @@
             <h5>{estate_data_address}.</h5>
         </div> 
         <div class="mobile__event__actions">
-
-                <div class="flex-1">
-                    <a type="button"  class="btn btn-udora w-100 / js-add-to-favorites" href="javascript:;" style="position: fixed; bottom: 10vh; right: 5vw; z-index: 999;<?php echo ($favorite_added)?'display:none;':''; ?>">
+            <?php if(file_exists(APPPATH.'controllers/admin/favorites.php') && FALSE):?>
+            <?php
+               $favorite_added = false;
+               if(count($not_logged) == 0)
+               {
+                   $CI =& get_instance();
+                   $CI->load->model('favorites_m');
+                   $CI->load->library('session');
+                   $favorite_added = $CI->favorites_m->check_if_exists($CI->session->userdata('id'), 
+                                                                       $property_id);
+                   if($favorite_added>0)$favorite_added = true;
+               }
+            ?>
+                <div class="flex-1 fav_box">
+                    <a type="button"  class="btn btn-udora w-100 js-add-to-favorites" href="javascript:;" style="<?php echo ($favorite_added)?'display:none;':''; ?>">
                         <i class="fa fa-star favourite" aria-hidden="true"></i><?php echo lang_check(' Add to favorites'); ?> <i class="load-indicator"></i>
                     </a>
-                    <a type="button" class="btn btn-udora w-100 / js-remove-from-favorites" href="javascript:;" style="<?php echo (!$favorite_added)?'display:none;':''; ?>">
+                    <a type="button" class="btn btn-udora w-100 js-remove-from-favorites" href="javascript:;" style="<?php echo (!$favorite_added)?'display:none;':''; ?>">
                         <?php echo lang_check(' Remove from favorites'); ?> <i class="fa fa-star favourite" aria-hidden="true"></i><i class="load-indicator"></i>
                     </a>
                 </div>
-
+            <?php endif;?>
                 <?php if(config_item('report_property_enabled') == TRUE && isset($property_id) && isset($agent_id)): ?>
 
                 <div class="mobile__event__actions__share">
@@ -98,11 +110,12 @@
                   <?php endif; ?>
 
             </div>
-
-        
-        <p class="marg20">
+        <div class="descr_cont">
             <h4><?php echo lang_check('Description');?></h4>
-            <?php _che($estate_data_option_17, '<p class="alert alert-success">'.lang_check('Not available').'</p>'); ?></p>
+            <div class="text_d">
+            <?php _che(html_entity_decode(str_replace(array('&amp;','#39;','amp;','quot;'), '',$estate_data_option_17)), '<p class="alert alert-success">'.lang_check('Not available').'</p>'); ?>
+            </div>
+        </div>
     </div>
 </div>
 

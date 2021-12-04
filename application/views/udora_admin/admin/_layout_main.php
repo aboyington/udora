@@ -126,6 +126,10 @@
                                       <a href="<?php echo site_url('admin/reviews')?>"><?php echo lang_check('Reviews');?></a>
                                     </li>
                                     <?php endif;?>
+                                    <?php if(file_exists(APPPATH.'controllers/admin/estate.php') && check_acl('estate/ga_events')): ?>
+                                    <li class="nblue<?php echo (strpos($this->uri->uri_string(),'ga_events')!==FALSE)?' current-page':'';?>">
+                                        <a href="<?php echo site_url('admin/estate/ga_events')?>"><?php echo lang_check('Ga events');?></a></li>
+                                   <?php endif;?>
                                     <?php if(file_exists(APPPATH.'controllers/admin/favorites.php') && check_acl('favorites')): ?>
                                     <li class="nblue<?php echo (strpos($this->uri->uri_string(),'favorites')!==FALSE)?' current-page':'';?>">
                                         <a href="<?php echo site_url('admin/favorites')?>"><?php echo lang_check('Favorites');?></a></li>

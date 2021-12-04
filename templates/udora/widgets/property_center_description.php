@@ -1,6 +1,6 @@
 <div class="row widget-property-description">
     <div class="cl-blog-text">
-        <h4>{page_title}</h4>
+        <h3>{page_title}</h3>
         <?php 
         $end_date ='';
         $end_time ='';
@@ -51,16 +51,28 @@
             <h5>{estate_data_address}</h5>
         </div>
         <div class="mobile__event__actions">
-
+                        <?php if(file_exists(APPPATH.'controllers/admin/favorites.php') && FALSE):?>
+            <?php
+               $favorite_added = false;
+               if(count($not_logged) == 0)
+               {
+                   $CI =& get_instance();
+                   $CI->load->model('favorites_m');
+                   $CI->load->library('session');
+                   $favorite_added = $CI->favorites_m->check_if_exists($CI->session->userdata('id'), 
+                                                                       $property_id);
+                   if($favorite_added>0)$favorite_added = true;
+               }
+            ?>
                 <div class="flex-1">
-                    <a type="button"  class="btn btn-udora w-100 / js-add-to-favorites" href="javascript:;" style="<?php echo ($favorite_added)?'display:none;':''; ?>">
+                    <a type="button"  class="btn btn-udora w-100 js-add-to-favorites" href="javascript:;" style="<?php echo ($favorite_added)?'display:none;':''; ?>">
                         <i class="fa fa-star favourite" aria-hidden="true"></i><?php echo lang_check(' Add to favorites'); ?> <i class="load-indicator"></i>
                     </a>
-                    <a type="button" class="btn btn-udora w-100 / js-remove-from-favorites" href="javascript:;" style="<?php echo (!$favorite_added)?'display:none;':''; ?>">
+                    <a type="button" class="btn btn-udora w-100 js-remove-from-favorites" href="javascript:;" style="<?php echo (!$favorite_added)?'display:none;':''; ?>">
                         <?php echo lang_check(' Remove from favorites'); ?> <i class="fa fa-star favourite" aria-hidden="true"></i><i class="load-indicator"></i>
                     </a>
                 </div>
-
+            <?php endif;?>
                 <?php if(config_item('report_property_enabled') == TRUE && isset($property_id) && isset($agent_id)): ?>
 
                 <div class="mobile__event__actions__share">
@@ -86,7 +98,6 @@
                     </ul>
                 </div>
             
-
                     <?php if(!is_array($this->session->userdata('reported')) || !in_array($property_id, $this->session->userdata('reported'))): ?>
                             <div>
                             <a class="btn btn-udora popup-with-form-report" id="report_property" href="#popup_report_property" style=""><i class="icon-flag icon-white"></i> <i class="load-indicator"></i></a>

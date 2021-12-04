@@ -59,7 +59,7 @@ if(isset($item['option_81']) && !empty($item['option_81'])){
         <div class="controls-more">
             <ul>
                 <li><a href="<?php echo $item['url']; ?>" data-id="14" class="add-to-favorites add-favorites-action">Add to favorites</a></li>
-                <li><a href="https://www.facebook.com/share.php?u=http://reqalsite.udora-events-v1.com/index.php/property/14/en/black_glass_house&amp;title=Black glass house" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" class="add-to-watchlist">Share to friends</a></li>
+                <li><a href="https://www.facebook.com/share.php?u=<?php echo $item['url']; ?>" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" class="add-to-watchlist">Share to friends</a></li>
             </ul>
         </div>
         </div>

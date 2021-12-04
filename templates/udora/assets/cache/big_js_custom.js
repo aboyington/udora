@@ -21262,11 +21262,12 @@ $('document').ready(function () {
         $('body').removeClass('fixed-position');
     })
 
-    let hideNav = false;
+    var hideNav;   
+    hideNav = false;
      $('body').click(function(event){
-        let bodyClas = $('body').hasClass('is-mobile-navbar-open');
-        let parentNav = $(event.target).parents('nav').hasClass('mobile-menu');
-        let curentEl = $(event.target).attr('id');
+        var bodyClas = $('body').hasClass('is-mobile-navbar-open');
+        var parentNav = $(event.target).parents('nav').hasClass('mobile-menu');
+        var curentEl = $(event.target).attr('id');
         if(bodyClas && !parentNav && hideNav && (curentEl !== 'js-mobile-menu')){
              
              $('body').removeClass('is-mobile-navbar-open');
@@ -21303,5 +21304,56 @@ $('document').ready(function () {
     })
 
 
+    if(navigator.userAgent.indexOf('Mac') > 0)
+    $('body').addClass('mac-os');
+    if(navigator.userAgent.indexOf('Safari') > 0)
+    $('body').addClass('safari');
+    if(navigator.userAgent.indexOf('Chrome') > 0)
+    $('body').addClass('chrome');
 
+    if (/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream) {
+        $('body').addClass('mac-os');
+    }
+      
+    //click on button, that scrolls page
+    $('.scroll-arrow_bottom').on('click', function(){
+        $('body, html').animate({'scrollTop':$('.home-page .home-wrapper, .share-exp').outerHeight(true)});
+        return false;
+    });
+    
+    //open footer menu
+    $('.js-toogle-footermenu').on('click', function(){
+        $('.footer.style-1').toggleClass('show');
+        $(this).toggleClass('show');
+        $('.js-toogle-footermenu-mask').toggleClass('show');
+        return false;
+    });
+    
+    // Find all affix
+    
+    /* Start Top bar fixed */
+    if($('.page_id_179').length){
+        $(window).on('scroll', function () {
+            var _t = $('.sticky-navbar.main-navbar');
+            if ($(this).scrollTop() > 300) {
+                _t.addClass('top-bar-fixed');
+            } else {
+                _t.removeClass('top-bar-fixed');
+            }
+        });
+    }
+    
+        
+    $("html").on("click", function(e){
+        $('.navbar__gamburger__icon').removeClass('x');
+        $('body').removeClass('is-register-popup-open');
+        $('body').removeClass('is-login-popup-open');
+        $('body').removeClass('fixed-position');
+    });
+        
+    $(".create-account-page,.navbar .navbar-right-block, .login-on-page").on("click", function(e) {
+        e.stopPropagation();
+    });
+    
+    
 })

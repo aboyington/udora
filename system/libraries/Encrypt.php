@@ -313,12 +313,34 @@ class CI_Encrypt {
 	 * @param	string
 	 * @param	string
 	 * @return	string
+         * 
+         * Updated by https://stackoverflow.com/a/54685271/8292579
 	 */
 	function mcrypt_encode($data, $key)
 	{
+             if(version_compare(PHP_VERSION, '7.1', '<')){
 		$init_size = mcrypt_get_iv_size($this->_get_cipher(), $this->_get_mode());
 		$init_vect = mcrypt_create_iv($init_size, MCRYPT_RAND);
 		return $this->_add_cipher_noise($init_vect.mcrypt_encrypt($this->_get_cipher(), $key, $data, $this->_get_mode(), $init_vect), $key);
+             } else {
+                 
+                $length   = 8;
+                $cstrong  = true;
+                $cipher   = 'aes-128-cbc';
+                $encodedText = '';
+                if (in_array($cipher, openssl_get_cipher_methods()))
+                {
+                  $ivlen = openssl_cipher_iv_length($cipher);
+                  $iv = openssl_random_pseudo_bytes($ivlen);
+                  $ciphertext_raw = openssl_encrypt(
+                    $data, $cipher, $key, $options=OPENSSL_RAW_DATA, $iv);
+                  $hmac = hash_hmac('sha256', $ciphertext_raw, $key, $as_binary=true);
+                  $encodedText = base64_encode( $iv.$hmac.$ciphertext_raw );
+                }
+
+                return $encodedText;
+             }  
+                
 	}
 
 	// --------------------------------------------------------------------
@@ -330,9 +352,12 @@ class CI_Encrypt {
 	 * @param	string
 	 * @param	string
 	 * @return	string
+         * 
+         * Updated by https://stackoverflow.com/a/54685271/8292579
 	 */
 	function mcrypt_decode($data, $key)
 	{
+            if(version_compare(PHP_VERSION, '7.1', '<')){
 		$data = $this->_remove_cipher_noise($data, $key);
 		$init_size = mcrypt_get_iv_size($this->_get_cipher(), $this->_get_mode());
 
@@ -344,6 +369,26 @@ class CI_Encrypt {
 		$init_vect = substr($data, 0, $init_size);
 		$data = substr($data, $init_size);
 		return rtrim(mcrypt_decrypt($this->_get_cipher(), $key, $data, $this->_get_mode(), $init_vect), "\0");
+                
+            } else {    
+                
+                $c = base64_decode($data);
+                $cipher   = 'aes-128-cbc';
+                $plainText = '';
+                if (in_array($cipher, openssl_get_cipher_methods()))
+                {
+                  $ivlen = openssl_cipher_iv_length($cipher);
+                  $iv = substr($c, 0, $ivlen);
+                  $hmac = substr($c, $ivlen, $sha2len=32);
+                  $ivlenSha2len = $ivlen+$sha2len;
+                  $ciphertext_raw = substr($c, $ivlen+$sha2len);
+                  $plainText = openssl_decrypt(
+                        $ciphertext_raw, $cipher, $key, $options=OPENSSL_RAW_DATA, $iv);
+                  }
+
+                return $plainText;
+            }
+
 	}
 
 	// --------------------------------------------------------------------

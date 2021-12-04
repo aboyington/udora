@@ -29,7 +29,7 @@ function __autoload($classname)
 | path to your installation.
 |
 */
-$config['base_url']	= 'https://anthonyboyington.com/udora/';
+$config['base_url']	= '';
 
 /*
 |--------------------------------------------------------------------------

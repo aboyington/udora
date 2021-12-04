@@ -54,8 +54,12 @@ class Estate extends Admin_Controller
             }
         }
         // [/AGENT_COUNTY_AFFILIATE]
+        
+        $type_field = 'json_object';
+        if($this->data['settings']['template'] == 'udora')
+            $type_field = 'json_object';
 
-        prepare_search_query_GET(array('field_2', 'field_4'), array('property.id', 'address', 'search_values'));
+        prepare_search_query_GET(array($type_field, 'field_2'), array('property.id', 'property.address','json_object','field_5', 'field_7'));
         
         // Fetch all estates
         $config['total_rows'] = $this->estate_m->count_get_by($where, false, NULL, 'property.id DESC', 
@@ -78,7 +82,7 @@ class Estate extends Admin_Controller
         $this->pagination->initialize($config);
         $this->data['pagination'] = $this->pagination->create_links();
         
-        prepare_search_query_GET(array('field_2', 'field_4'), array('property.id', 'address', 'search_values'));
+        prepare_search_query_GET(array($type_field, 'field_2'), array('property.id', 'property.address','json_object'));
         
         if(config_item('admin_template') == 'udora_admin') {
             $this->data['pagination'] = NULL;
@@ -1939,6 +1943,61 @@ class Estate extends Admin_Controller
             $this->data['subview'] = 'admin/estate/import_eventful';
             $this->load->view('admin/_layout_main', $this->data);
         }
+       
+                
+        function import_eventbrite(){
+            
+            if(!file_exists(APPPATH.'libraries/Eventbrite.php') || $this->session->userdata('type')!='ADMIN') {
+                exit('Eventbrite modul is not installed');
+            }
+            
+            $allowed_execution_time  = ini_get('max_execution_time')-180;
+            $this->load->library('eventbrite', array('allowed_execution_time'=>$allowed_execution_time));
+            
+            $this->load->model('treefield_m');
+            
+            $this->data['event_categories']= $this->eventbrite->event_categories;
+            $this->data['event_categories']= array('' => 'Select category') + $this->eventbrite->event_categories;
+            $this->data['message']='';
+            
+            $lang_id =  $this->language_m->get_default_id();
+            $this->form_validation->set_rules('option79_1', "lang: Category into import", 'trim');
+            $this->form_validation->set_rules('event_category', "lang: Event categories", 'trim|required');
+            $this->form_validation->set_rules('eventful_limit_page', "lang: Event limit page", 'trim|required');
+            $this->form_validation->set_rules('eventful_offset_page', "lang: Event offset page", 'trim|required');
+            if($this->form_validation->run()) {
+                
+                if($this->config->item('app_type') == 'demo')
+                {
+                    $this->session->set_flashdata('error', 
+                            lang_check('Data editing disabled in demo'));
+                    redirect('admin/estate');
+                    exit();
+                }
+                
+                $category = $this->input->post('option79_1'); 
+                $event_category = $this->input->post('event_category'); 
+                
+                $overwrite_existing = false;
+                if($this->input->post('overwrite_existing') && $this->input->post('overwrite_existing')==1){
+                   $overwrite_existing = true;
+                } 
+              
+                $result_import = $this->eventbrite->start_import($overwrite_existing, $this->input->post('event_keyword'), $this->input->post('event_category'), TRUE, $this->input->post('eventful_limit_page'), $this->input->post('eventful_offset_page'), $this->input->post('location'), $this->input->post('date_start'), $this->input->post('date_end'));
+                $this->data['imports']= $result_import['info'];
+                $this->data['skipped']= $result_import['count_skip'];
+                $this->data['count_exists_overwrite']= $result_import['count_exists_overwrite'];
+                $this->data['count_exists']= $result_import['count_exists'];
+                
+                if(isset($result_import['message']))
+                    $this->data['message']= $result_import['message'];
+                
+            }
+            
+            // Load view
+            $this->data['subview'] = 'admin/estate/import_eventbrite';
+            $this->load->view('admin/_layout_main', $this->data);
+        }
         
     public function _checkavailable($field_id)
     {
@@ -1958,6 +2017,159 @@ class Estate extends Admin_Controller
 
         $this->form_validation->set_message('_checkavailable', lang_check('Dependent fields issue'));
         return FALSE;
+    }
+    
+        
+      public function ga_events () {
+        
+        $this->load->model('gamifyevents_m');
+          
+        prepare_search_query_GET(array('message'), array('id', 'name', 'email','phone'));
+        
+        /* data */
+        $this->data['all_ga_events']=$this->gamifyevents_m->get();
+        $this->data['all_users']=$this->user_m->get_form_dropdown('name_surname');
+        $this->data['all_estates']=$this->estate_m->get_form_dropdown('address');
+        /* end data */
+        
+        // Load view
+            $this->data['subview'] = 'admin/estate/ga_events';
+        $this->load->view('admin/_layout_main', $this->data);
+    }
+    
+    /*
+     * page Edit reporte
+     * 
+     */
+    public function edit_ga_events ($id=null) {
+        
+        $this->load->model('gamifyevents_m');
+        
+        if(!empty($id)) {
+        /* data */
+        $this->data['ga_event'] = $this->gamifyevents_m->get(trim($id));
+        /* end data */
+        } else {
+            /* error */
+            /* data */
+            $this->data['ga_event'] = $this->gamifyevents_m->get_new();
+            $id=null;
+            /* end data */
+        }
+        
+        /* data */
+        $this->data['all_ga_events']=$this->gamifyevents_m->get();
+        $this->data['all_users']=$this->user_m->get_form_dropdown('name_surname',false,false);
+        $this->data['all_estates']=$this->estate_m->get_form_dropdown('address',false,false);
+        /* end data */
+        
+        // Set up the form
+        // rules
+        $rules = $this->gamifyevents_m->rules;
+        $this->form_validation->set_rules($rules);
+        
+        // Process the form
+        if($this->form_validation->run() == TRUE)
+        {
+            if($this->config->item('app_type') == 'demo')
+            {
+                $this->session->set_flashdata('error', 
+                        lang('Data editing disabled in demo'));
+                redirect('admin/estate/edit_aga_events/'.$id);
+                exit();
+            }
+            
+            $data = $this->gamifyevents_m->array_from_post(array('listing_id', 'title', 'description', 
+                                                         'event_key'));
+            
+            $insert_id='';
+            $insert_id=$this->gamifyevents_m->save($data, $id);
+              
+            if(!empty($insert_id)) {
+                $this->session->set_flashdata('message', 
+                        '<p class="label label-success validation">'.lang_check('Changes saved').'</p>');
+
+                redirect('admin/estate/edit_ga_events/'.$insert_id);
+            }
+            
+        }
+        
+              // Load view
+		$this->data['subview'] = 'admin/estate/edit_ga_events';
+        $this->load->view('admin/_layout_main', $this->data);
+    }
+    
+    public function delete_ga_events ($id=null)
+	{
+        
+        $this->load->model('gamifyevents_m');
+        
+        if(empty($id)) {
+            $this->session->set_flashdata('error', 
+                    lang_check('Id is empty'));
+            redirect('admin/ga_events');
+            exit();
+        }
+        
+        if($this->config->item('app_type') == 'demo')
+        {
+            $this->session->set_flashdata('error', 
+                    lang('Data editing disabled in demo'));
+            redirect('admin/ga_events');
+            exit();
+        }
+       
+        $this->data['ga_events'] = $this->gamifyevents_m->get($id);
+        
+        //Check if user have permissions
+        if($this->session->userdata('type') != 'ADMIN')
+        {
+                redirect('admin/ga_events');
+        }
+       
+        $this->gamifyevents_m->delete($id);
+        redirect('admin/_events');
+	}
+        
+        
+    public function _unique_ga_events_listing_id($str)
+    {
+        // Do NOT validate if slug alredy exists
+        // UNLESS it's the slug for the current page
+        $this->load->model('gamifyevents_m');
+        $id = $this->uri->segment(4);
+        $this->db->where('listing_id', $this->input->post('listing_id'));
+        !$id || $this->db->where('id !=', $id);
+        
+        $page = $this->gamifyevents_m->get();
+        
+        if(count($page))
+        {
+            $this->form_validation->set_message('_unique_ga_events_listing_id', '%s should be unique');
+            return FALSE;
+        }
+        
+        return TRUE;
+    }
+        
+    public function _unique_ga_events_key($str)
+    {
+        // Do NOT validate if slug alredy exists
+        // UNLESS it's the slug for the current page
+        $this->load->model('gamifyevents_m');
+        $id = $this->uri->segment(4);
+        $this->db->where('event_key', $this->input->post('event_key'));
+        !$id || $this->db->where('id !=', $id);
+        
+        $page = $this->gamifyevents_m->get();
+        
+        if(count($page))
+        {
+            $this->form_validation->set_message('_unique_ga_events_key', '%s should be unique');
+            return FALSE;
+        }
+        
+        return TRUE;
     }
         
 }

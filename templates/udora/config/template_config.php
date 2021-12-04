@@ -32,5 +32,6 @@ $config['events_qr_confirmation'] = TRUE;
 $config['field_datetime_enabled'] = TRUE;
 $config['agency_agent_enabled'] = TRUE;
 $config['register_reduced'] = TRUE;
+$config['results_page_id'] = 6;
 
 ?>

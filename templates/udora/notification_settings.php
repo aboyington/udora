@@ -29,34 +29,38 @@
                                 <p class="alert alert-error"><?php echo $this->session->flashdata('error')?></p>
                                 <?php endif;?>
                             </div>
-                                <?php echo form_open(NULL, array('class' => 'form-horizontal form-estate', 'role'=>'form'))?>                              
+                                <?php echo form_open(NULL, array('class' => 'form-horizontal', 'role'=>'form'))?>                              
                                 <div class="">
-                                    <label class="checkbox" for="favorites_notifications">
+                                    <label class="checkbox csscheckbox noanim" for="favorites_notifications">
                                         <?php echo form_checkbox('favorites_notifications','1', set_value('favorites_notifications', !empty($user_data['favorites_notifications'])? true : false), 'class="" id="favorites_notifications" placeholder="'.lang('Favorites notifications').'"')?>
+                                        <span class="squaredCheckbox"></span>
                                         <?php echo lang_check('Favorites update notifications');?>
                                     </label>
                                     <p class="smallest-font">
                                         <?php echo lang_check('Favorites notifications info');?>
                                     </p>
                                     <br>
-                                    <label class="checkbox" for="reviews_notifications">
+                                    <label class="checkbox csscheckbox noanim" for="reviews_notifications">
                                         <?php echo form_checkbox('reviews_notifications','1', set_value('reviews_notifications', $user_data['reviews_notifications']), 'class="" id="reviews_notifications" placeholder="'.lang('Reviews notifications').'"')?>
+                                        <span class="squaredCheckbox"></span>
                                         <?php echo lang_check('Comment notifications')?>
                                     </label>
                                     <p class="smallest-font">
                                         <?php echo lang_check('Comment notifications info');?>
                                     </p>
                                     <br>
-                                    <label class="checkbox" for="promotional_emails">
+                                    <label class="checkbox csscheckbox noanim" for="promotional_emails">
                                         <?php echo form_checkbox('promotional_emails','1', set_value('promotional_emails', $user_data['promotional_emails']), 'class="" id="promotional_emails" placeholder="'.lang('Promotional Emails').'"')?>
+                                        <span class="squaredCheckbox"></span>
                                         <?php echo lang_check('Promotional Emails');?>
                                     </label>
                                     <p class="smallest-font">
                                         <?php echo lang_check('Promotional Emails info');?>
                                     </p>
                                     <br>
-                                    <label class="checkbox" for="information_disclosed">
+                                    <label class="checkbox csscheckbox noanim" for="information_disclosed">
                                         <?php echo form_checkbox('information_disclosed','1', set_value('information_disclosed', $user_data['information_disclosed']), 'class="" id="information_disclosed" placeholder="'.lang('Information Disclosed').'"')?>
+                                        <span class="squaredCheckbox"></span>
                                         <?php echo lang_check('Information Disclosed');?>
                                     </label>
                                     <p class="smallest-font">

@@ -215,6 +215,12 @@ class Frontend_Controller extends MY_Controller
             $this->data['lang_code'] = (string) $this->uri->segment(3);
             $this->data['page_id'] = '';
         }
+        else if($this->data['lang_code'] == 'event_confirm')
+        {
+            $this->data['page_slug'] = '';
+            $this->data['lang_code'] = (string) $this->language_m->get_default();
+            $this->data['page_id'] = '';
+        }
         else if($this->data['page_id'] == 'expert' || $this->data['lang_code'] == 'expert')
         {
             $this->data['page_slug'] = '';
@@ -703,6 +709,22 @@ class Frontend_Controller extends MY_Controller
     
     public function generate_results_array(&$results_obj, &$results_array, &$options_name)
     {
+        
+                $this->load->model('favorites_m');
+        $favorites_list = array();
+        
+        // Check login and fetch user id
+        $this->load->library('session');
+        $this->load->model('user_m');
+        if($this->user_m->loggedin() == TRUE)
+        {
+            $_favorites_list = $this->favorites_m->get_by(array('user_id'=>$this->session->userdata('id')));
+            foreach ($_favorites_list as $key => $value) {
+                $favorites_list[$value->property_id] = true;
+            }
+        }
+        
+        
         foreach($results_obj as $key=>$estate_arr)
         {
             $estate = array();
@@ -715,6 +737,9 @@ class Frontend_Controller extends MY_Controller
             $estate['counter_views'] = $estate_arr->counter_views;
             $estate['estate_data_id'] = $estate_arr->id;
             $estate['icons'] = array();
+            $estate['is_favorite'] = FALSE;
+            if(isset($favorites_list[$estate_arr->id]))
+                $estate['is_favorite'] = TRUE;
             
             $json_obj = json_decode($estate_arr->json_object);
             
@@ -726,8 +751,8 @@ class Frontend_Controller extends MY_Controller
                 {
                     $row1 = $json_obj->{"field_$key1"};
                     if(substr($row1, -2) == ' -')$row1=substr($row1, 0, -2);
-                    $estate['option_'.$key1] = $row1;
-                    $estate['option_chlimit_'.$key1] = character_limiter(strip_tags($row1), 50);
+                    $estate['option_'.$key1] = html_entity_decode(str_replace(array('&amp;','#39;','amp;','quot;'), '',$row1));
+                    $estate['option_chlimit_'.$key1] = character_limiter(strip_tags(html_entity_decode(str_replace(array('&amp;','#39;','amp;'), '',$row1))), 50);
                     $estate['option_icon_'.$key1] = '';
                     
                     if(!empty($row1))

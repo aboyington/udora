@@ -24,9 +24,9 @@ $CI->load->model('userattend_m');
             <div class="col-xs-12 col-md-9 pad0">
                 <div class="col-xs-12 col-md-12 mobile-pad0 mobile-marg-b-20">
                     <div class="panel panel-default">
-                        <div class="panel-heading"><?php echo lang_check('Favorites');?></div>
+                        <div class="panel-heading"><?php echo lang_check('Favorites / Saved Events');?></div>
                         <div class="panel-body left-align">
-                            <div class="form-estate">
+                            <div class="">
                                      <table class="table table-striped footable">
                                      <thead>
                                          <th data-breakpoints="xs sm md" data-type="html">#</th>
@@ -60,7 +60,7 @@ $CI->load->model('userattend_m');
                                                         $message = lang_check('Review not active at this time');
                                                     }
                                                 ?>
-                                                <div type="button" <?php echo $data;?> data-message="<?php _jse($message);?>"  data-listing_id="<?php echo $listing_item->property_id; ?>" class="open-leave-review <?php echo $class;?>"><i class="fa fa-comments" aria-hidden="true"></i><?php echo lang_check(' Leave a Review');?>
+                                                <div type="button" <?php echo $data;?> data-message="<?php _jse($message);?>"  data-listing_id="<?php echo $listing_item->property_id; ?>" class="open-leave-review <?php echo $class;?>"><?php echo lang_check('Leave a Review');?>
                                                 </div>
                                              </td>
                                              <?php endif;?>   
@@ -84,12 +84,16 @@ $CI->load->model('userattend_m');
         </div>
     </div>
 </div>
-<div class="d-none d-md-block">
-    <?php _widget('custom_footer'); ?>
-</div>
-<div class="d-block d-md-none">    
+<div class="d-block d-md-none">
     <?php _widget('custom_footer_menu');?>
 </div>
+
+<a href="#" class="js-toogle-footermenu">
+    <i class="material-icons">
+    playlist_add
+    </i>
+    <i class="close-icon"></i>
+</a>
 
 
 <?php if(file_exists(APPPATH.'controllers/admin/reviews.php') && $settings_reviews_enabled): ?>

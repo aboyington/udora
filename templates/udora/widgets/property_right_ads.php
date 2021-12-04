@@ -1,4 +1,4 @@
-<div class="promo-text-blog col-xs-12 text-center"><?php echo lang_check('Sponsored');?></div>
+<div class="promo-text-blog pr_sponsored col-xs-12"><?php echo lang_check('Sponsored ads');?></div>
 <div class="text-center">
     <?php if(file_exists(APPPATH.'controllers/admin/ads.php')):?>
     {has_ads_180x150px}

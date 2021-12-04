@@ -65,7 +65,7 @@
                 <?php if($settings_reviews_public_visible_enabled): ?>
                 <h4 id="form_review" class="page-header"><?php echo lang_check('Reviews'); ?></h2>
                 <?php if(count($not_logged) && !$settings_reviews_public_visible_enabled): ?>
-                <p class="alert alert-success">
+                <p class="alert alert-info">
                     <?php echo lang_check('LoginToReadReviews'); ?>
                 </p>
                 <?php else: ?>
@@ -95,7 +95,7 @@
                 </ul>
                 </div>
                 <?php else: ?>
-                <p class="alert alert-success">
+                <p class="alert alert-info">
                     <?php echo lang_check('SubmitFirstReview'); ?>
                 </p>
                 <?php endif; ?>

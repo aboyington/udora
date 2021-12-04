@@ -110,7 +110,6 @@ class AuthorizeRequestTest extends TestCase
         $this->assertFalse($response->isRedirect());
         $this->assertSame('ch_1IU9gcUiNASROd', $response->getTransactionReference());
         $this->assertSame('card_16n3EU2baUhq7QENSrstkoN0', $response->getCardReference());
-        $this->assertSame('req_8PDHeZazN2LwML', $response->getRequestId());
         $this->assertNull($response->getMessage());
     }
 

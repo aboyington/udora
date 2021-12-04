@@ -170,7 +170,14 @@
     <div class="d-block d-md-none">
         <?php _widget('custom_footer_menu');?>
     </div>
-    <div class="d-none d-md-block">
+
+    <a href="#" class="js-toogle-footermenu">
+        <i class="material-icons">
+        playlist_add
+        </i>
+        <i class="close-icon"></i>
+    </a>
+    <div class="d-none d-sm-block">
         <?php _widget('custom_footer'); ?>
     </div>
     <?php _widget('custom_javascript');?>

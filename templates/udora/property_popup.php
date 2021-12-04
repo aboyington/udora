@@ -59,35 +59,41 @@
     display: none;
 }
     
+hr {
+    display: none;
+}
+
+.event-text > div {
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
 </style>
 
 
 </head>
 <body>
 <!-- Features Section Events -->
-<div class="container">
+<div class="container property-content">
     <div class="row">
         <div class="col-lg-9 event-text border-right">
             <?php _widget('property_center_slider');?>
             <?php _widget('property_center_description_date');?>
             <?php _widget('property_center_map');?>
             <?php _widget('property_center_reviews');?>
+            <?php _widget('property_center_agent-details');?>
             <?php _widget('property_center_disquscomments');?>
         </div> 
         <div class="col-lg-3">
-            <div class="hidden-xs">
+            <div class="hidden-md hidden-sm hidden-xs">
                 <?php _widget('property_right_qrcode');?>
                 <?php _widget('property_right_favorites');?>
-                <?php _widget('property_right_share');?>
             </div>
-            <?php _widget('property_right_reports');?>
-            <?php/* _widget('property_right_pdf'); */?>
             <div class="hidden-xs">
                 <br style="clear:both"/>
                 <?php _widget('property_right_enquiry-form');?>
             </div>
             <?php _widget('property_right_ads');?>
-            <?php _widget('property_right_agent-details');?>
         </div>
     </div>
 </div>

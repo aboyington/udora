@@ -17,7 +17,7 @@
             <div class="col-xs-12 col-md-9 pad0">
                 <div class="col-xs-12 col-md-12 mobile-pad0 mobile-marg-b-20">
                     <div class="panel panel-default">
-                        <div class="panel-heading">{lang_Myprofile}</div>
+                        <div class="panel-heading"><?php echo lang_check('Edit Profile');?></div>
                         <div class="panel-body left-align">
                             <div class="row">
                                 <div class="col-sm-7">
@@ -30,71 +30,113 @@
                                             <?php if($this->session->flashdata('error')):?>
                                             <p class="alert alert-error"><?php echo $this->session->flashdata('error')?></p>
                                             <?php endif;?></div>
-                                            <?php echo form_open(NULL, array('class' => 'form-horizontal form-estate', 'role'=>'form'))?>                              
+                                            <?php echo form_open(NULL, array('class' => 'form-horizontal form-estate flabel-anim', 'role'=>'form'))?>                              
+                                            
+                                            <!-- [Custom fields] -->                       
+                                            <?php
+                                                $CI =& get_instance(); 
+                                                $custom_fields = $CI->data['custom_fields'];
+                                                $content_language_id = $CI->data['content_language_id'];
+                                                $settings_field = ('custom_fields_code');
+                                                $custom_fields_code = $CI->settings_m->get_field($settings_field);
+                                                $obj_widgets = json_decode($custom_fields_code);
 
-                                            <div class="control-group">
-                                              <label for="inputNameSurname" class="control-label"><?php echo lang('FirstLast')?></label>
-                                              <div class="controls">
+                                                if(is_object($obj_widgets) && is_object($obj_widgets->PRIMARY))
+                                                foreach($obj_widgets->PRIMARY as $key=>$obj)
+                                                {
+                                                    $title = '';
+                                                    $rel = $obj->rel;
+                                                    $val = '';
+                                                    if(isset($custom_fields->{'cinput_'.$rel}))
+                                                        $val = $custom_fields->{'cinput_'.$rel};
+                                                    $class_color = $obj->type;
+                                                    $label = $obj->{"label_$content_language_id"};
+
+                                                    if(!empty($obj->type))
+                                                    {
+                                                        if($obj->type === 'INPUTBOX')
+                                                        {
+                                                ?>
+
+                                                    <div class="form-group">
+                                                        <?php echo form_input('cinput_'.$rel, set_value('cinput_'.$rel, _ch($val, '')), 'class="form-control" id="input_facebook_link" placeholder="'.$label.'"')?>
+                                                        <label class="control-label"><?php echo $label; ?></label>
+                                                    </div>
+
+                                                <?php
+                                                }
+                                                else if($obj->type === 'TEXTAREA')
+                                                {
+                                                ?>
+
+                                                    <div class="form-group">
+                                                        <?php echo form_textarea('cinput_'.$rel, set_value('cinput_'.$rel, _ch($custom_fields->{'cinput_'.$rel}, '')), 'class="form-control" id="input_payment_details" placeholder="'.$label.'"')?>
+                                                        <label class="control-label"><?php echo $label; ?></label>
+                                                    </div>
+
+                                                <?php
+                                                }
+                                                else if($obj->type === 'CHECKBOX')
+                                                {
+                                                    ?>
+
+                                                        <div class="form-group">
+                                                          <label class="control-label"><?php echo $label; ?></label>
+                                                          <div class="controls">
+                                                            <?php echo form_checkbox('cinput_'.$rel, '1', set_value('cinput_'.$rel, _ch($custom_fields->{'cinput_'.$rel}, '')), 'id="input_alerts_email"')?>
+                                                          </div>
+                                                        </div>
+
+                                                    <?php
+                                                    }
+                                                }
+                                            }
+
+                                            ?>          
+                                            <!-- [/Custom fields] -->
+                                            
+                                            <div class="form-group">
                                                 <?php echo form_input('name_surname', set_value('name_surname', $user_data['name_surname']), 'class="form-control" id="inputNameSurname" placeholder="'.lang('FirstLast').'"')?>
-                                              </div>
+                                                  <label for="inputNameSurname" class="control-label"><?php echo lang('FirstLast')?></label>
                                             </div>
 
-                                            <div class="control-group">
-                                              <label for="inputUsername" class="control-label"><?php echo lang('Username')?></label>
-                                              <div class="controls">
-                                                <?php echo form_input('username', set_value('username', $user_data['username']), 'class="form-control" id="inputUsername" placeholder="'.lang('Username').'"')?>
-                                              </div>
+                                            <div class="form-group">
+                                                    <?php echo form_input('username', set_value('username', $user_data['username']), 'class="form-control" id="inputUsername" placeholder="'.lang('Username').'"')?>
+                                                    <label for="inputUsername" class="control-label"><?php echo lang('Username')?></label>
                                             </div>
-                                            <div class="control-group">
-                                              <label for="inputEmail" class="control-label"><?php echo lang('Email')?></label>
-                                              <div class="controls">
-                                                <?php echo form_input('mail', set_value('mail', $user_data['mail']), 'class="form-control" id="inputEmail" placeholder="'.lang('Email').'"')?>
-                                              </div>
+                                        
+                                            <div class="form-group">
+                                                    <?php echo form_input('mail', set_value('mail', $user_data['mail']), 'class="form-control" id="inputEmail" placeholder="'.lang('Email').'"')?>
+                                                    <label for="inputEmail" class="control-label"><?php echo lang('Email')?></label>
                                             </div>
 
-                                            <div class="control-group">
-                                              <label for="inputPassword" class="control-label"><?php echo lang('Password')?></label>
-                                              <div class="controls">
+                                            <div class="form-group">
                                                 <?php echo form_password('password', set_value('password', ''), 'class="form-control" id="inputPassword" autocomplete="off" placeholder="'.lang('Password').'"')?>
-                                              </div>
+                                              <label for="inputPassword" class="control-label"><?php echo lang('Password')?></label>
                                             </div>
 
-                                            <div class="control-group">
-                                              <label for="inputPasswordConfirm" class="control-label"><?php echo lang('PasswordConfirm')?></label>
-                                              <div class="controls">
+                                            <div class="form-group">
                                                 <?php echo form_password('password_confirm', set_value('password_confirm', ''), 'class="form-control" id="inputPasswordConfirm" autocomplete="off" placeholder="'.lang('PasswordConfirm').'"')?>
-                                              </div>
+                                              <label for="inputPasswordConfirm" class="control-label"><?php echo lang('PasswordConfirm')?></label>
                                             </div>
-                                            <div class="control-group">
-                                              <label for="inputPhone" class="control-label"><?php echo lang('Phone')?></label>
-                                              <div class="controls">
+                                            <div class="form-group">
                                                 <?php echo form_input('phone', set_value('phone', $user_data['phone']), 'class="form-control" id="inputPhone" placeholder="'.lang('Phone').'"')?>
-                                              </div>
+                                              <label for="inputPhone" class="control-label"><?php echo lang('Phone')?></label>
                                             </div>
-                                            <div class="control-group">
+                                            <div class="form-group">
+                                                <?php echo form_input('address', set_value('address', $user_data['address']), 'placeholder="'.lang('Address').'" id="inputAddress" class="form-control"')?>
                                               <label for="inputAddress" class="control-label"><?php echo lang('Address')?></label>
-                                              <div class="controls">
-                                                <?php echo form_textarea('address', set_value('address', $user_data['address']), 'placeholder="'.lang('Address').'" id="inputAddress" rows="3" class="form-control"')?>
-                                              </div>
                                             </div>
 <!-- 
-                                            <div class="control-group">
+                                            <div class="form-group">
                                               <label for="inputDescription" class="control-label"><?php echo lang('Description')?></label>
                                               <div class="controls">
                                                 <?php echo form_textarea('description', set_value('description', $user_data['description']), 'placeholder="'.lang('Description').'" rows="3" id="inputDescription" class="form-control"')?>
                                               </div>
                                             </div>
  -->
-                                            <!-- [Custom fields] -->                       
-                                            <?php
-                                            custom_fields_print_f('custom_fields_code');
-                                            ?>          
-                                            <!-- [/Custom fields] -->
-
-                                            <div class="control-group">
-                                              <div class="controls">
+                                            <div class="form-group form-footer">
                                                 <?php echo form_submit('submit', lang('Save'), 'class="btn btn-action-accept"')?>
-                                              </div>
                                             </div>
                                         <?php echo form_close()?>
                                     </div>
@@ -135,7 +177,7 @@
                                                     <?php endforeach;?>
                                                     </ul>
                                                 </div>
-                                                 <p style="width:100%; max-width: 164px; margin: 0 auto 15px auto; font-size: 12px;">*portrait mode picture not suported at this time</p>
+                                                 <p style="width:100%;max-width: 195px;margin: 0 auto 15px auto;font-size: 12px;">*Profile pictures taken in portrait mode are not supported at this time</p>
                                                 <!-- Redirect browsers with JavaScript disabled to the origin page -->
                                                 <noscript><input type="hidden" name="redirect" value="<?php echo site_url('frontend/myprofile/'.$lang_code);?>"></noscript>
                                                 <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
@@ -143,8 +185,7 @@
                                                     <div class="col-md-12">
                                                         <!-- The fileinput-button span is used to style the file input field as button -->
                                                         <span class="btn btn-success fileinput-button">
-                                                            <i class="icon-plus icon-white"></i>
-                                                            <span><?php echo lang_check('Addfiles')?></span>
+                                                            <i class="material-icons">unarchive</i>
                                                             <input type="file" name="files[]" multiple>
                                                         </span>
                                                         <button type="reset" class="btn btn-warning cancel">
@@ -152,8 +193,7 @@
                                                             <span><?php echo lang_check('Cancelupload')?></span>
                                                         </button>
                                                         <button type="button" class="btn btn-danger delete">
-                                                            <i class="icon-trash icon-white"></i>
-                                                            <span><?php echo lang_check('Delete')?></span>
+                                                            <i class="material-icons">delete_forever</i>
                                                         </button>
                                                         <input type="checkbox" class="toggle hidden" />
                                                     </div>
@@ -191,7 +231,14 @@
 <div class="d-block d-md-none">
     <?php _widget('custom_footer_menu');?>
 </div>
-<div class="d-none d-md-block">
+
+<a href="#" class="js-toogle-footermenu">
+    <i class="material-icons">
+    playlist_add
+    </i>
+    <i class="close-icon"></i>
+</a>
+<div class="d-none d-sm-block">
     <?php _widget('custom_footer'); ?>
 </div>
 

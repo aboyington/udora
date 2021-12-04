@@ -11,11 +11,11 @@
    }
 ?>
 
-<a type="button"  class="btn button-standart add-event-btn col-xs-12 col-sm-6 col-lg-12 / js-add-to-favorites" href="javascript:;" style="<?php echo ($favorite_added)?'display:none;':''; ?>">
+<a type="button"  class="btn button-standart add-event-btn col-xs-12 col-sm-6 col-lg-12 js-add-to-favorites" href="javascript:;" style="<?php echo ($favorite_added)?'display:none;':''; ?>">
    <i class="fa fa-star favourite" aria-hidden="true"></i><?php echo lang_check(' Add to favorites'); ?><i class="load-indicator"></i>
 </a>
 
-<a type="button" class="btn button-standart add-event-btn col-xs-12 col-sm-6 col-lg-12 / js-remove-from-favorites" href="javascript:;" style="<?php echo (!$favorite_added)?'display:none;':''; ?>">
+<a type="button" class="btn button-standart add-event-btn col-xs-12 col-sm-6 col-lg-12 js-remove-from-favorites" href="javascript:;" style="<?php echo (!$favorite_added)?'display:none;':''; ?>">
     <i class="fa fa-star favourite" aria-hidden="true"></i><?php echo lang_check(' Remove from favorites'); ?><i class="load-indicator"></i>
 </a>
 

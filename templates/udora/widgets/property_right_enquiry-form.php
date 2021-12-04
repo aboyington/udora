@@ -6,21 +6,21 @@
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-lg-12">
             <div class="form-group {form_error_firstname}">
+               <input type="text" id="firstname" name='firstname' class="form form-control" placeholder='{lang_FirstLast}' value="{form_value_firstname}">
                 <label for="firstname">{lang_FirstLast}</label>
-               <input type="text" id="firstname" name='firstname' class="form form-control" value="{form_value_firstname}">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-lg-12">
             <div class="form-group {form_error_email}">
+                <input type="text" name="email" id="email" placeholder="{lang_Email}" class="form form-control" value="{form_value_email}">
                 <label for="email">{lang_Email}</label>
-                 <input type="text" name="email" id="email" class="form form-control" value="{form_value_email}">
             </div>
         </div>
         
         <div class="col-xs-12 col-sm-12 col-lg-12">
             <div class="form-group {form_error_message}">
+                <textarea id="message" name="message" class="form textarea form-control" rows="3" placeholder='{lang_Message}'></textarea>
                 <label for="message">{lang_Message}</label>
-                <textarea id="message" name="message" class="form textarea form-control" rows="3"></textarea>
             </div>
         </div>
         <?php if(config_item( 'captcha_disabled')===FALSE): ?>

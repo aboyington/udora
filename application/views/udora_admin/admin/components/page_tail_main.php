@@ -540,14 +540,8 @@
                                                 <div class="image view view-first"> \n\
                                                     <div class="preview"><span class="fade"></span></div>\n\
                                                     <div class="mask">\n\
-                                                        <p>'+file.short_name+'</p>\n\
-                                                        <div class="tools tools-bottom options-container">\n\
-                                                            <?php if($file->zoom_enabled):?>\n\
-                                                            <a data-gallery="gallery" download="<?php echo $file->filename?>"><i class="fa fa-link"></i></a>\n\
-                                                            <?php else:?>\n\
-                                                            <a target="_blank" download="<?php echo $file->filename?>"><i class="fa fa-link"></i></a>\n\
-                                                            <?php endif;?>'+
-                                                                
+                                                        <p>'+file.short_name+'</p>'+
+                                                        '<div class="tools tools-bottom options-container">'+
                                                             (file.zoom_enabled?
                                                                 '<a data-gallery="gallery" class="zoom-button" download="'+file.name+'"><i class="fa icon-zoom-in"></i></a>'
                                                                 : '<a target="_blank" class="btn btn-xs btn-success" download="'+file.name+'"><i class="icon-search icon-white"></i></a>') 

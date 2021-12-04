@@ -1,3 +1,5 @@
+<div class="js-toogle-footermenu-mask"></div>
+
 {not_logged}
 <!-- Modal -->
 <div class="modal fade" id="addEventsModal" tabindex="-1" role="dialog" aria-labelledby="addEventsModal">
@@ -13,12 +15,12 @@
                         <div class="row">
 
                             <div class="col-md-6 form-group">
-                                <label for="firstname">First and Last Name</label>
-                                <input type="text" name="firstname" class="form-control style-2" id="firstname" placeholder="Name" required>
+                                <label for="firstname_c">First and Last Name</label>
+                                <input type="text" name="firstname" class="form-control style-2" id="firstname_c" placeholder="Name" required>
                             </div>
                             <div class="col-md-6 form-group">
-                                <label for="email">Email address</label>
-                                <input type="email" name="email" class="form-control style-2" id="email" placeholder="Email" required>
+                                <label for="email_c">Email address</label>
+                                <input type="email" name="email" class="form-control style-2" id="email_c" placeholder="Email" required>
                             </div>
                             <div class="col-md-12 form-group">
                                 <label for="addEventsModalMessage">Message</label>
@@ -329,7 +331,9 @@
     };
 
     $(document).ready(function() {
-
+        add_to_favorite();
+        remove_from_favorites();
+        
         // Filters Start //
 
         $(".checkbox_am").click((function(){
@@ -948,9 +952,8 @@
         return false;
 
         <?php endif;?>
-
         if(onlyajax) {
-            window.location.href='<?php echo site_url($lang_code.'/6/'.url_title_cro('map', '-', TRUE))?>?search='+JSON.stringify(data);
+            window.location.href='<?php echo site_url($lang_code.'/6/'.url_title_cro('map', '-', TRUE))?>?search='+(JSON.stringify(data).replace("&amp;", "%26").replace( /&/g, "%26"));
         }
 
         // Sets the map on all markers in the array.
@@ -1123,6 +1126,7 @@
 
             }, "json").success(function(){
             add_to_favorite ();
+            remove_from_favorites();
             $('.results-content .result-item .result-item-pop').click(function(e){
                 e.preventDefault();
                 var property_id = $(this).attr('data-property_id')
@@ -1473,9 +1477,9 @@
                 {is_logged_other}
                 controlUI.href = '<?php echo site_url('admin/estate/edit/');?>';
                 {/is_logged_other}
-                    {not_logged}
+                    <?php if(sw_count($not_logged)): ?>
                     controlUI.href = '{front_login_url}#content';
-                    {/not_logged}
+                    <?php endif;?>
 
                         controlUI.style.backgroundColor = 'white';
                         controlUI.style.borderColor = '#E4E4E4'
@@ -1745,7 +1749,6 @@
                         });
                         // [END] Add to favorites //
                     }
-
 </script>
 
 <script>
@@ -1757,7 +1760,6 @@
             window.location.href='<?php echo site_url($lang_code.'/6/'.url_title_cro('map', '-', TRUE))?>?search={"v_search_option_smart":"'+v+'"}';
             return false;
         })
-        // add_to_favorite ();
 
         if (window.innerWidth < 992) {
             $('body').css('padding-bottom', $('.footer.style-1').outerHeight());
@@ -1774,5 +1776,60 @@
         })
 
     })
+ function add_to_favorite () {
+    // [START] Add to favorites //  
+    $(".add-favorites-action").off().on('click',function(e){
+        e.preventDefault();
+        var self = $(this);
+        var id = $(this).attr('data-id')
+        var data = { property_id: id };
+        var load_indicator = $(this).find('.load-indicator');
+        load_indicator.css('display', 'inline-block');
+        $.post("{api_private_url}/add_to_favorites/{lang_code}", data, 
+               function(data){
 
+
+            load_indicator.css('display', 'none');
+            ShowStatus.show(data.message);
+
+            if(data.success)
+            {
+                self.parent().find(".add-favorites-action").css('display', 'none');
+                self.parent().find(".remove-favorites-action").css('display', 'inline-block');
+            } else {
+                $('#login-modal').modal('show')  
+            }
+        });
+
+        return false;
+    });
+    // [END] Add to favorites //  
+}     
+        
+ function remove_from_favorites () {
+    // [START] Add to favorites //  
+    $(".remove-favorites-action").off().on('click',function(e){
+        e.preventDefault();
+        var self = $(this);
+        var id = $(this).attr('data-id')
+        var data = { property_id: id };
+        var load_indicator = $(this).find('.load-indicator');
+        load_indicator.css('display', 'inline-block');
+        $.post("{api_private_url}/remove_from_favorites/{lang_code}", data, 
+               function(data){
+
+            ShowStatus.show(data.message);
+
+            load_indicator.css('display', 'none');
+            if(data.success)
+            {
+                self.parent().find(".add-favorites-action").css('display', 'inline-block');
+                self.parent().find(".remove-favorites-action").css('display', 'none');
+            }
+        });
+
+        return false;
+    });
+    // [END] Add to favorites //  
+}   
 </script>

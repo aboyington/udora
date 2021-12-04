@@ -3,7 +3,7 @@
 <head>
     <?php _widget('head');?>
 </head>
-<body>
+<body class='page_id_<?php _che($page_id);?>'>
     <?php _widget('header_menu');?>
     <!-- Help -->
     <div class="help-n-support" style="text-align: left;">
@@ -32,7 +32,14 @@
         <div class="d-block d-md-none">
             <?php _widget('custom_footer_menu');?>
         </div>
-        <div class="d-none d-md-block">
+
+        <a href="#" class="js-toogle-footermenu">
+            <i class="material-icons">
+            playlist_add
+            </i>
+            <i class="close-icon"></i>
+        </a>
+        <div class="d-none d-sm-block">
             <?php _widget('custom_footer'); ?>
         </div>
     <?php _widget('custom_javascript');?>

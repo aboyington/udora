@@ -38,6 +38,22 @@ class Estate_m extends MY_Model {
         $this->load->model('option_m');
         $this->options = $this->option_m->get_field_list($this->language_m->get_default_id());
         
+        $this->load->model('favorites_m');
+        $favorites_list = array();
+        
+        // Check login and fetch user id
+        $this->load->library('session');
+        $this->load->model('user_m');
+        if($this->user_m->loggedin() == TRUE)
+        {
+            $_favorites_list = $this->favorites_m->get_by(array('user_id'=>$this->session->userdata('id')));
+            foreach ($_favorites_list as $key => $value) {
+                $favorites_list[] = $value->property_id;
+            }
+        }
+        
+        $this->favorites_list = $favorites_list;
+        
 	}
 
     public function get_new()
@@ -170,8 +186,26 @@ class Estate_m extends MY_Model {
         return $num;
     }
     
-    public function get_by($where, $single = FALSE, $limit = NULL, $order_by = NULL, $offset = NULL, $search = array(), $where_in = NULL, $check_user = FALSE, $fetch_user_details=FALSE)
+    public function get_by($where, $single = FALSE, $limit = NULL, $order_by = NULL, $offset = NULL, $search = array(), $where_in = NULL, $check_user = FALSE, $fetch_user_details=FALSE, $updater = FALSE)
     {
+        if($updater){
+            $this->load->model('favorites_m');
+            $favorites_list = array();
+
+            // Check login and fetch user id
+            $this->load->library('session');
+            $this->load->model('user_m');
+            if($this->user_m->loggedin() == TRUE)
+            {
+                $_favorites_list = $this->favorites_m->get_by(array('user_id'=>$this->session->userdata('id')));
+                foreach ($_favorites_list as $key => $value) {
+                    $favorites_list[] = $value->property_id;
+                }
+            }
+
+            $this->favorites_list = $favorites_list;
+        }
+        
         $this->db->cache_on();
         
         $this->filter_results($where, $search, $where_in, $order_by);
@@ -255,9 +289,9 @@ class Estate_m extends MY_Model {
         }
         
         $results = $query->result();
-        
+        //echo $this->db->last_query();
         $this->db->cache_off();
-        
+        //exit();
         return $results;
     }
     
@@ -281,17 +315,18 @@ class Estate_m extends MY_Model {
             
         if(isset($search_array['v_search_radius']))
             $search_radius = $search_array['v_search_radius'];
-
+        
         if(isset($search_array['v_search_option_location']) && !empty($search_array['v_search_option_location'])){
-            $search_array['v_search_option_smart'] = $search_array['v_search_option_location'];
-            $search_radius = '100';
+            if(!isset($search_radius) || empty($search_radius))
+                $search_radius = '100';
         } 
+        
         // [START] Radius search
-        if(isset($search_radius) && isset($search_array['v_search_option_smart']) && $search_radius > 0)
+        if(isset($search_radius) && isset($search_array['v_search_option_location']) && !empty($search_array['v_search_option_location'])  && $search_radius > 0)
         {
             $this->load->library('ghelper');
-            $coordinates_center = $this->ghelper->getCoordinates($search_array['v_search_option_smart']);
-           
+            $coordinates_center = $this->ghelper->getCoordinates($search_array['v_search_option_location']);
+            
             if(count($coordinates_center) >= 2 && $coordinates_center['lat'] != 0)
             {
                 $distance_unit = 'km';
@@ -304,7 +339,7 @@ class Estate_m extends MY_Model {
                 $rectangle_ne = $this->ghelper->getDueCoords($coordinates_center['lat'], $coordinates_center['lng'], 45, $search_radius, $distance_unit);
                 $rectangle_sw = $this->ghelper->getDueCoords($coordinates_center['lat'], $coordinates_center['lng'], 225, $search_radius, $distance_unit);
                 
-                unset($search_array['v_search_option_smart'], $search_array['search_option_smart'], $search_array['v_search_option_location']);
+                unset($search_array['v_search_option_location']);
             }
         }
         // [END] Radius search
@@ -373,13 +408,15 @@ class Estate_m extends MY_Model {
         
         
         /* Set default */
-        unset($search_array['v_trigger_option_81_82']);
+        /*unset($search_array['v_search_option_81_from']);
+        unset($search_array['v_search_option_82_to']);
+        unset($search_array['v_trigger_option_81_82']);*/
         /*
         v_search_option_81_from
         v_search_option_82_to
         */
 				
-				/*
+	/*
         if(!empty($search_array['v_search_option_location']) && empty($search_array['v_search_option_81_from']) && empty($search_array['v_search_option_82_to'])){
             $search_array['v_search_option_82_to'] = date('Y-m-d H:i:s',strtotime('+1 day'));
         }
@@ -387,10 +424,18 @@ class Estate_m extends MY_Model {
             $search_array['v_search_option_81_from'] = date('Y-m-d H:i:s',strtotime('first day of this month'));
             $search_array['v_search_option_82_to'] = date('Y-m-d H:i:s',strtotime('last day of this month'));
         }
-				*/
-				
+	*/
 				
         
+        if(isset($search_array['v_search_option_in_favorite']) && $search_array['v_search_option_in_favorite'] == 1 ) {
+            if(!empty($this->favorites_list)) {
+                $this->db->where_in("property.id", $this->favorites_list);	
+            } else {
+                $this->db->where("property.id", 0);	
+            }
+        }
+        unset($search_array['v_search_option_in_favorite']);
+         
         if(count($search_array) > 0)
         {
             foreach($search_array as $key=>$val)
@@ -520,8 +565,10 @@ class Estate_m extends MY_Model {
                     if(substr($val,0,4) == 'true')
                        $val='true';
                     
-                    if(isset($options[$option_id]) && $options[$option_id]->type == 'TREE') 
+                    if(isset($options[$option_id]) && $options[$option_id]->type == 'TREE') {
+                        $val = str_replace('&', '&amp;', $val);
                         $this->db->where("(json_object LIKE '%\"field_$option_id\":\"".trim($val)."%')");
+                    }
                     else 
                         $this->db->where("(json_object LIKE '%\"field_$option_id\":\"".trim($val)."\"%')");
 
@@ -1291,12 +1338,12 @@ class Estate_m extends MY_Model {
                    $key == 'v_search_option_smart' || 
                     $key == 'v_search_option_quick')
                 {
-// Commented because numeric search should also work for zip code
-//                    if(is_numeric($val))
-//                    {
-//                        $this->db->where('property.id', $val);
-//                    }
-//                    else 
+                    // Commented because numeric search should also work for zip code
+                    // if(is_numeric($val))
+                    // {
+                    //    $this->db->where('property.id', $val);
+                    // }
+                    // else 
                     if($val != "")
                     {
                         if(config_item('smart_search_disabled') === TRUE)
@@ -1414,7 +1461,7 @@ class Estate_m extends MY_Model {
         $this->db->update($this->_table_name, $data); 
     }
 
-}
+} 
 
 
 

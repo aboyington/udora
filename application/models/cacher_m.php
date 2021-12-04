@@ -33,6 +33,45 @@ class Cacher_m extends MY_Model {
         
         return !$update;
     }
+
+    public function cache_update($index, $value, $expire_days = 3000)
+    {
+        //hash and check if exists
+        $index_hash = md5(strtolower($index));
+        
+        $update = false;
+        $this->db->where('index_hash', $index_hash);
+        $q = $this->db->get($this->_table_name);
+        if ( $q->num_rows() > 0 )
+            $update = true;
+        
+        //Save
+        if(!$update)
+        {
+            $data = array(
+               'index_hash' => $index_hash,
+               'expire_date' => date('Y-m-d H:i:s', time()+$expire_days*24*60*60),
+               'index_real' => $index,
+               'value' => serialize($value)
+            );
+            
+            $this->db->insert($this->_table_name, $data); 
+        }
+        
+        // Update
+        if($update) {
+            $data = array(
+               'expire_date' => date('Y-m-d H:i:s', time()+$expire_days*24*60*60),
+               'value' =>serialize($value)
+            );
+
+            $this->db->where(array('index_real'=>$index));
+            $this->db->update($this->_table_name, $data);
+            
+        }
+        
+        return !$update;
+    }
     
     public function load($index)
     {

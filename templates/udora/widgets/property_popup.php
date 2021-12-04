@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row property-content">
     <div class="col-lg-9 event-text border-right">
         <div class="row">
             <ul id="imageGallery">
@@ -13,7 +13,7 @@
         </div>
        <div class="row">
             <div class="cl-blog-text">
-                <h4><?php _che($option_10);?></h4>
+                <h3><?php _che($option_10);?></h3>
                 
                 <?php if(isset($option_81) && !empty($option_81)):?>
 

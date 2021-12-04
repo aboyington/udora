@@ -68,95 +68,109 @@
                         </div>
                     </div>
                     <?php endif; ?>
-                    <div class="col-xs-12 col-md-6 col-md-offset-3 border-create-account">
+                    <div class="col-xs-12 col-md-10 col-md-offset-1">
                         <div class="login-form create-account-form create-account-page">
                             <div class="col-xs-12">
-                            <h3><?php echo lang_check('Create An Account');?></h3>
-                            <p class="sub-title text-left"><?php echo lang_check('Please fill in the below form to create an account.'); ?></p>
+                                <h3 class="text-center / mb-1"><?php echo lang_check('Welcome to Udora'); ?></h3>
+                            </div>                           
+                            <?php echo form_open(NULL, array('class' => 'form-horizontal form-additional widget-content clearfix', 'id'=>'popup_form_login')) ?>
+                            <div class="col-xs-12 alerts-box">
                             </div>
-                            <?php echo form_open(NULL, array('class' => 'form-horizontal form-additional widget-content clearfix')) ?>
-                                <div class="login-inputs col-xs-12 col-lg-12 mb-1 mb-sm-2">
-                                    <?php if ($this->session->flashdata('error_registration') != ''): ?>
-                                        <p class="alert alert-success"><?php echo $this->session->flashdata('error_registration') ?></p>
-                                    <?php endif; ?>
-                                    <?php if ($is_registration): ?>
-                                        <?php echo validation_errors() ?>
-                                    <?php endif; ?>
-                                    <?php if (config_db_item('register_reduced') == FALSE): ?>
-                                        <?php echo form_input('username', set_value('username', ''), 'class="col-xs-12 col-lg-12" id="inputUsername2" placeholder="' . lang('Username') . '"') ?>
-                                    <?php endif; ?>
-                                    <?php echo form_input('mail', set_value('mail', ''), 'class="col-xs-12 col-lg-12" id="inputMail" placeholder="' . lang('Email') . '"') ?>
-                                    <?php echo form_password('password', set_value('password', ''), 'class="col-xs-12 col-lg-12" id="inputPassword2" placeholder="' . lang('Password') . '" autocomplete="off"') ?>
-                                   <?php echo form_password('password_confirm', 'auto', 'class="form-control hidden" id="inputPasswordConfirm" placeholder="'.lang('Confirmpassword').'" autocomplete="off"')?>
+                            <div class="login-inputs col-xs-12 flabel-anim">
+                                <?php if (config_db_item('register_reduced') == FALSE): ?>
+                                    <div class="form-group">
+                                       <?php echo form_input('username', set_value('username', ''), 'class="w-100 form-control" id="inputUsername2" placeholder="' . lang('Username') . '"') ?>
+                                       <label><?php echo lang_check("Username");?></label>
+                                   </div>
+                                <?php endif; ?>
+
+                                <div class="form-group">
+                                   <?php echo form_input('name_surname', set_value('name_surname', ''), 'class="col-xs-12 col-lg-12 form-control" id="inputNameSurname" placeholder="' . lang('FirstLast') . '"') ?>
+                                   <label><?php echo lang_check("FirstLast");?></label>
+                                </div>
+
+                                <div class="form-group">
+                                   <?php echo form_input('mail', set_value('mail', ''), 'class="w-100 form-control" id="inputMail" placeholder="' . lang('Email') . '"') ?>
+                                   <label><?php echo lang_check("Email");?></label>
+                               </div>
+                                <div class="form-group">
+                                    <?php echo form_password('password', set_value('password', ''), 'class="w-100 form-control" id="inputPassword2" placeholder="' . lang('Password') . '" autocomplete="off"') ?>
+                                   <label><?php echo lang_check("Password");?></label>
+                               </div>
+                                <?php echo form_password('password_confirm', 'auto', 'class="form-control hidden" id="inputPasswordConfirm" placeholder="' . lang('Confirmpassword') . '" autocomplete="off"') ?>
+                                <div class="hint-box form-group">
+                                    <?php echo form_input('age', set_value('age', ''), 'class="w-100" id="inputAge" placeholder="' . lang_check('Age') . '"') ?>
+                                    <span class="hintlabewl hint--top-left"
+                                          aria-label="<?php echo lang_check('To sign up you must be 13 or older. Other people won\'t see your birthday'); ?>"><i
+                                                class="fa fa-question" aria-hidden="true"></i></span>
+                                </div>
+                                <div class="clearfix text-left mb-1 mb-sm-2">
+                                    <label class="login-checkbox">
+                                    <?php echo form_radio('gender','male', '', 'class="inputGender"') ?> <?php echo lang_check('Male');?>
+                                    </label>
+                                    <label class="login-checkbox">
+                                    <?php echo form_radio('gender','female', '', 'class="inputGender"') ?> <?php echo lang_check('Female');?>
+                                    </label>
+                                    <label class="login-checkbox">
+                                    <?php echo form_radio('gender','custom', '', 'class="inputGender"') ?> <?php echo lang_check('Custom');?>
+                                    </label>
+                                </div>    
+
+                                <?php if (config_item('captcha_disabled') === FALSE): ?>
+                                    <div class="control-group {form_error_captcha}" >
                                         <div class="row">
-                                        <div class="col-xs-8">
-                                        <?php echo form_input('name_surname', set_value('name_surname', ''), 'class="col-xs-12 col-lg-12" id="inputNameSurname" placeholder="' . lang('FirstLast') . '"') ?>
-                                        </div>
-                                        <div class="col-xs-4 hint-box">
-                                        <?php echo form_input('age', set_value('age', ''), 'class="col-xs-12 col-lg-12" id="inputAge" placeholder="' . lang_check('Age') . '"') ?>
-                                            <span class="hintlabel hint--top-left" aria-label="<?php echo lang_check('To sign up you must be 13 or older. Other people won\'t see your birthday');?>"><i class="fa fa-question" aria-hidden="true"></i></span>
+                                            <div class="col-lg-6" style="padding-top:5px;">
+                                                <?php echo $captcha['image']; ?>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <input class="captcha {form_error_captcha}" style="width: 100%;" name="captcha" type="text" placeholder="{lang_Captcha}" value="" />
+                                                <input class="hidden" name="captcha_hash" type="text" value="<?php echo $captcha_hash; ?>" />
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="clearfix text-left mb-1 mb-sm-2">
-                                        <label class="login-checkbox">
-                                        <?php echo form_radio('gender','male', '', 'class="" id="inputGender"') ?> <?php echo lang_check('Male');?>
-                                        </label>
-                                        <label class="login-checkbox">
-                                        <?php echo form_radio('gender','female', '', 'class="" id="inputGender"') ?> <?php echo lang_check('Female');?>
-                                        </label>
-                                        <label class="login-checkbox">
-                                        <?php echo form_radio('gender','custom', '', 'class="" id="inputGender"') ?> <?php echo lang_check('Custom');?>
-                                        </label>
-                                    </div>    
-                                        
-                                    <?php if (config_item('captcha_disabled') === FALSE): ?>
-                                        <div class="control-group {form_error_captcha}" >
-                                            <div class="row">
-                                                <div class="col-lg-6" style="padding-top:5px;">
-                                                    <?php echo $captcha['image']; ?>
-                                                </div>
-                                                <div class="col-lg-6">
-                                                    <input class="captcha {form_error_captcha}" style="width: 100%;" name="captcha" type="text" placeholder="{lang_Captcha}" value="" />
-                                                    <input class="hidden" name="captcha_hash" type="text" value="<?php echo $captcha_hash; ?>" />
-                                                </div>
-                                            </div>
+                                <?php endif; ?>
+                                <?php if (config_item('recaptcha_site_key') !== FALSE): ?>
+                                    <div class="row">
+                                        <div class="col-xs-12 col-lg-12">
+                                            <?php _recaptcha(false); ?>
                                         </div>
-                                    <?php endif; ?>
-                                    <?php if (config_item('recaptcha_site_key') !== FALSE): ?>
-                                        <div class="row">
-                                            <div class="col-xs-12 col-lg-12">
-                                                <?php _recaptcha(false); ?>
-                                            </div>
-                                        </div>
-                                    <?php endif; ?>  
-                                </div>
-                                <div class="col-xs-12">
-                                    <button class="button-login col-xs-12" type="submit" ><?php echo lang_check('Sign up') ?></button>
-                                </div>
-                            <?php echo form_close(); ?>
-                            <p class="font_small col-lg-12 privacy mb-3 mb-sm-5"><?php echo lang_check('By creating an account'); ?></p>
+                                    </div>
+                                <?php endif; ?>  
+
+                            </div>
+                            <div class="col-xs-12 mb-2 mb-sm-3">
+                                <button class="button-login col-xs-12 col-lg-12" type="submit"><?php echo lang_check('Join Now');?>
+                                    <div class="spinner hidden ajax-indicator">
+                                        <div class="bounce1"></div>
+                                        <div class="bounce2"></div>
+                                        <div class="bounce3"></div>
+                                    </div>
+                                </button>
+                            </div>
+                            <?php echo form_close() ?>
                             <div class="col-xs-12 mb-1 mb-sm-2">
                                 <p class="separate mb-0">
-                                    <span class="separate-content"><?php echo lang_check('Or sign up with'); ?></span>
+                                    <span class="separate-content"><?php echo lang_check('OR'); ?></span>
                                 </p>
                             </div>
-                            <div class="col-xs-12 mb-4 mb-sm-5">
+                            <div class="col-xs-12 mb-3 login_buttons">
                                 <?php if (config_item('appId') != '' && !empty($login_url_facebook)): ?>
-                                    <a href="<?php echo $login_url_facebook; ?>" class="login-facebook">
+                                    <a href="<?php echo $login_url_facebook; ?>" class="btn-login-soc">
+                                        <i class="fa fa-facebook" aria-hidden="true"></i>
                                         <?php echo lang_check('Facebook'); ?>
                                     </a>
                                 <?php endif; ?>
                                 <?php if (config_item('glogin_enabled')): ?>
-                                    <a href="<?php echo site_url('api/google_login/'); ?>" class="login-google">
+                                    <a href="<?php echo site_url('api/google_login/'); ?>" class="btn-login-soc">
+                                        <i class="fa fa-google" aria-hidden="true"></i>
                                         <?php echo lang_check('Google+'); ?>
                                     </a>
                                 <?php endif; ?>
                             </div>
-                            <div class="login-footer flex">
-                                <div class="info mr-2"><?php echo lang_check('Already have a Udora acccount?');?></div>
-                                <div class="action d-flex align-items-center">
-                                    <a href="<?php echo site_url('frontend/login');?>" class="btn button-login-inv"><?php echo lang_check('Log in');?></a>
-                                </div>
+                            <p class="text-sm mb-3 pl-2 pr-2"><?php echo lang_check("By countinuing, you agree to Udora's");?> <a href="#"><?php echo lang_check('Terms of Service, Privacy Policy');?></a></p>
+                            <div class="login-footer">
+                                <?php echo lang_check('Already have a Udora acccount?');?>
+                                <a class="js-toggle-login-popup button-login-inv" href="#"><?php echo lang_check('Sign In');?></a>
                             </div>
                         </div>
                     </div>
@@ -166,7 +180,14 @@
         <div class="d-block d-md-none">
             <?php _widget('custom_footer_menu');?>
         </div>
-        <div class="d-none d-md-block">
+
+        <a href="#" class="js-toogle-footermenu">
+            <i class="material-icons">
+            playlist_add
+            </i>
+            <i class="close-icon"></i>
+        </a>
+        <div class="d-none d-sm-block">
             <?php _widget('custom_footer'); ?>
         </div>
         <?php _widget('custom_javascript'); ?>

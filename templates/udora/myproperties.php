@@ -17,10 +17,12 @@
                 <div class="panel panel-default clearfix">
                     <!--                             <div class="panel-heading">DASHBOARD</div> -->
                     <ul class="nav nav-tabs dashboard__tabs">
-                        <li class="active"><a data-toggle="tab" href="#activities" aria-expanded="true">Activities</a>
+                        <li class="active"><a data-toggle="tab" href="#activities" aria-expanded="true">Profile</a>
                         </li>
+                        <!--
                         <li class=""><a data-toggle="tab" href="#friends" aria-expanded="false">Friends</a></li>
                         <li class=""><a data-toggle="tab" href="#invite" aria-expanded="false">Invite</a></li>
+                        -->
                     </ul>
                     <div class="tab-content pt-2 clearfix">
                         <div id="activities" class="tab-pane fade active in pt-0">
@@ -41,15 +43,15 @@
                                     <?php endif;?>                                        
                                                                         
                                 </div>
-                                <div class="panel panel-default panel-no-border">
-                                    <div class="panel-heading / mb-4">Points &amp; Levels</div>
+                                <div class="panel panel-default panel-no-border panel-score">
+                                    <div class="panel-heading">Points &amp; Levels</div>
                                     <div class="panel_progress_score">
                                         <!-- if the left property more than 60% add class  ->  flex-row-reverse  -->
                                         <div class="panel_progress_score_item d-inline-flex justify-content-start align-items-center" style="left: 40%;">
-                                            <i class="material-icons">location_on</i>
-                                            <span class="mb-0 weight-300 text-center">Your points - <span class="weight-500">7203</span></span>
+                                            <!--<i class="material-icons">location_on</i>-->
+                                            <img src="assets/img/marker_score.png"  class="marker_score" alt="marker_score">
+                                            <span class="mb-0 text-center">Your points - <span class="weight-500">7203</span></span>
                                         </div>
-                                        
                                     </div>
                                     <div class="panel_progress_body">
                                         <div class="panel_progress_body-items d-flex justify-content-between">
@@ -67,17 +69,17 @@
 
                             <!--     Activities    -->
                             <div class="col-xs-12">
-                                <div class="panel panel-default panel-no-border">
+                                <div class="panel panel-default panel-no-border panel-actives">
                                     <div class="panel-heading">Activities</div>
-                                    <div id="activities_event" class="tab-pane fade in active / pt-3 pb-2">
+                                    <div id="activities_event" class="tab-pane fade in active / pt-3 pb-5">
                                         <div class="d-flex justify-content-between align-items-top flex-wrap">
 
-                                            <a class="col-xs-5 activities_event-link d-flex justify-content-between" href="<?php echo site_url('frontend/myevents/' . $lang_code . '#content'); ?>">
+                                            <a class="col-sm-5 col-xs-12 activities_event-link d-flex justify-content-between" href="<?php echo site_url('frontend/myevents/' . $lang_code . '#content'); ?>">
                                                 <span class="activities_event-counter d-flex justify-content-center align-items-center"><?php echo count($estates); ?></span>
                                                 <span class="activities_event-title"><?php echo lang_check('My events'); ?></span>
                                             </a>
 
-                                            <a class="col-xs-5 activities_event-link d-flex justify-content-between" href="<?php echo site_url('ffavorites/myfavorites/' . $lang_code . '#content'); ?>">
+                                            <a class="col-sm-5 col-xs-12 activities_event-link d-flex justify-content-between" href="<?php echo site_url('ffavorites/myfavorites/' . $lang_code . '#content'); ?>">
                                             <?php
                                                 $CI = &get_instance();
                                                 $CI->load->model('favorites_m');
@@ -87,7 +89,7 @@
                                                 <span class="activities_event-title"><?php echo lang_check('Favorites'); ?></span>
                                             </a>
 
-                                            <a class="col-xs-5 activities_event-link d-flex justify-content-between" href="<?php echo site_url('frontend/myattended/' . $lang_code . '#content'); ?>">
+                                            <a class="col-sm-5 col-xs-12 activities_event-link d-flex justify-content-between" href="<?php echo site_url('frontend/myattended/' . $lang_code . '#content'); ?>">
                                                 <?php
                                                     $CI = &get_instance();
                                                     $CI->load->model('userattend_m');
@@ -97,7 +99,7 @@
                                                 <span class="activities_event-title"><?php echo lang_check('Attended'); ?></span>
                                             </a>
 
-                                            <a class="col-xs-5 activities_event-link d-flex justify-content-between" href="javascript:;">
+                                            <a class="col-sm-5 col-xs-12 activities_event-link d-flex justify-content-between" href="javascript:;">
                                                 <?php
                                                     $CI = &get_instance();
                                                     $CI->load->model('reviews_m');
@@ -107,12 +109,12 @@
                                                 <span class="activities_event-title"><?php echo lang_check('Feedback'); ?></span>
                                             </a>
 
-                                            <a class="col-xs-5 activities_event-link d-flex justify-content-between" href="javascript:;">
+                                            <a class="col-sm-5 col-xs-12 activities_event-link d-flex justify-content-between" href="javascript:;">
                                                 <span class="activities_event-counter d-flex justify-content-center align-items-center"><?php echo count($estates); ?></span>
                                                 <span class="activities_event-title"><?php echo lang_check('Surveys'); ?></span>
                                             </a>
 
-                                            <a class="col-xs-5 activities_event-link d-flex justify-content-between" href="javascript:;">
+                                            <a class="col-sm-5 col-xs-12 activities_event-link d-flex justify-content-between" href="javascript:;">
                                                 <span class="activities_event-counter d-flex justify-content-center align-items-center"><?php echo count($estates); ?></span>
                                                 <span class="activities_event-title"><?php echo lang_check('Rewards'); ?></span>
                                             </a>
@@ -480,7 +482,14 @@
 <div class="d-block d-md-none">
     <?php _widget('custom_footer_menu');?>
 </div>
-<div class="d-none d-md-block">
+
+<a href="#" class="js-toogle-footermenu">
+    <i class="material-icons">
+    playlist_add
+    </i>
+    <i class="close-icon"></i>
+</a>
+<div class="d-none d-sm-block">
     <?php _widget('custom_footer'); ?>
 </div>
 <?php _widget('custom_javascript'); ?>

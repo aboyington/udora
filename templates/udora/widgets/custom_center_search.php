@@ -1,8 +1,35 @@
 <?php
+
+$get_location_string ='';
+$get_location_city ='';
+$get_location_region ='';
+$get_location_country ='';
+
 // get user ip
+
+/* ip-api.com */
+
 $ip = $_SERVER['REMOTE_ADDR'];
 $query = @unserialize(file_get_contents('http://ip-api.com/php/'.$ip));
-if($query && $query['status'] == 'success') 
+if($query && $query['status'] == 'success') {
+    $get_location_string = $query ['city']. ", ".$query['country'];
+    $get_location_city = $query ['city'];
+    $get_location_region = $query['regionName'];
+    $get_location_country = $query['country'];
+}
+    
+/* geoPlugin */
+/*
+$CI =& get_instance();
+$CI->load->library('geoplugin');
+$CI->geoplugin->locate();
+if($CI->geoplugin->city) {
+    $get_location_string = $CI->geoplugin->city. ", ". $CI->geoplugin->region. ", ".$CI->geoplugin->countryName;
+    $get_location_city =  $CI->geoplugin->city;
+    $get_location_region = $CI->geoplugin->region;
+    $get_location_country = $CI->geoplugin->countryName;
+}
+*/  
 ?>
 
 <form class="check-form">
@@ -85,11 +112,12 @@ if($query && $query['status'] == 'success')
             /* [END] TreeField */
         </script>
         <?php endif; ?>
+        
         <div class="second-group clearfix">
-            <input type="hidden" class="form-control search_option_location_second" oninvalid="setCustomValidity(''); checkValidity(); setCustomValidity(validity.valid ? '' :'<?php echo lang_check("Please Populate field Location");?>');" id="search_option_location_second" value="<?php echo $query ['city'];?>">
-            <input type="hidden" name="region_name" value="<?php echo $query['regionName']; ?>">
-            <input type="hidden" name="country" value="<?php echo $query['country']; ?>">
-        <input type="text" class="form-control search_option_smart search_option_smart_second" placeholder="<?php echo lang_check("Search events or categories");?>">
+        	<input type="text" class="form-control search_option_location_second" oninvalid="setCustomValidity(''); checkValidity(); setCustomValidity(validity.valid ? '' :'<?php echo lang_check("Please Populate field Location");?>');" id="search_option_location_second" value="<?php echo $get_location_string;?>">
+        	<input type="hidden" name="region_name" value="<?php echo $get_location_region; ?>">
+        	<input type="hidden" name="country" value="<?php echo $get_location_country; ?>">
+        	<input type="hidden" class="form-control search_option_smart search_option_smart_second" placeholder="<?php echo lang_check("Search events or categories");?>">
         
         <script>
             $(function(){
@@ -135,6 +163,10 @@ if($query && $query['status'] == 'success')
                         .attr('data-country', populate.country)
             });
             
+            $('#search_option_location_second').change(function(){
+                $('#search_option_location').val($('#search_option_location_second').val());
+            })
+            
         })
         </script>
         
@@ -144,8 +176,39 @@ if($query && $query['status'] == 'success')
         <form>
             <input id="rectangle_ne" type="text" class="hidden" />
             <input id="rectangle_sw" type="text" class="hidden" />
+            <div class="hidden">
+                <div class="form-group">
+                        <select id="search_radius" name="search_radius" class="form-control selectpicker">
+                <?php
+                    $sel_values = array(0,50,100,200,500);
+                    $suffix = lang_check('km');
+                    $curr_value=NULL;
+
+                    if(isset($_GET['search']))$search_json = json_decode($_GET['search']);
+                    if(isset($search_json->v_search_radius))
+                    {
+                        $curr_value=$search_json->v_search_radius;
+                    } else {
+                        $curr_value = 50;
+                    }
+
+                    foreach($sel_values as $key=>$val)
+                    {
+                        if($curr_value == $val)
+                        {
+                            echo "<option value=\"$val\" selected>$val$suffix</option>\r\n";
+                        }
+                        else
+                        {
+                            echo "<option value=\"$val\">$val$suffix</option>\r\n";
+                        }
+                    }
+                ?>
+                        </select>
+                </div><!-- /.form-group -->
+            </div>
             <div class="form-group search_option_smart-group">
-                <input type="text" class="form-control" name="search_option_smart" value="{search_query}" id="search_option_smart" placeholder="<?php echo lang_check('Enter event or brand name');?>">
+                <input type="text" class="form-control" name="search_option_smart" value="{search_query}" id="search_option_smart" placeholder="<?php echo lang_check('Looking for...');?>">
                 <div class="dropdown-close"><span class="fa fa-times"></span></div>
             </div>
             <!--end form-group-->
@@ -220,7 +283,7 @@ if($query && $query['status'] == 'success')
                 <!--end col-md-6-->
                 <div class="col-lg-6 col-md-12 search_option_location-group hidden hidden-md">
                      <div class="form-group search_option_location-box">
-                        <input type="text" class="form-control" name="search_option_location" value="{search_option_location}" id="search_option_location" placeholder="<?php echo lang_check('Location');?>">
+                        <input type="text" class="form-control" name="search_option_location" value="<?php echo $get_location_string;?>" id="search_option_location" placeholder="<?php echo lang_check('Location');?>">
                     </div>
                     <script>
                     // Create the autocomplete object, restricting the search to geographical
@@ -326,7 +389,7 @@ if($query && $query['status'] == 'success')
     </div>
     </div>
     <div class="search-wrapper">
-        <a href="#" id="search-start-ajax" ><button class="btn-search"><span class="d-none d-md-block"><?php echo lang_check('Search');?></span><i class="material-icons d-block d-md-none">search</i></button></a>
+        <a href="#" id="search-start-ajax" ><button class="btn-search"><i class="material-icons">search</i></button></a>
     </div>
 </div>
 </form>
@@ -349,7 +412,7 @@ $(document).ready(function(){
     
     $('input#search_option_81_82').daterangepicker({
         "ranges": {
-            'Today': [moment(), moment()],
+            //'Today': [moment(), moment()],
             'Tomorrow': [moment().add(1, 'days'), moment().add(1, 'days')],
             'This Month': [moment().add('month'), moment().endOf('month')],
             'Next Month': [moment().add(1, 'month').startOf('month'), moment().add(1, 'month').endOf('month')]

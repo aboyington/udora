@@ -667,6 +667,42 @@ $(function () {
                 </div>
             </div>
         </div>
+        <?php if(!empty($estate->id)):?>
+        <div class="x_panel">
+            <div class="x_title">
+                <h2><?php echo lang_check('Attend Qrcode')?></h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">Settings 1</a>
+                            </li>
+                            <li><a href="#">Settings 2</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a class="close-link"><i class="fa fa-close"></i></a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content text-center ">
+                <?php
+                $CI = &get_instance();
+                $CI->load->model('gamifyevents_m');
+                $events = $CI->gamifyevents_m->get_by(array('listing_id'=>$estate->id));
+                
+                ?>
+                <?php if($events):?>
+                <img id="qr_code_event" src="https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=<?php echo site_url('event_confirm/confirmation/'.$events[0]->event_key);?>&choe=UTF-8" alt="">                    
+                <?php else: ?>
+                <p> <a href="<?php echo site_url('admin/estate/edit_ga_events/');?>?lisitng_id=<?php echo $estate->id;?>">Event doesn't have event key, please add</a></p>
+                <?php endif;?>
+            </div>
+        </div>
+        <?php endif;?>
     </div>
 </div>
 </div>

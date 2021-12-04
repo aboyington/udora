@@ -28,10 +28,9 @@ $CI->db->where('property_lang.language_id', '1');
 $CI->db->order_by('count', 'desc');
 $CI->db->limit('5');
 $query = $CI->db->get();
-if($query && $query->num_rows()>0);
+if($query==1 && $query->num_rows()>0);
     $most_events = $query->result();
     
-/*echo $CI->db->last_query();*/
     
 ?>
 

@@ -61,6 +61,7 @@
                 <?php if(file_exists(APPPATH.'libraries/Eventful.php') && $this->session->userdata('type')=='ADMIN'): ?>
                     <li><?php echo anchor('admin/estate/import_eventful/', lang_check('Import from eventful'), '')?></li>
                 <?php endif;?>  
+                <li><?php echo anchor('admin/estate/import_eventbrite/', lang_check('Import from eventbrite'), '')?></li>
             </ul>
         </div>
         <div class="dropdown pull-right hidden-emptydropdown" style="margin-right:10px;">
@@ -110,41 +111,58 @@
                     <input class="form-control" name="smart_search" id="smart_search" value="<?php echo set_value_GET('smart_search', '', true); ?>" placeholder="<?php echo lang_check('Smart item search'); ?>" type="text" />
                   </div>
                   <div class="form-group">
-                    <?php echo form_dropdown('field_4', $this->option_m->get_field_values($content_language_id, 4, lang_check('Purpose')), set_value_GET('field_4', '', true), 'class="form-control"'); ?>
+                    <?php echo form_dropdown('field_2', $this->option_m->get_field_values($content_language_id, 2, lang_check('Location Type')), set_value_GET('field_2', '', true), 'class="form-control"'); ?>
                   </div>
                   <div class="form-group">
-                    <?php echo form_dropdown('field_2', $this->option_m->get_field_values($content_language_id, 2, lang_check('Type')), set_value_GET('field_2', '', true), 'class="form-control"'); ?>
+                    <?php if($settings['template'] == 'udora'):?> 
+                        <?php
+                        $tree_field_id = 79;
+                        $values = array();
+                        $CI = &get_instance();
+                        $this->load->model('treefield_m');
+                        $this->load->model('file_m');
+                        $check_option = $CI->treefield_m->get_lang(NULL, FALSE, $content_language_id);
+                        foreach ($check_option as $key => $value) {
+                            if($value->field_id==$tree_field_id){
+                                $values['"field_79":"'.$value->value_path]= $value->value_path;
+                            }
+                        }
+                        ?>
+                        <?php echo form_dropdown('json_object', array_merge(array(''=>lang_check('Category')),$values), set_value_GET('json_object', '', true), 'class="form-control"'); ?>
+                    <?php else:?>
+                        <?php echo form_dropdown('field_2', $this->option_m->get_field_values($content_language_id, 2, lang_check('Type')), set_value_GET('field_2', '', true), 'class="form-control"'); ?>
+                    <?php endif;?>
                   </div>
                   <button type="submit" class="btn btn-primary-blue"><i class="icon icon-search"></i>&nbsp;&nbsp;<?php echo lang_check('Search'); ?></button>
                 </form>
                 <div class="clearfix"></div>
                 <div class="ln_solid"></div>
                 <?php echo form_open('admin/estate/delete_multiple', array('class' => '', 'style'=> 'padding:0px;margin:0px;', 'role'=>'form'))?> 
-                <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
+                <table id="datatable" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
                     <thead>
                         <tr>
-                            <th>#</th>
-                            <th><?php echo lang('Address');?></th>
-                            <th data-hide="phone"><?php echo lang('Agent');?></th>
+                            <th data-priority="1">#</th>
+                            <th data-priority="1"><?php echo lang('Address');?></th>
+                            <th data-priority="2"><?php echo lang('Agent');?></th>
                             <!-- Dynamic generated -->
                             <?php foreach($this->option_m->get_visible($content_language_id) as $row):?>
-                            <th data-hide="phone,tablet"><?php echo $row->option?></th>
+                            <th data-priority="3"><?php echo $row->option?></th>
                             <?php endforeach;?>
                             <!-- End dynamic generated -->
-                            <th data-hide="phone"><?php echo lang_check('Views');?></th>
-                            <th data-hide="phone"><?php echo lang_check('Preview');?></th>
-                        	<th><?php echo lang('Edit');?></th>                       
+                            <th data-priority="3" data-orderable="false"><?php echo lang_check('Views');?></th>
+                            <th data-priority="2" data-orderable="false"><?php echo lang_check('Preview');?></th>
+                            <th  data-priority="1" data-orderable="false"><?php echo lang('Edit');?></th>                       
                           
                             <?php if(config_item('status_enabled') === TRUE && 
                                         ($this->session->userdata('type') == 'AGENT_COUNTY_AFFILIATE' || 
                                          $this->session->userdata('type') == 'ADMIN'
                                         )):?>
                             <th><?php _l('Status');?></th>
-                            <?php elseif(check_acl('estate/delete')):?><th><?php echo lang('Delete');?></th>
+                            <?php elseif(check_acl('estate/delete')):?><th data-orderable="false" data-priority="2"><?php echo lang('Delete');?></th>
                             <?php endif;?>
                             
                             <?php if(check_acl('estate/delete_multiple')):?>
-                            <th data-hide="phone">
+                            <th data-priority="1" data-orderable="false">
                             <a href="#" data-status='' class="btn btn-primary-blue selcect_deselect_chackbox" style="padding: 0px 5px;" type="button"><i class="icon-check"></i></a>
                             <button type="submit" onclick="return confirm('<?php _l('Are you sure?'); ?>');" class="btn btn-xs btn-danger"><i class="icon-remove"></i></button>    
                             </th>

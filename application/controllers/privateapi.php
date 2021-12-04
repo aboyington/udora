@@ -147,6 +147,31 @@ class Privateapi extends CI_Controller
         exit();
     }
     
+    public function check_favorites($lang_code='')
+    {
+        $this->data['message'] = lang_check('No message returned!');
+        $this->data['parameters'] = $_POST;
+        $property_id = $this->input->post('property_id');
+        // To fetch user_id use: $this->user_id
+
+        $this->load->model('favorites_m');
+        
+        $this->data['success'] = false;
+        if($this->favorites_m->check_if_exists($this->user_id, $property_id)>0)
+        {
+            $this->data['message'] = lang_check('Favorite exists!');
+            $this->data['success'] = false;
+        }
+        else
+        {
+            $this->data['message'] = lang_check('Favorite doesnt exists!');
+            $this->data['success'] = true;
+        }
+        
+        echo json_encode($this->data);
+        exit();
+    }
+    
     public function dropdown($table)
     {
         $this->data['message'] = lang_check('No message returned!');
@@ -568,6 +593,39 @@ class Privateapi extends CI_Controller
         }
     }
     
+    /*
+     * For Eventful lib
+     * return count_pages
+     */
+    function eventbrite_get_count_pages($eventful_category = NULL){
+        $this->data['success'] = false; 
+        
+        $post= $_POST;
+        
+        $event_keyword = _ch($post['event_keyword'],'');
+        $category = _ch($post['category'],'');
+        $location = _ch($post['location'],'');
+        $date_start = _ch($post['date_start'],'');
+        $date_end = _ch($post['date_end'],'');
+        
+        if(!file_exists(APPPATH.'libraries/Eventbrite.php')) {
+            echo json_encode($this->data);
+            exit(); 
+        }
+        
+        $this->load->library('eventbrite');
+        $result = $this->eventbrite->get_count_pages($event_keyword, $category, $location, $date_start,$date_end);
+        if($result != FALSE) {
+            $this->data['success'] = true; 
+            $this->data['eventful_get_count_pages'] = $result; 
+            echo json_encode($this->data);
+            exit();  
+        } else {
+            echo json_encode($this->data);
+            exit();
+        }
+    }
+    
     
     /*
      * For Eventful lib
@@ -621,5 +679,150 @@ class Privateapi extends CI_Controller
             $this->data['success'] = true; 
             echo json_encode($this->data);
             exit();
+    }
+    
+    public function favorites_exists_check($lang_code='')
+    {
+        $this->data['message'] = '';
+        $this->data['parameters'] = $_POST;
+        // To fetch user_id use: $this->user_id
+
+        $this->load->model('favorites_m');
+        $this->data['success'] = false;
+        $favorites_list = $this->favorites_m->get_by(array('user_id'=>$this->session->userdata('id')));
+        
+        if($favorites_list && count($favorites_list) > 0)
+        {
+            $this->data['success'] = true;
+        }
+        else
+        {
+            $this->data['message'] = lang_check('No events in favourites, please add');
+            $this->data['success'] = false;
+        }
+        
+        echo json_encode($this->data);
+        exit();
+    }
+    
+    public function attend_near_favorites($lang_id='1')
+    {
+        $this->data['message'] = '';
+        $this->data['parameters'] = $_POST;
+        $this->data['success'] = false;
+
+        $this->load->model('favorites_m');
+        $this->load->model('userattend_m');
+        
+
+        $ip = $_SERVER['REMOTE_ADDR'];
+        //$ip = "178.218.79.27";
+
+        $query = @unserialize(file_get_contents('http://ip-api.com/php/'.$ip));
+        if($query && $query['status'] == 'success') {
+            $lat = $query['lat'];
+            $lng = $query['lon'];
+            $this->load->model('estate_m');
+            $search_array = array();
+            $search_array['v_search_option_location'] = $query ['city']. ", ".$query['country'];
+            
+            //$search_array['v_search_option_location'] = 'Toronto, ON, Canada';
+            $search_array['v_search_radius'] = '20';
+            $search_array['v_search_option_in_favorite'] = '1';
+
+            $listings = $this->estate_m->get_by(array('language_id'=>$lang_id), FALSE, NULL, NULL, NULL, $search_array);
+            if(!empty($listings)) {
+                $listings_added = false;
+                
+                foreach ($listings as $key => $listing) {
+                    $attendent =  $this->userattend_m->get_by(array('user_id' => $this->session->userdata('id'),'listing_id' => $listing->id));
+                    if(empty($attendent)){
+                        $data = array(
+                            'user_id' => $this->session->userdata('id'),
+                            'listing_id' => $listing->id,
+                            'date' => date('Y-m-d H:i:s'),
+                        );
+
+                        $this->userattend_m->save($data);
+                        $listings_added = true;
+                    }
+                }
+                
+                $this->data['success'] = true;
+                if($listings_added)
+                    $this->data['message'] = lang_check('Event(s) added to attend');
+                else
+                    $this->data['message'] = lang_check('You are already checked in to near events!');
+            } else {
+                $this->data['message'] = lang_check('Missing near events');
+            }
+        } else {
+            $this->data['message'] = lang_check('Can\'t detect address');
+        }
+        
+        echo json_encode($this->data);
+        exit();
+    }
+    
+    public function attend_by_ga_event_code($lang_code='1')
+    {
+        $this->data['message'] = '';
+        $this->data['parameters'] = $_POST;
+        $this->data['success'] = false;
+
+        $this->load->model('favorites_m');
+        $this->load->model('gamifyevents_m');
+        $this->load->model('userattend_m');
+        $this->load->model('estate_m');
+        
+        //qr_code
+        $post = $_POST;
+        
+        if(isset($_FILES['qr_code'])) {
+            $this->load->library('qr_code');
+            $qr_code_img = $_FILES['qr_code'];
+            $text = $this->qr_code->read($qr_code_img['tmp_name']); //return decoded text from QR Code
+            $pos = stripos($text, 'event_confirm/confirmation/');
+            $event_key = substr($text, $pos+ strlen('event_confirm/confirmation/'));
+        }
+        elseif(!empty($post['key_1']) && !empty($post['key_2']) && !empty($post['key_3']) && !empty($post['key_4'])) {
+            $event_key = $post['key_1'].$post['key_2'].$post['key_3'].$post['key_4'];
+        }
+        
+
+        $events = $this->gamifyevents_m->get_by(array('event_key'=>$event_key));
+        $listing = false;
+        if($events){
+            $listing = $this->estate_m->get_array($events[0]->listing_id);
+        }
+        
+        if($listing) {
+            $listing_object = json_decode($listing['json_object']);
+            $this->data['success'] = true;
+            $listings_added = false;
+            
+            $attendent =  $this->userattend_m->get_by(array('user_id' => $this->session->userdata('id'),'listing_id' => $listing['id']));
+                if(empty($attendent)){
+                    $data = array(
+                        'user_id' => $this->session->userdata('id'),
+                        'listing_id' => $listing['id'],
+                        'date' => date('Y-m-d H:i:s'),
+                    );
+
+                    $this->userattend_m->save($data);
+                    $listings_added = true;
+                }
+                
+            if($listings_added)    
+                $this->data['message'] = lang_check('Event '.$listing_object->field_10. ' detected and added to attend');
+            else
+                $this->data['message'] = lang_check('Event '.$listing_object->field_10. ' already added in attend');
+            
+        } else {
+            $this->data['message'] = lang_check('Event with that code missing');
+        }
+        
+        echo json_encode($this->data);
+        exit();
     }
 }
